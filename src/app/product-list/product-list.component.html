@@ -1,1 +1,11 @@
-<p>product-list works!</p>
+<div class="row">
+    <div class="d-flex flex-row">
+        <select *ngFor="let item of szurok" class="form-select form-select-sm" style="background-color: #a1ccf1;">
+            <option selected>{{item.name}}</option>
+            <option *ngFor="let option of item.options" [value]="option">{{option}}</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    termékártyák
+</div>
