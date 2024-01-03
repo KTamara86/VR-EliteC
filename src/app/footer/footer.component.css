@@ -3,7 +3,7 @@ li {
     color: #DDEBF7;
     border: none;
 }
-div {
+div.row {
         background-color: #2F75B5;
         color: #DDEBF7;
 }
