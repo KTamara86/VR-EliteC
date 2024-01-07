@@ -1,1 +1,34 @@
-<p>cart works!</p>
+<h1>A kosarad tartalma:</h1>
+<div class="row border-bottom pb-2 border-dark  text-center">
+    <div class="col-4"><h5>Termék</h5></div>
+    <div class="col-2"><h5>Egységár</h5></div>
+    <div class="col-2"><h5>Mennyiség</h5></div>
+    <div class="col-2"><h5>Összesen</h5></div>
+    <!-- TODO gombfunkció hozzáadása -->
+    <div class="col-2"><button type="button" class="btn btn-success mx-2">Tovább a fizetéshez</button></div>
+</div>
+<div *ngFor="let item of cart" class="row border-bottom py-2 text-center align-items-center">
+    <!-- TODO a termék nevére kattintva elérhetőnek kell lennie a termék oldalának -->
+    <div class="col-2"><img [src]="'../../assets/pictures/'+item.termek_id+'.jpg'" class="img-fluid" alt="termékkép"></div>
+    <div class="col-2"><h5>{{item.nev}}</h5></div>
+    <div class="col-2"><h5>{{item.uj_ar}} Ft</h5></div>
+    <div class="col-2"><h5>{{item.mennyiseg}}</h5></div>
+    <div class="col-2"><h5>{{item.mennyiseg*item.uj_ar}} Ft</h5></div>
+    <div class="col-2">
+        <!-- TODO: gombfunkciók hozzáadása, plusz, mínusz mennyiség és tétel törlése -->
+        <button type="button" class="btn btn-outline-primary mx-1">+</button>
+        <button type="button" class="btn btn-outline-info mx-1">-</button>
+        <button type="button" class="btn btn-outline-danger mx-1">X</button>
+    </div>
+</div>
+<div class="row border-top border-dark border-2 py-3">
+    <div class="col-8 text-end"><h5>Végösszeg:</h5></div>
+    <div class="col-2 text-center"><h4>{{cartTotal()}} Ft</h4></div>
+</div>
+<div class="row text-end mb-5">
+    <div class="col-12">
+        <!-- TODO gombfunkciók hozzáadása -->
+        <button type="button" class="btn btn-lg btn-primary mx-2">Vissza a termékekhez</button>
+        <button type="button" class="btn btn-lg btn-success mx-2">Tovább a fizetéshez</button>
+    </div>
+</div>

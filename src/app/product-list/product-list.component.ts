@@ -38,6 +38,7 @@ export class ProductListComponent {
     }
   ]
 
+  //TODO később a db, az árak number kell hogy legyen
   products = [
       {"termek_id":"41","kategoria_id":"3","nev":"Martini","db":"10","regi_ar":"0","uj_ar":"5995","ar_mod_datum":"2023-10-17","lathato":"1","anyag":"100% Poliészter","mintazat":"Egyszínű","meret":"80 cm x 150 cm","szin":"barna","szalmagassag":"alacsony","vastagsag":"7 mm","stilus":"modern"},
       {"termek_id":"42","kategoria_id":"3","nev":"Kitchen","db":"5","regi_ar":"0","uj_ar":"8995","ar_mod_datum":"2023-10-17","lathato":"1","anyag":"100% Poliészter","mintazat":"Egyszínű","meret":"80 cm x 150 cm","szin":"multi","szalmagassag":"alacsony","vastagsag":"7 mm","stilus":"modern"},
