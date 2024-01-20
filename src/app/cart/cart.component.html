@@ -4,8 +4,7 @@
     <div class="col-2"><h5>Egységár</h5></div>
     <div class="col-2"><h5>Mennyiség</h5></div>
     <div class="col-2"><h5>Összesen</h5></div>
-    <!-- TODO gombfunkció hozzáadása -->
-    <div class="col-2"><button type="button" class="btn btn-success mx-2">Tovább a fizetéshez</button></div>
+    <div class="col-2"><button type="button" class="btn btn-success mx-2" routerLink="/checkout">Tovább a fizetéshez</button></div>
 </div>
 <div *ngFor="let item of cart" class="row border-bottom py-2 text-center align-items-center">
     <!-- TODO a termék nevére kattintva elérhetőnek kell lennie a termék oldalának -->
@@ -29,7 +28,6 @@
     <div class="col-12">
         
         <button type="button" class="btn btn-lg btn-primary mx-2" routerLink="/home">Vissza a termékekhez</button>
-        <!-- TODO gombfunkciók hozzáadása -->
-        <button type="button" class="btn btn-lg btn-success mx-2">Tovább a fizetéshez</button>
+        <button type="button" class="btn btn-lg btn-success mx-2" routerLink="/checkout">Tovább a fizetéshez</button>
     </div>
 </div>
