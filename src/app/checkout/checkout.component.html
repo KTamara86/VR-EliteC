@@ -96,11 +96,26 @@
     </ng-container>
     <ng-template #packetpoint>
         <h3>Válaszd ki a kézbesítés helyét a listából:</h3>
-        <select class="form-select" id="packetPointSelection" aria-label="Default select example">
-            <!-- TODO: külön kell venni a várost és a pontos címet -->
-            <option selected>Válassz csomagpontot!</option>
-            <option *ngFor="let packetpoint of packetPointList" value="1">{{packetpoint.name}}</option>
-        </select>
+        <div class="row">
+            <div class="col-4">
+                <h5>Válassz települést:</h5>
+                <select class="form-select" id="packetPointSelection" [ngModel]="selectedPacketPointCity" (ngModelChange)="selectPacketPointCity($event)">
+                    <!-- TODO: meg kell akadálozni, hogy ugyanazon város neve többször is szerepeljen -->
+                    <option *ngFor="let packetpoint of packetPointList" [ngValue]="packetpoint.group">{{packetpoint.group}}</option>
+                </select>
+                <h5>Válassz csomagpontot:</h5>
+                <select class="form-select" id="packetPointSelection" [ngModel]="selectedPacketPoint" (ngModelChange)="selectPacketPoint($event)">
+                    <ng-container *ngFor="let packetpoint of packetPointList">
+                        <option *ngIf="packetpoint.group == selectedPacketPointCity" [ngValue]="packetpoint">{{packetpoint.name}}</option>
+                    </ng-container>
+                </select>
+            </div>
+            <div *ngIf="selectedPacketPoint" class="col-4 border border-primary">
+                <!-- TODO: eléretővé tenni a kiválaztott kiszállítási pont adatait -->
+                <h5>Kiválasztott átvételi pont:</h5>
+                {{selectedPacketPoint}}
+            </div>
+        </div>
     </ng-template>
 </div>
 <div class="px-3" style="background-color: #DDEBF7;">

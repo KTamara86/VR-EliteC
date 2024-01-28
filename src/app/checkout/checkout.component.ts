@@ -19,6 +19,9 @@ export class CheckoutComponent {
   entity:String = "person"
   deliveryOpt:String = "house"
   packetPointList:any;
+  selectedPacketPointCity = "";
+  selectedPacketPoint?:object;
+  packetPointInfo:any;
 
   constructor(private packetPoint:PacketPointService){
     this.packetPoint.getPacketPointList().subscribe(
@@ -31,6 +34,16 @@ export class CheckoutComponent {
         }
       }
     )
+  }
+
+  selectPacketPointCity(newValue:any){
+    this.selectedPacketPointCity = newValue
+  }
+
+  selectPacketPoint(newValue:any){
+    this.selectedPacketPoint = newValue
+    this.packetPointInfo = JSON.stringify(this.selectedPacketPoint)
+    console.log(this.packetPointInfo)
   }
 
 
