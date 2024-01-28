@@ -76,7 +76,7 @@
     </div>
     <div class="form-check mb-3">
         <input class="form-check-input" type="radio" name="houseOrPacketPoint" id="companycheck" value="packetpoint" [(ngModel)]="deliveryOpt">
-        <label class="form-check-label" for="companycheck">Csomagátvételi pont</label>
+        <label class="form-check-label" for="companycheck">Foxpost csomagátvételi pont</label>
     </div>
     <ng-container *ngIf="deliveryOpt=='house'; else packetpoint">
         <div class="row">
@@ -111,7 +111,7 @@
         <input class="form-check-input" type="radio" name="paying" id="afterDeliveryPay" value="afterDelivery">
         <label class="form-check-label" for="personcheck">Utánvét</label>
     </div>
-    <div class="form-check mb-3">
+    <div class="form-check pb-5">
         <input class="form-check-input" type="radio" name="paying" id="beforeDeliveryPay" value="beforeDelivery">
         <label class="form-check-label" for="companycheck">Online fizetés</label>
     </div>
