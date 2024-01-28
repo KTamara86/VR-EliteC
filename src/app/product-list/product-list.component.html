@@ -1,13 +1,15 @@
 <div class="row">
 <div class="col-2 text-center border-end border-primary">
     <ul class="list-group">
-      <li *ngFor="let cat of categories" class="list-group-item" style="background-color: #DDEBF7">{{cat}}</li>
+      <li *ngFor="let cat of categories" class="list-group-item" style="background-color: #DDEBF7">{{cat.name}}</li>
+      <!-- <a href="#" (click)="categoryFilterOnProducts(cat.value)">{{cat.name}}</a> -->
     </ul>
   </div>
   <div class="col-10">
     <div class="row">
         <div class="d-flex flex-row">
             <select *ngFor="let item of szurok" class="form-select form-select-sm" style="background-color: #a1ccf1;">
+              <!--  (change)="filterListedProducts(item.name ,$event)" -->
                 <option selected>{{item.name}}</option>
                 <option *ngFor="let option of item.options" [value]="option">{{option}}</option>
             </select>
