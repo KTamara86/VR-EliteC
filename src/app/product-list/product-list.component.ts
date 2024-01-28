@@ -86,6 +86,6 @@ export class ProductListComponent {
 
     pictureURL = "../../pictures/"
 
-    categories= ["Padlószőnyeg", "Szőnyeg", "Futószőnyeg", "Lábtörlő"]
+    categories= ["Minden termék", "Padlószőnyeg", "Szőnyeg", "Futószőnyeg", "Lábtörlő"]
     
 }
