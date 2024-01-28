@@ -7,6 +7,6 @@ import { Input } from '@angular/core';
   styleUrls: ['./packet-point-info.component.css']
 })
 export class PacketPointInfoComponent {
-  @Input() data: any; // Assuming data is the JSON object you provided
+  @Input() data: any;
   days = ['hetfo', 'kedd', 'szerda', 'csutortok', 'pentek', 'szombat', 'vasarnap'];
 }

@@ -43,8 +43,6 @@ export class CheckoutComponent {
 
   selectPacketPoint(newValue:any){
     this.selectedPacketPoint = newValue
-    this.packetPointInfo = JSON.stringify(this.selectedPacketPoint)
-    console.log(this.packetPointInfo)
   }
 
 
