@@ -1,0 +1,11 @@
+<h1 class="text-warning border-bottom border-warning">Csomagpont Infó</h1>
+<h2>{{ data.name }} - {{data.operator_id}}</h2>
+<p>{{ data.address }}</p>
+<p>{{ data.findme }}</p>
+<!-- TODO: ha van rá kapacitás, akkor később ide kerülhetne egy térkép gomb, amire kattintva modalban megnyílhatna a pontos hely a térképen -->
+<p>Nyitvatartás:</p>
+<div class="col-4">
+    <ul class="list-group list-group-flush">
+        <li *ngFor="let day of days" class="list-group-item bg-transparent" style="color: white;">{{ day }}: {{ data.open[day] }}</li>
+    </ul>
+</div>

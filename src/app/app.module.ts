@@ -17,6 +17,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 import { ProductComponent } from './product/product.component';
+import { PacketPointInfoComponent } from './packet-point-info/packet-point-info.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProductComponent } from './product/product.component';
     CheckoutComponent,
     UserLoginComponent,
     UserSignUpComponent,
-    ProductComponent
+    ProductComponent,
+    PacketPointInfoComponent
   ],
   imports: [
     BrowserModule,

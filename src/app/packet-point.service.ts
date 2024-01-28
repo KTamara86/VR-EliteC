@@ -13,5 +13,5 @@ export class PacketPointService {
   getPacketPointList(){
     return this.http.get('https://cdn.foxpost.hu/apms.json')
   }
-  
+  // TODO: refactorálni egy services mappába
 }

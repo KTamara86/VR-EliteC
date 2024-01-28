@@ -31,6 +31,7 @@ export class CheckoutComponent {
         },
         error: (err) => {
           console.log(err)
+          //TODO: normálisan lekezelni a hiba ágat
         }
       }
     )
