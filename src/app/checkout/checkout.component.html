@@ -97,11 +97,9 @@
     <ng-template #packetpoint>
         <h3>Válaszd ki a kézbesítés helyét a listából:</h3>
         <select class="form-select" id="packetPointSelection" aria-label="Default select example">
-            <!-- TODO: az optionoket le kell kérni az APIból -->
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <!-- TODO: külön kell venni a várost és a pontos címet -->
+            <option selected>Válassz csomagpontot!</option>
+            <option *ngFor="let packetpoint of packetPointList" value="1">{{packetpoint.name}}</option>
         </select>
     </ng-template>
 </div>

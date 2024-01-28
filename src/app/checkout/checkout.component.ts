@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PacketPointService } from '../packet-point.service';
 
 @Component({
   selector: 'app-checkout',
@@ -17,6 +18,20 @@ export class CheckoutComponent {
 
   entity:String = "person"
   deliveryOpt:String = "house"
+  packetPointList:any;
+
+  constructor(private packetPoint:PacketPointService){
+    this.packetPoint.getPacketPointList().subscribe(
+      {
+        next: (res) => {
+          this.packetPointList = res
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      }
+    )
+  }
 
 
 
