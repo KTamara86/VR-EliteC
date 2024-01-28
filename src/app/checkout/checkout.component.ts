@@ -28,6 +28,7 @@ export class CheckoutComponent {
       {
         next: (res) => {
           this.packetPointList = res
+          //TODO: jó lenne sorrendbe tenni valami alapján
         },
         error: (err) => {
           console.log(err)
