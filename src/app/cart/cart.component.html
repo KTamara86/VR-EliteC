@@ -7,12 +7,11 @@
     <div class="col-2"><button type="button" class="btn btn-success mx-2" routerLink="/checkout">Tovább a fizetéshez</button></div>
 </div>
 <div *ngFor="let item of cart" class="row border-bottom py-2 text-center align-items-center">
-    <!-- TODO a termék nevére kattintva elérhetőnek kell lennie a termék oldalának -->
-    <div class="col-2"><img [src]="'../../assets/pictures/'+item.termek_id+'.jpg'" class="img-fluid" alt="termékkép"></div>
-    <div class="col-2"><h5>{{item.nev}}</h5></div>
-    <div class="col-2"><h5>{{item.uj_ar}} Ft</h5></div>
-    <div class="col-2"><h5>{{item.mennyiseg}}</h5></div>
-    <div class="col-2"><h5>{{item.mennyiseg*item.uj_ar}} Ft</h5></div>
+    <div class="col-2" routerLink="/product" [queryParams]="item"><img [src]="'../../assets/pictures/'+item.termek_id+'.jpg'" class="img-fluid" alt="termékkép"></div>
+    <div class="col-2" routerLink="/product" [queryParams]="item"><h5>{{item.nev}}</h5></div>
+    <div class="col-2" routerLink="/product" [queryParams]="item"><h5>{{item.uj_ar}} Ft</h5></div>
+    <div class="col-2" routerLink="/product" [queryParams]="item"><h5>{{item.mennyiseg}}</h5></div>
+    <div class="col-2" routerLink="/product" [queryParams]="item"><h5>{{item.mennyiseg*item.uj_ar}} Ft</h5></div>
     <div class="col-2">
         <!-- TODO: gombfunkciók hozzáadása, plusz, mínusz mennyiség és tétel törlése -->
         <button type="button" class="btn btn-outline-primary mx-1">+</button>
