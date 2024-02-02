@@ -101,7 +101,7 @@
                 <h5>Válassz települést:</h5>
                 <select class="form-select" id="packetPointSelection" [ngModel]="selectedPacketPointCity" (ngModelChange)="selectPacketPointCity($event)">
                     <!-- TODO: meg kell akadálozni, hogy ugyanazon város neve többször is szerepeljen -->
-                    <option *ngFor="let packetpoint of packetPointList" [ngValue]="packetpoint.group">{{packetpoint.group}}</option>
+                    <option *ngFor="let packetpoint of packetPointList" [ngValue]="packetpoint.city">{{packetpoint.city}}</option>
                 </select>
                 <h5>Válassz csomagpontot:</h5>
                 <select class="form-select" id="packetPointSelection" [ngModel]="selectedPacketPoint" (ngModelChange)="selectPacketPoint($event)">
