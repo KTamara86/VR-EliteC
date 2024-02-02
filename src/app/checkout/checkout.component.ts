@@ -17,7 +17,7 @@ export class CheckoutComponent {
   ]
 
   entity:String = "person"
-  deliveryOpt:String = "house"
+  deliveryOpt:String = "home"
   packetPointList:any;
   selectedPacketPointCity = "";
   selectedPacketPoint?:object;
@@ -36,6 +36,7 @@ export class CheckoutComponent {
         }
       }
     )
+
   }
 
   selectPacketPointCity(newValue:any){

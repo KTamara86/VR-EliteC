@@ -71,14 +71,14 @@
 <div class="px-3" style="background-color: #DDEBF7;">
     <h1>Szállítási cím:</h1>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="houseOrPacketPoint" id="personcheck" value="house" [(ngModel)]="deliveryOpt">
+        <input class="form-check-input" type="radio" name="homeOrPacketPoint" id="homeDelivery" value="home" [(ngModel)]="deliveryOpt">
         <label class="form-check-label" for="personcheck">Házhozszállítás</label>
     </div>
     <div class="form-check mb-3">
-        <input class="form-check-input" type="radio" name="houseOrPacketPoint" id="companycheck" value="packetpoint" [(ngModel)]="deliveryOpt">
+        <input class="form-check-input" type="radio" name="homeOrPacketPoint" id="packetPointDelivery" value="packetpoint" [(ngModel)]="deliveryOpt">
         <label class="form-check-label" for="companycheck">Foxpost csomagátvételi pont</label>
     </div>
-    <ng-container *ngIf="deliveryOpt=='house'; else packetpoint">
+    <ng-container *ngIf="deliveryOpt=='home'; else packetpoint">
         <div class="row">
             <div class="mb-3 col-2">
                 <label for="zipInput" class="form-label">Irányítószám:</label>
