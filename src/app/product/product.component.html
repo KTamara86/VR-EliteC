@@ -3,12 +3,12 @@
         <div class="row">
             <img [src]="'../../assets/pictures/'+product.termek_id+'.jpg'" alt="termékkép">
         </div>
-        <div class="row">
-            IDE JÖN A CSILLAGOS ÖSSZÉRTÉKELÉS
-        </div>
     </div>
     <div class="col-4">
-        <h1 class="fw-bold" style="color: #2F75B5;">{{product.nev}}</h1>
+        <h1 class="fw-bold" style="color: #2F75B5;">{{product.nev}}
+            <span class="badge rounded-pill bg-success">{{totalScore}}</span>
+            <!-- TODO: star icon -->
+        </h1>
         <h3>{{categories[product.kategoria_id]}}</h3>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Anyaga: {{product.anyag}}</li>
@@ -30,6 +30,7 @@
             <div class="border-bottom border-primary row pb-1">
                 <strong class="ps-2 col-1 me-auto">{{rating.user}}</strong>
                 <strong class="col-2">{{rating.score}}/5</strong>
+                <!-- TODO: star icon -->
                 <strong class="col-3">{{rating.date}}</strong>
             </div>
             <div class="row px-3 fst-italic pt-1">

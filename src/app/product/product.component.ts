@@ -40,7 +40,6 @@ export class ProductComponent {
   categories= ["üres", "Padlószőnyeg", "Szőnyeg", "Futószőnyeg", "Lábtörlő"]
   constructor(private route: ActivatedRoute) {
     this.totalScore=this.sumScores()
-    console.log(this.totalScore)
   }
 
   ngOnInit() {
