@@ -24,18 +24,16 @@
     </div>
 </div>
 <div class="row">
-    <h3 class="border-bottom border-primary">Vélemények:</h3>
+    <h3 class="border-top border-primary">Vélemények:</h3>
     <div class="d-flex align-items-center flex-column">
         <div *ngFor="let rating of ratings" class="border rounded p-3 border-primary mb-3 w-50">
-            <div class="border-bottom border-primary">
-                <strong class="me-auto">{{rating.user}}</strong>
-                <small>{{rating.score}}/5</small>
+            <div class="border-bottom border-primary row pb-1">
+                <strong class="ps-2 col-1 me-auto">{{rating.user}}</strong>
+                <strong class="col-2">{{rating.score}}/5</strong>
+                <strong class="col-3">{{rating.date}}</strong>
             </div>
-            <div>
+            <div class="row px-3 fst-italic pt-1">
                 {{rating.text}}
-            </div>
-            <div>
-                {{rating.date}}
             </div>
         </div>
     </div>
