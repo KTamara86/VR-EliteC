@@ -1,6 +1,11 @@
 <div class="row my-3 justify-content-around">
     <div class="col-4">
-        <img [src]="'../../assets/pictures/'+product.termek_id+'.jpg'" alt="termékkép">
+        <div class="row">
+            <img [src]="'../../assets/pictures/'+product.termek_id+'.jpg'" alt="termékkép">
+        </div>
+        <div class="row">
+            IDE JÖN A CSILLAGOS ÖSSZÉRTÉKELÉS
+        </div>
     </div>
     <div class="col-4">
         <h1 class="fw-bold" style="color: #2F75B5;">{{product.nev}}</h1>
@@ -14,8 +19,24 @@
             <li class="list-group-item">Vastagság: {{product.vastagsag}}</li>
             <li class="list-group-item">Stílus: {{product.stilus}}</li>
         </ul>
-
         <h1 class="fw-bold text-danger">{{product.uj_ar}} Ft</h1>
         <button type="button" class="btn btn-danger btn-lg">Kosárba</button>
+    </div>
+</div>
+<div class="row">
+    <h3 class="border-bottom border-primary">Vélemények:</h3>
+    <div class="d-flex align-items-center flex-column">
+        <div *ngFor="let rating of ratings" class="border rounded p-3 border-primary mb-3 w-50">
+            <div class="border-bottom border-primary">
+                <strong class="me-auto">{{rating.user}}</strong>
+                <small>{{rating.score}}/5</small>
+            </div>
+            <div>
+                {{rating.text}}
+            </div>
+            <div>
+                {{rating.date}}
+            </div>
+        </div>
     </div>
 </div>
