@@ -1,59 +1,31 @@
-<ng-container *ngIf="!showError; else hibavan"></ng-container>
-
-    <form #regisztracioForm="ngForm" class="card border p-3 rounded-3" style="width: 500px;">
-
-        <div class="row-g-0 text-center mb-5 mt-3">
-            <span class="h1 fw-bold "style="color:#2F75B5">Regisztráció</span>
-        </div>
-
-        <div class="row">
-            <div class="col mb-3 fst-italic text-muted">
-                <label for="vezeteknev" class="form-label">Vezeteknév</label>
-                <input type="text" class="form-control" style="background-color: #ddebf7;" id="vezeteknev" name="vezeteknev" [(ngModel)]="regisztracio.vezeteknev" required>
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col"></div>
+        <div class="col-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <div class="text-dark text-muted">Login</div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail" class="form-label">Email</label>
+                          <input type="email" class="form-control" name="email" [(ngModel)]="email">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Password</label>
+                          <input type="password" class="form-control" name="password" [(ngModel)]="password">
+                        </div>
+                        <button type="button" class="btn btn-info" (click)="register()">Regisztráció</button>
+                        <div class="row">
+                            <div class="col-6">
+                                <a routerLink="/userlogin" style="text-decoration: none;">Már van fiókja? <span class="text-danger">Belépés</span></a>
+                            </div>
+                        </div>
+                      </form>
+                </div>
             </div>
-
-            <div class="col mb-3 fst-italic text-muted">
-                <label for="keresztnev" class="form-label">Keresztnév</label>
-             <input type="text" class="form-control"  style="background-color: #ddebf7;" id="keresztnev" name="keresztnev" [(ngModel)]="regisztracio.keresztnev" required>
-            </div>
         </div>
-
-        <div class="mb-3 fst-italic text-muted">
-            <label for="mobil" class="form-label">Telefonszám</label>
-            <input type="text" class="form-control" style="background-color: #ddebf7;"  id="mobil" name="mobil" [(ngModel)]="regisztracio.mobil" required>
-        </div>
-
-        <div class="mb-3 fst-italic text-muted">
-            <label for="email" class="form-label">E-mail cím</label>
-            <input type="email" class="form-control" style="background-color: #ddebf7;" id="emial" name="email" [(ngModel)]="regisztracio.email" required>
-        </div>
-
-        <div class="mb-3 fst-italic text-muted">
-            <label for="password" class="form-label">Jelszó</label>
-            <input type="password" class="form-control" style="background-color: #ddebf7;" id="password" name="password" [(ngModel)]="regisztracio.password" required>
-        </div>
-
-        <div class="mb-3 fst-italic text-muted">
-            <label for="repassword" class="form-label">Jelszó megerősítése</label>
-            <input type="password" class="form-control" style="background-color: #ddebf7;" id="repassword" name="repassword" [(ngModel)]="regisztracio.repassword" required>
-        </div>
-
-        <div class="form-check small d-flex text-center p-3 text-muted">
-            <input type="checkbox" class="form-check-input" id="aszf" name="aszf" value="" checked [(ngModel)]="regisztracio.aszf" required/>
-            <label for="aszf" class="form-check-label">Elfogadom az ÁSZF feltételeket, és hozzájárulok ahhoz, hogy az adataimat az adatvédelmi szabályzat szerint gyűjtsék és kezeljék.</label>
-        </div>
-
-        <div class= "col text-center p-4">
-            <button type="submit" class="btn btn-info btn-lg btn-block" style="color:white">Regisztráció</button>
-        </div>
-
-        <div class="text-center small p-3 mb-3 text-muted" style="color: black"> Már van fiókja?
-            <a style="color: #393f81;" routerLink="/userlogin">Kattintson ide a Belépéshez</a>
-        </div>
-
-    </form>
-
-<ng-template #hibavan>
-    <div class="alert alert-danger" role="alert">
-        {{errorMessage}}
+        <div class="col"></div>
     </div>
+  </div>

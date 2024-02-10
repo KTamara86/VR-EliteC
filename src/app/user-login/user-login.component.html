@@ -1,37 +1,34 @@
-<div class="container py-4 h-60">
-
-    <div class="card" style="width: 500px;">
-    <div class="card-body">
-  
-      <form>
-        <div class="text-center mb-4">
-          <span class="h1 fw-bold" style="color:#2F75B5">Belépés</span>
-        </div>
-    
-        <p class= "text-center p-3">Kérjük jelentkezzen be fiókjába!</p>
-  
-        <div class="mb-3 fst-italic text-muted">
-          <label for="emailaddress" class="form-label">E-mail cím</label>
-          <input type="email" class="form-control" style="background-color: #ddebf7;" id="emialaddress" name="emailaddress">
-        </div>
-  
-        <div class="mb-3.5 fst-italic text-muted">
-          <label for="password" class="form-label">Jelszó</label>
-          <input type="password" class="form-control" style="background-color: #ddebf7;" id="password" name="password">
-        </div>
-      
-        <div class="text-center p-4">
-          <button type="submit" class="btn btn-info btn-lg btn-block" style="color:white" type="button">Belépés</button>
-        </div>
-  
-        <div class="text-center small p-2 fst-italic text-muted" style="color: black"> Nincs Felhasználói fiókja?
-          <a style="color: #393f81" routerLink="/usersignup">Kattintson ide a Regisztrációhoz</a>
-        </div>
-  
-        <div class="text-center small font-weight-bolder p-2 mb-2 fst-italic" style="color: #393f81" >
-          <a routerLink="/usersignup">Elfelejtettem a jelszavam</a>
-        </div>
-  
-      </form>
+<div class="container-fluid">
+  <div class="row mt-5">
+      <div class="col"></div>
+      <div class="col-4">
+          <div class="card shadow">
+              <div class="card-body">
+                  <form>
+                      <div class="mb-3">
+                          <div class="text-dark text-muted">Login</div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" [(ngModel)]="email">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" [(ngModel)]="password">
+                      </div>
+                      <button type="button" class="btn btn-info" (click)="login()">Belépés</button>
+                      <div class="row">
+                          <div class="col-6">
+                              <a routerLink="/usersignup" style="text-decoration: none;">Még nincs fiókja? <span class="text-danger">Regisztráció</span></a>
+                          </div>
+                          <div class="col-md-6">
+                              <a routerLink="/forgetPassword" class="text-dark" style="text-decoration: none;">Elfelejtettem a jelszavam</a>
+                          </div>
+                      </div>
+                    </form>
+              </div>
+          </div>
+      </div>
+      <div class="col"></div>
   </div>
-  </div>
+</div>

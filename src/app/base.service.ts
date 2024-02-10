@@ -7,15 +7,4 @@ import { Observable } from 'rxjs';
 })
 export class BaseService {
 
-  private url= 'http://localhost:4200'
-
-  constructor(private http:HttpClient) { }
-
-  getRegisztarcio() :Observable<any>{
-    return this.http.get('http://localhost:4200/usersignup')
-  }
-
-  sikeresFoglalas(regisztracio: any): Observable<any> {
-    return this.http.post(`${this.url}/usersignup`, regisztracio);
-  }
 }
