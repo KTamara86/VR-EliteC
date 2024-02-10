@@ -1,28 +1,34 @@
 <div class="container-fluid">
   <div class="row mt-5">
       <div class="col"></div>
-      <div class="col-4">
+      <div class="col-5">
           <div class="card shadow">
               <div class="card-body">
                   <form>
-                      <div class="mb-3">
-                          <div class="text-dark text-muted">Login</div>
+                      <div class="text-center mb-5">
+                          <div class="h1 fw-bold" style="color:#2F75B5">Belépés</div>
                       </div>
-                      <div class="mb-3">
-                        <label for="exampleInputEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="email" [(ngModel)]="email">
+
+                      <div class="form-outline mb-3 ">
+                        <label for="exampleInputEmail" class="form-label">E-mail cím</label>
+                        <input type="email" class="form-control" style="background-color:#DDEBF7" name="email" [(ngModel)]="email">
                       </div>
-                      <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" name="password" [(ngModel)]="password">
+
+                      <div class="form-outline mb-3.5">
+                        <label for="exampleInputPassword1" class="form-label">Jelszó</label>
+                        <input type="password" class="form-control" style="background-color: #DDEBF7" name="password" [(ngModel)]="password">
                       </div>
-                      <button type="button" class="btn btn-info" (click)="login()">Belépés</button>
+
+                      <div class="text-center p-4">
+                      <button type="button" class="btn btn-info btn-lg btn-block" style="color: white" (click)="login()">Belépés</button>
+                      </div>
+
                       <div class="row">
-                          <div class="col-6">
-                              <a routerLink="/usersignup" style="text-decoration: none;">Még nincs fiókja? <span class="text-danger">Regisztráció</span></a>
+                          <div class="text-center small p-3" style="color: grey"> Nincs Felhasználói fiókja?
+                              <a style="color:  #2F75B5" routerLink="/usersignup">Kattintson ide a Regisztrációhoz</a>
                           </div>
-                          <div class="col-md-6">
-                              <a routerLink="/forgetPassword" class="text-dark" style="text-decoration: none;">Elfelejtettem a jelszavam</a>
+                          <div class="text-center small p-2">
+                              <a routerLink="" style="color: grey">Elfelejtettem a jelszavam</a>
                           </div>
                       </div>
                     </form>

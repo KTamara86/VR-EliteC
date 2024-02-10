@@ -1,26 +1,55 @@
 <div class="container-fluid">
     <div class="row mt-5">
         <div class="col"></div>
-        <div class="col-4">
+        <div class="col-7">
             <div class="card shadow">
                 <div class="card-body">
                     <form>
-                        <div class="mb-3">
-                            <div class="text-dark text-muted">Login</div>
+                        <div class="text-center mb-5">
+                            <div class="h2 fw-bold" style="color:#2F75B5">Regisztráció</div>
                         </div>
-                        <div class="mb-3">
-                          <label for="exampleInputEmail" class="form-label">Email</label>
-                          <input type="email" class="form-control" name="email" [(ngModel)]="email">
-                        </div>
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" class="form-control" name="password" [(ngModel)]="password">
-                        </div>
-                        <button type="button" class="btn btn-info" (click)="register()">Regisztráció</button>
-                        <div class="row">
-                            <div class="col-6">
-                                <a routerLink="/userlogin" style="text-decoration: none;">Már van fiókja? <span class="text-danger">Belépés</span></a>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                              <label for="vzeteknev" class="form-label">Vezeteknév</label>
+                              <input type="text" class="form-control" style="background-color:#DDEBF7" name="First name">
                             </div>
+                            <div class="col">
+                              <label for="keresztnev" class="form-label">Keresztnév</label>
+                              <input type="text" class="form-control" style="background-color:#DDEBF7" name="Last name">
+                            </div>
+                        </div>
+
+                        <div class="mb-3 ">
+                            <label for="mobil" class="form-label">Telefonszám</label>
+                            <input type="number" class="form-control" style="background-color:#DDEBF7" name="mobil">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="exampleInputEmail" class="form-label">E-mail cím</label>
+                          <input type="email" class="form-control" style="background-color:#DDEBF7" name="email" [(ngModel)]="email">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Jelszó</label>
+                          <input type="password" class="form-control" style="background-color:#DDEBF7" name="password" [(ngModel)]="password">
+                        </div>
+
+                        <div class="text-center p-4">
+                        <button type="button" class="btn btn-info btn-lg btn-block" style="color: white" (click)="register()">Regisztráció</button>
+                        </div>
+
+                        <div class="col-12 p-2">
+                            <div class="form-check small">
+                                <label class="form-check-label" for="gridCheck">Elfogadom a felhasználási feltételeket, és hozzájárulok ahhoz, hogy az adataimat a cég adatvédelmi szabályzata szerint gyűjtsék és kezeljék.</label>
+                                <input type="checkbox" value="" class="form-check-input" checked>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="text-center small p-3" style="color: grey"> Már van fiókja?
+                              <a style="color:  #2F75B5" routerLink="/userlogin">Belépés</a>
+                          </div>
                         </div>
                       </form>
                 </div>
