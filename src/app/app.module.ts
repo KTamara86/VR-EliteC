@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
+import {AngularFireModule} from '@angular/fire/compat';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +20,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 import { ProductComponent } from './product/product.component';
 import { PacketPointInfoComponent } from './packet-point-info/packet-point-info.component';
+import { environment } from 'src/enviroments/enviroment';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ import { PacketPointInfoComponent } from './packet-point-info/packet-point-info.
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   
   providers: [],
