@@ -21,6 +21,8 @@ import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 import { ProductComponent } from './product/product.component';
 import { PacketPointInfoComponent } from './packet-point-info/packet-point-info.component';
 import { environment } from 'src/enviroments/enviroment';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { environment } from 'src/enviroments/enviroment';
     UserLoginComponent,
     UserSignUpComponent,
     ProductComponent,
-    PacketPointInfoComponent
+    PacketPointInfoComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,

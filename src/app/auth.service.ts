@@ -36,5 +36,13 @@ export class AuthService{
     },err => {
       alert(err.message);
     })
-  }  
+  } 
+  
+  forgotpassword(emial : string) {
+    this.fireauth.sendPasswordResetEmail(emial).then( () => {
+      this.router.navigate(['/verifyemail']);
+    },err => {
+      alert(err.message);
+    })  
+  }
 }
