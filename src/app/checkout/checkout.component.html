@@ -125,11 +125,11 @@
 <div class="px-3" style="background-color: #DDEBF7;">
     <h1>Fizetési mód kiválasztása:</h1>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="paying" id="afterDeliveryPay" value="afterDelivery">
+        <input class="form-check-input" type="radio" name="paying" id="afterDeliveryPay" value="after" [(ngModel)]="paymentOpt">
         <label class="form-check-label" for="afterDeliveryPay">Utánvét</label>
     </div>
     <div class="form-check pb-5">
-        <input class="form-check-input" type="radio" name="paying" id="beforeDeliveryPay" value="beforeDelivery">
+        <input class="form-check-input" type="radio" name="paying" id="beforeDeliveryPay" value="before" [(ngModel)]="paymentOpt">
         <label class="form-check-label" for="beforeDeliveryPay">Online fizetés</label>
     </div>
 </div>

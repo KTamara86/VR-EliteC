@@ -25,6 +25,7 @@ export class CheckoutComponent {
   cities: any[] = [];
   errorShow = false;
   errorMsg = ""
+  paymentOpt:String = "before"
 
   constructor(private packetPoint:PacketPointService){
     this.packetPoint.getPacketPointList().subscribe(
