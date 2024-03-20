@@ -32,7 +32,6 @@ export class CheckoutComponent {
         next: (res) => {
           this.packetPointList = res
                     //TODO: jó lenne sorrendbe tenni a packetPointListet a group alapján alapján
-          console.log(res)
           for (const obj of this.packetPointList){
             let existing = false;
             for (const city of this.cities){
@@ -46,7 +45,6 @@ export class CheckoutComponent {
             }
           }
           this.cities.sort()
-          console.log(this.cities)
         },
         error: (err) => {
           console.log(err)
