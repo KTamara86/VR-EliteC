@@ -2,7 +2,9 @@
 <h2>{{ data.name }} - {{data.operator_id}}</h2>
 <p>{{ data.address }}</p>
 <p>{{ data.findme }}</p>
-<!-- TODO: ha van rá kapacitás, akkor később ide kerülhetne egy térkép gomb, amire kattintva modalban megnyílhatna a pontos hely a térképen -->
+<a [href]="'https://www.google.com/maps/place/'+ data.address" target="_blank">
+    <button type="button" class="btn btn-warning">Mutasd a térképen</button>
+</a>
 <p>Nyitvatartás:</p>
 <div class="col-4">
     <ul class="list-group list-group-flush">
