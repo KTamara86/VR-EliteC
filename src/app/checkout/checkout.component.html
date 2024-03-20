@@ -95,25 +95,31 @@
         </div>
     </ng-container>
     <ng-template #packetpoint>
-        <h3>Válaszd ki a kézbesítés helyét a listából:</h3>
-        <div class="row justify-content-around">
-            <div class="col-4">
-                <h5>Válassz települést:</h5>
-                <select class="form-select" id="packetPointSelection" [ngModel]="selectedPacketPointCity" (ngModelChange)="selectPacketPointCity($event)">
-                    <!-- TODO: meg kell akadálozni, hogy ugyanazon város neve többször is szerepeljen -->
-                    <option *ngFor="let packetpoint of packetPointList" [ngValue]="packetpoint.city">{{packetpoint.city}}</option>
-                </select>
-                <h5>Válassz csomagpontot:</h5>
-                <select class="form-select" id="packetPointSelection" [ngModel]="selectedPacketPoint" (ngModelChange)="selectPacketPoint($event)">
-                    <ng-container *ngFor="let packetpoint of packetPointList">
-                        <option *ngIf="packetpoint.group == selectedPacketPointCity" [ngValue]="packetpoint">{{packetpoint.name}}</option>
-                    </ng-container>
-                </select>
+        <ng-container *ngIf="errorShow; else errorNotShow">
+            <div class="alert alert-danger" role="alert">
+                {{errorMsg}}
             </div>
-            <div *ngIf="selectedPacketPoint" class="col-8 border border-primary rounded-4 p-5 w-auto" style="background-color: #2F75B5; color: white;">
-                <app-packet-point-info [data]="selectedPacketPoint"></app-packet-point-info>
+        </ng-container>
+        <ng-template #errorNotShow>
+            <h3>Válaszd ki a kézbesítés helyét a listából:</h3>
+            <div class="row justify-content-around">
+                <div class="col-4">
+                    <h5>Válassz települést:</h5>
+                    <select class="form-select" id="packetPointSelection" [ngModel]="selectedPacketPointCity" (ngModelChange)="selectPacketPointCity($event)">
+                        <option *ngFor="let city of cities" [ngValue]="city">{{city}}</option>
+                    </select>
+                    <h5>Válassz csomagpontot:</h5>
+                    <select class="form-select" id="packetPointSelection" [ngModel]="selectedPacketPoint" (ngModelChange)="selectPacketPoint($event)">
+                        <ng-container *ngFor="let packetpoint of packetPointList">
+                            <option *ngIf="packetpoint.group == selectedPacketPointCity" [ngValue]="packetpoint">{{packetpoint.name}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+                <div *ngIf="selectedPacketPoint" class="col-8 border border-primary rounded-4 p-5 w-auto" style="background-color: #2F75B5; color: white;">
+                    <app-packet-point-info [data]="selectedPacketPoint"></app-packet-point-info>
+                </div>
             </div>
-        </div>
+        </ng-template>
     </ng-template>
 </div>
 <div class="px-3" style="background-color: #DDEBF7;">

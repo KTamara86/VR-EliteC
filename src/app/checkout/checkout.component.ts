@@ -22,21 +22,40 @@ export class CheckoutComponent {
   selectedPacketPointCity = "";
   selectedPacketPoint?:object;
   packetPointInfo:any;
+  cities: any[] = [];
+  errorShow = false;
+  errorMsg = ""
 
   constructor(private packetPoint:PacketPointService){
     this.packetPoint.getPacketPointList().subscribe(
       {
         next: (res) => {
           this.packetPointList = res
-          //TODO: jó lenne sorrendbe tenni valami alapján
+                    //TODO: jó lenne sorrendbe tenni a packetPointListet a group alapján alapján
+          console.log(res)
+          for (const obj of this.packetPointList){
+            let existing = false;
+            for (const city of this.cities){
+              if(city == obj.city){
+                existing = true;
+                break;
+              }
+            }
+            if(!existing){
+              this.cities.push(obj.city)
+            }
+          }
+          this.cities.sort()
+          console.log(this.cities)
         },
         error: (err) => {
           console.log(err)
-          //TODO: normálisan lekezelni a hiba ágat
+          this.errorShow = true
+          this.errorMsg = "Hiba! A csomagpontinformációk nem elérhetőek! Látogasson vissza később!"
         }
       }
     )
-
+    
   }
 
   selectPacketPointCity(newValue:any){
