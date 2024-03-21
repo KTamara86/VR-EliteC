@@ -87,16 +87,11 @@ export class ProductListComponent {
 
     pictureURL = "../../pictures/"
 
-    categories = [
-      {"value": "0", "name": "Minden termék"}, 
-      {"value": "1", "name": "Padlószőnyeg"},
-      {"value": "2", "name": "Szőnyeg"}, 
-      {"value": "3", "name": "Futószőnyeg"}, 
-      {"value": "4", "name": "Lábtörlő"}
-    ]
+    categories = ["Padlószőnyeg", "Szőnyeg", "Futószőnyeg", "Lábtörlő" ]
 
     products2:any
     showError = false
+    activeCategory = 0
 
     constructor(private base:BaseService){
       
@@ -104,5 +99,9 @@ export class ProductListComponent {
         (res) => this.products2=res,
         (err) => this.showError = true
       )
+    }
+
+    changeActiveCategory(i:number){
+      this.activeCategory=i
     }
 }
