@@ -92,16 +92,36 @@ export class ProductListComponent {
     products2:any
     showError = false
     activeCategory = 0
+    showedProducts:any
 
     constructor(private base:BaseService){
       
       this.base.getProducts().subscribe(
-        (res) => this.products2=res,
+        (res) => {
+          this.products2=res
+          this.setShowedProducts()
+        },
         (err) => this.showError = true
       )
     }
 
     changeActiveCategory(i:number){
       this.activeCategory=i
+      this.setShowedProducts()
+    }
+
+    setShowedProducts(){
+      let prodArray = []
+      let prods = this.products2[this.categories[this.activeCategory]]
+
+      for (const key in prods){
+        let element =prods[key]
+
+        if(key != "0"){
+          element.key = key
+          prodArray.push(element)
+        }
+      }
+      this.showedProducts=prodArray
     }
 }
