@@ -96,8 +96,13 @@ export class ProductListComponent {
     ]
 
     products2:any
+    showError = false
 
     constructor(private base:BaseService){
-
+      
+      this.base.getProducts().subscribe(
+        (res) => this.products2=res,
+        (err) => this.showError = true
+      )
     }
 }
