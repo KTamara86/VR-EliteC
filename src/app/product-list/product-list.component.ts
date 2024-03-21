@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { BaseService } from '../base.service';
 
 @Component({
@@ -76,5 +76,7 @@ export class ProductListComponent {
         }
       }
       this.showedProducts=prodArray
+      console.log(this.showedProducts)
+      // TODO: ha visszalépünk egy productból, akkor nem tölt be semmit a komponenes, ezt ki kell javítani
     }
 }
