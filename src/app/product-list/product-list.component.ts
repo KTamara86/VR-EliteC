@@ -94,36 +94,4 @@ export class ProductListComponent {
       {"value": "4", "name": "Lábtörlő"}
     ]
 
-
-    // categoryFilterOnProducts(value:String){
-    //   let temporaryProductList:any[] = []
-    //   this.products.forEach(product => {
-    //     if(product.kategoria_id == value){
-    //       temporaryProductList.push(product)
-    //     }
-    //   });
-    //   this.listedProducts = temporaryProductList;
-    //   console.log(this.listedProducts)
-    // }
-
-    // filterListedProducts(filterName:any, event:any){
-    //   let filterValue = event.target.value
-    //   let permanentList:any[] = [];
-
-    //   if(filterName == "szin"){
-    //     this.products.forEach(product => {
-    //       if(product.szin == filterValue){
-    //         permanentList.push(product)
-    //       }
-    //     });
-    //   }
-
-      
-      
-
-    //   console.log(filterName)
-
-    //   console.log(event.target.value)
-    // }
-    
 }
