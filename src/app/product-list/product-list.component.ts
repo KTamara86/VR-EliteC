@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BaseService } from '../base.service';
 
 @Component({
   selector: 'app-product-list',
@@ -94,4 +95,9 @@ export class ProductListComponent {
       {"value": "4", "name": "Lábtörlő"}
     ]
 
+    products2:any
+
+    constructor(private base:BaseService){
+
+    }
 }
