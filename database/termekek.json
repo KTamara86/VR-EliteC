@@ -6,7 +6,15 @@
       "regi_ar": 0,
       "uj_ar": 4995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "termek_id": 1,
+      "anyag": "100% PP Heatset",
+      "mintazat": "Egyszínű",
+      "meret": null,
+      "szin": "fehér",
+      "szalmagassag": "vastag",
+      "vastagsag": "14 mm",
+      "stilus": null
     },
     "2": {
       "nev": "Roma",
@@ -14,7 +22,14 @@
       "regi_ar": 0,
       "uj_ar": 7995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polyester",
+      "mintazat": "Egyszínű",
+      "meret": null,
+      "szin": "barna",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": null
     },
     "3": {
       "nev": "Play",
@@ -22,7 +37,14 @@
       "regi_ar": 0,
       "uj_ar": 14995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% PP Heatset",
+      "mintazat": "Egyszínű",
+      "meret": null,
+      "szin": "krém",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": null
     },
     "4": {
       "nev": "Paris",
@@ -30,7 +52,14 @@
       "regi_ar": 0,
       "uj_ar": 25995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% PP Heatset",
+      "mintazat": "Egyszínű",
+      "meret": null,
+      "szin": "fekete",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": null
     },
     "5": {
       "nev": "Isztambul",
@@ -38,7 +67,14 @@
       "regi_ar": 0,
       "uj_ar": 27995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "Egyszínű",
+      "meret": null,
+      "szin": "kék",
+      "szalmagassag": "vastag",
+      "vastagsag": "14 mm",
+      "stilus": null 
     },
     "6": {
       "nev": "Denver",
@@ -46,7 +82,14 @@
       "regi_ar": 0,
       "uj_ar": 24995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polyester",
+      "mintazat": "Mintás",
+      "meret": null,
+      "szin": "piros",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "7": {
       "nev": "Berlin",
@@ -54,7 +97,14 @@
       "regi_ar": 0,
       "uj_ar": 34995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "Mintás",
+      "meret": null,
+      "szin": "lila",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": null
     },
     "8": {
       "nev": "Tokyo",
@@ -62,7 +112,14 @@
       "regi_ar": 0,
       "uj_ar": 25995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% PP Heatset",
+      "mintazat": "Egyszínű",
+      "meret": null,
+      "szin": "terra",
+      "szalmagassag": "vastag",
+      "vastagsag": "14 mm",
+      "stilus": null
     },
     "9": {
       "nev": "Moszkva",
@@ -70,7 +127,14 @@
       "regi_ar": 0,
       "uj_ar": 6995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polyester",
+      "mintazat": "Mintás",
+      "meret": null,
+      "szin": "szürke",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": null
     },
     "10": {
       "nev": "Athene",
@@ -78,7 +142,14 @@
       "regi_ar": 0,
       "uj_ar": 33995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polyester",
+      "mintazat": "Egyszínű",
+      "meret": null,
+      "szin": "rózsaszín",
+      "szalmagassag": "vastag",
+      "vastagsag": "14 mm",
+      "stilus": null
     },
     "11": {
       "nev": "Budapest",
@@ -86,7 +157,14 @@
       "regi_ar": 0,
       "uj_ar": 38795,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "Egyszínű",
+      "meret": null,
+      "szin": "beige",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "12": {
       "nev": "Monaco",
@@ -94,7 +172,14 @@
       "regi_ar": 0,
       "uj_ar": 10795,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% PP Heatset",
+      "mintazat": "Mintás",
+      "meret": null,
+      "szin": "zöld",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": null
     },
     "13": {
       "nev": "Madrid",
@@ -102,7 +187,14 @@
       "regi_ar": 0,
       "uj_ar": 7995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "Egyszínű",
+      "meret": null,
+      "szin": "terra",
+      "szalmagassag": "vastag",
+      "vastagsag": "14 mm",
+      "stilus": null
     },
     "14": {
       "nev": "Oslo",
@@ -110,7 +202,14 @@
       "regi_ar": 0,
       "uj_ar": 18895,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "Egyszínű",
+      "meret": null,
+      "szin": "kék",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": null
     },
     "15": {
       "nev": "London",
@@ -118,7 +217,14 @@
       "regi_ar": 0,
       "uj_ar": 7995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polyester",
+      "mintazat": "Mintás",
+      "meret": null,
+      "szin": "fehér",
+      "szalmagassag": "vastag",
+      "vastagsag": "14 mm",
+      "stilus": null
     },
     "16": {
       "nev": "Helsinki",
@@ -126,7 +232,14 @@
       "regi_ar": 0,
       "uj_ar": 5595,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "Egyszínű",
+      "meret": null,
+      "szin": "krém",
+      "szalmagassag": "vastag",
+      "vastagsag": "14 mm",
+      "stilus": null
     },
     "17": {
       "nev": "Hamburg",
@@ -134,7 +247,14 @@
       "regi_ar": 0,
       "uj_ar": 20995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% PP Heatset",
+      "mintazat": "Mintás",
+      "meret": null,
+      "szin": "fekete",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": null
     },
     "18": {
       "nev": "Lisbon",
@@ -142,7 +262,14 @@
       "regi_ar": 0,
       "uj_ar": 14995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% PP Heatset",
+      "mintazat": "Egyszínű",
+      "meret": null,
+      "szin": "fehér",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": null
     },
     "19": {
       "nev": "Padova",
@@ -150,7 +277,14 @@
       "regi_ar": 0,
       "uj_ar": 9555,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "Mintás",
+      "meret": null,
+      "szin": "multi",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": null
     },
     "20": {
       "nev": "Porto",
@@ -158,7 +292,14 @@
       "regi_ar": 0,
       "uj_ar": 12295,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polyester",
+      "mintazat": "Mintás",
+      "meret": null,
+      "szin": "beige",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     }
   },
   "Szőnyeg": {
@@ -168,7 +309,14 @@
       "regi_ar": 0,
       "uj_ar": 13395,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% PP Heatset",
+      "mintazat": "Mintás",
+      "meret": "120 cm x 170 cm",
+      "szin": "fehér",
+      "szalmagassag": "vastag",
+      "vastagsag": "14 mm",
+      "stilus": "modern"
     },
     "22": {
       "nev": "Mila",
@@ -176,7 +324,14 @@
       "regi_ar": 0,
       "uj_ar": 33995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% PP Heatset",
+      "mintazat": "Egyszínű",
+      "meret": "200 cm x 290 cm",
+      "szin": "fekete",
+      "szalmagassag": "közepes",
+      "vastagsag": "7 mm",
+      "stilus": "modern"
     },
     "23": {
       "nev": "Dolce",
@@ -184,7 +339,14 @@
       "regi_ar": 0,
       "uj_ar": 19995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "Mintás",
+      "meret": "160 cm x 230 cm",
+      "szin": "lila",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "24": {
       "nev": "Gabbana",
@@ -192,7 +354,14 @@
       "regi_ar": 0,
       "uj_ar": 52995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% PP Heatset",
+      "mintazat": "Egyszínű",
+      "meret": "200 cm x 290 cm",
+      "szin": "barna",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "25": {
       "nev": "Bonie",
@@ -200,7 +369,14 @@
       "regi_ar": 0,
       "uj_ar": 25795,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "Mintás",
+      "meret": "120 cm x 170 cm",
+      "szin": "kék",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "26": {
       "nev": "Lui",
@@ -208,7 +384,14 @@
       "regi_ar": 0,
       "uj_ar": 3795,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polyester",
+      "mintazat": "Mintás",
+      "meret": "40 cm x 60 cm",
+      "szin": "terra",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": "klasszikus"
     },
     "27": {
       "nev": "Mineral",
@@ -216,7 +399,14 @@
       "regi_ar": 0,
       "uj_ar": 66495,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "Egyszínű",
+      "meret": "200 cm x 290 cm",
+      "szin": "piros",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "28": {
       "nev": "Abstract",
@@ -224,7 +414,14 @@
       "regi_ar": 0,
       "uj_ar": 9785,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% PP Heatset",
+      "mintazat": "Egyszínű",
+      "meret": "120 cm x 170 cm",
+      "szin": "fehér",
+      "szalmagassag": "vastag",
+      "vastagsag": "14 mm",
+      "stilus": "modern"
     },
     "29": {
       "nev": "Glow",
@@ -232,7 +429,14 @@
       "regi_ar": 0,
       "uj_ar": 2885,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "Mintás",
+      "meret": "40 cm x 60 cm",
+      "szin": "multi",
+      "szalmagassag": "vastag",
+      "vastagsag": "14 mm",
+      "stilus": "modern"
     },
     "30": {
       "nev": "Prism",
@@ -240,7 +444,14 @@
       "regi_ar": 0,
       "uj_ar": 4865,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polyester",
+      "mintazat": "Mintás",
+      "meret": "60 cm x 110 cm",
+      "szin": "zöld",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "31": {
       "nev": "Kids",
@@ -248,7 +459,14 @@
       "regi_ar": 0,
       "uj_ar": 31325,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% PP Heatset",
+      "mintazat": "Egyszínű",
+      "meret": "160 cm x 230 cm",
+      "szin": "rózsaszín",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "32": {
       "nev": "Collage",
@@ -256,7 +474,14 @@
       "regi_ar": 0,
       "uj_ar": 37295,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "Mintás",
+      "meret": "160 cm x 230 cm",
+      "szin": "beige",
+      "szalmagassag": "vastag",
+      "vastagsag": "14 mm",
+      "stilus": "klasszikus"
     },
     "33": {
       "nev": "Gigi",
@@ -264,7 +489,14 @@
       "regi_ar": 0,
       "uj_ar": 51975,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "Egyszínű",
+      "meret": "200 cm x 290 cm",
+      "szin": "kék",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "34": {
       "nev": "Isabella",
@@ -272,7 +504,14 @@
       "regi_ar": 0,
       "uj_ar": 22165,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% PP Heatset",
+      "mintazat": "Mintás",
+      "meret": "120 cm x 170 cm",
+      "szin": "fehér",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "35": {
       "nev": "Candy",
@@ -280,7 +519,14 @@
       "regi_ar": 0,
       "uj_ar": 32995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polyester",
+      "mintazat": "Mintás",
+      "meret": "200 cm x 290 cm",
+      "szin": "barna",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": "modern"
     },
     "36": {
       "nev": "Spiral",
@@ -288,7 +534,14 @@
       "regi_ar": 0,
       "uj_ar": 26995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% PP Heatset",
+      "mintazat": "Mintás",
+      "meret": "200 cm x 290 cm",
+      "szin": "multi",
+      "szalmagassag": "vastag",
+      "vastagsag": "14 mm",
+      "stilus": "modern"
     },
     "37": {
       "nev": "Rosella",
@@ -296,7 +549,14 @@
       "regi_ar": 0,
       "uj_ar": 21995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polyester",
+      "mintazat": "Egyszínű",
+      "meret": "120 cm x 170 cm",
+      "szin": "krém",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "38": {
       "nev": "Yara",
@@ -304,7 +564,14 @@
       "regi_ar": 0,
       "uj_ar": 53695,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polyester",
+      "mintazat": "Egyszínű",
+      "meret": "200 cm x 290 cm",
+      "szin": "szürke",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "39": {
       "nev": "Flare",
@@ -312,7 +579,14 @@
       "regi_ar": 0,
       "uj_ar": 12995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "Mintás",
+      "meret": "80 cm x 150 cm",
+      "szin": "fehér",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": "modern"
     },
     "40": {
       "nev": "Paloma",
@@ -320,7 +594,14 @@
       "regi_ar": 0,
       "uj_ar": 11995,
       "ar_mod_datum": "2024-01-06",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% PP Heatset",
+      "mintazat": "Egyszínű",
+      "meret": "60 cm x 110 cm",
+      "szin": "beige",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     }
   }, 
   "Futószőnyeg": {
@@ -330,7 +611,14 @@
       "regi_ar": 0,
       "uj_ar": 5995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "egyszínű",
+      "meret": "80 cm x 150 cm",
+      "szin": "barna",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": "modern"
     },
     "42": {
       "nev": "Kitchen",
@@ -338,7 +626,14 @@
       "regi_ar": 0,
       "uj_ar": 8995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "egyszínű",
+      "meret": "80 cm x 150 cm",
+      "szin": "multi",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": "modern"
     },
     "43": {
       "nev": "Long Island",
@@ -346,7 +641,14 @@
       "regi_ar": 0,
       "uj_ar": 10995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "80 cm x 150 cm",
+      "szin": "multi",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": "modern"
     },
     "44": {
       "nev": "Tequila",
@@ -354,7 +656,14 @@
       "regi_ar": 0,
       "uj_ar": 28395,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "80 cm x 150 cm",
+      "szin": "multi",
+      "szalmagassag": "közepes",
+      "vastagsag": "7 mm",
+      "stilus": "modern"
     },
     "45": {
       "nev": "Electric",
@@ -362,14 +671,28 @@
       "regi_ar": 0,
       "uj_ar": 36495,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "80 cm x 150 cm",
+      "szin": "multi",
+      "szalmagassag": "közepes",
+      "vastagsag": "7 mm",
+      "stilus": "modern"
     },
     "46": {
       "nev": "Goose",
       "db": 15,
       "uj_ar": 21395,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "80 cm x 150 cm",
+      "szin": "multi",
+      "szalmagassag": "közepes",
+      "vastagsag": "7 mm",
+      "stilus": "modern"
     },
     "47": {
       "nev": "Gimlet",
@@ -377,7 +700,14 @@
       "regi_ar": 0,
       "uj_ar": 23125,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "80 cm x 150 cm",
+      "szin": "multi",
+      "szalmagassag": "közepes",
+      "vastagsag": "7 mm",
+      "stilus": "modern"
     },
     "48": {
       "nev": "Bahama",
@@ -385,7 +715,14 @@
       "regi_ar": 0,
       "uj_ar": 9995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "egyszínű",
+      "meret": "80 cm x 150 cm",
+      "szin": "fehér",
+      "szalmagassag": "közepes",
+      "vastagsag": "7 mm",
+      "stilus": "modern"
     },
     "49": {
       "nev": "B52",
@@ -393,7 +730,14 @@
       "regi_ar": 0,
       "uj_ar": 5095,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "egyszínű",
+      "meret": "80 cm x 150 cm",
+      "szin": "multi",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": "modern"
     },
     "50": {
       "nev": "Espresso",
@@ -401,7 +745,14 @@
       "regi_ar": 0,
       "uj_ar": 12985,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "80 cm x 150 cm",
+      "szin": "barna",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": "modern"
     },
     "51": {
       "nev": "Machiato",
@@ -409,7 +760,14 @@
       "regi_ar": 0,
       "uj_ar": 13995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "60 cm x 110 cm",
+      "szin": "beige",
+      "szalmagassag": "alacsony",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "52": {
       "nev": "Luxury",
@@ -417,7 +775,14 @@
       "regi_ar": 0,
       "uj_ar": 9995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "egyszínű",
+      "meret": "60 cm x 110 cm",
+      "szin": "krém",
+      "szalmagassag": "alacsony",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "53": {
       "nev": "Treasure",
@@ -425,7 +790,14 @@
       "regi_ar": 0,
       "uj_ar": 8995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "egyszínű",
+      "meret": "60 cm x 110 cm",
+      "szin": "rózsaszín",
+      "szalmagassag": "alacsony",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "54": {
       "nev": "Bahama",
@@ -433,7 +805,14 @@
       "regi_ar": 0,
       "uj_ar": 7995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "egyszínű",
+      "meret": "60 cm x 110 cm",
+      "szin": "fehér",
+      "szalmagassag": "alacsony",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "55": {
       "nev": "Nassau",
@@ -441,7 +820,14 @@
       "regi_ar": 0,
       "uj_ar": 11995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "60 cm x 110 cm",
+      "szin": "szürke",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "56": {
       "nev": "Madagascar",
@@ -449,7 +835,14 @@
       "regi_ar": 0,
       "uj_ar": 3195,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "egyszínű",
+      "meret": "60 cm x 110 cm",
+      "szin": "zöld",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "57": {
       "nev": "Scar",
@@ -457,7 +850,14 @@
       "regi_ar": 0,
       "uj_ar": 13995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "60 cm x 110 cm",
+      "szin": "piros",
+      "szalmagassag": "alacsony",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "58": {
       "nev": "Italy",
@@ -465,7 +865,14 @@
       "regi_ar": 0,
       "uj_ar": 24995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "60 cm x 110 cm",
+      "szin": "lila",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "59": {
       "nev": "France",
@@ -473,7 +880,14 @@
       "regi_ar": 0,
       "uj_ar": 15995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "60 cm x 110 cm",
+      "szin": "kék",
+      "szalmagassag": "közepes",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     },
     "60": {
       "nev": "Illusion",
@@ -481,7 +895,14 @@
       "regi_ar": 0,
       "uj_ar": 10995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "60 cm x 110 cm",
+      "szin": "terra",
+      "szalmagassag": "alacsony",
+      "vastagsag": "12 mm",
+      "stilus": "modern"
     }
   },
   "Lábtörlő": {
@@ -491,7 +912,14 @@
       "regi_ar": 0,
       "uj_ar": 4355,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polipropilén",
+      "mintazat": "egyszínű",
+      "meret": "40 cm x 60 cm",
+      "szin": "szürke",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "62": {
       "nev": "Calcite",
@@ -499,7 +927,14 @@
       "regi_ar": 0,
       "uj_ar": 15495,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polipropilén",
+      "mintazat": "egyszínű",
+      "meret": "40 cm x 60 cm",
+      "szin": "lila",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "63": {
       "nev": "Agare",
@@ -507,7 +942,14 @@
       "regi_ar": 0,
       "uj_ar": 4395,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polipropilén",
+      "mintazat": "egyszínű",
+      "meret": "40 cm x 60 cm",
+      "szin": "zöld",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "64": {
       "nev": "Opal",
@@ -515,7 +957,14 @@
       "regi_ar": 0,
       "uj_ar": 4995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polipropilén",
+      "mintazat": "egyszínű",
+      "meret": "40 cm x 60 cm",
+      "szin": "beige",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "65": {
       "nev": "Dolomite",
@@ -523,7 +972,14 @@
       "regi_ar": 0,
       "uj_ar": 3995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% polipropilén",
+      "mintazat": "egyszínű",
+      "meret": "40 cm x 60 cm",
+      "szin": "szürke",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "66": {
       "nev": "Snow",
@@ -531,7 +987,14 @@
       "regi_ar": 0,
       "uj_ar": 3495,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "40 cm x 60 cm",
+      "szin": "multi",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "67": {
       "nev": "Rainbow",
@@ -539,7 +1002,14 @@
       "regi_ar": 0,
       "uj_ar": 5495,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "40 cm x 60 cm",
+      "szin": "multi",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "68": {
       "nev": "May",
@@ -547,7 +1017,14 @@
       "regi_ar": 0,
       "uj_ar": 3995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "40 cm x 60 cm",
+      "szin": "multi",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "69": {
       "nev": "April",
@@ -555,7 +1032,14 @@
       "regi_ar": 0,
       "uj_ar": 10995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "40 cm x 60 cm",
+      "szin": "multi",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "70": {
       "nev": "Elementium",
@@ -563,7 +1047,14 @@
       "regi_ar": 0,
       "uj_ar": 12995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "mintás",
+      "meret": "40 cm x 60 cm",
+      "szin": "zöld",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "71": {
       "nev": "Crystal",
@@ -571,7 +1062,14 @@
       "regi_ar": 0,
       "uj_ar": 11595,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "mintás",
+      "meret": "40 cm x 60 cm",
+      "szin": "multi",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "72": {
       "nev": "Margaret",
@@ -579,7 +1077,14 @@
       "regi_ar": 0,
       "uj_ar": 12955,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "mintás",
+      "meret": "40 cm x 60 cm",
+      "szin": "multi",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "73": {
       "nev": "Flower",
@@ -587,7 +1092,14 @@
       "regi_ar": 0,
       "uj_ar": 14385,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "mintás",
+      "meret": "40 cm x 60 cm",
+      "szin": "multi",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "74": {
       "nev": "Cornflower",
@@ -595,7 +1107,14 @@
       "regi_ar": 0,
       "uj_ar": 9995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "egyszínű",
+      "meret": "40 cm x 60 cm",
+      "szin": "kék",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "75": {
       "nev": "Bambusa",
@@ -603,7 +1122,14 @@
       "regi_ar": 0,
       "uj_ar": 8995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Polypropilen",
+      "mintazat": "egyszínű",
+      "meret": "40 cm x 60 cm",
+      "szin": "zöld",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "76": {
       "nev": "Juncus",
@@ -611,7 +1137,14 @@
       "regi_ar": 0,
       "uj_ar": 6995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "egyszínű",
+      "meret": "40 cm x 60 cm",
+      "szin": "zöld",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "77": {
       "nev": "Hedera",
@@ -619,7 +1152,14 @@
       "regi_ar": 0,
       "uj_ar": 7995,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "egyszínű",
+      "meret": "40 cm x 60 cm",
+      "szin": "barna",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "78": {
       "nev": "Chelone",
@@ -627,7 +1167,14 @@
       "regi_ar": 0,
       "uj_ar": 6595,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "egyszínű",
+      "meret": "40 cm x 60 cm",
+      "szin": "lila",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "79": {
       "nev": "Cycas",
@@ -635,7 +1182,14 @@
       "regi_ar": 0,
       "uj_ar": 12595,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "egyszínű",
+      "meret": "40 cm x 60 cm",
+      "szin": "zöld",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     },
     "80": {
       "nev": "Dahlia",
@@ -643,7 +1197,14 @@
       "regi_ar": 0,
       "uj_ar": 2495,
       "ar_mod_datum": "2023-10-17",
-      "lathato": 1
+      "lathato": 1,
+      "anyag": "100% Poliészter",
+      "mintazat": "egyszínű",
+      "meret": "40 cm x 60 cm",
+      "szin": "fekete",
+      "szalmagassag": "alacsony",
+      "vastagsag": "7 mm",
+      "stilus": null
     }
   }
 }
