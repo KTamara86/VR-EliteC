@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PacketPointService } from '../packet-point.service';
+import { PacketPointService } from '../services/packet-point.service';
 
 @Component({
   selector: 'app-checkout',
