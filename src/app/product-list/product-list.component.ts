@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { BaseService } from '../base.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -47,7 +48,7 @@ export class ProductListComponent {
     activeCategory = 0
     showedProducts:any
 
-    constructor(private base:BaseService){
+    constructor(private base:BaseService, private cartService:CartService){
       
       this.base.getProducts().subscribe(
         (res) => {
@@ -56,6 +57,18 @@ export class ProductListComponent {
         },
         (err) => this.showError = true
       )
+    }
+
+    addToCart(product:any){
+      let body:any = []
+      body.key = product.key
+      body.price = product.uj_ar
+      body.qty = 1
+
+      this.cartService.addProduct(body)
+      console.log(body)
+      console.log(this.cartService.getCart)
+
     }
 
     changeActiveCategory(i:number){
