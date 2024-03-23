@@ -43,7 +43,7 @@ export class ProductListComponent {
 
     categories = ["Padlószőnyeg", "Szőnyeg", "Futószőnyeg", "Lábtörlő" ]
 
-    products2:any
+    products:any
     showError = false
     activeCategory = 0
     showedProducts:any
@@ -52,7 +52,7 @@ export class ProductListComponent {
       
       this.base.getProducts().subscribe(
         (res) => {
-          this.products2=res
+          this.products=res
           this.setShowedProducts()
         },
         (err) => this.showError = true
@@ -77,7 +77,7 @@ export class ProductListComponent {
 
     setShowedProducts(){
       let prodArray = []
-      let prods = this.products2[this.categories[this.activeCategory]]
+      let prods = this.products[this.categories[this.activeCategory]]
 
       for (const key in prods){
         let element =prods[key]
