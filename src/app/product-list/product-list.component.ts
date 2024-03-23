@@ -64,6 +64,7 @@ export class ProductListComponent {
       body.key = product.key
       body.price = product.uj_ar
       body.qty = 1
+      body.name = product.nev
 
       this.cartService.addProduct(body)
 
