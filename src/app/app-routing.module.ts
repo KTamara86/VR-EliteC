@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: "product", component: ProductComponent},
   { path: "forgotpassword", component: ForgotPasswordComponent},
   { path: "verifyemail", component: VerifyEmailComponent},
-  { path:"", component:HomeComponent },
+  { path:"", redirectTo:'/home', pathMatch: 'full' },
   { path:"**", component:HomeComponent }
 
 ];
