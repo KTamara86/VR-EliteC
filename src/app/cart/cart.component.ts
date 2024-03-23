@@ -11,19 +11,17 @@ export class CartComponent {
 
 
   cart:any
-  totalQty:number
+  totalQty:any
   total:number
 
   constructor(private cartService: CartService){
     this.cartService.getCart().subscribe(
       (res) => this.cart=res
     )
-    this.totalQty = this.cartTotalQty()
+    this.cartService.getTotalQty().subscribe(
+      (res) => this.totalQty= res
+    )
     this.total = this.cartTotal()
-  }
-
-  cartTotalQty(){
-    return this.cartService.getTotalQty()
   }
 
   cartTotal(){

@@ -11,6 +11,7 @@ export class CartService {
   total = 0
 
   cartSub = new BehaviorSubject([])
+  qtySub = new BehaviorSubject(0)
 
   constructor() { }
 
@@ -25,10 +26,13 @@ export class CartService {
     else {
       this.cart[i].qty = this.cart[i].qty + body.qty
     }
+    this.cartSub.next(this.cart)
     
     this.qty = this.qty + body.qty
+    this.qtySub.next(this.qty)
+    
     this.total = this.total + (body.qty * body.price)
-    this.cartSub.next(this.cart)
+    
   }
 
   removeProduct(body:any){
@@ -36,8 +40,11 @@ export class CartService {
       (sor:any) => sor.key == body.key
     )
 
+    this.qty = this.qty - this.cart[i].qty
     this.cart.splice(i, 1)
+
     this.cartSub.next(this.cart)
+    this.qtySub.next(this.qty)
   }
 
   getCart(){
@@ -45,7 +52,7 @@ export class CartService {
   }
 
   getTotalQty(){
-    return this.qty
+    return this.qtySub
   }
 
   getCartTotal(){
