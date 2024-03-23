@@ -12,20 +12,18 @@ export class CartComponent {
 
   cart:any
   totalQty:any
-  total:number
+  total:any
 
   constructor(private cartService: CartService){
     this.cartService.getCart().subscribe(
-      (res) => this.cart=res
+      (res) => this.cart = res
     )
     this.cartService.getTotalQty().subscribe(
-      (res) => this.totalQty= res
+      (res) => this.totalQty = res
     )
-    this.total = this.cartTotal()
-  }
-
-  cartTotal(){
-    return this.cartService.getCartTotal()
+    this.cartService.getCartTotal().subscribe(
+      (res) => this.total = res
+    )
   }
 
   removeProduct(body:any){
