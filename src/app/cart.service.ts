@@ -13,7 +13,7 @@ export class CartService {
   constructor() { }
 
   addProduct(body:any){
-    this.cart.pus(body)
+    this.cart.push(body)
     this.cartSub.next(this.cart)
   }
 
