@@ -31,6 +31,15 @@ export class CartService {
     this.cartSub.next(this.cart)
   }
 
+  removeProduct(body:any){
+    let i = this.cart.findIndex(
+      (sor:any) => sor.key == body.key
+    )
+
+    this.cart.splice(i, 1)
+    this.cartSub.next(this.cart)
+  }
+
   getCart(){
     return this.cartSub
   }

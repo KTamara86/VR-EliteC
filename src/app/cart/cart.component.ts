@@ -29,4 +29,8 @@ export class CartComponent {
   cartTotal(){
     return this.cartService.getCartTotal()
   }
+
+  removeProduct(body:any){
+    this.cartService.removeProduct(body)
+  }
 }
