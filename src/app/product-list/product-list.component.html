@@ -16,7 +16,7 @@
           </div>
       </div>
       <div class="row justify-content-evenly">
-          <div *ngFor="let prod of showedProducts" class="card m-4 pt-4" style="width: 18rem; background-color: #DDEBF7; border-color: #2F75B5;">
+          <div *ngFor="let prod of showedProducts" [style]="{'display': prod.lathato == 0 || prod.db < 1 ? 'none' : 'block'}" class="card m-4 pt-4" style="width: 18rem; background-color: #DDEBF7; border-color: #2F75B5;">
               <img [src]="'../../assets/pictures/'+prod.key+'.jpg'" class="card-img-top" alt="termékkép" style="max-height: 200px;" routerLink="/product" [queryParams]="prod">
               <div class="card-body" style="background-color: #2F75B5; border-bottom-left-radius: 10%; border-bottom-right-radius: 10%;" routerLink="/product" [queryParams]="prod">
                 <h3 class="card-title" style="color: #DDEBF7;">{{prod.nev}}</h3>
