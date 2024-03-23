@@ -15,7 +15,17 @@ export class CartService {
   constructor() { }
 
   addProduct(body:any){
-    this.cart.push(body)
+    let i = this.cart.findIndex(
+      (sor:any) => sor.key == body.key
+    )
+    
+    if(i<0){
+      this.cart.push(body)
+    }
+    else {
+      this.cart[i].qty = this.cart[i].qty + body.qty
+    }
+    
     this.qty = this.qty + body.qty
     this.total = this.total + (body.qty * body.price)
     this.cartSub.next(this.cart)
