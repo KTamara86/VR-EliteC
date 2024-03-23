@@ -12,19 +12,23 @@ export class CartComponent {
 
   cart:any
 
+  totalQty:number
+
   constructor(private cartService: CartService){
     this.cartService.getCart().subscribe(
       (res) => this.cart=res
     )
+    this.totalQty = this.cartTotalQty()
   }
 
-  // cartTotal(){
-  //   let total = 0
-  //   this.cart.forEach(product => {
-  //     total += product.mennyiseg*product.uj_ar
-  //   });
-  //   return total
-  // }
+  cartTotalQty(){
+    // let total = 0
+    // this.cart.forEach(product => {
+    //   total += product.mennyiseg*product.uj_ar
+    // });
+    // return total
+    return this.cartService.getTotalQty()
+  }
 
   //TODO: cartTotal not working
 }
