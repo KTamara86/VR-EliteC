@@ -66,8 +66,6 @@ export class ProductListComponent {
       body.qty = 1
 
       this.cartService.addProduct(body)
-      console.log(body)
-      console.log(this.cartService.getCart)
 
     }
 
