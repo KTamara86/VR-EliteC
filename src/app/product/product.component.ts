@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product',
@@ -38,7 +39,9 @@ export class ProductComponent {
   ];
   totalScore:number;
   categories= ["üres", "Padlószőnyeg", "Szőnyeg", "Futószőnyeg", "Lábtörlő"]
-  constructor(private route: ActivatedRoute) {
+
+
+  constructor(private route: ActivatedRoute, private cartService:CartService) {
     this.totalScore=this.sumScores()
   }
 
@@ -57,5 +60,14 @@ export class ProductComponent {
       qty++;
     });
     return score/qty
+  }
+
+  addToCart(product:any){
+    let body:any = []
+    body.key = product.key
+    body.price = product.uj_ar
+    body.qty = 1
+
+    this.cartService.addProduct(body)
   }
 }

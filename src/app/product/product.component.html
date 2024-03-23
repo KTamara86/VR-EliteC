@@ -21,7 +21,7 @@
             <li class="list-group-item">Stílus: {{product.stilus}}</li>
         </ul>
         <h1 class="fw-bold text-danger">{{product.uj_ar}} Ft</h1>
-        <button type="button" class="btn btn-danger btn-lg">Kosárba</button>
+        <button (click)="addToCart(product)" type="button" class="btn btn-danger btn-lg">Kosárba</button>
     </div>
 </div>
 <div class="row">
