@@ -3,8 +3,10 @@
     <div class="col-4"><h5>Termék</h5></div>
     <div class="col-2"><h5>Egységár</h5></div>
     <div class="col-2"><h5>Mennyiség</h5></div>
-    <div class="col-2"><h5>Összesen</h5></div>
-    <div class="col-2"><button type="button" class="btn btn-success mx-2" routerLink="/checkout">Tovább a véglegesítéshez</button></div>
+    <div class="col-1"><h5>Összesen</h5></div>
+    <div class="col-3">
+        <button type="button" class="btn btn-success mx-2" routerLink="/checkout" [disabled]="totalQty==0">Tovább a véglegesítéshez</button>
+    </div>
 </div>
 <div *ngFor="let product of cart" class="row border-bottom py-2 text-center align-items-center">
     <div class="col-2" routerLink="/product" [queryParams]="product"><img [src]="'../../assets/pictures/'+product.key+'.jpg'" class="img-fluid" alt="termékkép"></div>
@@ -27,6 +29,6 @@
     <div class="col-12">
         
         <button type="button" class="btn btn-lg btn-primary mx-2" routerLink="/home">Vissza a termékekhez</button>
-        <button type="button" class="btn btn-lg btn-success mx-2" routerLink="/checkout">Tovább a véglegesítéshez</button>
+        <button type="button" class="btn btn-lg btn-success mx-2" routerLink="/checkout" [disabled]="totalQty==0">Tovább a véglegesítéshez</button>
     </div>
 </div>
