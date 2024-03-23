@@ -11,24 +11,22 @@ export class CartComponent {
 
 
   cart:any
-
   totalQty:number
+  total:number
 
   constructor(private cartService: CartService){
     this.cartService.getCart().subscribe(
       (res) => this.cart=res
     )
     this.totalQty = this.cartTotalQty()
+    this.total = this.cartTotal()
   }
 
   cartTotalQty(){
-    // let total = 0
-    // this.cart.forEach(product => {
-    //   total += product.mennyiseg*product.uj_ar
-    // });
-    // return total
     return this.cartService.getTotalQty()
   }
 
-  //TODO: cartTotal not working
+  cartTotal(){
+    return this.cartService.getCartTotal()
+  }
 }

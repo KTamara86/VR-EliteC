@@ -8,6 +8,7 @@ export class CartService {
 
   cart:any = []
   qty = 0
+  total = 0
 
   cartSub = new BehaviorSubject([])
 
@@ -16,6 +17,7 @@ export class CartService {
   addProduct(body:any){
     this.cart.push(body)
     this.qty = this.qty + body.qty
+    this.total = this.total + (body.qty * body.price)
     this.cartSub.next(this.cart)
   }
 
@@ -24,7 +26,11 @@ export class CartService {
   }
 
   getTotalQty(){
-    console.log(this.qty)
     return this.qty
+  }
+
+  getCartTotal(){
+    console.log(this.total)
+    return this.total
   }
 }
