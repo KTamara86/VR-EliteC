@@ -34,4 +34,9 @@ export class CartComponent {
     body.qty = body.qty + 1
     this.cartService.updateProductQty(body)
   }
+
+  decreaseQty(body:any){
+    body.qty = body.qty - 1
+    this.cartService.updateProductQty(body)
+  }
 }
