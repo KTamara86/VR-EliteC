@@ -16,8 +16,8 @@
     <div class="col-2" routerLink="/product" [queryParams]="product"><h5>{{product.qty*product.price}} Ft</h5></div>
     <div class="col-2">
         <!-- TODO: gombfunkciók hozzáadása, plusz, mínusz mennyiség és tétel törlése -->
-        <button type="button" class="btn btn-outline-primary mx-1">+</button>
-        <button (click)="increaseQty(product)" type="button" class="btn btn-outline-info mx-1">-</button>
+        <button (click)="increaseQty(product)" type="button" class="btn btn-outline-primary mx-1">+</button>
+        <button type="button" class="btn btn-outline-info mx-1">-</button>
         <button (click)="removeProduct(product)" type="button" class="btn btn-outline-danger mx-1">X</button>
     </div>
 </div>

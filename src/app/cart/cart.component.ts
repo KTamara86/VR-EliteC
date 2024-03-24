@@ -31,7 +31,7 @@ export class CartComponent {
   }
 
   increaseQty(body:any){
-    body.qty = body.qty +1
-    this.cartService.updateProduct(body)
+    body.qty = body.qty + 1
+    this.cartService.updateProductQty(body)
   }
 }

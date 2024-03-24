@@ -16,6 +16,12 @@ export class CartService {
 
   constructor() { }
 
+  callSubs(){
+    this.cartSub.next(this.cart)
+    this.qtySub.next(this.qty)
+    this.totalSub.next(this.total)
+  }
+
   addProduct(body:any){
     let i = this.cart.findIndex(
       (sor:any) => sor.key == body.key
@@ -27,13 +33,24 @@ export class CartService {
     else {
       this.cart[i].qty = this.cart[i].qty + body.qty
     }
-    this.cartSub.next(this.cart)
-    
-    this.qty = this.qty + body.qty
-    this.qtySub.next(this.qty)
-    
-    this.total = this.total + (body.qty * body.price)
-    this.totalSub.next(this.total)
+
+    this.qty = this.setQty()
+    this.total = this.setTotal()
+
+    this.callSubs()
+  }
+
+
+  updateProductQty(body:any){
+    let i = this.cart.findIndex(
+      (sor:any) => sor.key == body.key
+    )
+
+    this.cart[i].qty = body.qty
+    this.qty = this.setQty()
+    this.total = this.setTotal()
+
+    this.callSubs()
   }
 
   removeProduct(body:any){
@@ -41,14 +58,12 @@ export class CartService {
       (sor:any) => sor.key == body.key
     )
 
-    this.qty = this.qty - this.cart[i].qty
-    this.total = this.total - (this.cart[i].qty * this.cart[i].price)
-
     this.cart.splice(i, 1)
 
-    this.cartSub.next(this.cart)
-    this.qtySub.next(this.qty)
-    this.totalSub.next(this.total)
+    this.qty = this.setQty()
+    this.total = this.setTotal()
+
+    this.callSubs()
   }
 
   getCart(){
@@ -61,5 +76,27 @@ export class CartService {
 
   getCartTotal(){
     return this.totalSub
+  }
+
+  setTotal(){
+    let total = 0
+    let products = this.cart
+
+    for (let i = 0; i < products.length; i++) {
+      const element = products[i];
+      total = total + (element.qty * element.price)
+    }
+    return total
+  }
+
+  setQty(){
+    let qty = 0
+    let products = this.cart
+
+    for (let i = 0; i < products.length; i++) {
+      const element = products[i];
+      qty = qty + element.qty
+    }
+    return qty
   }
 }
