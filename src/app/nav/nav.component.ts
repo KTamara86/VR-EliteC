@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
 
+  totalProduct = 0
+
+  constructor(private cartService:CartService){
+
+    this.cartService.getTotalQty().subscribe(
+      (res) => this.totalProduct=res
+    )
+
+  }
 }
