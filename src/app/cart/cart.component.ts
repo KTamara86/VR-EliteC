@@ -29,4 +29,9 @@ export class CartComponent {
   removeProduct(body:any){
     this.cartService.removeProduct(body)
   }
+
+  increaseQty(body:any){
+    body.qty = body.qty +1
+    this.cartService.updateProduct(body)
+  }
 }
