@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { UserLoginComponent } from './user-login/user-login.component';
@@ -29,7 +28,6 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
     NavComponent,
     FooterComponent,
     HomeComponent,
-    ProductListComponent,
     CartComponent,
     CheckoutComponent,
     UserLoginComponent,
