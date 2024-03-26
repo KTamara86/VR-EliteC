@@ -11,7 +11,7 @@
             </form>
             <ul class="navbar-nav me-0 mb-2 mb-lg-0 ms-5">  
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/cart">  
+                    <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasCart" role="button" aria-controls="offcanvasCart">  
                         <img src="../../assets/icon/shopping_cart_FILL0_wght400_GRAD0_opsz24.svg" alt="kosár">
                         <span class="badge rounded-pill bg-danger">{{totalProduct}}</span>
                         Kosár
@@ -41,3 +41,4 @@
         </div>
     </div>
 </nav>
+<app-cart></app-cart>

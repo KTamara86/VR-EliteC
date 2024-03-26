@@ -1,34 +1,38 @@
-<h1>A kosarad tartalma:</h1>
-<div class="row border-bottom pb-2 border-dark  text-center">
-    <div class="col-4"><h5>Termék</h5></div>
-    <div class="col-2"><h5>Egységár</h5></div>
-    <div class="col-2"><h5>Mennyiség</h5></div>
-    <div class="col-1"><h5>Összesen</h5></div>
-    <div class="col-3">
-        <button type="button" class="btn btn-success mx-2" routerLink="/checkout" [disabled]="totalQty==0">Tovább a véglegesítéshez</button>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasCartLabel">A kosarad tartalma:</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-</div>
-<div *ngFor="let product of cart" class="row border-bottom py-2 text-center align-items-center">
-    <div class="col-2" routerLink="/product" [queryParams]="product"><img [src]="'../../assets/pictures/'+product.key+'.jpg'" class="img-fluid" alt="termékkép"></div>
-    <div class="col-2" routerLink="/product" [queryParams]="product"><h5>{{product.name}}</h5></div>
-    <div class="col-2" routerLink="/product" [queryParams]="product"><h5>{{product.price}} Ft</h5></div>
-    <div class="col-2" routerLink="/product" [queryParams]="product"><h5>{{product.qty}}</h5></div>
-    <div class="col-2" routerLink="/product" [queryParams]="product"><h5>{{product.qty*product.price}} Ft</h5></div>
-    <div class="col-2">
-        <!-- TODO: a plusz mínisz gombokkal mehetünk mínuszba és nem vizsgál készletet, ezt módosítani kell -->
-        <button (click)="increaseQty(product)" type="button" class="btn btn-outline-primary mx-1">+</button>
-        <button (click)="decreaseQty(product)" type="button" class="btn btn-outline-info mx-1">-</button>
-        <button (click)="removeProduct(product)" type="button" class="btn btn-outline-danger mx-1">X</button>
-    </div>
-</div>
-<div class="row border-top border-dark border-2 py-3">
-    <div class="col-8 text-end"><h5>Darabszám: {{totalQty}}</h5></div>
-    <div class="col-4 text-center"><h4>Összesen: {{total}} Ft</h4></div>
-</div>
-<div class="row text-end mb-5">
-    <div class="col-12">
-        
-        <button type="button" class="btn btn-lg btn-primary mx-2" routerLink="/home">Vissza a termékekhez</button>
-        <button type="button" class="btn btn-lg btn-success mx-2" routerLink="/checkout" [disabled]="totalQty==0">Tovább a véglegesítéshez</button>
-    </div>
+    <div class="offcanvas-body">
+        <div class="row border-bottom pb-2 border-dark  text-center">
+            <div class="col-2"><h6>Termék</h6></div>
+            <div class="col-3"><h6>Egységár</h6></div>
+            <div class="col-3"><h6>Mennyiség</h6></div>
+            <div class="col-3"><h6>Összesen</h6></div>
+        </div>
+        <div *ngFor="let product of cart" class="row border-bottom py-2 text-center align-items-center">
+            <div class="row">
+                <div class="col-2"><img [src]="'../../assets/pictures/'+product.key+'.jpg'" class="img-fluid" alt="termékkép"></div>
+                <div class="col-2"><h6>{{product.name}}</h6></div>
+                <div class="col-3"><h6>{{product.price}} Ft</h6></div>
+                <div class="col-1"><h6>{{product.qty}}</h6></div>
+                <div class="col-3"><h6>{{product.qty*product.price}} Ft</h6></div>
+            </div>
+            <div class="row pt-1">
+                <button (click)="increaseQty(product)" type="button" class="btn btn-outline-primary mx-1 col-2">+</button>
+                <button (click)="decreaseQty(product)" type="button" class="btn btn-outline-info mx-1 col-2">-</button>
+                <button (click)="removeProduct(product)" type="button" class="btn btn-outline-danger mx-1 col-2">X</button>
+            </div>
+        </div>
+        <div class="row border-top border-dark border-2 py-3">
+            <div class="col-8 text-end"><h6>Darabszám: {{totalQty}}</h6></div>
+            <div class="col-4 text-center"><h6>Összesen: {{total}} Ft</h6></div>
+        </div>
+        <div class="row text-end mb-5">
+            <div class="col-12">
+                
+                <button type="button" class="btn btn-primary mx-2" data-bs-dismiss="offcanvas" aria-label="Close">Vissza a termékekhez</button>
+                <button type="button" class="btn btn-success m-2" routerLink="/checkout" [disabled]="totalQty==0" data-bs-dismiss="offcanvas" aria-label="Close">Tovább a véglegesítéshez</button>
+            </div>
+        </div>
 </div>
