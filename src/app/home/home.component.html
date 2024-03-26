@@ -22,10 +22,10 @@
                     <div class="card-body" style="background-color: #2F75B5; border-bottom-left-radius: 10%; border-bottom-right-radius: 10%;"  data-bs-toggle="modal" data-bs-target="#productModal">
                       <h3 class="card-title" style="color: #DDEBF7;" (click)="setChoosenProduct(prod)">{{prod.nev}}</h3>
                       <p class="card-header fw-bold fs-3 text-light" (click)="setChoosenProduct(prod)">{{prod.uj_ar}} Ft</p>
-                      <ul class="list-group list-group-flush rounded" (click)="setChoosenProduct(prod)">
-                        <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;">Szín: {{prod.szin}}</li>
-                        <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;">Méret: {{prod.meret}}</li>
-                        <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;">Szálmagasság: {{prod.szalmagassag}}</li>
+                      <ul class="list-group list-group-flush rounded">
+                        <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;" (click)="setChoosenProduct(prod)">Szín: {{prod.szin}}</li>
+                        <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;"(click)="setChoosenProduct(prod)" >Méret: {{prod.meret}}</li>
+                        <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;" (click)="setChoosenProduct(prod)">Szálmagasság: {{prod.szalmagassag}}</li>
                       </ul>
                     </div>
                     <div class="card-body row">

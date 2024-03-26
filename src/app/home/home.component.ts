@@ -68,7 +68,6 @@ export class HomeComponent {
       body.name = product.nev
 
       this.cartService.addProduct(body)
-
     }
 
     changeActiveCategory(i:number){
