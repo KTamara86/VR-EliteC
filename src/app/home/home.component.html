@@ -24,7 +24,7 @@
                       <p class="card-header fw-bold fs-3 text-light" (click)="setChoosenProduct(prod)">{{prod.uj_ar}} Ft</p>
                       <ul class="list-group list-group-flush rounded">
                         <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;" (click)="setChoosenProduct(prod)">Szín: {{prod.szin}}</li>
-                        <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;"(click)="setChoosenProduct(prod)" >Méret: {{prod.meret}}</li>
+                        <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;" (click)="setChoosenProduct(prod)">Méret: {{prod.meret}}</li>
                         <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;" (click)="setChoosenProduct(prod)">Szálmagasság: {{prod.szalmagassag}}</li>
                       </ul>
                     </div>
@@ -43,4 +43,4 @@
       </div>
       </ng-template>
 </div>
-<app-product [data]="this.choosenProduct"></app-product>
+<app-product [data]="getChossenProduct()"></app-product>

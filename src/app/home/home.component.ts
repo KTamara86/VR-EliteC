@@ -66,7 +66,6 @@ export class HomeComponent {
       body.price = product.uj_ar
       body.qty = 1
       body.name = product.nev
-
       this.cartService.addProduct(body)
     }
 
@@ -93,5 +92,9 @@ export class HomeComponent {
 
     setChoosenProduct(product: any){
       this.choosenProduct = product
+    }
+
+    getChossenProduct(){
+      return this.choosenProduct
     }
 }
