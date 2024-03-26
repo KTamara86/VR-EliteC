@@ -39,63 +39,63 @@ export class HomeComponent {
       "options":  ["modern", "klasszikus"]
     }
   ]
-    pictureURL = "../../pictures/"
+  pictureURL = "../../pictures/"
 
-    categories = ["Padlószőnyeg", "Szőnyeg", "Futószőnyeg", "Lábtörlő" ]
+  categories = ["Padlószőnyeg", "Szőnyeg", "Futószőnyeg", "Lábtörlő" ]
 
-    products:any
-    showError = false
-    activeCategory = 0
-    showedProducts:any
-    choosenProduct:any
+  products:any
+  showError = false
+  activeCategory = 0
+  showedProducts:any
+  choosenProduct:any
 
-    constructor(private base:BaseService, private cartService:CartService){
-      
-      this.base.getProducts().subscribe(
-        (res) => {
-          this.products=res
-          this.setShowedProducts()
-          this.setChoosenProduct(this.showedProducts[1])
-        },
-        (err) => this.showError = true
-      )
-    }
+  constructor(private base:BaseService, private cartService:CartService){
+    
+    this.base.getProducts().subscribe(
+      (res) => {
+        this.products=res
+        this.setShowedProducts()
+        this.setChoosenProduct(this.showedProducts[1])
+      },
+      (err) => this.showError = true
+    )
+  }
 
-    addToCart(product:any){
-      let body:any = []
-      body.key = product.key
-      body.price = product.uj_ar
-      body.qty = 1
-      body.name = product.nev
-      this.cartService.addProduct(body)
-    }
+  addToCart(product:any){
+    let body:any = []
+    body.key = product.key
+    body.price = product.uj_ar
+    body.qty = 1
+    body.name = product.nev
+    this.cartService.addProduct(body)
+  }
 
-    changeActiveCategory(i:number){
-      this.activeCategory=i
-      this.setShowedProducts()
-    }
+  changeActiveCategory(i:number){
+    this.activeCategory=i
+    this.setShowedProducts()
+  }
 
-    setShowedProducts(){
-      let prodArray = []
-      let prods = this.products[this.categories[this.activeCategory]]
+  setShowedProducts(){
+    let prodArray = []
+    let prods = this.products[this.categories[this.activeCategory]]
 
-      for (const key in prods){
-        let element =prods[key]
+    for (const key in prods){
+      let element =prods[key]
 
-        if(key != "0"){
-          element.key = key
-          prodArray.push(element)
-        }
+      if(key != "0"){
+        element.key = key
+        prodArray.push(element)
       }
-      this.showedProducts=prodArray
-      console.log(this.showedProducts)
     }
+    this.showedProducts=prodArray
+    console.log(this.showedProducts)
+  }
 
-    setChoosenProduct(product: any){
-      this.choosenProduct = product
-    }
+  setChoosenProduct(product: any){
+    this.choosenProduct = product
+  }
 
-    getChossenProduct(){
-      return this.choosenProduct
-    }
+  getChossenProduct(){
+    return this.choosenProduct
+  }
 }
