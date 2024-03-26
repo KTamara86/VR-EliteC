@@ -10,9 +10,9 @@
           <div class="col-10">
             <div class="row">
                 <div class="d-flex flex-row">
-                    <select *ngFor="let item of szurok" class="form-select form-select-sm" style="background-color: #a1ccf1;">
+                    <select *ngFor="let item of szurok" class="form-select form-select-sm" style="background-color: #a1ccf1;" [ngModel]="activeFilters" (ngModelChange)="changeFilter($event)">
                         <option selected>{{item.name}}</option>
-                        <option *ngFor="let option of item.options" [value]="option">{{option}}</option>
+                        <option *ngFor="let option of item.options" [ngValue]="[option, item.key]">{{option}}</option>
                     </select>
                 </div>
             </div>
