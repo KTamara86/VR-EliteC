@@ -90,7 +90,6 @@ export class HomeComponent {
       }
       this.showedProducts=prodArray
       console.log(this.showedProducts)
-      // TODO: ha visszalépünk egy productból, akkor nem tölt be semmit a komponenes, ezt ki kell javítani
     }
 
     setChoosenProduct(product: any){
