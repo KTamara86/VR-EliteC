@@ -7,13 +7,14 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductComponent } from './product/product.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path:"home", component: HomeComponent},
+  { path:"cart", component: CartComponent},
   { path:"checkout", component: CheckoutComponent},
   { path: "userlogin", component: UserLoginComponent},
   { path: "usersignup", component: UserSignUpComponent},
-  { path: "product", component: ProductComponent},
   { path: "forgotpassword", component: ForgotPasswordComponent},
   { path: "verifyemail", component: VerifyEmailComponent},
   { path:"", redirectTo:'/home', pathMatch: 'full' },
