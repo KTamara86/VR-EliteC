@@ -21,6 +21,7 @@ import { PacketPointInfoComponent } from './packet-point-info/packet-point-info.
 import { environment } from 'src/enviroments/enviroment';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
     ProductComponent,
     PacketPointInfoComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    TermsConditionsComponent
   ],
   imports: [
     BrowserModule,
