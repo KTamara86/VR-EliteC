@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../services/cart.service';
 
@@ -8,8 +8,9 @@ import { CartService } from '../services/cart.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
+  @Input() data:any;
 
-  product: any;
+  product: any
 
   ratings = [
     {
@@ -41,14 +42,8 @@ export class ProductComponent {
   categories= ["üres", "Padlószőnyeg", "Szőnyeg", "Futószőnyeg", "Lábtörlő"]
 
 
-  constructor(private route: ActivatedRoute, private cartService:CartService) {
+  constructor(private cartService:CartService) {
     this.totalScore=this.sumScores()
-  }
-
-  ngOnInit() {
-    this.route.queryParams.subscribe((params) => {
-      this.product = params;
-    });
   }
 
   sumScores(){

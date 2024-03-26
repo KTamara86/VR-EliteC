@@ -1,40 +1,51 @@
-<button type="button" class="btn btn-secondary mt-2" routerLink="/home">Vissza a termékekhez</button>
-<div class="row my-3 justify-content-around">
-    <div class="col-4">
-        <div class="row">
-            <img [src]="'../../assets/pictures/'+product.key+'.jpg'" alt="termékkép">
-        </div>
-    </div>
-    <div class="col-4">
-        <h1 class="fw-bold" style="color: #2F75B5;">{{product.nev}}
-            <span class="badge rounded-pill bg-success">{{totalScore}} <img src="../../assets/icon/grade_white_24dp.svg" alt="" class="img-fluid float-end"></span>
-        </h1>
-        <h3>{{categories[product.kategoria_id]}}</h3>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Anyaga: {{product.anyag}}</li>
-            <li class="list-group-item">Mintázat: {{product.mintazat}}</li>
-            <li class="list-group-item">Mérete: {{product.meret}}</li>
-            <li class="list-group-item">Színe: {{product.szin}}</li>
-            <li class="list-group-item">Szálmagasság: {{product.szalmagassag}}</li>
-            <li class="list-group-item">Vastagság: {{product.vastagsag}}</li>
-            <li class="list-group-item">Stílus: {{product.stilus}}</li>
-        </ul>
-        <h1 class="fw-bold text-danger">{{product.uj_ar}} Ft</h1>
-        <button (click)="addToCart(product)" type="button" class="btn btn-danger btn-lg">Kosárba</button>
-    </div>
-</div>
-<div class="row">
-    <h3 class="border-top border-primary">Vélemények:</h3>
-    <div class="d-flex align-items-center flex-column">
-        <div *ngFor="let rating of ratings" class="border rounded p-3 border-primary mb-3 w-50">
-            <div class="border-bottom border-primary row pb-1">
-                <strong class="ps-2 col-1 me-auto">{{rating.user}}</strong>
-                <img src="../../assets/icon/grade_black_24dp.svg" alt="" class="col-1 img-fluid">
-                <strong class="col-4">{{rating.score}}/5</strong>
-                <strong class="col-5">{{rating.date}}</strong>
+<div class="modal" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="fw-bold" style="color: #2F75B5;">{{data.nev}}
+                    <span class="badge rounded-pill bg-success">{{totalScore}} <img src="../../assets/icon/grade_white_24dp.svg" alt="" class="img-fluid float-end"></span>
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="row px-3 fst-italic pt-1">
-                {{rating.text}}
+            <div class="modal-body">
+                <div class="row my-3 justify-content-around">
+                    <div class="col-4">
+                        <div class="row">
+                            <img [src]="'../../assets/pictures/'+data.key+'.jpg'" alt="termékkép" style="height: 500px; width: 500px;">
+                        </div>
+                    </div>
+                    <div class="col-8" style="padding-right: 50%;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Anyaga: {{data.anyag}}</li>
+                            <li class="list-group-item">Mintázat: {{data.mintazat}}</li>
+                            <li class="list-group-item">Mérete: {{data.meret}}</li>
+                            <li class="list-group-item">Színe: {{data.szin}}</li>
+                            <li class="list-group-item">Szálmagasság: {{data.szalmagassag}}</li>
+                            <li class="list-group-item">Vastagság: {{data.vastagsag}}</li>
+                            <li class="list-group-item">Stílus: {{data.stilus}}</li>
+                        </ul>
+                        <h1 class="fw-bold text-danger">{{data.uj_ar}} Ft</h1>
+                        <button (click)="addToCart(data)" type="button" class="btn btn-danger btn-lg mt-5">Kosárba</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <h3 class="border-top border-primary">Vélemények:</h3>
+                    <div class="d-flex align-items-center flex-column">
+                        <div *ngFor="let rating of ratings" class="border rounded p-3 border-primary mb-3 w-50">
+                            <div class="border-bottom border-primary row pb-1">
+                                <strong class="ps-2 col-1 me-auto">{{rating.user}}</strong>
+                                <img src="../../assets/icon/grade_black_24dp.svg" alt="" class="col-1 img-fluid">
+                                <strong class="col-4">{{rating.score}}/5</strong>
+                                <strong class="col-5">{{rating.date}}</strong>
+                            </div>
+                            <div class="row px-3 fst-italic pt-1">
+                                {{rating.text}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Rendben</button>
             </div>
         </div>
     </div>
