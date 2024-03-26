@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { BaseService } from '../services/base.service';
 import { CartService } from '../services/cart.service';
-import { ActiveFilters } from '../interfaces/active-filters';
 
 @Component({
   selector: 'app-home',
@@ -10,15 +9,7 @@ import { ActiveFilters } from '../interfaces/active-filters';
 })
 export class HomeComponent {
 
-  activeFilters: ActiveFilters = {
-    anyag: "",
-    mintazat: "",
-    meret: "",
-    szin: "",
-    szalmagassag: "",
-    vastagsag: "",
-    stilus: "",
-  };
+  activeFilters = ["", "", "", "", "", "", ""]
 
   szurok = [
     {
@@ -117,16 +108,11 @@ export class HomeComponent {
     return this.choosenProduct
   }
 
+  
+
   changeFilter(newValue: any) {
-    const filter = newValue[1] as keyof ActiveFilters;
-    const value = newValue[0];
-  
-    if (filter in this.activeFilters) {
-      this.activeFilters[filter] = value;
-    }
-  
-    console.log(filter);
-    console.log(value);
-    console.log(this.activeFilters);
+    this.activeFilters[newValue[1]] = newValue[0]
+    console.log(this.activeFilters)
+    // TODO indexálási hiba: hibás helyre mentődik el az érték
   }
 }
