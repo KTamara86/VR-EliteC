@@ -18,11 +18,11 @@
             </div>
             <div class="row justify-content-evenly">
                 <div *ngFor="let prod of showedProducts" [style]="{'display': prod.lathato == 0 || prod.db < 1 ? 'none' : 'block'}" class="card m-4 pt-4" style="width: 18rem; background-color: #DDEBF7; border-color: #2F75B5; cursor: help;">
-                    <img [src]="'../../assets/pictures/'+prod.key+'.jpg'" class="card-img-top" alt="termékkép" style="max-height: 200px;"  data-bs-toggle="modal" data-bs-target="#productModal">
+                    <img [src]="'../../assets/pictures/'+prod.key+'.jpg'" class="card-img-top" alt="termékkép" style="max-height: 200px;"  data-bs-toggle="modal" data-bs-target="#productModal" (click)="setChoosenProduct(prod)">
                     <div class="card-body" style="background-color: #2F75B5; border-bottom-left-radius: 10%; border-bottom-right-radius: 10%;"  data-bs-toggle="modal" data-bs-target="#productModal">
-                      <h3 class="card-title" style="color: #DDEBF7;">{{prod.nev}}</h3>
-                      <p class="card-header fw-bold fs-3 text-light">{{prod.uj_ar}} Ft</p>
-                      <ul class="list-group list-group-flush rounded">
+                      <h3 class="card-title" style="color: #DDEBF7;" (click)="setChoosenProduct(prod)">{{prod.nev}}</h3>
+                      <p class="card-header fw-bold fs-3 text-light" (click)="setChoosenProduct(prod)">{{prod.uj_ar}} Ft</p>
+                      <ul class="list-group list-group-flush rounded" (click)="setChoosenProduct(prod)">
                         <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;">Szín: {{prod.szin}}</li>
                         <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;">Méret: {{prod.meret}}</li>
                         <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;">Szálmagasság: {{prod.szalmagassag}}</li>
@@ -30,8 +30,7 @@
                     </div>
                     <div class="card-body row">
                       <button (click)="addToCart(prod)" type="button" class="btn" style="background-color: #2F75B5; color: white; font-weight: bold;">Kosárba</button>
-                    </div>
-                    <app-product [data]="prod"></app-product>
+                    </div> 
                 </div>
             </div>
           </div>
@@ -45,4 +44,4 @@
       </div>
       </ng-template>
 </div>
-
+<app-product [data]="this.choosenProduct"></app-product>

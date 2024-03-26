@@ -47,6 +47,7 @@ export class HomeComponent {
     showError = false
     activeCategory = 0
     showedProducts:any
+    choosenProduct:any
 
     constructor(private base:BaseService, private cartService:CartService){
       
@@ -90,5 +91,9 @@ export class HomeComponent {
       this.showedProducts=prodArray
       console.log(this.showedProducts)
       // TODO: ha visszalépünk egy productból, akkor nem tölt be semmit a komponenes, ezt ki kell javítani
+    }
+
+    setChoosenProduct(product: any){
+      this.choosenProduct = product
     }
 }
