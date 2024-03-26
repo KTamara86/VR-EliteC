@@ -55,6 +55,7 @@ export class HomeComponent {
         (res) => {
           this.products=res
           this.setShowedProducts()
+          this.setChoosenProduct(this.showedProducts[1])
         },
         (err) => this.showError = true
       )
