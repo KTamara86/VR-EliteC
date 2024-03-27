@@ -10,18 +10,17 @@
           <div class="col-10">
             <div class="row">
                 <div class="d-flex flex-row">
-                    <select *ngFor="let item of szurok" class="form-select form-select-sm" style="background-color: #a1ccf1;" [ngModel]="activeFilters" (ngModelChange)="changeFilter($event)">
-                        <option selected>{{item.name}}</option>
-                        <option *ngFor="let option of item.options; let i = index" [ngValue]="[option, i]">{{option}}</option>
+                    <select *ngFor="let item of szurok" class="form-select form-select-sm" style="background-color: #a1ccf1;" [ngModel]="filters" (ngModelChange)="changeFilter($event)" placeholder="">
+                        <option *ngFor="let option of item.options" [ngValue]="[option, item.key]">{{option}}</option>
                     </select>
                 </div>
             </div>
             <div class="row justify-content-evenly">
-                <div *ngFor="let prod of showedProducts" [style]="{'display': prod.lathato == 0 || prod.db < 1 ? 'none' : 'block'}" class="card m-4 pt-4" style="width: 18rem; background-color: #DDEBF7; border-color: #2F75B5; cursor: help;">
-                    <img [src]="'../../assets/pictures/'+prod.key+'.jpg'" class="card-img-top" alt="termékkép" style="max-height: 200px;"  data-bs-toggle="modal" data-bs-target="#productModal" (click)="setChoosenProduct(prod)">
+                <div *ngFor="let prod of showedProducts" [style]="{'display': prod.lathato == 0 || prod.db < 1 ? 'none' : 'block'}" class="card m-2 p-2" style="width: 17rem; background-color: #DDEBF7; border-color: #2F75B5; cursor: help;">
+                    <img [src]="'../../assets/pictures/'+prod.key+'.jpg'" class="card-img-top border-bottom border-black border-2" alt="termékkép" style="max-height: 200px;"  data-bs-toggle="modal" data-bs-target="#productModal" (click)="setChoosenProduct(prod)">
                     <div class="card-body" style="background-color: #2F75B5; border-bottom-left-radius: 10%; border-bottom-right-radius: 10%;"  data-bs-toggle="modal" data-bs-target="#productModal">
-                      <h3 class="card-title" style="color: #DDEBF7;" (click)="setChoosenProduct(prod)">{{prod.nev}}</h3>
-                      <p class="card-header fw-bold fs-3 text-light" (click)="setChoosenProduct(prod)">{{prod.uj_ar}} Ft</p>
+                      <h5 class="card-title" style="color: #DDEBF7;" (click)="setChoosenProduct(prod)">{{prod.nev}}</h5>
+                      <p class="card-header fw-bold fs-5 text-light" (click)="setChoosenProduct(prod)">{{prod.uj_ar}} Ft</p>
                       <ul class="list-group list-group-flush rounded">
                         <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;" (click)="setChoosenProduct(prod)">Szín: {{prod.szin}}</li>
                         <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;" (click)="setChoosenProduct(prod)">Méret: {{prod.meret}}</li>

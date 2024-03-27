@@ -10,6 +10,15 @@ import { CartService } from '../services/cart.service';
 export class HomeComponent {
 
   activeFilters = ["", "", "", "", "", "", ""]
+  filters: { [key: string]: string } = {
+    ["anyag"]: "",
+    ["mintazat"]: "",
+    ["meret"]: "",
+    ["szin"]: "",
+    ["szalmagassag"]: "",
+    ["vastagsag"]: "",
+    ["stilus"]: ""
+  };
 
   szurok = [
     {
@@ -108,11 +117,36 @@ export class HomeComponent {
     return this.choosenProduct
   }
 
-  
+  // filterProducts(){
+  //   let prodArray = []
+  //   let prods = this.products[this.categories[this.activeCategory]]
+  //   for(const key in prods){
+  //     let element = prods[key]
+  //     let result = true
+
+  //     console.log(element.szin)
+  //     if(key != "0" && element["anyag"] === this.filters["anyag"] && element["mintazat"] === this.filters["mintazat"] && element["meret"] === this.filters["meret"] &&
+  //       element["meret"] === this.filters["meret"] && element["szin"] === this.filters["szin"] && element["szalmagassag"] === this.filters["szalmagassag"] && 
+  //       element["vastagsag"] === this.filters["vastagsag"] && element["stilus"] === this.filters["stilus"]){
+  //         console.log(element["szin"])
+  //         console.log(this.filters["szin"])
+  //         prodArray.push(element)
+  //     }
+      
+  //     console.log(prodArray)
+  //   }
+  // }
 
   changeFilter(newValue: any) {
-    this.activeFilters[newValue[1]] = newValue[0]
-    console.log(this.activeFilters)
-    // TODO indexálási hiba: hibás helyre mentődik el az érték
+    // for (const filter in this.filters) {
+    //   if (filter === newValue[1]) {
+    //     this.filters[filter] = newValue[0];
+    //   }
+    //   else {
+    //     this.filters[newValue[1]] = newValue[0];
+    //   }
+    // }
+    // console.log(this.filters)
+    // this.filterProducts()
   }
 }
