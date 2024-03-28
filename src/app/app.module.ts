@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {AngularFireModule} from '@angular/fire/compat';
 
@@ -44,6 +44,7 @@ import { TermsConditionsComponent } from './terms-conditions/terms-conditions.co
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
   
