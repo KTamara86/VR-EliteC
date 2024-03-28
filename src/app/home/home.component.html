@@ -13,7 +13,7 @@
                   <button class="btn btn-primary" [ngClass]="{'disabled': activeFilters[0] == '' && activeFilters[1] == '' && activeFilters[2] == '' &&
                       activeFilters[3] == '' && activeFilters[4] == '' && activeFilters[5] == '' && activeFilters[6] == ''}" (click)="clearFilters()">X</button>
                   <select *ngFor="let item of szurok; let i = index" class="form-select form-select-sm" style="background-color: #a1ccf1;" [ngModel]="activeFilters" (ngModelChange)="changeFilter($event)">
-                    <option [selected]="activeFilters[i] == ''"></option>  
+                    <option disabled [selected]="activeFilters[i] == ''"></option>  
                     <option *ngFor="let option of item.options" [ngValue]="[i, option]">{{option}}</option>
                   </select>
                 </div>
