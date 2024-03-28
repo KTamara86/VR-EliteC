@@ -146,4 +146,11 @@ export class HomeComponent {
     this.activeFilters[filterIndex] = filterValue
     this.filterProducts()
   }
+
+  clearFilters(){
+    for (let i = 0; i < this.activeFilters.length; i++) {
+      this.activeFilters[i] = ""
+    }
+    this.setShowedProducts()
+  }
 }
