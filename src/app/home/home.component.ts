@@ -10,15 +10,6 @@ import { CartService } from '../services/cart.service';
 export class HomeComponent {
 
   activeFilters = ["", "", "", "", "", "", ""]
-  filters: { [key: string]: string } = {
-    ["anyag"]: "",
-    ["mintazat"]: "",
-    ["meret"]: "",
-    ["szin"]: "",
-    ["szalmagassag"]: "",
-    ["vastagsag"]: "",
-    ["stilus"]: ""
-  };
 
   szurok = [
     {
@@ -106,7 +97,6 @@ export class HomeComponent {
       }
     }
     this.showedProducts=prodArray
-    console.log(this.showedProducts)
   }
 
   setChoosenProduct(product: any){
@@ -117,36 +107,43 @@ export class HomeComponent {
     return this.choosenProduct
   }
 
-  // filterProducts(){
-  //   let prodArray = []
-  //   let prods = this.products[this.categories[this.activeCategory]]
-  //   for(const key in prods){
-  //     let element = prods[key]
-  //     let result = true
+  filterProducts(){
+    let prodArray = []
+    let prods = this.products[this.categories[this.activeCategory]]
+    for(const key in prods){
+      let element = prods[key]
 
-  //     console.log(element.szin)
-  //     if(key != "0" && element["anyag"] === this.filters["anyag"] && element["mintazat"] === this.filters["mintazat"] && element["meret"] === this.filters["meret"] &&
-  //       element["meret"] === this.filters["meret"] && element["szin"] === this.filters["szin"] && element["szalmagassag"] === this.filters["szalmagassag"] && 
-  //       element["vastagsag"] === this.filters["vastagsag"] && element["stilus"] === this.filters["stilus"]){
-  //         console.log(element["szin"])
-  //         console.log(this.filters["szin"])
-  //         prodArray.push(element)
-  //     }
-      
-  //     console.log(prodArray)
-  //   }
-  // }
+      if(key != "0"){
+        let props = [ element.anyag, element.mintazat, element.meret, element.szin, element.vastagsag, element.szalmagassag, element.stilus ]
+        let success = false
+        for (let i = 0; i < props.length; i++) {
+          let prop = props[i];
+          let filterValue = this.activeFilters[i]
+          if(filterValue && prop){
+            if(filterValue !== prop){
+              success = false
+              break
+            }
+            else {
+              success = true
+            }
+          }
+        }
+        if(success){
+          prodArray.push(element)
+        }
+      }
+    }
+    this.showedProducts=prodArray
+    console.log(this.activeFilters)
+    console.log(this.showedProducts)
+  }
 
   changeFilter(newValue: any) {
-    // for (const filter in this.filters) {
-    //   if (filter === newValue[1]) {
-    //     this.filters[filter] = newValue[0];
-    //   }
-    //   else {
-    //     this.filters[newValue[1]] = newValue[0];
-    //   }
-    // }
-    // console.log(this.filters)
-    // this.filterProducts()
+    let filterIndex = newValue[0]
+    let filterValue = newValue[1]
+    
+    this.activeFilters[filterIndex] = filterValue
+    this.filterProducts()
   }
 }
