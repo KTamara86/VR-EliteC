@@ -22,6 +22,7 @@ import { environment } from 'src/enviroments/enviroment';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TermsConditionsComponent } from './terms-conditions/terms-conditions.co
     PacketPointInfoComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    TermsConditionsComponent
+    TermsConditionsComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

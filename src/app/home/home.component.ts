@@ -10,6 +10,7 @@ import { CartService } from '../services/cart.service';
 export class HomeComponent {
 
   activeFilters = ["", "", "", "", "", "", ""]
+  expression = ""
 
   szurok = [
     {
