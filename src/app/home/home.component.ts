@@ -87,7 +87,7 @@ export class HomeComponent {
   changeActiveCategory(i:number){
     this.activeCategory=i
     this.clearFilters()
-    this.expression = ""
+    this.searchService.clearTerm()
     this.setShowedProducts()
   }
 

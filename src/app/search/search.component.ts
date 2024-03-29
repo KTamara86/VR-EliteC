@@ -9,8 +9,19 @@ import { SearchService } from '../services/search.service';
 export class SearchComponent {
 
   expression = ""
+  clearing = false
 
-  constructor(private search:SearchService) { }
+  constructor(private search:SearchService) {
+    this.search.getClear().subscribe(
+      (res) => {
+        this.clearing = res
+        if(this.clearing){
+          this.expression = ""
+          this.onKeyUp(this.expression)
+        }
+      }
+    )
+   }
 
   ngOnInit() {
   }
