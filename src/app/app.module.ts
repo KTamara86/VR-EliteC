@@ -23,6 +23,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 import { SearchPipe } from './search.pipe';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SearchPipe } from './search.pipe';
     ForgotPasswordComponent,
     VerifyEmailComponent,
     TermsConditionsComponent,
-    SearchPipe
+    SearchPipe,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

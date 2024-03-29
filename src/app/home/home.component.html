@@ -1,7 +1,7 @@
 <div class="row" style="background-color: #DDEBF7;">
     <ng-container *ngIf="!showError; else error">
       <div class="row">
-        <input [(ngModel)]="expression" class="form-control me-2 border-primary" type="search" placeholder="Termékkereső" aria-label="Search">
+        <app-search></app-search>
       </div>
         <div class="row">
           <div class="col-2 text-center border-end border-primary">

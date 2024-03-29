@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BaseService } from '../services/base.service';
 import { CartService } from '../services/cart.service';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'app-home',
@@ -59,7 +60,7 @@ export class HomeComponent {
   showedProducts:any
   choosenProduct:any
 
-  constructor(private base:BaseService, private cartService:CartService){
+  constructor(private base:BaseService, private cartService:CartService, private searchService: SearchService){
     
     this.base.getProducts().subscribe(
       (res) => {
@@ -68,6 +69,9 @@ export class HomeComponent {
         this.setChoosenProduct(this.showedProducts[1])
       },
       (err) => this.showError = true
+    )
+    this.searchService.getSearchTerm().subscribe(
+      (res) => this.expression = res
     )
   }
 
