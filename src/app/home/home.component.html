@@ -1,51 +1,48 @@
 <div class="row" style="background-color: #DDEBF7;">
-    <ng-container *ngIf="!showError; else error">
-      <div class="row">
-        <app-search></app-search>
+  <ng-container *ngIf="!showError; else error">
+    <div class="row">
+      <div class="col-2 text-center border-end border-primary">
+        <ul class="list-group">
+          <li *ngFor="let cat of categories; let i=index" class="list-group-item list-group-item-primary list-group-item-action"
+            [ngClass]="i==activeCategory? 'active': ''"  (click)="changeActiveCategory(i)">{{cat}}</li>
+        </ul>
       </div>
+      <div class="col-10">
         <div class="row">
-          <div class="col-2 text-center border-end border-primary">
-            <ul class="list-group">
-              <li *ngFor="let cat of categories; let i=index" class="list-group-item list-group-item-primary list-group-item-action"
-                [ngClass]="i==activeCategory? 'active': ''"  (click)="changeActiveCategory(i)">{{cat}}</li>
-            </ul>
-          </div>
-          <div class="col-10">
-            <div class="row">
-                <div class="d-flex flex-row">
-                  <button class="btn btn-m btn-primary me-3 fw-bold" [ngClass]="{'disabled': activeFilters[0] == '' && activeFilters[1] == '' && activeFilters[2] == '' &&
-                      activeFilters[3] == '' && activeFilters[4] == '' && activeFilters[5] == '' && activeFilters[6] == ''}" (click)="clearFilters()">X</button>
-                  <select *ngFor="let item of szurok; let i = index" class="form-select form-select-sm" style="background-color: #a1ccf1;"
-                    [ngModel]="activeFilters" (ngModelChange)="changeFilter($event)">
-                    <option disabled [selected]="activeFilters[i] == ''">{{item.name}}</option>  
-                    <option *ngFor="let option of item.options" [ngValue]="[i, option]">{{option}}</option>
-                  </select>
-                </div>
+            <div class="d-flex flex-row">
+              <button class="btn btn-m btn-primary me-3 fw-bold" [ngClass]="{'disabled': activeFilters[0] == '' && activeFilters[1] == '' && activeFilters[2] == '' &&
+                  activeFilters[3] == '' && activeFilters[4] == '' && activeFilters[5] == '' && activeFilters[6] == ''}" (click)="clearFilters()">X</button>
+              <select *ngFor="let item of szurok; let i = index" class="form-select form-select-sm" style="background-color: #a1ccf1;"
+                [ngModel]="activeFilters" (ngModelChange)="changeFilter($event)">
+                <option disabled [selected]="activeFilters[i] == ''">{{item.name}}</option>  
+                <option *ngFor="let option of item.options" [ngValue]="[i, option]">{{option}}</option>
+              </select>
             </div>
-            <div class="row justify-content-evenly">
-                <div *ngFor="let prod of showedProducts|search:expression" [style]="{'display': prod.lathato == 0 || prod.db < 1 ? 'none' : 'block'}" class="card m-2 p-2" style="width: 17rem; background-color: #DDEBF7; border-color: #2F75B5; cursor: help;">
-                    <img [src]="'../../assets/pictures/'+prod.key+'.jpg'" class="card-img-top border-bottom border-black border-2" alt="termékkép" style="max-height: 200px;"  data-bs-toggle="modal" data-bs-target="#productModal" (click)="setChoosenProduct(prod)">
-                    <div class="card-body" style="background-color: #2F75B5; border-bottom-left-radius: 10%; border-bottom-right-radius: 10%;"  data-bs-toggle="modal" data-bs-target="#productModal">
-                      <h5 class="card-title" style="color: #DDEBF7;" (click)="setChoosenProduct(prod)">{{prod.nev}}</h5>
-                      <p class="card-header fw-bold fs-5 text-light" (click)="setChoosenProduct(prod)">{{prod.uj_ar}} Ft</p>
-                      <ul class="list-group list-group-flush rounded">
-                        <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;" (click)="setChoosenProduct(prod)">Szín: {{prod.szin}}</li>
-                        <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;" (click)="setChoosenProduct(prod)">Méret: {{prod.meret}}</li>
-                        <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;" (click)="setChoosenProduct(prod)">Szálmagasság: {{prod.szalmagassag}}</li>
-                      </ul>
-                    </div>
-                    <div class="card-body row">
-                      <button (click)="addToCart(prod)" type="button" class="btn" style="background-color: #2F75B5; color: white; font-weight: bold;">Kosárba</button>
-                    </div> 
-                </div>
-            </div>
-          </div>
         </div>
-      </ng-container>
-      <ng-template #error>
-        <div class="alert alert-danger" role="alert">
-          Az adatbázisunk jelenleg nem elérhető. Látogasson vissza később!
+        <div class="row justify-content-evenly">
+            <div *ngFor="let prod of showedProducts|search:expression" [style]="{'display': prod.lathato == 0 || prod.db < 1 ? 'none' : 'block'}" class="card m-2 p-2" style="width: 17rem; background-color: #DDEBF7; border-color: #2F75B5; cursor: help;">
+                <img [src]="'../../assets/pictures/'+prod.key+'.jpg'" class="card-img-top border-bottom border-black border-2" alt="termékkép" style="max-height: 200px;"  data-bs-toggle="modal" data-bs-target="#productModal" (click)="setChoosenProduct(prod)">
+                <div class="card-body" style="background-color: #2F75B5; border-bottom-left-radius: 10%; border-bottom-right-radius: 10%;"  data-bs-toggle="modal" data-bs-target="#productModal">
+                  <h5 class="card-title" style="color: #DDEBF7;" (click)="setChoosenProduct(prod)">{{prod.nev}}</h5>
+                  <p class="card-header fw-bold fs-5 text-light" (click)="setChoosenProduct(prod)">{{prod.uj_ar}} Ft</p>
+                  <ul class="list-group list-group-flush rounded">
+                    <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;" (click)="setChoosenProduct(prod)">Szín: {{prod.szin}}</li>
+                    <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;" (click)="setChoosenProduct(prod)">Méret: {{prod.meret}}</li>
+                    <li class="list-group-item" style="background-color: #DDEBF7; color: #2F75B5; font-weight: 600; font-style: italic;" (click)="setChoosenProduct(prod)">Szálmagasság: {{prod.szalmagassag}}</li>
+                  </ul>
+                </div>
+                <div class="card-body row">
+                  <button (click)="addToCart(prod)" type="button" class="btn" style="background-color: #2F75B5; color: white; font-weight: bold;">Kosárba</button>
+                </div> 
+            </div>
+        </div>
       </div>
-      </ng-template>
+    </div>
+  </ng-container>
+  <ng-template #error>
+    <div class="alert alert-danger" role="alert">
+      Az adatbázisunk jelenleg nem elérhető. Látogasson vissza később!
+    </div>
+  </ng-template>
 </div>
 <app-product [data]="getChossenProduct()"></app-product>

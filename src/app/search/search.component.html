@@ -1,1 +1,5 @@
-<input [(ngModel)]="expression" class="form-control me-2 border-primary" type="search" placeholder="Termékkereső" aria-label="Search" (keyup)="onKeyUp(expression)">
+<div class="input-group input-group-sm m-5">
+    <span class="input-group-text border-primary" id="inputGroup-sizing-sm"><img src="../../assets/icon/search_FILL0_wght400_GRAD0_opsz24.svg" alt="keres"></span>
+    <input [(ngModel)]="expression" class="form-control me-2 border-primary" type="search" placeholder="Termékkereső" aria-label="Search" 
+        (keyup)="onKeyUp(expression)" aria-describedby="inputGroup-sizing-sm">
+  </div>
