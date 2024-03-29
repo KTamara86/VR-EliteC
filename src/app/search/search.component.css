@@ -1,0 +1,18 @@
+@keyframes search-icon-animation {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  #inputGroup-sizing-sm {
+    width: 40px;
+    height: 35px;
+    opacity: 0;
+    transition: opacity 5s ease-in-out, transform 5s ease-in-out;
+    animation: search-icon-animation 3s forwards; 
+  }

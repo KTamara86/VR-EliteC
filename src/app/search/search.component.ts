@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { SearchService } from '../services/search.service';
 
 @Component({
@@ -10,6 +10,7 @@ export class SearchComponent {
 
   expression = ""
   clearing = false
+  showIcon = false;
 
   constructor(private search:SearchService) {
     this.search.getClear().subscribe(
@@ -24,6 +25,16 @@ export class SearchComponent {
    }
 
   ngOnInit() {
+  }
+
+  @HostListener('mouseover')
+  onMouseOver() {
+    this.showIcon = true;
+  }
+
+  @HostListener('mouseout')
+  onMouseOut() {
+    this.showIcon = false;
   }
 
   onKeyUp(value:string) {
