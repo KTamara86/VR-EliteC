@@ -1,60 +1,83 @@
 <div class="container-fluid">
-    <div class="row mt-5">
-        <div class="col"></div>
-        <div class="col-7">
-            <div class="card shadow">
-                <div class="card-body">
-                    <form>
-                        <div class="text-center mb-5">
-                            <div class="h2 fw-bold" style="color:#2F75B5">Regisztráció</div>
-                        </div>
+  <div class="row mt-4">
+      <div class="col"></div>
+      <div class="col-6">
+          <div class="card shadow">
+              <div class="card-body">
+                  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                      <div class="text-center mb-5">
+                          <div class="h2 fw-bold" style="color:#2F75B5">Regisztráció</div>
+                      </div>
 
-                        <div class="row mb-3">
-                            <div class="col">
-                              <label for="vzeteknev" class="form-label">Vezeteknév</label>
-                              <input type="text" class="form-control" style="background-color:#DDEBF7" name="First name">
-                            </div>
-                            <div class="col">
-                              <label for="keresztnev" class="form-label">Keresztnév</label>
-                              <input type="text" class="form-control" style="background-color:#DDEBF7" name="Last name">
-                            </div>
-                        </div>
-
-                        <div class="mb-3 ">
-                            <label for="mobil" class="form-label">Telefonszám</label>
-                            <input type="number" class="form-control" style="background-color:#DDEBF7" name="mobil">
-                        </div>
-
-                        <div class="mb-3">
-                          <label for="exampleInputEmail" class="form-label">E-mail cím</label>
-                          <input type="email" class="form-control" style="background-color:#DDEBF7" name="email" [(ngModel)]="email">
-                        </div>
-
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Jelszó</label>
-                          <input type="password" class="form-control" style="background-color:#DDEBF7" name="password" [(ngModel)]="password">
-                        </div>
-
-                        <div class="text-center p-4">
-                        <button type="button" class="btn btn-info btn-lg btn-block" style="color: white" (click)="register()">Regisztráció</button>
-                        </div>
-
-                        <div class="col-12 p-2">
-                            <div class="form-check small">
-                                <label class="form-check-label" for="gridCheck">Elfogadom a felhasználási feltételeket, és hozzájárulok ahhoz, hogy az adataimat a cég adatvédelmi szabályzata szerint gyűjtsék és kezeljék.</label>
-                                <input type="checkbox" value="" class="form-check-input" checked>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                          <div class="text-center small p-3" style="color: grey"> Már van fiókja?
-                              <a style="color:  #2F75B5" routerLink="/userlogin">Belépés</a>
+                      <!-- <div class="row mb-3">
+                          <div class="col">
+                            <label for="vzeteknev" class="form-label">Vezeteknév</label>
+                            <input type="text" class="form-control" style="background-color:#DDEBF7" name="First name">
                           </div>
+                          <div class="col">
+                            <label for="keresztnev" class="form-label">Keresztnév</label>
+                            <input type="text" class="form-control" style="background-color:#DDEBF7" name="Last name">
+                          </div>
+                      </div>
+
+                      <div class="mb-3 ">
+                          <label for="mobil" class="form-label">Telefonszám</label>
+                          <input type="text" class="form-control" style="background-color:#DDEBF7" name="mobil">
+                      </div> -->
+
+                      <div class="form-outline mb-3 ">
+                          <label class="form-label">E-mail cím</label>
+                          <input type="email" formControlName="email" class="form-control" style="background-color: #DDEBF7" placeholder="nev@pelda.com"
+                              [ngClass]="{ 'is-invalid': submitted && forms['email'].errors }" #userName required />
+                          <div *ngIf="submitted && forms['email'].errors" class="invalid-feedback">
+                              <div *ngIf="forms['email'].errors['required']">E-mail cím megadása kötelező</div>
+                              <div *ngIf="forms['email'].errors['email']">Az e-mail cím formája nem megfelelő</div>
+                          </div>
+                      </div>
+
+                      <div class="form-outline mb-3">
+                          <label class="form-label">Jelszó</label>
+                          <input type="password" id="floatingPassword" formControlName="password" class="form-control" style="background-color: #DDEBF7" placeholder="******" 
+                              [ngClass]="{ 'is-invalid': submitted && forms['password'].errors }" #userPassword required />
+                          <div *ngIf="submitted && forms['password'].errors" class="invalid-feedback">
+                              <div *ngIf="forms['password'].errors['required']">Jelszó megadása kötelező</div>
+                              <div *ngIf="forms['password'].errors['minlength']">A jelszónak minimum 6 karakternek kell lennie</div>
+                              <div *ngIf="forms['password'].errors['maxlength']">A jelszó maximum 20 karakter lehet</div>
+                          </div>
+                      </div>
+
+                      <div class="form-outline mb-3">
+                          <label class="form-label">Jelszó újra</label>
+                          <input type="password" formControlName="confirmPassword" class="form-control" style="background-color: #DDEBF7" placeholder="******"
+                              [ngClass]="{ 'is-invalid': submitted && forms['confirmPassword'].errors }" #userPassword required />
+                          <div *ngIf="submitted && forms['confirmPassword'].errors" class="invalid-feedback">
+                              <div *ngIf="forms['confirmPassword'].errors['required']">A jelszó megerősítése szükséges</div>
+                              <div *ngIf="forms['confirmPassword'].errors['matching']">A megadott jelszavak nem egyeznek</div>
+                          </div>
+                      </div>
+
+                      <div class="form-group form-check checkbox mb-3 mt-3">
+                          <input type="checkbox" formControlName="acceptTerms" class="form-check-input"
+                              [ngClass]="{ 'is-invalid': submitted && forms['acceptTerms'].errors }" />
+                          <label for="acceptTerms" class="form-check-label small">Elfogadom a felhasználási feltételeket és hozzájárulok ahhoz, hogy az adataimat a cég adatvédelmi szabályzata szerint gyűjtsék és kezeljék.</label>
+                          <div *ngIf="submitted && forms['acceptTerms'].errors" class="invalid-feedback">A felhasználási feltételek elfogadása kötelező</div>
+                      </div>
+
+                      <div class="text-center p-4">
+                          <button class="btn btn-info btn-lg btn-block" style="color: white" type="submit" value="Log in"
+                              (click)="authService.register(userName.value, userPassword.value)"><i class="bi bi-person-fill-up"></i>Regisztráció
+                          </button>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="text-center small p-3" style="color: grey"> Már van Felhasználói fiókja?
+                            <a style="color:  #2F75B5" routerLink="/login">Belépés</a>
                         </div>
-                      </form>
-                </div>
-            </div>
-        </div>
-        <div class="col"></div>
-    </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+      <div class="col"></div>
   </div>
+</div>
