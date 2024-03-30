@@ -24,6 +24,7 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { SearchComponent } from './search/search.component';
+import { CategoryPipe } from './pipes/category.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SearchComponent } from './search/search.component';
     VerifyEmailComponent,
     TermsConditionsComponent,
     SearchPipe,
-    SearchComponent
+    SearchComponent,
+    CategoryPipe
   ],
   imports: [
     BrowserModule,

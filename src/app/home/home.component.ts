@@ -88,7 +88,6 @@ export class HomeComponent {
     this.activeCategory=i
     this.clearFilters()
     this.searchService.clearTerm()
-    this.setShowedProducts()
   }
 
   setShowedProducts(){
