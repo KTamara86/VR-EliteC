@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="row justify-content-evenly">
-            <div *ngFor="let prod of showedProducts|search:expression" [style]="{'display': prod.lathato == 0 || prod.db < 1 ? 'none' : 'block'}" class="card m-2 p-2" style="width: 17rem; background-color: #DDEBF7; border-color: #2F75B5; cursor: help;">
+            <div *ngFor="let prod of showedProducts|search:expression, category:activeCategory" [style]="{'display': prod.lathato == 0 || prod.db < 1 ? 'none' : 'block'}" class="card m-2 p-2" style="width: 17rem; background-color: #DDEBF7; border-color: #2F75B5; cursor: help;">
                 <img [src]="'../../assets/pictures/'+prod.key+'.jpg'" class="card-img-top border-bottom border-black border-2" alt="termékkép" style="max-height: 200px;"  data-bs-toggle="modal" data-bs-target="#productModal" (click)="setChoosenProduct(prod)">
                 <div class="card-body" style="background-color: #2F75B5; border-bottom-left-radius: 10%; border-bottom-right-radius: 10%;"  data-bs-toggle="modal" data-bs-target="#productModal">
                   <h5 class="card-title" style="color: #DDEBF7;" (click)="setChoosenProduct(prod)">{{prod.nev}}</h5>
