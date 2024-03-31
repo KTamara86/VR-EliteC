@@ -23,21 +23,34 @@ export class CartService {
   }
 
   addProduct(body:any){
-    let i = this.cart.findIndex(
-      (sor:any) => sor.key == body.key
-    )
-    
-    if(i<0){
-      this.cart.push(body)
+    if(body.prodQty != 0){
+      let i = this.cart.findIndex(
+        (sor:any) => sor.key == body.key
+      )
+      
+      if(i<0){
+        this.cart.push(body)
+        this.qty = this.setQty()
+        this.total = this.setTotal()
+        this.callSubs()
+        return true
+      }
+      else {
+        if((this.cart[i].qty + body.qty) <= body.prodQty ){
+          this.cart[i].qty = this.cart[i].qty + body.qty
+          this.qty = this.setQty()
+          this.total = this.setTotal()
+          this.callSubs()
+          return true
+        }
+        else{
+          return false
+        }
+      }
     }
-    else {
-      this.cart[i].qty = this.cart[i].qty + body.qty
+    else{
+      return false
     }
-
-    this.qty = this.setQty()
-    this.total = this.setTotal()
-
-    this.callSubs()
   }
 
 

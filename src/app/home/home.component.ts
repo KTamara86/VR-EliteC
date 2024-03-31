@@ -82,7 +82,8 @@ export class HomeComponent {
     body.price = product.uj_ar
     body.qty = 1
     body.name = product.nev
-    this.cartService.addProduct(body)
+    body.prodQty = product.db
+    this.showResultToastMsg(this.cartService.addProduct(body), body)
   }
 
   changeActiveCategory(i:number){
@@ -161,9 +162,9 @@ export class HomeComponent {
     this.setShowedProducts()
   }
   
-  showResultToastMsg(result:boolean){
+  showResultToastMsg(result:boolean, body:any){
     if(result){
-      this.toastr.info("A termék bekerült a kosaradba", "SIKER", {
+      this.toastr.info(body.name + " termék bekerült a kosaradba", "SIKER", {
         closeButton: true,
         timeOut: 2000,
         progressBar: true,
@@ -173,7 +174,7 @@ export class HomeComponent {
       })
     }
     else{
-      this.toastr.warning("Sajnos a termék elfogyott, nézz vissza később", "HIBA", {
+      this.toastr.warning("Sajnos a " + body.name +  " termék elfogyott, nézz vissza később", "HIBA", {
         closeButton: true,
         timeOut: 2000,
         progressBar: true,
