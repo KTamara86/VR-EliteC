@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BaseService } from '../services/base.service';
 import { CartService } from '../services/cart.service';
 import { SearchService } from '../services/search.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -60,7 +61,7 @@ export class HomeComponent {
   showedProducts:any
   choosenProduct:any
 
-  constructor(private base:BaseService, private cartService:CartService, private searchService: SearchService){
+  constructor(private base:BaseService, private cartService:CartService, private searchService: SearchService, private toastr:ToastrService){
     
     this.base.getProducts().subscribe(
       (res) => {
@@ -158,5 +159,29 @@ export class HomeComponent {
       this.activeFilters[i] = ""
     }
     this.setShowedProducts()
+  }
+  
+  showResultToastMsg(result:boolean){
+    if(result){
+      this.toastr.info("A termék bekerült a kosaradba", "SIKER", {
+        closeButton: true,
+        timeOut: 2000,
+        progressBar: true,
+        progressAnimation: "decreasing",
+        positionClass: "toast-top-right",
+        newestOnTop: true
+      })
+    }
+    else{
+      this.toastr.warning("Sajnos a termék elfogyott, nézz vissza később", "HIBA", {
+        closeButton: true,
+        timeOut: 2000,
+        progressBar: true,
+        progressAnimation: "decreasing",
+        positionClass: "toast-top-right",
+        newestOnTop: true
+      })
+    }
+    
   }
 }
