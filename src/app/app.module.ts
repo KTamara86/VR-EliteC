@@ -53,7 +53,11 @@ import { CategoryPipe } from './pipes/category.pipe';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot(
+      {
+        maxOpened: 5
+      }
+    ),
     AngularFireModule.initializeApp(environment.firebase)
   ],
   
