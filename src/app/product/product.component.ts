@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CartService } from '../services/cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product',
@@ -41,7 +42,7 @@ export class ProductComponent {
   categories= ["üres", "Padlószőnyeg", "Szőnyeg", "Futószőnyeg", "Lábtörlő"]
 
 
-  constructor(private cartService:CartService) {
+  constructor(private cartService:CartService, private toastr:ToastrService) {
     this.totalScore=this.sumScores()
   }
 
@@ -63,6 +64,31 @@ export class ProductComponent {
     body.qty = 1
     body.name = product.nev
 
-    this.cartService.addProduct(body)
+    body.prodQty = product.db
+    this.showResultToastMsg(this.cartService.addProduct(body), body)
+  }
+
+  showResultToastMsg(result:boolean, body:any){
+    if(result){
+      this.toastr.info(body.name + " termék bekerült a kosaradba", "SIKER", {
+        closeButton: true,
+        timeOut: 2000,
+        progressBar: true,
+        progressAnimation: "decreasing",
+        positionClass: "toast-top-right",
+        newestOnTop: true
+      })
+    }
+    else{
+      this.toastr.warning("Sajnos a " + body.name +  " termék elfogyott, nézz vissza később", "HIBA", {
+        closeButton: true,
+        timeOut: 2000,
+        progressBar: true,
+        progressAnimation: "decreasing",
+        positionClass: "toast-top-right",
+        newestOnTop: true
+      })
+    }
+    
   }
 }
