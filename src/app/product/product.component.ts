@@ -43,10 +43,12 @@ export class ProductComponent {
 
 
   constructor(private cartService:CartService, private toastr:ToastrService) {
+    // TODO: kell majd egy service, ami a ratingeket kezeli
     this.totalScore=this.sumScores()
   }
 
   sumScores(){
+      // TODO: ezt majd át kell írni teljesen
     let score = 0.0;
     let qty = 0;
 
