@@ -45,8 +45,7 @@
                                 <span class="input-group-text">Mit gondol a termékről?</span>
                                 <textarea class="form-control" aria-label="With textarea" placeholder="Véleménye fontos a számunkra, ossza meg velünk!" [(ngModel)]="rating.text"></textarea>
                             </div>
-                            <button class="btn btn-sm btn-outline-primary mt-3" (click)="postRating(rating.score, rating.text)">Beküldés</button>
-                            <!-- TODO: a gomb legyen inaktív, ha nincs kitöltve a rating és a comment mező -->
+                            <button class="btn btn-sm btn-outline-primary mt-3" (click)="postRating(rating.score, rating.text)" [disabled]="rating.text==''">Beküldés</button>
                         </div>
                     </div>
                     <div class="d-flex align-items-center flex-column">
