@@ -48,7 +48,7 @@
                                 <textarea class="form-control" aria-label="With textarea" placeholder="Véleménye fontos a számunkra, ossza meg velünk!"></textarea>
                                 <!--TODO: el kell tárolni az értéket -->
                             </div>
-                            <button class="btn btn-sm btn-outline-primary mt-3" >Beküldés</button>
+                            <button class="btn btn-sm btn-outline-primary mt-3" (click)="postRating(1, 'SZAR')">Beküldés</button>
                             <!-- TODO: a gomb legyen inaktív, ha nincs kitöltve a rating és a comment mező -->
                             <!-- TODO: (click)="postRating(score, text)" -->
                         </div>

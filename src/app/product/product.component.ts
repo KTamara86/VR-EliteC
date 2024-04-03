@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { ToastrService } from 'ngx-toastr';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-product',
@@ -98,10 +99,18 @@ export class ProductComponent {
     }
   }
 
-  // postRating(score:number, text:string){
-  //   let body:any
-  //   body.key = this.user.id
-  //   body.product = this.data.key
-  //   console.log(this.data.key)
-  // }
+  postRating(score:number, text:string){
+    let body = {
+      key: this.user.id,
+      product: this.data.key,
+      rating:  score,
+      text: text,
+      time: format(new Date(), 'yyyy-MM-dd HH:mm:ss')
+    }
+
+
+
+    // TODO: ratingService
+
+  }
 }
