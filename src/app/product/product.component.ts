@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { format } from 'date-fns';
+import { RatingService } from '../services/rating.service';
 
 @Component({
   selector: 'app-product',
@@ -48,7 +49,7 @@ export class ProductComponent {
   categories= ["üres", "Padlószőnyeg", "Szőnyeg", "Futószőnyeg", "Lábtörlő"]
 
 
-  constructor(private cartService:CartService, private toastr:ToastrService) {
+  constructor(private cartService:CartService, private toastr:ToastrService, private ratingService:RatingService) {
     // TODO: kell majd egy service, ami a ratingeket kezeli
     this.totalScore=this.sumScores()
   }
@@ -101,16 +102,12 @@ export class ProductComponent {
 
   postRating(score:number, text:string){
     let body = {
-      key: this.user.id,
+      user: this.user.id,
       product: this.data.key,
       rating:  score,
       text: text,
       time: format(new Date(), 'yyyy-MM-dd HH:mm:ss')
     }
-
-
-
-    // TODO: ratingService
-
+    this.ratingService.postRating(body)
   }
 }

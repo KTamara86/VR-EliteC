@@ -22,9 +22,7 @@ export class RatingService {
         'Content-Type': 'application/json'
       })
     }
-    this.http.post(this.url, body, options).subscribe(
-      (res) => console.log(res)
-    );
+    this.http.post(this.url, body, options).subscribe()
   }
 
   getRatings(){
