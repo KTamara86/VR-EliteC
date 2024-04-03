@@ -14,7 +14,7 @@ export class ProductComponent {
 
   product: any
 
-  user = {
+  user = { // TODO: userünket is át kell majd írni
     name: "Felix (itt lesz a nev)",
     id: 15
   }
@@ -45,12 +45,13 @@ export class ProductComponent {
       date: "2024-01-25"
     }
   ];
+  rating = { score:3, text: "" }
   totalScore:number;
   categories= ["üres", "Padlószőnyeg", "Szőnyeg", "Futószőnyeg", "Lábtörlő"]
 
 
   constructor(private cartService:CartService, private toastr:ToastrService, private ratingService:RatingService) {
-    // TODO: kell majd egy service, ami a ratingeket kezeli
+    // TODO: ratingservicetől kérjük el a raingeket
     this.totalScore=this.sumScores()
   }
 
@@ -104,8 +105,8 @@ export class ProductComponent {
     let body = {
       user: this.user.id,
       product: this.data.key,
-      rating:  score,
-      text: text,
+      rating:  this.rating.score,
+      text: this.rating.text,
       time: format(new Date(), 'yyyy-MM-dd HH:mm:ss')
     }
     this.ratingService.postRating(body)
