@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class RatingService {
 
-  url = "https://elitecarpets-2fa53-default-rtdb.europe-west1.firebasedatabase.app/velemenyek"
+  url = "https://elitecarpets-2fa53-default-rtdb.europe-west1.firebasedatabase.app/velemenyek.json"
   ratingsSub = new Subject()
   
 
@@ -22,7 +22,7 @@ export class RatingService {
         'Content-Type': 'application/json'
       })
     }
-    this.http.post('https://elitecarpets-2fa53-default-rtdb.europe-west1.firebasedatabase.app/velemenyek.json', body, options).subscribe(
+    this.http.post(this.url, body, options).subscribe(
       (res) => console.log(res)
     );
   }
@@ -32,7 +32,7 @@ export class RatingService {
   }
 
   private loadRatings(){
-    this.http.get(this.url + ".json").subscribe(
+    this.http.get(this.url).subscribe(
       (res) => this.ratingsSub.next(res)
     )
   }
