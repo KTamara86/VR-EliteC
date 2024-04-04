@@ -2,6 +2,9 @@
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
             <div class="modal-header">
+                <h1 class="fw-bold" style="color: #2F75B5;">{{data?.nev}}
+                    <span class="badge rounded-pill bg-success">{{sumScores().toFixed(2)}} <img src="../../assets/icon/grade_white_24dp.svg" alt="" class="img-fluid float-end"></span>
+                </h1>
                 <div class="col-2"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Vissza a termékekhez</button></div>
             </div>
             <div class="modal-body">
@@ -13,9 +16,6 @@
                         </div>
                     </div>
                     <div class="col-8" style="padding-right: 50%;">
-                        <h1 class="fw-bold" style="color: #2F75B5;">{{data.nev}}
-                            <span class="badge rounded-pill bg-success">{{sumScores().toFixed(2)}} <img src="../../assets/icon/grade_white_24dp.svg" alt="" class="img-fluid float-end"></span>
-                        </h1>
                         <ul class="list-group list-group-flush">
                             <li [hidden]="!data.anyag" class="list-group-item">Anyaga: {{data.anyag}}</li>
                             <li [hidden]="!data.mintazat" class="list-group-item">Mintázat: {{data.mintazat}}</li>
