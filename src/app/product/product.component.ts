@@ -12,8 +12,6 @@ import { RatingService } from '../services/rating.service';
 export class ProductComponent {
   @Input() data:any;
 
-  product: any
-
   user = { // TODO: userünket is át kell majd írni
     name: "Felix (itt lesz a nev)",
     id: 15
@@ -21,7 +19,6 @@ export class ProductComponent {
 
   ratingsArray:any
   rating = { score:3, text: "" }
-
 
   constructor(private cartService:CartService, private toastr:ToastrService, private ratingService:RatingService) {
     ratingService.getRatings().subscribe(
