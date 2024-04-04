@@ -59,7 +59,7 @@ export class HomeComponent {
   showError = false
   activeCategory = 0
   showedProducts:any
-  choosenProduct:any
+  choosenProduct:any = {key: 1 }
 
   constructor(private base:BaseService, private cartService:CartService, private searchService: SearchService, private toastr:ToastrService){
     
