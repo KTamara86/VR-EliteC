@@ -21,7 +21,6 @@ export class ProductComponent {
 
   ratingsArray:any
   rating = { score:3, text: "" }
-  totalScore?:number
 
 
   constructor(private cartService:CartService, private toastr:ToastrService, private ratingService:RatingService) {
@@ -32,21 +31,20 @@ export class ProductComponent {
           array.push(res[key])
         }
         this.ratingsArray = array
-        console.log(this.ratingsArray)
-        this.totalScore=this.sumScores()
       }
     )
   }
 
   sumScores(){
-      // TODO: ezt majd át kell írni teljesen
     let score = 0.0;
     let qty = 0;
-
-    // this.ratings.forEach(rating => {
-    //   score = score + rating.score
-    //   qty++;
-    // });
+    for (let i = 0; i < this.ratingsArray.length; i++) {
+      const element = this.ratingsArray[i]
+      if(element.product == this.data.key){
+        score = score + element.rating
+        qty++
+      }
+    }
     return score/qty
   }
 
