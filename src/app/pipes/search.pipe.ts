@@ -5,14 +5,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(products:any, expression:any) {
+  transform(products: any, expression: any, category: number) {
     if (!products) return null;
-    if (!expression) return products;
+    if (!expression || !category) return products;
 
-    return products.filter(
-      (product:any)=>{return product.nev.toLowerCase().includes(expression.toLowerCase())}
-    )
+    let data = products.filter(
+      (product: any) => product.nev.toLowerCase().includes(expression.toLowerCase()));
 
+    return data.filter(
+      (product: any) => (product.nev.toLowerCase().includes(expression.toLowerCase()))
+    );
   }
 
 }
