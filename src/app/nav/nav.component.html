@@ -14,26 +14,33 @@
                         Kosár
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="">
-                        <!-- TODO routing beállítása -->
-                        <img src="../../assets/icon/person_FILL0_wght400_GRAD0_opsz24.svg" alt="profil">
-                        Profil
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/userlogin">
+                <li *ngIf="!user" class="nav-item">
+                    <a class="nav-link" routerLink="/signin">
                         <img src="../../assets/icon/login_FILL0_wght400_GRAD0_opsz24.svg" alt="bejelentkezés">
                         Bejelentkezés
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/usersignup">
+
+                <li *ngIf="!user" class="nav-item">
+                    <a class="nav-link" routerLink="/signup">
                         <img src="../../assets/icon/add_circle_FILL0_wght400_GRAD0_opsz24.svg" alt="regisztrálás">
                         Regisztráció
                     </a>
                 </li>
-                <!-- TODO: state-ek kezelése belépve-kilépve mit látunk -->
+
+                <li *ngIf="isSuperAdmin" class="nav-item">
+                    <a class="nav-link" routerLink="/users">Felhasználók</a>
+                </li>  
+                
+                <li *ngIf="user" class="nav-item">
+                    <a class="nav-link" routerLink="/profil">
+                        Profil
+                    </a>
+                </li>
+
+                <li *ngIf="user" class="nav-item">
+                    <a (click)="signOut()" class="nav-link" >Kilépés</a>
+                </li> 
             </ul>
         </div>
     </div>

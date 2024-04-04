@@ -6,16 +6,24 @@ import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { ProfilComponent } from './profil/profil.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
+import { notLoggedGuard } from './guard/not-logged.guard';
+import { loginGuard } from './guard/login.guard';
+import { sAdminGuard } from './guard/s-admin.guard';
 
 const routes: Routes = [
-  { path:"home", component: HomeComponent},
-  { path:"checkout", component: CheckoutComponent},
-  { path: "userlogin", component: UserLoginComponent},
-  { path: "usersignup", component: UserSignUpComponent},
-  { path: "forgotpassword", component: ForgotPasswordComponent},
-  { path: "verifyemail", component: VerifyEmailComponent},
-  { path:"", redirectTo:'/home', pathMatch: 'full' },
-  { path:"**", component:HomeComponent }
+  
+  {path:"", component:UserLoginComponent},
+  {path:"checkout", component:CheckoutComponent},
+  {path:"home", component:HomeComponent},
+  {path:"signup", component:UserSignUpComponent, canActivate:[notLoggedGuard]},
+  {path:"signin", component:UserLoginComponent, canActivate:[notLoggedGuard]},
+  {path:"forgotpassword", component:ForgotPasswordComponent},
+  {path:"verifyemail", component:VerifyEmailComponent},
+  {path:"profil", component:ProfilComponent, canActivate:[loginGuard]},
+  {path:"users", component:UserListComponent, canActivate:[sAdminGuard]},
+  {path:"**", component:UserLoginComponent},
 
 ];
 

@@ -12,6 +12,11 @@ export class ProductComponent {
 
   product: any
 
+  user = {
+    name: "Felix (itt lesz a nev)",
+    id: 15
+  }
+
   ratings = [
     {
       user: "Mónika",
@@ -91,6 +96,12 @@ export class ProductComponent {
         newestOnTop: true
       })
     }
-    
   }
+
+  // postRating(score:number, text:string){
+  //   let body:any
+  //   body.key = this.user.id
+  //   body.product = this.data.key
+  //   console.log(this.data.key)
+  // }
 }
