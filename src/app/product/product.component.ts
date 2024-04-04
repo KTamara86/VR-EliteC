@@ -19,40 +19,23 @@ export class ProductComponent {
     id: 15
   }
 
-  ratings = [
-    {
-      user: "Mónika",
-      score: 5,
-      text: "Nagyon jó mínőségű termék",
-      date: "2024-01-11"
-    },
-    {
-      user: "Dezső",
-      score: 3,
-      text: "A színeket nem adja vissza megfelelően a feltöltött kép",
-      date: "2024-01-21"
-    },
-    {
-      user: "József",
-      score: 4,
-      text: "A minőség megfelelő, viszont az ár lehetne kevesebb..",
-      date: "2024-01-21"
-    },
-    {
-      user: "Béla",
-      score: 5,
-      text: "",
-      date: "2024-01-25"
-    }
-  ];
+  ratingsArray:any
   rating = { score:3, text: "" }
-  totalScore:number;
-  categories= ["üres", "Padlószőnyeg", "Szőnyeg", "Futószőnyeg", "Lábtörlő"]
+  totalScore?:number
 
 
   constructor(private cartService:CartService, private toastr:ToastrService, private ratingService:RatingService) {
-    // TODO: ratingservicetől kérjük el a raingeket
-    this.totalScore=this.sumScores()
+    ratingService.getRatings().subscribe(
+      (res:any) => {
+        let array = []
+        for(const key in res){
+          array.push(res[key])
+        }
+        this.ratingsArray = array
+        console.log(this.ratingsArray)
+        this.totalScore=this.sumScores()
+      }
+    )
   }
 
   sumScores(){
@@ -60,10 +43,10 @@ export class ProductComponent {
     let score = 0.0;
     let qty = 0;
 
-    this.ratings.forEach(rating => {
-      score = score + rating.score
-      qty++;
-    });
+    // this.ratings.forEach(rating => {
+    //   score = score + rating.score
+    //   qty++;
+    // });
     return score/qty
   }
 

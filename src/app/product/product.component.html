@@ -50,11 +50,11 @@
                     </div>
                     <div class="d-flex align-items-center flex-column">
                         <!-- TODO: vélemények listázása - hard coding megszüntetése -->
-                        <div *ngFor="let rating of ratings" class="border rounded p-3 border-primary mb-3 w-50">
+                        <div *ngFor="let rating of ratingsArray" class="border rounded p-3 border-primary mb-3 w-50">
                             <div class="border-bottom border-primary row pb-1">
                                 <strong class="ps-2 col-1 me-auto">{{rating.user}}</strong>
-                                <strong class="col-4"><img src="../../assets/icon/grade_black_24dp.svg" alt="" class="img-fluid"> {{rating.score}}/5</strong>
-                                <strong class="col-5">{{rating.date}}</strong>
+                                <strong class="col-4"><img src="../../assets/icon/grade_black_24dp.svg" alt="" class="img-fluid"> {{rating.rating}}/5</strong>
+                                <strong class="col-5">{{rating.time}}</strong>
                             </div>
                             <div class="row px-3 fst-italic pt-1">
                                 {{rating.text}}
