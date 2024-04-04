@@ -52,6 +52,15 @@ export class CartComponent {
     })
   }
 
+  minusButtonClickEvent(body:any){
+    if(body.qty > 1){
+      this.decreaseQty(body)
+    }
+    else{
+      this.removeProduct(body)
+    }
+  }
+
   decreaseQty(body:any){
     body.qty = body.qty - 1
     this.cartService.updateProductQty(body)
