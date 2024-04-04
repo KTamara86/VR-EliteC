@@ -35,11 +35,10 @@ export class ProductComponent {
   sumScores(){
     let score = 0.0;
     let qty = 0;
-    for (let i = 0; i < this.ratingsArray.length; i++) {
-      const element = this.ratingsArray[i]
-      if(element.product == this.data.key){
-        score = score + element.rating
-        qty++
+    for(let rating in this.ratingsArray) {
+      if(this.ratingsArray[rating].product == this.data.key){
+            score = score + this.ratingsArray[rating].rating
+            qty++
       }
     }
     return score/qty
