@@ -26,6 +26,7 @@ import { TermsConditionsComponent } from './terms-conditions/terms-conditions.co
 import { SearchPipe } from './pipes/search.pipe';
 import { SearchComponent } from './search/search.component';
 import { CategoryPipe } from './pipes/category.pipe';
+import { RatingPipe } from './pipes/rating.pipe';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CategoryPipe } from './pipes/category.pipe';
     TermsConditionsComponent,
     SearchPipe,
     SearchComponent,
-    CategoryPipe
+    CategoryPipe,
+    RatingPipe
   ],
   imports: [
     BrowserModule,
