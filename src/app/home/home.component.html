@@ -45,4 +45,4 @@
     </div>
   </ng-template>
 </div>
-<app-product [data]="getChossenProduct()"></app-product>
+<app-product [ariaDisabled]="!getChossenProduct()" [data]="getChossenProduct()"></app-product>
