@@ -8,9 +8,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-
-
-
   cart:any
   totalQty:any
   total:any
@@ -37,6 +34,22 @@ export class CartComponent {
       positionClass: "toast-bottom-right",
       newestOnTop: true
     })
+  }
+
+  plusButtonClickEvent(body:any){
+    if(body.prodQty >= (body.qty + 1)) {
+      this.increaseQty(body)
+    }
+    else {
+      this.toastr.warning(body.name + " termékből sajnos nincs több készleten", "ELFOGYOTT", {
+        closeButton: true,
+        timeOut: 2000,
+        progressBar: true,
+        progressAnimation: "decreasing",
+        positionClass: "toast-bottom-right",
+        newestOnTop: true
+      })
+    }
   }
 
   increaseQty(body:any){
