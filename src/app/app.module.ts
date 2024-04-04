@@ -25,7 +25,6 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { SearchComponent } from './search/search.component';
-import { CategoryPipe } from './pipes/category.pipe';
 import { RatingPipe } from './pipes/rating.pipe';
 
 @NgModule({
@@ -45,7 +44,6 @@ import { RatingPipe } from './pipes/rating.pipe';
     TermsConditionsComponent,
     SearchPipe,
     SearchComponent,
-    CategoryPipe,
     RatingPipe
   ],
   imports: [
