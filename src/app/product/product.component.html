@@ -19,14 +19,13 @@
                     </div>
                     <div class="col-8" style="padding-right: 50%;">
                         <ul class="list-group list-group-flush">
-                            <!-- TODO: nem lenne rossz, ha azt nem jelenítené meg, aminek nincs értéke ;) -->
-                            <li class="list-group-item">Anyaga: {{data.anyag}}</li>
-                            <li class="list-group-item">Mintázat: {{data.mintazat}}</li>
-                            <li class="list-group-item">Mérete: {{data.meret}}</li>
-                            <li class="list-group-item">Színe: {{data.szin}}</li>
-                            <li class="list-group-item">Szálmagasság: {{data.szalmagassag}}</li>
-                            <li class="list-group-item">Vastagság: {{data.vastagsag}}</li>
-                            <li class="list-group-item">Stílus: {{data.stilus}}</li>
+                            <li [hidden]="!data.anyag" class="list-group-item">Anyaga: {{data.anyag}}</li>
+                            <li [hidden]="!data.mintazat" class="list-group-item">Mintázat: {{data.mintazat}}</li>
+                            <li [hidden]="!data.meret" class="list-group-item">Mérete: {{data.meret}}</li>
+                            <li [hidden]="!data.szin" class="list-group-item">Színe: {{data.szin}}</li>
+                            <li [hidden]="!data.szalmagassag" class="list-group-item">Szálmagasság: {{data.szalmagassag}}</li>
+                            <li [hidden]="!data.vastagsag" class="list-group-item">Vastagság: {{data.vastagsag}}</li>
+                            <li [hidden]="!data.stilus" class="list-group-item">Stílus: {{data.stilus}}</li>
                         </ul>
                         <h1 class="fw-bold text-danger">{{data.uj_ar}} Ft</h1>
                         <button (click)="addToCart(data)" type="button" class="btn btn-danger btn-lg mt-5">Kosárba</button>
