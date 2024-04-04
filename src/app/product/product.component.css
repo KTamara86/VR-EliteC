@@ -1,0 +1,13 @@
+#productIMG {
+    border-width: 4px;
+    border-style: solid;
+    border-image: linear-gradient(to right, darkblue, #2f75b5) 1;
+    
+}
+
+
+@media only screen and (min-width: 768px) {
+    #propsContainer {
+      padding-right: 25%;
+    }
+}
