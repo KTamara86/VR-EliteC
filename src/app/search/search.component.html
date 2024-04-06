@@ -1,6 +1,6 @@
-<div class="input-group input-group-sm" style="width: 300px;">
-    <span *ngIf="showIcon" class="input-group-text border-primary" id="inputGroup-sizing-sm"><img src="../../assets/icon/search_FILL0_wght400_GRAD0_opsz24.svg" alt="keres" id="ico"></span>
-    <input [(ngModel)]="expression" class="form-control me-2 border-primary" type="search" placeholder="Termékkereső" aria-label="Search" 
-        (keyup)="onKeyUp(expression)" aria-describedby="inputGroup-sizing-sm" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
+<div class="input-group col-2 col-sm-2 ms-5" id="searchContainer">
+    <span class="input-group-text" id="searchGroupText"><img src="../../assets/icon/search_FILL0_wght400_GRAD0_opsz24.svg" alt="keres" id="ico"></span>
+    <input [(ngModel)]="expression" class="form-control" type="text" placeholder="Termékkereső" aria-label="Search" 
+        (keyup)="onKeyUp(expression)" aria-describedby="searchGroupText" id="searchField">
 </div>
-<!-- TODO: nem működik a kis x rendesen -->
+<!-- TODO: új icon color -->

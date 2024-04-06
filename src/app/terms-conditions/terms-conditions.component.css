@@ -1,0 +1,46 @@
+li {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #ff0079;
+}
+
+li:hover {
+    border-image: #ff0079;
+    box-shadow: 0 5px 25px #ff0079;
+    background-color: #ff007748;
+}
+
+.myModals {
+    color: white;
+}
+
+.myModalListItem {
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.myModalTitle {
+    background-color: rgba(33,37,41,1);
+    border-bottom: 1px solid #ff0079;
+}
+
+.myModalBody {
+    background-color: rgba(33,37,41,1);
+    border-bottom: 1px solid #ff0079;
+}
+
+.myModalFooter{
+    background-color: rgba(33,37,41,1);
+    border-top: 1px solid #ff0079;
+}
+
+.myMmodalButton {
+    border: 3px solid rgba(0,0,139,1);
+    color: rgb(29, 29, 145);
+    font-weight: bold;
+}
+
+.myMmodalButton:hover {
+    box-shadow: 0 0 50px rgba(0,0,139,1);
+    color: white;
+}

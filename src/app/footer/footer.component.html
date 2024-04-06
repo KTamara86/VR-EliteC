@@ -1,22 +1,23 @@
-<div class="container-fluid">
-    <div class="row mt-5">
-        <div class="col text-center">
+<div class="container-fluid" id="footerContainer">
+    <div class="row justify-content-center">
+        <div class="col-sm-5 col-md-2 text-center" id="documentContainer">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a class="link-underline link-underline-opacity-0 text-white" href="" data-bs-toggle="modal" data-bs-target="#aszfModal">Általános szerződési feltételek</a></li>
-                <li class="list-group-item"><a class="link-underline link-underline-opacity-0 text-white" href="" data-bs-toggle="modal" data-bs-target="#gyikModal">Gyakran ismételt kérdések</a></li>
-                <li class="list-group-item"><a class="link-underline link-underline-opacity-0 text-white" href="" data-bs-toggle="modal" data-bs-target="#adatModal">Adatkezelési tájékoztató</a></li>
-                <li class="list-group-item"><a class="link-underline link-underline-opacity-0 text-white" href="" data-bs-toggle="modal" data-bs-target="#szallitasModal">Szállítási információk</a></li>
-                <li class="list-group-item"><a class="link-underline link-underline-opacity-0 text-white" href="" data-bs-toggle="modal" data-bs-target="#fizetesModal">Fizetési információk</a></li>
-                <li class="list-group-item"><a class="link-underline link-underline-opacity-0 text-white" href="" data-bs-toggle="modal" data-bs-target="#contactModal">Kapcsolat</a></li>
+                <li class="list-group-item"><a class="link-underline" href="" data-bs-toggle="modal" data-bs-target="#aszfModal">Általános szerződési feltételek</a></li>
+                <li class="list-group-item"><a class="link-underline" href="" data-bs-toggle="modal" data-bs-target="#gyikModal">Gyakran ismételt kérdések</a></li>
+                <li class="list-group-item"><a class="link-underline" href="" data-bs-toggle="modal" data-bs-target="#adatModal">Adatkezelési tájékoztató</a></li>
+                <li class="list-group-item"><a class="link-underline" href="" data-bs-toggle="modal" data-bs-target="#szallitasModal">Szállítási információk</a></li>
+                <li class="list-group-item"><a class="link-underline" href="" data-bs-toggle="modal" data-bs-target="#fizetesModal">Fizetési információk</a></li>
+                <li class="list-group-item"><a class="link-underline" href="" data-bs-toggle="modal" data-bs-target="#contactModal">Kapcsolat</a></li>
             </ul>
         </div>
-        <div class="col border-start border-dark">
-            <a href="mailto:elitecarpetskft@gmail.com">
+        <div class="col-sm-5 offset-sm-2 col-md-4 offset-md-0" id="contactContainer">
+            <a href="mailto:elitecarpetskft@gmail.com" id="contactLink">
                 <div class="row py-5">
-                    <div class="col-4 fs-1 text-center">
+                    <div class="col-4 text-center">
                         Lépj velünk kapcsolatba!
                     </div>
                     <div class="col-4">
+                        <!-- TODO: iconnak színcsere kell -->
                         <img src="../../assets/icon/outline_textsms_white_48dp.png" alt="">
                     </div>
                 </div>
@@ -26,14 +27,14 @@
 </div>
 
 <app-terms-conditions></app-terms-conditions>
-<div class="modal fade" id="gyikModal" tabindex="-1" aria-labelledby="gyikModalLabel" aria-hidden="true">
+<div class="modal fade myModals" id="gyikModal" tabindex="-1" aria-labelledby="gyikModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header myModalTitle">
                 <h1 class="modal-title fs-5" id="gyikModalLabel">Gyakran Ismételt Kérdések</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body myModalBody">
                 <h5>1. Hogyan rendelhetek a webáruházban?</h5>
                 <p>
                     A webáruházban történő rendelés menete a következő: Válassza ki a kívánt terméket. Adja meg a termék mennyiségét. Tegye a terméket a kosárba. Ellenőrizze a kosár tartalmát.
@@ -48,32 +49,32 @@
                 <h5>5. Hol találom az ÁSZF-et?</h5>
                 <p>Az ÁSZF a webáruház alján található.</p>  
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Rendben</button>
+            <div class="modal-footer myModalFooter">
+                <button type="button" class="btn myMmodalButton" data-bs-dismiss="modal">Rendben</button>
             </div>
         </div>
     </div>
 </div>
-<div class="modal fade" id="adatModal" tabindex="-1" aria-labelledby="adatModalLabel" aria-hidden="true">
+<div class="modal fade myModals" id="adatModal" tabindex="-1" aria-labelledby="adatModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header myModalTitle">
                 <h1 class="modal-title fs-5" id="adatModalLabel">Adatkezelési Tájékoztató</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body myModalBody">
                 <h5>1. Bevezetés</h5>
                 <p>Jelen Adatkezelési Tájékoztató (a továbbiakban: Tájékoztató) célja, hogy tájékoztassa az EliteCarpets Webáruház (a továbbiakban: Webáruház) Látogatóit és Vevőit 
                     (a továbbiakban együttesen: Érintettek) az Adatkezelő által a Webáruházban történő adatkezelésről, az Érintettek jogairól és az adatkezeléssel kapcsolatos gyakorlatról.</p>
                 <h5>2. Az Adatkezelő adatai:</h5>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Név: EliteCarpets Kft.</li>
-                    <li class="list-group-item">Székhely: 8609 Siófok, Kárpát utca 57.</li>
-                    <li class="list-group-item">Adószám: 12180439-2-41</li>
-                    <li class="list-group-item">Cégjegyzékszám: 01-09-562739</li>
-                    <li class="list-group-item">Kapcsolattartó: Markó Tamás</li>
-                    <li class="list-group-item">E-mail cím: elitecarpetskft@gmail.com</li>
-                    <li class="list-group-item">Telefonszám: +36-84-311-317</li>
+                <ul class="list-group">
+                    <li class="list-group-item myModalListItem">Név: EliteCarpets Kft.</li>
+                    <li class="list-group-item myModalListItem">Székhely: 8609 Siófok, Kárpát utca 57.</li>
+                    <li class="list-group-item myModalListItem">Adószám: 12180439-2-41</li>
+                    <li class="list-group-item myModalListItem">Cégjegyzékszám: 01-09-562739</li>
+                    <li class="list-group-item myModalListItem">Kapcsolattartó: Markó Tamás</li>
+                    <li class="list-group-item myModalListItem">E-mail cím: elitecarpetskft@gmail.com</li>
+                    <li class="list-group-item myModalListItem">Telefonszám: +36-84-311-317</li>
                 </ul>
                 <h5>3. Az adatkezelés célja:</h5>
                 <p>Az Adatkezelő a Webáruházban történő vásárlások lebonyolítása, a Látogatók és Vevők azonosítása, a kapcsolatfelvétel, a hírlevél küldése, a Webáruház fejlesztése, 
@@ -100,20 +101,20 @@
                 <h5>12. Üzemeltető adatai</h5>
                 <p>Az Adatkezelési Tájékoztatásban meg nem jelölt, az Adatkezelő azonosításához szükséges adatokat az Adatkezelő székhelyén vagy a Webáruház felületén az Általános Szerződési Feltételek alatt megtalálhatja.</p>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Rendben</button>
+            <div class="modal-footer myModalFooter">
+                <button type="button" class="btn myMmodalButton" data-bs-dismiss="modal">Rendben</button>
             </div>
         </div>
     </div>
 </div>
-<div class="modal fade" id="szallitasModal" tabindex="-1" aria-labelledby="szallitasModalLabel" aria-hidden="true">
+<div class="modal fade myModals" id="szallitasModal" tabindex="-1" aria-labelledby="szallitasModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header myModalTitle">
                 <h1 class="modal-title fs-5" id="szallitasModalLabel">Szállítási információk</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body myModalBody">
                 <h5>Szállítási módok:</h5>
                 <p>A Webáruházban a következő szállítási módok közül választhat:</p>
                 <p><b>Házhozszállítás:</b> A FoxPost futárszolgálattal történő házhozszállítás a megrendelést követő 1-2 munkanapon belül történik.</p>
@@ -122,20 +123,20 @@
                 <p>A szállítási díj jelenleg ingyenes.</p>
                 <h5>Csomagkövetés:A futárszolgálat a csomagkövetéshez szükséges azonosítót e-mailben küldi el. A csomag nyomonkövetése az azonosító megadásával a futárszolgálat honlapján érhető el.</h5>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Rendben</button>
+            <div class="modal-footer myModalFooter">
+                <button type="button" class="btn myMmodalButton" data-bs-dismiss="modal">Rendben</button>
             </div>
         </div>
     </div>
 </div>
-<div class="modal fade" id="fizetesModal" tabindex="-1" aria-labelledby="fizetesModalLabel" aria-hidden="true">
+<div class="modal fade myModals" id="fizetesModal" tabindex="-1" aria-labelledby="fizetesModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header myModalTitle">
                 <h1 class="modal-title fs-5" id="fizetesModalLabel">Fizetési információk</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body myModalBody">
             <h5>Fizetési módok:</h5>
             <p>A Webáruházban a következő fizetési módok közül választhat:</p>    
             <p><b>Bankkártyás fizetés:</b> A megrendelést online bankkártyával is kifizetheti a SimplePay felületén. A SimplePay a Magyar Nemzeti Bank felügyelete alatt álló elektronikus fizetési szolgáltató. A bankkártyás fizetéshez nem szükséges regisztráció, a fizetéshez elegendő megadni a bankkártya adatait.</p>    
@@ -144,32 +145,32 @@
             <p>A bankkártyás fizetés esetén a megrendelés leadása után átirányítjuk a SimplePay felületére, ahol megadhatja a bankkártya adatait. A fizetés sikeres befejezése után visszairányítjuk a Webáruházba.</p>    
             <p>Utánvét esetén a házhozszállításkor a futárnak kell fizetnie, csomagátvételi pont esetén pedig az átvevőponton.</p>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Rendben</button>
+            <div class="modal-footer myModalFooter">
+                <button type="button" class="btn myMmodalButton" data-bs-dismiss="modal">Rendben</button>
             </div>
         </div>
     </div>
 </div>
-<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="cntactModalLabel" aria-hidden="true">
+<div class="modal fade myModals" id="contactModal" tabindex="-1" aria-labelledby="cntactModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header myModalTitle">
                 <h1 class="modal-title fs-5" id="contactModalLabel">Kapcsolat</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body myModalBody">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Név: EliteCarpets Kft.</li>
-                    <li class="list-group-item">Székhely: 8609 Siófok, Kárpát utca 57.</li>
-                    <li class="list-group-item">Adószám: 12180439-2-41</li>
-                    <li class="list-group-item">Cégjegyzékszám: 01-09-562739</li>
-                    <li class="list-group-item">Kapcsolattartó: Markó Tamás</li>
-                    <li class="list-group-item">E-mail cím: elitecarpetskft@gmail.com</li>
-                    <li class="list-group-item">Telefonszám: +36-84-311-317</li>
+                    <li class="list-group-item myModalListItem">Név: EliteCarpets Kft.</li>
+                    <li class="list-group-item myModalListItem">Székhely: 8609 Siófok, Kárpát utca 57.</li>
+                    <li class="list-group-item myModalListItem">Adószám: 12180439-2-41</li>
+                    <li class="list-group-item myModalListItem">Cégjegyzékszám: 01-09-562739</li>
+                    <li class="list-group-item myModalListItem">Kapcsolattartó: Markó Tamás</li>
+                    <li class="list-group-item myModalListItem">E-mail cím: elitecarpetskft@gmail.com</li>
+                    <li class="list-group-item myModalListItem">Telefonszám: +36-84-311-317</li>
                 </ul>    
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Rendben</button>
+            <div class="modal-footer myModalFooter">
+                <button type="button" class="btn myMmodalButton" data-bs-dismiss="modal">Rendben</button>
             </div>
         </div>
     </div>

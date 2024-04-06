@@ -1,51 +1,49 @@
 <div class="modal" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="fw-bold" style="color: #2F75B5;">{{data?.nev}}
-                    <span [hidden]="!sumScores()" class="badge rounded-pill bg-success">{{sumScores().toFixed(2)}} <img src="../../assets/icon/grade_white_24dp.svg" alt="" class="img-fluid float-end"></span>
+        <div class="modal-content" id="modalContent">
+            <div class="modal-header myModalTitle">
+                <h1 class="fw-bold">{{data?.nev}}
+                    <span [hidden]="!sumScores()" class="badge rounded-pill myBadge">{{sumScores().toFixed(2)}} <img src="../../assets/icon/grade_white_24dp.svg" alt="" class="img-fluid float-end"></span>
                 </h1>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Vissza a termékekhez</button>
             </div>
             <div class="modal-body">
-                <div class="row my-3">
+                <div class="row my-3 myModalBody">
                     <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
-                        <div class="row"> 
-                            <img [src]="'../../assets/pictures/'+data.key+'.jpg'" alt="termékkép" style="height: 300px; width: 300px;" id="productIMG">
+                        <div class="row" id="imgContainer"> 
+                            <img [src]="'../../assets/pictures/'+data.key+'.jpg'" alt="termékkép" id="img">
                             <!-- TODO: valami keretet el tudnék képzelni -->
                         </div>
                     </div>
                     <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8 " id="propsContainer">
-                        <ul class="list-group list-group-flush">
-                            <li [hidden]="!data.anyag" class="list-group-item">Anyaga: {{data.anyag}}</li>
-                            <li [hidden]="!data.mintazat" class="list-group-item">Mintázat: {{data.mintazat}}</li>
-                            <li [hidden]="!data.meret" class="list-group-item">Mérete: {{data.meret}}</li>
-                            <li [hidden]="!data.szin" class="list-group-item">Színe: {{data.szin}}</li>
-                            <li [hidden]="!data.szalmagassag" class="list-group-item">Szálmagasság: {{data.szalmagassag}}</li>
-                            <li [hidden]="!data.vastagsag" class="list-group-item">Vastagság: {{data.vastagsag}}</li>
-                            <li [hidden]="!data.stilus" class="list-group-item">Stílus: {{data.stilus}}</li>
+                        <ul class="list-group">
+                            <li [hidden]="!data.anyag" class="list-group-item myModalListItem">Anyaga: {{data.anyag}}</li>
+                            <li [hidden]="!data.mintazat" class="list-group-item myModalListItem">Mintázat: {{data.mintazat}}</li>
+                            <li [hidden]="!data.meret" class="list-group-item myModalListItem">Mérete: {{data.meret}}</li>
+                            <li [hidden]="!data.szin" class="list-group-item myModalListItem">Színe: {{data.szin}}</li>
+                            <li [hidden]="!data.szalmagassag" class="list-group-item myModalListItem">Szálmagasság: {{data.szalmagassag}}</li>
+                            <li [hidden]="!data.vastagsag" class="list-group-item myModalListItem">Vastagság: {{data.vastagsag}}</li>
+                            <li [hidden]="!data.stilus" class="list-group-item myModalListItem">Stílus: {{data.stilus}}</li>
                         </ul>
-                        <h1 class="fw-bold text-danger">{{data.uj_ar}} Ft</h1>
-                        <button (click)="addToCart(data)" type="button" class="btn btn-danger btn-lg mt-5">Kosárba</button>
+                        <h1 id="priceText">{{data.uj_ar}} Ft</h1>
+                        <button (click)="addToCart(data)" type="button" class="btn" id="toCartButton">Kosárba</button>
                     </div>
                 </div>
-                <div class="row">
-                    <h3 class="border-top border-primary ms-5">Vélemények:</h3>
-                    <div class="d-flex align-items-center flex-column">
-                        <div class="border rounded p-3 border-primary mb-3 w-50">
-                            <div class="input-group input-group-sm border-bottom border-primary pb-1">
-                                <input class="form-control me-5 fw-bold" type="text" aria-label="username" disabled readonly [value]="user.name">
-                                <span class="input-group-text" id="userRatingText"><img src="../../assets/icon/grade_black_24dp.svg" alt="" class="img-fluid"> 5/</span>
-                                <input type="number" class="form-control " id="userRating" aria-describedby="userRatingText" min="1" max="5" [(ngModel)]="rating.score">
-                            </div>
-                            <div class="input-group input-group-sm pt-1">
-                                <span class="input-group-text">Mit gondol a termékről?</span>
-                                <textarea class="form-control" aria-label="With textarea" placeholder="Véleménye fontos a számunkra, ossza meg velünk!" [(ngModel)]="rating.text"></textarea>
-                            </div>
-                            <button class="btn btn-sm btn-outline-primary mt-3" (click)="postRating(rating.score, rating.text)" [disabled]="rating.text==''">Beküldés</button>
+                <div class="row" id="ratingsContainer">
+                    <h3 id="ratingsTitle">Vélemények:</h3>
+                    <div class="row" id="ratingInputContainer">
+                        <div class="input-group input-group-sm mt-3">
+                            <input class="form-control" id="usernameField" type="text" aria-label="username" disabled readonly [value]="user.name">
+                            <span class="input-group-text" id="userRatingText"><img src="../../assets/icon/grade_black_24dp.svg" alt="" class="img-fluid"> 5/</span>
+                            <input type="number" class="form-control mySizeSM" id="userRating" aria-describedby="userRatingText" min="1" max="5" [(ngModel)]="rating.score">
                         </div>
+                        <div class="input-group input-group-sm mt-3">
+                            <span class="input-group-text">Mit gondol a termékről?</span>
+                            <textarea class="form-control" aria-label="With textarea" placeholder="Véleménye fontos a számunkra, ossza meg velünk!" [(ngModel)]="rating.text"></textarea>
+                        </div>
+                        <button class="btn btn-sm btn-outline-primary mt-3" (click)="postRating(rating.score, rating.text)" [disabled]="rating.text==''">Beküldés</button>
                     </div>
-                    <div class="d-flex align-items-center flex-column">
+                    <div class="row">
                         <div *ngFor="let rating of ratingsArray|rating:data.key" class="border rounded p-3 border-primary mb-3 w-50">
                             <div class="border-bottom border-primary row pb-1">
                                 <strong class="ps-2 col-1 me-auto">{{rating.user}}</strong>

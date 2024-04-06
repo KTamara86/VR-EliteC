@@ -1,12 +1,71 @@
+#footerContainer {
+    background: linear-gradient(24deg, rgba(0,0,139,1) 5%, rgba(33,37,41,1) 45%, rgba(33,37,41,1) 55%, rgba(153,50,204,1) 95%);
+    /* padding-top: 10px; */
+    box-shadow: 0 0 10px #ff0079;
+}
+
+#documentContainer{
+    padding-right: 10px;
+    border-right: 3px solid #ff0079;
+}
+
 li {
-    background-color: #2F75B5;
-    color: #DDEBF7;
+    background: transparent;
     border: none;
+    border-bottom: 2px solid #ff0079;
 }
+
+li:hover {
+    border-image: #ff0079;
+    box-shadow: 0 5px 25px #ff0079;
+    background-color: #ff007748;
+}
+
 div.row {
-        background-color: #2F75B5;
-        color: #DDEBF7;
+    color: #ff0079;
 }
+
 a {
     text-decoration: none;
+    color: #ff0079;
+}
+
+#contactContainer {
+    font-size: 2rem;
+}
+
+.myModals {
+    color: white;
+    border: 1px solid rgb(29, 29, 145)
+}
+
+.myModalListItem {
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.myModalTitle {
+    background-color: rgba(33,37,41,1);
+    border-bottom: 1px solid #ff0079;
+}
+
+.myModalBody {
+    background-color: rgba(33,37,41,1);
+    border-bottom: 1px solid #ff0079;
+}
+
+.myModalFooter {
+    background-color: rgba(33,37,41,1);
+    border-top: 1px solid #ff0079;
+}
+
+.myMmodalButton {
+    border: 3px solid rgba(0,0,139,1);
+    color: rgb(29, 29, 145);
+    font-weight: bold;
+}
+
+.myMmodalButton:hover {
+    box-shadow: 0 0 50px rgba(0,0,139,1);
+    color: white;
 }

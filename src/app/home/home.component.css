@@ -1,0 +1,138 @@
+#categorySelectorContainer {
+    background: linear-gradient(to right top, rgba(0,0,139,1) 0%, rgba(33,37,41,1) 80%);
+    border-right: solid 2px #ff0079;
+    box-shadow: 0px -3px 15px #ff0079;
+}
+
+#categoryList {
+    box-shadow: 0 0 10px dark;
+    margin-top: 20px;
+    background-color: rgba(33,37,41,1);
+    border: 5px solid black;
+    border-radius: 15px;
+    
+}
+
+.listItem {
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border:none;
+}
+
+.listItem:not(:last-child) {
+    border-bottom: 2px solid;
+}
+
+.listItem:hover {
+    border-color: #ff0079;
+    box-shadow: 0 0 25px #ff0079;
+    background-color: #ff007748;
+}
+
+.selectedListItem {
+    color: #ff0079;
+    font-weight: normal;
+    font-style: italic;
+}
+
+#filtersContainer {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#filterClearButton {
+    background-color: #ff0079;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.filterSelects {
+    background-color: #ff007748;
+    color: white;
+    margin-right: 5px;
+    border: none;
+    border: 1px solid #ff007748;
+    border-radius: 10px;
+}
+
+.filterSelects:hover{
+    box-shadow: 0 0 25px #ff0079;
+}
+
+option {
+    color: rgba(33,37,41,1);
+}
+
+#productCardsContainer{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.productCard{
+    margin-bottom: 10px;
+    width: 14rem;
+    background-color: rgba(153, 50, 204, 0.363);
+    border: 2px solid black;;
+    padding: 0%;
+}
+
+.productCard:hover{
+    box-shadow: 0 0 10px #ff0079;
+    border: 2px solid #ff0079;
+}
+
+img {
+    max-height: 200px;
+    min-height: 200px;
+    min-width: 100%;
+}
+
+.card-body{
+    padding: 0%;
+}
+
+.cardTitle {
+    color: white;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.cardHeader {
+    border: none;
+    padding-right: 10px;
+    color: #ff0079;
+    text-align: end;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.propListGroup {
+    background-color: rgba(33,37,41,1);
+    margin-bottom: 10px;
+    border: none;
+}
+
+.propListItem{
+    border: none;
+    background: transparent;
+    color: white;
+    border-bottom: 2px solid #ff0079;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.toCartButton {
+    background: transparent;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-inline-start: 30%;
+    color: black;
+    border: 2px solid #ff0079;
+}
+
+.toCartButton:hover{
+    box-shadow: 0 0 20px #ff0077d0;
+    text-shadow: 0 0 30px #ff0079;  
+}

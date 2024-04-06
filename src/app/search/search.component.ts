@@ -27,16 +27,6 @@ export class SearchComponent {
   ngOnInit() {
   }
 
-  @HostListener('mouseover')
-  onMouseOver() {
-    this.showIcon = true;
-  }
-
-  @HostListener('mouseout')
-  onMouseOut() {
-    this.showIcon = false;
-  }
-
   onKeyUp(value:string) {
     this.expression = value
     this.search.setSearchTerm(value)

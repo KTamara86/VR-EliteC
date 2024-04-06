@@ -1,0 +1,22 @@
+#mainContainer {
+    --angle: 0deg;
+    background-color: #1A1A1D;
+    border-image: linear-gradient(var(--angle), darkblue, darkorchid) 1;
+    animation: 3s rotate linear infinite;
+    border-left:  4px solid;
+    border-right: 4px solid;
+    box-shadow: 0 0 15px darkblue;
+    margin-bottom: 3px;
+}
+
+@keyframes rotate {
+    to {
+      --angle: 360deg;
+    }
+}
+  
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}

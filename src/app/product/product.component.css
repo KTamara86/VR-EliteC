@@ -1,10 +1,128 @@
-#productIMG {
-    border-width: 4px;
-    border-style: solid;
-    border-image: linear-gradient(to right, darkblue, #2f75b5) 1;
+#imgContainer {
+  border: 1px solid darkorchid;
+  box-shadow: 0 0 40px darkorchid;
+  margin-right: 10%;
     
 }
 
+#img {
+    max-height: 300px;
+    max-width: 300px;
+    min-width: 100%;
+  padding: 0%;
+}
+
+#productModal {
+    color: white;
+}
+
+#modalContent {
+    --angle: 0deg;
+    background-color: rgba(33,37,41,1);
+    border: 5px solid;
+    border-image: linear-gradient(var(--angle), darkblue, darkorchid) 1;
+    animation: 3s rotate linear infinite;
+    box-shadow: 10px -5px 25px darkorchid, -10px 5px 25px darkblue;
+}
+
+.myModalTitle {
+    color: #ff0079;
+    border-bottom: 3px solid #ff0079;
+    padding-left: 10%;
+}
+
+.myBadge {
+    border: 1px solid darkorchid;
+    box-shadow: 0 0 15px darkorchid;
+}
+
+.myModalBody {
+    border-bottom: 1px solid #ff0079;
+    padding-left: 10%;
+    padding-bottom: 5%;
+}
+
+.myModalListItem {
+    color: white;
+    background-color:rgba(153, 50, 204, 0.322);
+    border: none;
+    border-bottom: 2px solid darkorchid;
+}
+
+#priceText {
+  color: #ff0079;
+  font-weight: bold;
+  text-align: end;
+}
+
+#toCartButton {
+  background: transparent;
+  font-weight: bold;
+  color: white;
+  border: 2px solid #ff0079;
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+#toCartButton:hover{
+  box-shadow: 0 0 20px #ff0077d0;
+  text-shadow: 10px 10px 50px #ff0079;  
+}
+
+#ratingsContainer {
+  padding-left: 10%;
+  border-bottom: 1px solid #ff0079;
+}
+
+#ratingsTitle {
+  color: #ff0079;
+}
+
+#ratingInputContainer {
+  border: 1px solid darkorchid;
+  margin-top: 1%;
+  background-color: rgba(153, 50, 204, 0.151);
+}
+
+#usernameField {
+    max-width: 25%;
+    min-width: 25%;
+    margin-right: 5%;
+    background: transparent;
+    border: 1px solid darkorchid;
+    color: white;
+}
+
+#userRatingText {
+    max-width: 6%;
+    min-width: 6%;
+    background: transparent;
+    border: 1px solid darkorchid;
+    color: white;
+}
+
+#userRating {
+    max-width: 6%;
+    min-width: 6%;
+    background: transparent;
+    border: 1px solid darkorchid;
+    color: white;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
 
 @media only screen and (min-width: 768px) {
     #propsContainer {

@@ -4,13 +4,13 @@
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <div class="row border-bottom pb-2 border-dark  text-center">
+        <div class="row text-center" id="listHeaderContainer">
             <div class="col-3"><h6>Termék</h6></div>
             <div class="col-3"><h6>Egységár</h6></div>
             <div class="col-2"><h6>DB</h6></div>
             <div class="col-3"><h6>Össz.</h6></div>
         </div>
-        <div *ngFor="let product of cart" class="row border-bottom py-2 text-center align-items-center">
+        <div *ngFor="let product of cart" class="row py-2 text-center align-items-center productRow">
             <div class="row">
                 <div class="row">
                     <div class="col-2"><img [src]="'../../assets/pictures/'+product.key+'.jpg'" class="img-fluid" alt="termékkép"></div>
@@ -22,10 +22,10 @@
                     <div class="col-4 text-end"><h6>{{product.qty*product.price}} Ft</h6></div>
                 </div>
             </div>
-            <div class="row pt-1">
-                <button (click)="plusButtonClickEvent(product)" type="button" class="btn btn-outline-primary mx-1 col-2">+</button>
-                <button (click)="minusButtonClickEvent(product)" type="button" class="btn btn-outline-info mx-1 col-2">-</button>
-                <button (click)="removeProduct(product)" type="button" class="btn btn-outline-danger mx-1 col-2">X</button>
+            <div class="row pt-1" id="prodButtonContainer">
+                <button (click)="plusButtonClickEvent(product)" type="button" class="btn mx-1 col-2 myProdButtons">+</button>
+                <button (click)="minusButtonClickEvent(product)" type="button" class="btn mx-1 col-2 myProdButtons">-</button>
+                <button (click)="removeProduct(product)" type="button" class="btn mx-1 col-2 myProdButtons">X</button>
             </div>
         </div>
         <div class="row border-top border-dark border-2 py-3">
@@ -34,8 +34,8 @@
         </div>
         <div class="row text-end mb-5">
             <div class="col-12">
-                <button type="button" class="btn btn-primary mx-2" data-bs-dismiss="offcanvas" aria-label="Close">Vissza a termékekhez</button>
-                <button type="button" class="btn btn-success m-2" routerLink="/checkout" [disabled]="totalQty==0" data-bs-dismiss="offcanvas" aria-label="Close">Tovább a véglegesítéshez</button>
+                <button type="button" class="btn mx-2" data-bs-dismiss="offcanvas" aria-label="Close" id="backButton">Vissza a termékekhez</button>
+                <button type="button" class="btn m-2" routerLink="/checkout" [disabled]="totalQty==0" data-bs-dismiss="offcanvas" aria-label="Close" id="checkoutButton">Tovább a véglegesítéshez</button>
             </div>
         </div>
 </div>
