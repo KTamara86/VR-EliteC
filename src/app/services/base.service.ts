@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 })
 export class BaseService {
 
-  url = "https://elitecarpets-2fa53-default-rtdb.europe-west1.firebasedatabase.app/termekek"
+  url = "https://elitecarpetsv2-default-rtdb.europe-west1.firebasedatabase.app/termekek"
   productsSub = new Subject()
 
   constructor(private http:HttpClient){

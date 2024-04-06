@@ -11,7 +11,8 @@ import Validation from '../validation/validation';
 })
 export class UserSignUpComponent implements OnInit {
 
-  constructor(public authService: AuthService, private formBuilder: FormBuilder) {}
+  constructor(public auth: AuthService, private formBuilder: FormBuilder) {}
+  
   form: FormGroup = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
@@ -52,5 +53,9 @@ export class UserSignUpComponent implements OnInit {
       return;
     }
     console.log(JSON.stringify(this.form.value, null, 2));
+  }
+
+  validUser(){
+    return false
   }
 }

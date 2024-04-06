@@ -11,39 +11,38 @@
             <ul class="navbar-nav me-0 mb-5 mb-lg-0 ms-5 col-6">  
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasCart" role="button" aria-controls="offcanvasCart">  
-                        <p class="prop">
-                            <img src="../../assets/icon/shopping_cart_FILL0_wght400_GRAD0_opsz24.svg" alt="kosár">
-                            <span class="badge rounded-pill bg-danger">{{totalProduct}}</span>
-                            Kosár
-                        </p>
+                        <img src="../../assets/icon/shopping_cart_FILL0_wght400_GRAD0_opsz24.svg" alt="kosár">
+                        <span class="badge rounded-pill bg-danger">{{totalProduct}}</span>
+                        Kosár
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="">
-                        <!-- TODO routing beállítása -->
-                        <p>
-                            <img src="../../assets/icon/person_FILL0_wght400_GRAD0_opsz24.svg" alt="profil">
-                            Profil
-                        </p>
+                <li *ngIf="!user" class="nav-item">
+                    <a class="nav-link" routerLink="/signin">
+                        <img src="../../assets/icon/login_FILL0_wght400_GRAD0_opsz24.svg" alt="bejelentkezés">
+                        Bejelentkezés
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/userlogin">
-                        <p>
-                            <img src="../../assets/icon/login_FILL0_wght400_GRAD0_opsz24.svg" alt="bejelentkezés">
-                            Bejelentkezés
-                        </p>
+
+                <li *ngIf="!user" class="nav-item">
+                    <a class="nav-link" routerLink="/signup">
+                        <img src="../../assets/icon/add_circle_FILL0_wght400_GRAD0_opsz24.svg" alt="regisztrálás">
+                        Regisztráció
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/usersignup">
-                        <p>
-                            <img src="../../assets/icon/add_circle_FILL0_wght400_GRAD0_opsz24.svg" alt="regisztrálás">
-                            Regisztráció
-                        </p>
+
+                <li *ngIf="isSuperAdmin" class="nav-item">
+                    <a class="nav-link" routerLink="/users">Felhasználók</a>
+                </li>  
+                
+                <li *ngIf="user" class="nav-item">
+                    <a class="nav-link" routerLink="/profil">
+                        Profil
                     </a>
                 </li>
-                <!-- TODO: state-ek kezelése belépve-kilépve mit látunk -->
+
+                <li *ngIf="user" class="nav-item">
+                    <a (click)="signOut()" class="nav-link" >Kilépés</a>
+                </li> 
             </ul>
         </div>
     </div>
