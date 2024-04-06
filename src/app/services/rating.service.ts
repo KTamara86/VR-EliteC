@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class RatingService {
 
-  url = "https://elitecarpets-2fa53-default-rtdb.europe-west1.firebasedatabase.app/velemenyek.json"
+  url = "https://elitecarpetsv2-default-rtdb.europe-west1.firebasedatabase.app/velemenyek.json"
   ratingsSub = new Subject()
   
 
