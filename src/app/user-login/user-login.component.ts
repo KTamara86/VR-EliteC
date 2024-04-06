@@ -9,7 +9,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor( public authService: AuthService, private formBuilder: FormBuilder) {}
+  constructor( public auth: AuthService, private formBuilder: FormBuilder) {}
   
   form: FormGroup = new FormGroup({
     email: new FormControl(''),
@@ -40,5 +40,9 @@ export class UserLoginComponent implements OnInit {
       return;
     }
     console.log(JSON.stringify(this.form.value, null, 2));
+  }
+
+  validUser(){
+    return false
   }
 }
