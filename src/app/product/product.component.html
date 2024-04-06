@@ -5,7 +5,7 @@
                 <h1 class="fw-bold">{{data?.nev}}
                     <span [hidden]="!sumScores()" class="badge rounded-pill myBadge">{{sumScores().toFixed(2)}} <img src="../../assets/icon/grade_white_24dp.svg" alt="" class="img-fluid float-end"></span>
                 </h1>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Vissza a termékekhez</button>
+                <button type="button" class="btn backButtons" id="backButtonTop" data-bs-dismiss="modal" aria-label="Close">Vissza a termékekhez</button>
             </div>
             <div class="modal-body">
                 <div class="row my-3 myModalBody">
@@ -31,32 +31,32 @@
                 </div>
                 <div class="row" id="ratingsContainer">
                     <h3 id="ratingsTitle">Vélemények:</h3>
-                    <div class="row" id="ratingInputContainer">
+                    <div class="row ratingInputContainer">
                         <div class="input-group input-group-sm mt-3">
                             <input class="form-control" id="usernameField" type="text" aria-label="username" disabled readonly [value]="user.name">
-                            <span class="input-group-text" id="userRatingText"><img src="../../assets/icon/grade_black_24dp.svg" alt="" class="img-fluid"> 5/</span>
+                            <span class="input-group-text" id="userRatingText"><img hidden="(max-width: 768px)" src="../../assets/icon/grade_black_24dp.svg" alt="" class="img-fluid"> 5/</span>
                             <input type="number" class="form-control mySizeSM" id="userRating" aria-describedby="userRatingText" min="1" max="5" [(ngModel)]="rating.score">
                         </div>
                         <div class="input-group input-group-sm mt-3">
-                            <span class="input-group-text">Mit gondol a termékről?</span>
-                            <textarea class="form-control" aria-label="With textarea" placeholder="Véleménye fontos a számunkra, ossza meg velünk!" [(ngModel)]="rating.text"></textarea>
+                            <span hidden="(max-width: 768px)" class="input-group-text" id="ratingTextLabel">Mit gondol a termékről?</span>
+                            <textarea class="form-control" id="ratingTextArea" aria-label="With textarea" placeholder="Véleménye fontos a számunkra, ossza meg velünk!" [(ngModel)]="rating.text"></textarea>
                         </div>
-                        <button class="btn btn-sm btn-outline-primary mt-3" (click)="postRating(rating.score, rating.text)" [disabled]="rating.text==''">Beküldés</button>
+                        <button id="ratingSubmitButton" (click)="postRating(rating.score, rating.text)" [disabled]="rating.text==''">Beküldés</button>
                     </div>
-                    <div class="row">
-                        <div *ngFor="let rating of ratingsArray|rating:data.key" class="border rounded p-3 border-primary mb-3 w-50">
-                            <div class="border-bottom border-primary row pb-1">
-                                <strong class="ps-2 col-1 me-auto">{{rating.user}}</strong>
-                                <strong class="col-4"><img src="../../assets/icon/grade_black_24dp.svg" alt="" class="img-fluid"> {{rating.rating}}/5</strong>
-                                <strong class="col-5">{{rating.time}}</strong>
-                            </div>
-                            <div class="row px-3 fst-italic pt-1">{{rating.text}}</div>
+                    <div class="row ratingInputContainer">
+                        <div *ngFor="let rating of ratingsArray|rating:data.key" class="row myRatings">
+                                <div id="head">
+                                    <strong>{{rating.user}}</strong>
+                                    <strong><img src="../../assets/icon/grade_white_24dp.svg" alt="" class="img-fluid"> {{rating.rating}}/5</strong>
+                                    <strong>{{rating.time}}</strong>
+                                </div>
+                            <div class="row px-3 fst-italic pt-1"> -- {{rating.text}}</div>
                         </div>
                     </div>
                 </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Rendben</button>
-            </div>
+                <button type="button" class="btn backButtons" id="backButtonBottom" data-bs-dismiss="modal">Vissza a termékekhez</button>
+            </div>  
         </div>
     </div>
 </div>

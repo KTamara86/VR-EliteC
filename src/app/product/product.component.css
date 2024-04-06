@@ -9,7 +9,7 @@
     max-height: 300px;
     max-width: 300px;
     min-width: 100%;
-  padding: 0%;
+    padding: 0%;
 }
 
 #productModal {
@@ -72,19 +72,56 @@
   text-shadow: 10px 10px 50px #ff0079;  
 }
 
+#backButtonTop:hover {
+  box-shadow: 0 0 20px darkorchid;
+  text-shadow: 10px 10px 50px white;
+}
+
+#backButtonBottom:hover {
+  box-shadow: 0 0 20px darkorchid;
+  text-shadow: 10px 10px 50px white;
+}
+
+.backButtons {
+    background: transparent;
+    font-weight: bold;
+    color: darkorchid;
+    border: 1px solid darkorchid;
+}
+
+#ratingSubmitButton {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 0.75rem;
+  background: transparent;
+  font-weight: bold;
+  color: white;
+  border: 2px solid darkblue;
+  border-radius: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  max-width: 100px;
+  min-width: 100px;
+}
+
+#ratingSubmitButton:hover{
+  box-shadow: 0 0 20px darkblue;
+  text-shadow: 10px 10px 50px darkblue;  
+}
+
 #ratingsContainer {
   padding-left: 10%;
-  border-bottom: 1px solid #ff0079;
 }
 
 #ratingsTitle {
   color: #ff0079;
 }
 
-#ratingInputContainer {
+.ratingInputContainer {
   border: 1px solid darkorchid;
   margin-top: 1%;
   background-color: rgba(153, 50, 204, 0.151);
+  margin-bottom: 2%;
 }
 
 #usernameField {
@@ -96,6 +133,18 @@
     color: white;
 }
 
+#ratingTextArea {
+    background: transparent;
+    border: 1px solid darkorchid;
+    color: white;
+}
+
+#ratingTextArea::placeholder {
+  color: white;
+  font-style: italic;
+  font-size: 1rem;
+}
+
 #userRatingText {
     max-width: 6%;
     min-width: 6%;
@@ -104,12 +153,40 @@
     color: white;
 }
 
+#ratingTextLabel {
+    max-width: 10%;
+    min-width: 10%;
+    background: transparent;
+    border: 1px solid darkorchid;
+    color: white;
+    text-wrap: wrap;
+}
+
 #userRating {
     max-width: 6%;
     min-width: 6%;
     background: transparent;
     border: 1px solid darkorchid;
     color: white;
+}
+
+.myRatings {
+    border-bottom: 1px solid darkorchid;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: -5px 5px 5px darkorchid;
+    max-width: 95%;
+}
+
+strong {
+    margin: 0 5%;
+}
+
+.modal-footer {
+  border: none;
 }
 
 @keyframes rotate {
@@ -128,4 +205,16 @@
     #propsContainer {
       padding-right: 25%;
     }
+}
+
+@media only screen and (max-width: 768px) {
+    #userRating {
+        max-width: 10%;
+        min-width: 10%;
+    }
+
+    #userRatingText {
+      max-width: 10%;
+      min-width: 10%;
+  }
 }
