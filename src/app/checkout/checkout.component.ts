@@ -43,8 +43,7 @@ export class CheckoutComponent {
   
   packetPointList:any;
   selectedPacketPointCity = "";
-  selectedPacketPoint?:object;
-  packetPointInfo:any;
+  selectedPacketPoint:any
   cities: any[] = [];
   
   errorShow = false;
@@ -119,10 +118,9 @@ export class CheckoutComponent {
     }
 
     if(this.deliveryOpt != "home") {
-      // TODO: a packetpointtól kapja az értékét
-      body.deliveryZipcode = ""
-      body.deliveryCity =  ""
-      body.deliveryAddress =  "",
+      body.deliveryZipcode = this.selectedPacketPoint.zip
+      body.deliveryCity =  this.selectedPacketPoint.city
+      body.deliveryAddress =  this.selectedPacketPoint.street
       body.packetPoint = true
     }
 
