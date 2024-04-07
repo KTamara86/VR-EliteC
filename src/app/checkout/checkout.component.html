@@ -1,5 +1,5 @@
-<div class="checkoutContainer">
-    <div class="checkoutCol">
+<div class="checkoutContainer row">
+    <div class="col-8 checkoutCol">
         <div class="sectionContainer">
             <h1 class="sectionHeader">Számlázási adatok:</h1>
             <!-- TODO: funkcionalitást hozzáadni: választás természetes személy és cég között -->
@@ -144,7 +144,30 @@
             <!-- TODO: funkció hiányzik -->
         </div>
     </div>
-    <div class="cartCol">
-        Kosár tartalma
+    <div [hidden]="totalQty == 0" class="cartCol col-4">
+        <h5 class="sectionHeader">A kosarad tartalma:</h5>
+        <div class="row text-center" id="listHeaderContainer">
+            <div class="col-3"><h6>Termék</h6></div>
+            <div class="col-3"><h6>Egységár</h6></div>
+            <div class="col-2"><h6>DB</h6></div>
+            <div class="col-3"><h6>Össz.</h6></div>
+        </div>
+        <div *ngFor="let product of cart" class="row py-2 text-center align-items-center productRow">
+            <div class="row">
+                <div class="row">
+                    <div class="col-2"><img [src]="'../../assets/pictures/'+product.key+'.jpg'" class="img-fluid" alt="termékkép"></div>
+                    <div class="col-3"><h6>{{product.name}}</h6></div>
+                </div>
+                <div class="row ">
+                    <div class="col-7 text-end"><h6>{{product.price}} Ft</h6></div>
+                    <div class="col-1 text-end"><h6>{{product.qty}}</h6></div>
+                    <div class="col-4 text-end"><h6>{{product.qty*product.price}} Ft</h6></div>
+                </div>
+            </div>
+        </div>
+        <div class="row border-top border-dark border-2 py-3">
+            <div class="col-8 text-end"><h6>Darabszám: {{totalQty}}</h6></div>
+            <div class="col-4 text-center"><h6>Összesen: {{total}} Ft</h6></div>
+        </div>
     </div>
 </div>

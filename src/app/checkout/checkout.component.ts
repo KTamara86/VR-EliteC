@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PacketPointService } from '../services/packet-point.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-checkout',
@@ -8,13 +9,9 @@ import { PacketPointService } from '../services/packet-point.service';
 })
 export class CheckoutComponent {
 
-  cart = [
-    {"termek_id":"52","nev":"Luxury","mennyiseg":1,"uj_ar":9995},
-    {"termek_id":"64","nev":"Opal","mennyiseg":3,"uj_ar":4995,},
-    {"termek_id":"73","nev":"Flower","mennyiseg":2,"uj_ar":14385},
-    {"termek_id":"77","nev":"Hedera","mennyiseg":1,"uj_ar":7995},
-    {"termek_id":"52","nev":"Luxury","mennyiseg":11,"uj_ar":9995}
-  ]
+  cart:any
+  totalQty:any
+  total:any
 
   entity:String = "person"
   deliveryOpt:String = "home"
@@ -27,7 +24,7 @@ export class CheckoutComponent {
   errorMsg = ""
   paymentOpt:String = "before"
 
-  constructor(private packetPoint:PacketPointService){
+  constructor(private packetPoint:PacketPointService, private cartService:CartService){
     this.packetPoint.getPacketPointList().subscribe(
       {
         next: (res) => {
@@ -54,7 +51,15 @@ export class CheckoutComponent {
         }
       }
     )
-    
+    this.cartService.getCart().subscribe(
+      (res) => this.cart = res
+    )
+    this.cartService.getTotalQty().subscribe(
+      (res) => this.totalQty = res
+    )
+    this.cartService.getCartTotal().subscribe(
+      (res) => this.total = res
+    )
   }
 
   selectPacketPointCity(newValue:any){

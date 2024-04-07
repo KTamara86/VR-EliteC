@@ -54,3 +54,21 @@
     border-radius: 15px;
     box-shadow: 0 0 25px #ff0079;
 }
+
+.cartCol {
+    color: white;
+    border-left: 1px solid #ff0079;
+}
+
+#listHeaderContainer {
+    border-bottom: 1px solid #ff0079;
+}
+
+@media only screen and (max-width: 768px) {
+    .checkoutCol {
+      min-width: 100%
+    }
+    .cartCol {
+        display: none;
+    }
+}
