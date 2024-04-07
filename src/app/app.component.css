@@ -1,6 +1,6 @@
 #mainContainer {
     --angle: 0deg;
-    background-color: #1A1A1D;
+    background-color: #212529;
     border-image: linear-gradient(var(--angle), darkblue, darkorchid) 1;
     animation: 3s rotate linear infinite;
     border-left:  4px solid;
