@@ -86,11 +86,34 @@ export class ProductComponent {
       text: this.rating.text,
       time: format(new Date(), 'yyyy-MM-dd HH:mm:ss')
     }
-    this.ratingService.postRating(body)
+    this.ratingService.postRating(body).subscribe(
+      (res) => this.showResultToastMsg2(res)
+    )
     this.rating.score = 3
     this.rating.text = ""
-    
+  }
 
-    //TODO vizuális visszajelzés
+  showResultToastMsg2(result:boolean){
+    
+    if(result){
+      this.toastr.info("Sikeres hozzászólás", "", {
+        closeButton: true,
+        timeOut: 2000,
+        progressBar: true,
+        progressAnimation: "decreasing",
+        positionClass: "toast-top-right",
+        newestOnTop: true
+      })
+    }
+    else{
+      this.toastr.warning("Sajnos valami hiba történt, próbálja meg később", "HIBA", {
+        closeButton: true,
+        timeOut: 2000,
+        progressBar: true,
+        progressAnimation: "decreasing",
+        positionClass: "toast-top-right",
+        newestOnTop: true
+      })
+    }
   }
 }

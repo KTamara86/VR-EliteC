@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Conditional } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject, catchError, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +16,17 @@ export class RatingService {
     this.loadRatings()
   }
 
-  postRating(body:any){
+  postRating(body:any) : Observable<boolean>{
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     }
-    this.http.post(this.url, body, options).subscribe()
+    
+    return this.http.post(this.url, body, options).pipe(
+      map(() => true),
+      catchError(() => of(false))
+    )
   }
 
   getRatings(){
