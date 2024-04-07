@@ -95,15 +95,6 @@ export class AuthService{
     })
   }
 
-  signUp(email : string, password : string) {
-    this.fireauth.createUserWithEmailAndPassword(email,password).then( () => {
-      alert('Regisztráció sikeres');
-      this.router.navigate(['signin']);
-    }, err => {
-      alert (err.message);
-      this.router.navigate(['/signup']);
-    })
-  }
 
   signOut(){
     return this.fireauth.signOut()

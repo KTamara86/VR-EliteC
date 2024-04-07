@@ -3,59 +3,51 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Validation from '../validation/validation';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-user-sign-up',
   templateUrl: './user-sign-up.component.html',
   styleUrls: ['./user-sign-up.component.css']
 })
-export class UserSignUpComponent implements OnInit {
+export class UserSignUpComponent {
 
-  constructor(public auth: AuthService, private formBuilder: FormBuilder) {}
-  
-  form: FormGroup = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
-    confirmPassword: new FormControl(''),
-    acceptTerms: new FormControl(false),
-  });
-  submitted = false;
+  name: string = '';
+  email: string = '';
+  password: string = '';
+  confirmPassword: string = '';
+  phone: string = '';
+  address: string = '';
+  terms: boolean = false;
 
-  ngOnInit(): void {
-    this.form = this.formBuilder.group(
-      {
-        email: ['', [Validators.required, Validators.email]],
-        password: [
-          '',
-          [
-            Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(20),
-          ],
-        ],
-        confirmPassword: ['', Validators.required],
-        acceptTerms: [false, Validators.requiredTrue],
-      },
-      {
-        validators: [Validation.match('password', 'confirmPassword')],
-      }
-    );
-  }
+  constructor(private fireauth: AngularFireAuth, private db: AngularFireDatabase) {}
 
-  get forms(): { [key: string]: AbstractControl } {
-    return this.form.controls;
-  }
+  onSubmit() {
 
-  onSubmit(): void {
-    this.submitted = true;
+    this.fireauth.createUserWithEmailAndPassword(this.email, this.password)
+      .then((userCredential) => {
 
-    if (this.form.invalid) {
-      return;
-    }
-    console.log(JSON.stringify(this.form.value, null, 2));
-  }
+        const userData = {
+          name: this.name,
+          email: this.email,
+          phone: this.phone,
+          address: this.address,
+        };
 
-  validUser(){
-    return false
+        this.db.list('/users').push(userData)
+          .then(() => {
+
+            console.log('Felhasználó sikeresen regisztrálva és adatok mentve.');
+          })
+          .catch((error) => {
+
+            console.error('Hiba történt az adatok mentése során:', error);
+          });
+      })
+      .catch((error) => {
+
+        console.error('Hiba történt a regisztráció során:', error);
+      });
   }
 }
