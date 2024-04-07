@@ -1,7 +1,6 @@
 <ng-container *ngIf="!showError; else error" class="">
   <div class="row">
     <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3" id="categorySelectorCol">
-        <!-- TODO: lebeghetne is a container, illetve lehetne benne egy gomb, ami feldob az oldal tetejére -->
       <div id="categorySelectorContainer">
         <ul class="list-group" id="categoryList">
           <li *ngFor="let cat of categories; let i=index" class="list-group-item listItem"
