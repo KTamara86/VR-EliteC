@@ -89,5 +89,8 @@ export class ProductComponent {
     this.ratingService.postRating(body)
     this.rating.score = 3
     this.rating.text = ""
+    
+
+    //TODO vizuális visszajelzés
   }
 }
