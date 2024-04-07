@@ -46,3 +46,11 @@
     background-color: #ff007748;
     text-shadow: 0 0 15px #ff0079;
 }
+
+#packetPointContainer {
+    background-color: #ff007725;
+    margin-right: 3px;
+    border: #ff0079 solid 2px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px #ff0079;
+}
