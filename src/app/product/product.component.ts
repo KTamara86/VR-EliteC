@@ -87,5 +87,7 @@ export class ProductComponent {
       time: format(new Date(), 'yyyy-MM-dd HH:mm:ss')
     }
     this.ratingService.postRating(body)
+    this.rating.score = 3
+    this.rating.text = ""
   }
 }
