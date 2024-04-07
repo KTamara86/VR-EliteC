@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PacketPointService } from '../services/packet-point.service';
 import { CartService } from '../services/cart.service';
 import { format } from 'date-fns';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-checkout',
@@ -50,7 +51,7 @@ export class CheckoutComponent {
   errorMsg = ""
   
 
-  constructor(private packetPoint:PacketPointService, private cartService:CartService){
+  constructor(private packetPoint:PacketPointService, private cartService:CartService, private orderService:OrderService){
     this.packetPoint.getPacketPointList().subscribe(
       {
         next: (res) => {
@@ -123,14 +124,16 @@ export class CheckoutComponent {
       body.deliveryAddress =  this.selectedPacketPoint.street
       body.packetPoint = true
     }
-
+    //TODO: valamilyen módon vizsgálni kell a kitöltöttséget majd
     if(this.termsValue){
-      console.log(body)
+      this.orderService.postOrder(body)
     }
     else {
       console.log('ASZF')
     }
-    
+    //TODO: valamilyen módon ellenőrizni kell, hogy ténylegesen megrendelhetőek-e a termékek, van-e elég db
+    //TODO: vizuális visszaigazolás a rendelés sikerességéről
+
   }
 
 }
