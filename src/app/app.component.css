@@ -1,11 +1,10 @@
 #mainContainer {
     --angle: 0deg;
     background-color: #212529;
-    border-image: linear-gradient(var(--angle), darkblue, darkorchid) 1;
+    border-image: linear-gradient(var(--angle), #212121, #ff0079) 1;
     animation: 3s rotate linear infinite;
-    border-left:  4px solid;
-    border-right: 4px solid;
-    box-shadow: 0 0 15px darkblue;
+    border-left:  2px solid;
+    border-right: 2px solid;
     margin-bottom: 3px;
 }
 

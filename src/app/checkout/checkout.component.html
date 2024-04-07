@@ -15,26 +15,26 @@
                 <div class="row">
                     <div class="mb-3 col-4">
                         <label for="nameInput" class="form-label textWhite">Név:</label>
-                        <input type="text" class="form-control formInputField" id="nameInput">
+                        <input type="text" class="form-control formInputField" id="nameInput" [(ngModel)]="data.consignee">
                     </div>
                     <div class="mb-3 col-4">
                         <label for="phoneInput" class="form-label textWhite">Telefonszám:</label>
-                        <input type="tel" class="form-control formInputField" id="phoneInput" pattern="+[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}"  aria-describedby="phoneHelp">
-                        <div id="phoneHelp" class="form-text">Így add meg a telefonszámot: +36-30-123-4567</div>
+                        <input type="tel" [(ngModel)]="data.phone" class="form-control formInputField" id="phoneInput" aria-describedby="phoneHelp">
+                        <div id="phoneHelp" class="form-text">Így add meg a telefonszámot: 06301234567</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-2">
                         <label for="zipInput" class="form-label textWhite">Irányítószám:</label>
-                        <input type="text" class="form-control formInputField" id="zipInput">
+                        <input type="text" [(ngModel)]="data.zipcode" class="form-control formInputField" id="zipInput">
                     </div>
                     <div class="mb-3 col-4">
                         <label for="cityInput" class="form-label textWhite">Város:</label>
-                        <input type="text" class="form-control formInputField" id="cityInput">
+                        <input type="text" [(ngModel)]="data.city" class="form-control formInputField" id="cityInput">
                     </div>
                     <div class="mb-3 col-6">
                         <label for="addressInput" class="form-label textWhite">Utca, házszám:</label>
-                        <input type="text" class="form-control formInputField" id="addressInput">
+                        <input type="text" [(ngModel)]="data.address" class="form-control formInputField" id="addressInput">
                     </div>
                 </div>
             </ng-container>
@@ -42,30 +42,30 @@
                 <div class="row">
                     <div class="mb-3 col-4">
                         <label for="nameInput" class="form-label textWhite">Szervezet neve:</label>
-                        <input type="text" class="form-control formInputField" id="nameInput">
+                        <input type="text" [(ngModel)]="data.consignee" class="form-control formInputField" id="nameInput">
                     </div>
                     <div class="mb-3 col-4">
                         <label for="taxNoInput" class="form-label textWhite">Adószám:</label>
-                        <input type="text" class="form-control formInputField" id="taxNoInput">
+                        <input type="text" [(ngModel)]="data.taxnumber" class="form-control formInputField" id="taxNoInput">
                     </div>
                     <div class="mb-3 col-4">
                         <label for="phoneInput" class="form-label textWhite">Telefonszám:</label>
-                        <input type="tel" class="form-control formInputField" id="phoneInput" pattern="+[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}"  aria-describedby="phoneHelp">
+                        <input type="tel" [(ngModel)]="data.phone" class="form-control formInputField" id="phoneInput"aria-describedby="phoneHelp">
                         <div id="phoneHelp" class="form-text textWhite">Így add meg a telefonszámot: +36-30-123-4567</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-2">
                         <label for="zipInput" class="form-label textWhite">Irányítószám:</label>
-                        <input type="text" class="form-control formInputField" id="zipInput">
+                        <input type="text" [(ngModel)]="data.zipcode" class="form-control formInputField" id="zipInput">
                     </div>
                     <div class="mb-3 col-4">
                         <label for="cityInput" class="form-label textWhite">Város:</label>
-                        <input type="text" class="form-control formInputField" id="cityInput">
+                        <input type="text" [(ngModel)]="data.city" class="form-control formInputField" id="cityInput">
                     </div>
                     <div class="mb-3 col-6">
                         <label for="addressInput" class="form-label textWhite">Utca, házszám:</label>
-                        <input type="text" class="form-control formInputField" id="addressInput">
+                        <input type="text" [(ngModel)]="data.address" class="form-control formInputField" id="addressInput">
                     </div>
                 </div>
             </ng-template>
@@ -83,16 +83,16 @@
             <ng-container *ngIf="deliveryOpt=='home'; else packetpoint">
                 <div class="row">
                     <div class="mb-3 col-2">
-                        <label for="zipInput textWhite" class="form-label">Irányítószám:</label>
-                        <input type="text" class="form-control formInputField" id="zipInput">
+                        <label for="zipInput" class="form-label textWhite">Irányítószám:</label>
+                        <input type="text" [(ngModel)]="data.deliveryZipcode" class="form-control formInputField" id="zipInput">
                     </div>
                     <div class="mb-3 col-4">
-                        <label for="cityInput textWhite" class="form-label">Város:</label>
-                        <input type="text" class="form-control formInputField" id="cityInput">
+                        <label for="cityInput" class="form-label textWhite">Város:</label>
+                        <input type="text" [(ngModel)]="data.deliveryCity" class="form-control formInputField" id="cityInput">
                     </div>
                     <div class="mb-3 col-6">
-                        <label for="addressInput textWhite" class="form-label">Utca, házszám:</label>
-                        <input type="text" class="form-control formInputField" id="addressInput">
+                        <label for="addressInput" class="form-label textWhite">Utca, házszám:</label>
+                        <input type="text" [(ngModel)]="data.deliveryAddress" class="form-control formInputField" id="addressInput">
                     </div>
                 </div>
             </ng-container>
@@ -135,12 +135,12 @@
                 <label class="form-check-label textWhite" for="beforeDeliveryPay">Online fizetés</label>
             </div>
             <div class="form-check">
-                <input class="formCheck" type="checkbox" value="" id="flexCheckDefault">
+                <input class="formCheck" type="checkbox" [(ngModel)]="termsValue" id="flexCheckDefault">
                 <label class="form-check-label textWhite" for="flexCheckDefault">
                   Kijelentem, hogy az <a class="link-underline link-underline-opacity-0 myLink" href="" data-bs-toggle="modal" data-bs-target="#aszfModal">ÁSZF</a> tartalmát megismertem és elfogadom.
                 </label>
             </div>
-            <button type="button" class="btn" id="orderButton">Megrendelés</button>
+            <button type="button" class="btn" id="orderButton" (click)="orderProducts()">Megrendelés</button>
             <!-- TODO: funkció hiányzik -->
         </div>
     </div>

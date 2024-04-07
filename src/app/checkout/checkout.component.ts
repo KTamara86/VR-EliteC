@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PacketPointService } from '../services/packet-point.service';
 import { CartService } from '../services/cart.service';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-checkout',
@@ -13,16 +14,42 @@ export class CheckoutComponent {
   totalQty:any
   total:any
 
+
+  user = {
+    userid:0,
+    phone: "06301636655",
+    name: "Janos",
+    zipcode:"1234",
+    city:"Bélapátalva",
+    address:"hhsbadai",
+  }
+
+  data = {
+    consignee: this.user.name,
+    taxnumber: "",
+    phone: this.user.phone,
+    zipcode: this.user.zipcode,
+    city: this.user.city,
+    address: this.user.address,
+    deliveryZipcode: this.user.zipcode,
+    deliveryCity: this.user.city,
+    deliveryAddress: this.user.zipcode,
+  }
+
   entity:String = "person"
   deliveryOpt:String = "home"
+  paymentOpt:String = "before"
+  termsValue = false
+  
   packetPointList:any;
   selectedPacketPointCity = "";
   selectedPacketPoint?:object;
   packetPointInfo:any;
   cities: any[] = [];
+  
   errorShow = false;
   errorMsg = ""
-  paymentOpt:String = "before"
+  
 
   constructor(private packetPoint:PacketPointService, private cartService:CartService){
     this.packetPoint.getPacketPointList().subscribe(
@@ -70,6 +97,42 @@ export class CheckoutComponent {
     this.selectedPacketPoint = newValue
   }
 
+  orderProducts(){
+    let body = {
+      userid: this.user.userid, 
+      consignee: this.data.consignee,
+      taxnumber: this.data.taxnumber,
+      phone: this.data.phone,
+      zipcode: this.data.zipcode,
+      city: this.data.city,
+      address: this.data.address,
+      deliveryZipcode: this.data.deliveryZipcode,
+      deliveryCity: this.data.deliveryCity,
+      deliveryAddress: this.data.deliveryAddress,
+      products: this.cart,
+      datetime: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
+      status:"megrendelve",
+      qty: this.totalQty,
+      total: this.total,
+      packetPoint: false,
+      payment: this.paymentOpt
+    }
 
+    if(this.deliveryOpt != "home") {
+      // TODO: a packetpointtól kapja az értékét
+      body.deliveryZipcode = ""
+      body.deliveryCity =  ""
+      body.deliveryAddress =  "",
+      body.packetPoint = true
+    }
+
+    if(this.termsValue){
+      console.log(body)
+    }
+    else {
+      console.log('ASZF')
+    }
+    
+  }
 
 }
