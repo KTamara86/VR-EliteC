@@ -1,47 +1,48 @@
-
-  <ng-container *ngIf="!showError; else error" class="">
-    <div class="row">
-      <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3" id="categorySelectorContainer">
+<ng-container *ngIf="!showError; else error" class="">
+  <div class="row">
+    <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3" id="categorySelectorCol">
         <!-- TODO: lebeghetne is a container, illetve lehetne benne egy gomb, ami feldob az oldal tetejére -->
+      <div id="categorySelectorContainer">
         <ul class="list-group" id="categoryList">
           <li *ngFor="let cat of categories; let i=index" class="list-group-item listItem"
           [ngClass]="i==activeCategory? 'selectedListItem': ''" (click)="changeActiveCategory(i)">{{cat}}</li>
         </ul>
       </div>
-      <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-9 col-sm-9">
-        <div class="d-flex flex-row" id="filtersContainer">
-          <button class="btn btn-m" id="filterClearButton" [ngClass]="{'disabled': activeFilters[0] == '' && activeFilters[1] == '' && activeFilters[2] == '' &&
-              activeFilters[3] == '' && activeFilters[4] == '' && activeFilters[5] == '' && activeFilters[6] == ''}" (click)="clearFilters()">X</button>
-          <div class="input-group">
-            <!-- TODO: esetleg lehetne vmi tooltip és akkor nem kellene a disabled option -->
-            <select *ngFor="let item of szurok; let i = index" class="form-select form-select-sm filterSelects" 
-              [ngModel]="activeFilters" (ngModelChange)="changeFilter($event)">
-              <option disabled [selected]="activeFilters[i] == ''">{{item.name}}</option>
-              <option *ngFor="let option of item.options" [ngValue]="[i, option]">{{option}}</option>
-            </select>
-          </div>
-        </div>
-        <div class="row justify-content-evenly" id="productCardsContainer">
-            <div *ngFor="let prod of showedProducts|search:expression:activeCategory" [style]="{'display': prod.lathato == 0 || prod.db < 1 ? 'none' : 'block'}" class="card productCard">
-                <img [src]="'../../assets/pictures/'+prod.key+'.jpg'" class="card-img-top" alt="termékkép" data-bs-toggle="modal" data-bs-target="#productModal" (click)="setChoosenProduct(prod)">
-                <div class="card-body" data-bs-toggle="modal" data-bs-target="#productModal">
-                  <h5 class="card-title cardTitle" (click)="setChoosenProduct(prod)">{{prod.nev}}</h5>
-                  <p class="card-header cardHeader" (click)="setChoosenProduct(prod)">{{prod.uj_ar}} Ft</p>
-                  <ul class="list-group propListGroup">
-                    <li class="list-group-item propListItem" (click)="setChoosenProduct(prod)" [hidden]="!prod.szin">Szín: {{prod.szin}}</li>
-                    <li class="list-group-item propListItem" (click)="setChoosenProduct(prod)" [hidden]="!prod.meret">Méret: {{prod.meret}}</li>
-                    <li class="list-group-item propListItem" (click)="setChoosenProduct(prod)" [hidden]="!prod.szalmagassag">Szálmagasság: {{prod.szalmagassag}}</li>
-                  </ul>
-                </div>
-                <button (click)="addToCart(prod)" type="button" class="btn toCartButton">Kosárba</button>
-            </div>
+    </div>
+    <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-9 col-sm-9">
+      <div class="d-flex flex-row" id="filtersContainer">
+        <button class="btn btn-m" id="filterClearButton" [ngClass]="{'disabled': activeFilters[0] == '' && activeFilters[1] == '' && activeFilters[2] == '' &&
+            activeFilters[3] == '' && activeFilters[4] == '' && activeFilters[5] == '' && activeFilters[6] == ''}" (click)="clearFilters()">X</button>
+        <div class="input-group">
+          <!-- TODO: esetleg lehetne vmi tooltip és akkor nem kellene a disabled option -->
+          <select *ngFor="let item of szurok; let i = index" class="form-select form-select-sm filterSelects" 
+            [ngModel]="activeFilters" (ngModelChange)="changeFilter($event)">
+            <option disabled [selected]="activeFilters[i] == ''">{{item.name}}</option>
+            <option *ngFor="let option of item.options" [ngValue]="[i, option]">{{option}}</option>
+          </select>
         </div>
       </div>
+      <div class="row justify-content-evenly" id="productCardsContainer">
+          <div *ngFor="let prod of showedProducts|search:expression:activeCategory" [style]="{'display': prod.lathato == 0 || prod.db < 1 ? 'none' : 'block'}" class="card productCard">
+              <img [src]="'../../assets/pictures/'+prod.key+'.jpg'" class="card-img-top" alt="termékkép" data-bs-toggle="modal" data-bs-target="#productModal" (click)="setChoosenProduct(prod)">
+              <div class="card-body" data-bs-toggle="modal" data-bs-target="#productModal">
+                <h5 class="card-title cardTitle" (click)="setChoosenProduct(prod)">{{prod.nev}}</h5>
+                <p class="card-header cardHeader" (click)="setChoosenProduct(prod)">{{prod.uj_ar}} Ft</p>
+                <ul class="list-group propListGroup">
+                  <li class="list-group-item propListItem" (click)="setChoosenProduct(prod)" [hidden]="!prod.szin">Szín: {{prod.szin}}</li>
+                  <li class="list-group-item propListItem" (click)="setChoosenProduct(prod)" [hidden]="!prod.meret">Méret: {{prod.meret}}</li>
+                  <li class="list-group-item propListItem" (click)="setChoosenProduct(prod)" [hidden]="!prod.szalmagassag">Szálmagasság: {{prod.szalmagassag}}</li>
+                </ul>
+              </div>
+              <button (click)="addToCart(prod)" type="button" class="btn toCartButton">Kosárba</button>
+          </div>
+      </div>
     </div>
-  </ng-container>
-  <ng-template #error id="errorTemplate">
-    <div class="alert alert-danger" role="alert">
-      Az adatbázisunk jelenleg nem elérhető. Látogasson vissza később!
-    </div>
-  </ng-template>
+  </div>
+</ng-container>
+<ng-template #error id="errorTemplate">
+  <div class="alert alert-danger" role="alert">
+    Az adatbázisunk jelenleg nem elérhető. Látogasson vissza később!
+  </div>
+</ng-template>
 <app-product [ariaDisabled]="!getChossenProduct()" [data]="getChossenProduct()"></app-product>

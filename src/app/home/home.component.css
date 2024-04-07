@@ -1,4 +1,4 @@
-#categorySelectorContainer {
+#categorySelectorCol {
     background: linear-gradient(to right top, rgba(0,0,139,1) 0%, rgba(33,37,41,1) 80%);
     border-right: solid 2px #ff0079;
     box-shadow: 0px -3px 15px #ff0079;
@@ -135,4 +135,12 @@ img {
 .toCartButton:hover{
     box-shadow: 0 0 20px #ff0077d0;
     text-shadow: 0 0 30px #ff0079;  
+}
+
+@media only screen and (min-width: 768px) {
+    #categorySelectorContainer {
+        min-width: 16%;
+        z-index: 1;
+        position: fixed;
+    }
 }
