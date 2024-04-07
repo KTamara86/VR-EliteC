@@ -64,6 +64,10 @@
     border-bottom: 1px solid #ff0079;
 }
 
+.productRow:not(:last-child) {
+    border-bottom: 1px dotted #ff0079;
+}
+
 @media only screen and (max-width: 768px) {
     .checkoutCol {
       min-width: 100%
