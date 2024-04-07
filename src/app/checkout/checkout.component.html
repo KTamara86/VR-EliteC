@@ -1,145 +1,150 @@
 <div class="checkoutContainer">
-    <div class="sectionContainer">
-        <h1>Számlázási adatok:</h1>
-        <!-- TODO: funkcionalitást hozzáadni: választás természetes személy és cég között -->
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="presonOrCompany" id="personcheck" value="person" [(ngModel)]="entity">
-            <label class="form-check-label" for="personcheck">Magánszemély</label>
-        </div>
-        <div class="form-check mb-3">
-            <input class="form-check-input" type="radio" name="presonOrCompany" id="companycheck" value="company" [(ngModel)]="entity">
-            <label class="form-check-label" for="companycheck">Szervezet</label>
-        </div>
-        <ng-container *ngIf="entity=='person'; else company">
-            <div class="row">
-                <div class="mb-3 col-4">
-                    <label for="nameInput" class="form-label">Név</label>
-                    <input type="text" class="form-control" id="nameInput">
-                </div>
-                <div class="mb-3 col-4">
-                    <label for="phoneInput" class="form-label">Telefonszám:</label>
-                    <input type="tel" class="form-control" id="phoneInput" pattern="+[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}"  aria-describedby="phoneHelp">
-                    <div id="phoneHelp" class="form-text">Így add meg a telefonszámot: +36-30-123-4567</div>
-                </div>
+    <div class="checkoutCol">
+        <div class="sectionContainer">
+            <h1 class="sectionHeader">Számlázási adatok:</h1>
+            <!-- TODO: funkcionalitást hozzáadni: választás természetes személy és cég között -->
+            <div class="form-check textWhite">
+                <input class="formCheck" type="radio" name="presonOrCompany" id="personcheck" value="person" [(ngModel)]="entity">
+                <label class="form-check-label" for="personcheck">Magánszemély</label>
             </div>
-            <div class="row">
-                <div class="mb-3 col-2">
-                    <label for="zipInput" class="form-label">Irányítószám:</label>
-                    <input type="text" class="form-control" id="zipInput">
-                </div>
-                <div class="mb-3 col-4">
-                    <label for="cityInput" class="form-label">Város:</label>
-                    <input type="text" class="form-control" id="cityInput">
-                </div>
-                <div class="mb-3 col-6">
-                    <label for="addressInput" class="form-label">Utca, házszám:</label>
-                    <input type="text" class="form-control" id="addressInput">
-                </div>
+            <div class="form-check textWhite">
+                <input class="formCheck" type="radio" name="presonOrCompany" id="companycheck" value="company" [(ngModel)]="entity">
+                <label class="form-check-label" for="companycheck">Szervezet</label>
             </div>
-        </ng-container>
-        <ng-template #company>
-            <div class="row">
-                <div class="mb-3 col-4">
-                    <label for="nameInput" class="form-label">Szervezet neve:</label>
-                    <input type="text" class="form-control" id="nameInput">
+            <ng-container *ngIf="entity=='person'; else company">
+                <div class="row">
+                    <div class="mb-3 col-4">
+                        <label for="nameInput" class="form-label textWhite">Név:</label>
+                        <input type="text" class="form-control formInputField" id="nameInput">
+                    </div>
+                    <div class="mb-3 col-4">
+                        <label for="phoneInput" class="form-label textWhite">Telefonszám:</label>
+                        <input type="tel" class="form-control formInputField" id="phoneInput" pattern="+[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}"  aria-describedby="phoneHelp">
+                        <div id="phoneHelp" class="form-text">Így add meg a telefonszámot: +36-30-123-4567</div>
+                    </div>
                 </div>
-                <div class="mb-3 col-4">
-                    <label for="taxNoInput" class="form-label">Adószám:</label>
-                    <input type="text" class="form-control" id="taxNoInput">
-                </div>
-                <div class="mb-3 col-4">
-                    <label for="phoneInput" class="form-label">Telefonszám:</label>
-                    <input type="tel" class="form-control" id="phoneInput" pattern="+[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}"  aria-describedby="phoneHelp">
-                    <div id="phoneHelp" class="form-text">Így add meg a telefonszámot: +36-30-123-4567</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="mb-3 col-2">
-                    <label for="zipInput" class="form-label">Irányítószám:</label>
-                    <input type="text" class="form-control" id="zipInput">
-                </div>
-                <div class="mb-3 col-4">
-                    <label for="cityInput" class="form-label">Város:</label>
-                    <input type="text" class="form-control" id="cityInput">
-                </div>
-                <div class="mb-3 col-6">
-                    <label for="addressInput" class="form-label">Utca, házszám:</label>
-                    <input type="text" class="form-control" id="addressInput">
-                </div>
-            </div>
-        </ng-template>
-    </div>
-    <div class="sectionContainer">
-        <h1>Szállítási cím:</h1>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="homeOrPacketPoint" id="homeDelivery" value="home" [(ngModel)]="deliveryOpt">
-            <label class="form-check-label" for="homeDelivery">Házhozszállítás</label>
-        </div>
-        <div class="form-check mb-3">
-            <input class="form-check-input" type="radio" name="homeOrPacketPoint" id="packetPointDelivery" value="packetpoint" [(ngModel)]="deliveryOpt">
-            <label class="form-check-label" for="packetPointDelivery">Foxpost csomagátvételi pont</label>
-        </div>
-        <ng-container *ngIf="deliveryOpt=='home'; else packetpoint">
-            <div class="row">
-                <div class="mb-3 col-2">
-                    <label for="zipInput" class="form-label">Irányítószám:</label>
-                    <input type="text" class="form-control" id="zipInput">
-                </div>
-                <div class="mb-3 col-4">
-                    <label for="cityInput" class="form-label">Város:</label>
-                    <input type="text" class="form-control" id="cityInput">
-                </div>
-                <div class="mb-3 col-6">
-                    <label for="addressInput" class="form-label">Utca, házszám:</label>
-                    <input type="text" class="form-control" id="addressInput">
-                </div>
-            </div>
-        </ng-container>
-        <ng-template #packetpoint>
-            <ng-container *ngIf="errorShow; else errorNotShow">
-                <div class="alert alert-danger" role="alert">
-                    {{errorMsg}}
+                <div class="row">
+                    <div class="mb-3 col-2">
+                        <label for="zipInput" class="form-label textWhite">Irányítószám:</label>
+                        <input type="text" class="form-control formInputField" id="zipInput">
+                    </div>
+                    <div class="mb-3 col-4">
+                        <label for="cityInput" class="form-label textWhite">Város:</label>
+                        <input type="text" class="form-control formInputField" id="cityInput">
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="addressInput" class="form-label textWhite">Utca, házszám:</label>
+                        <input type="text" class="form-control formInputField" id="addressInput">
+                    </div>
                 </div>
             </ng-container>
-            <ng-template #errorNotShow>
-                <h3>Válaszd ki a kézbesítés helyét a listából:</h3>
-                <div class="row justify-content-around">
-                    <div class="col-4">
-                        <h5>Válassz települést:</h5>
-                        <select class="form-select" id="packetPointSelection" [ngModel]="selectedPacketPointCity" (ngModelChange)="selectPacketPointCity($event)">
-                            <option *ngFor="let city of cities" [ngValue]="city">{{city}}</option>
-                        </select>
-                        <h5>Válassz csomagpontot:</h5>
-                        <select class="form-select" id="packetPointSelection" [ngModel]="selectedPacketPoint" (ngModelChange)="selectPacketPoint($event)">
-                            <ng-container *ngFor="let packetpoint of packetPointList">
-                                <option *ngIf="packetpoint.group == selectedPacketPointCity" [ngValue]="packetpoint">{{packetpoint.name}}</option>
-                            </ng-container>
-                        </select>
+            <ng-template #company>
+                <div class="row">
+                    <div class="mb-3 col-4">
+                        <label for="nameInput" class="form-label textWhite">Szervezet neve:</label>
+                        <input type="text" class="form-control formInputField" id="nameInput">
                     </div>
-                    <div *ngIf="selectedPacketPoint" class="col-8 border border-primary rounded-4 p-5 w-auto" style="background-color: #2F75B5; color: white;">
-                        <app-packet-point-info [data]="selectedPacketPoint"></app-packet-point-info>
+                    <div class="mb-3 col-4">
+                        <label for="taxNoInput" class="form-label textWhite">Adószám:</label>
+                        <input type="text" class="form-control formInputField" id="taxNoInput">
+                    </div>
+                    <div class="mb-3 col-4">
+                        <label for="phoneInput" class="form-label textWhite">Telefonszám:</label>
+                        <input type="tel" class="form-control formInputField" id="phoneInput" pattern="+[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}"  aria-describedby="phoneHelp">
+                        <div id="phoneHelp" class="form-text textWhite">Így add meg a telefonszámot: +36-30-123-4567</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-2">
+                        <label for="zipInput" class="form-label textWhite">Irányítószám:</label>
+                        <input type="text" class="form-control formInputField" id="zipInput">
+                    </div>
+                    <div class="mb-3 col-4">
+                        <label for="cityInput" class="form-label textWhite">Város:</label>
+                        <input type="text" class="form-control formInputField" id="cityInput">
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="addressInput" class="form-label textWhite">Utca, házszám:</label>
+                        <input type="text" class="form-control formInputField" id="addressInput">
                     </div>
                 </div>
             </ng-template>
-        </ng-template>
+        </div>
+        <div class="sectionContainer">
+            <h1 class="sectionHeader">Szállítási cím:</h1>
+            <div class="form-check">
+                <input class="formCheck" type="radio" name="homeOrPacketPoint" id="homeDelivery" value="home" [(ngModel)]="deliveryOpt">
+                <label class="form-check-label textWhite" for="homeDelivery">Házhozszállítás</label>
+            </div>
+            <div class="form-check mb-3">
+                <input class="formCheck" type="radio" name="homeOrPacketPoint" id="packetPointDelivery" value="packetpoint" [(ngModel)]="deliveryOpt">
+                <label class="form-check-label textWhite" for="packetPointDelivery">Foxpost csomagátvételi pont</label>
+            </div>
+            <ng-container *ngIf="deliveryOpt=='home'; else packetpoint">
+                <div class="row">
+                    <div class="mb-3 col-2">
+                        <label for="zipInput textWhite" class="form-label">Irányítószám:</label>
+                        <input type="text" class="form-control formInputField" id="zipInput">
+                    </div>
+                    <div class="mb-3 col-4">
+                        <label for="cityInput textWhite" class="form-label">Város:</label>
+                        <input type="text" class="form-control formInputField" id="cityInput">
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="addressInput textWhite" class="form-label">Utca, házszám:</label>
+                        <input type="text" class="form-control formInputField" id="addressInput">
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #packetpoint>
+                <ng-container *ngIf="errorShow; else errorNotShow">
+                    <div class="alert alert-danger" role="alert">
+                        {{errorMsg}}
+                    </div>
+                </ng-container>
+                <ng-template #errorNotShow>
+                    <h3>Válaszd ki a kézbesítés helyét a listából:</h3>
+                    <div class="row justify-content-around">
+                        <div class="col-4 textWhite">
+                            <h5>Válassz települést:</h5>
+                            <select class="form-select formInputField" id="packetPointSelection" [ngModel]="selectedPacketPointCity" (ngModelChange)="selectPacketPointCity($event)">
+                                <option *ngFor="let city of cities" [ngValue]="city">{{city}}</option>
+                            </select>
+                            <h5>Válassz csomagpontot:</h5>
+                            <select class="form-select formInputField mb-3" id="packetPointSelection" [ngModel]="selectedPacketPoint" (ngModelChange)="selectPacketPoint($event)">
+                                <ng-container *ngFor="let packetpoint of packetPointList">
+                                    <option *ngIf="packetpoint.group == selectedPacketPointCity" [ngValue]="packetpoint">{{packetpoint.name}}</option>
+                                </ng-container>
+                            </select>
+                        </div>
+                        <div *ngIf="selectedPacketPoint" class="col-8 mb-3 border border-primary rounded-4 p-5 w-auto" style="background-color: #2F75B5; color: white;">
+                            <app-packet-point-info [data]="selectedPacketPoint"></app-packet-point-info>
+                        </div>
+                    </div>
+                </ng-template>
+            </ng-template>
+        </div>
+        <div class="sectionContainer">
+            <h1 class="sectionHeader">Fizetési mód kiválasztása:</h1>
+            <div class="form-check">
+                <input class="formCheck" type="radio" name="paying" id="afterDeliveryPay" value="after" [(ngModel)]="paymentOpt">
+                <label class="form-check-label textWhite" for="afterDeliveryPay">Utánvét</label>
+            </div>
+            <div class="form-check pb-5">
+                <input class="formCheck" type="radio" name="paying" id="beforeDeliveryPay" value="before" [(ngModel)]="paymentOpt">
+                <label class="form-check-label textWhite" for="beforeDeliveryPay">Online fizetés</label>
+            </div>
+            <div class="form-check">
+                <input class="formCheck" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label textWhite" for="flexCheckDefault">
+                  Kijelentem, hogy az <a class="link-underline link-underline-opacity-0 myLink" href="" data-bs-toggle="modal" data-bs-target="#aszfModal">ÁSZF</a> tartalmát megismertem és elfogadom.
+                </label>
+            </div>
+            <button type="button" class="btn" id="orderButton">Megrendelés</button>
+            <!-- TODO: funkció hiányzik -->
+        </div>
     </div>
-    <div class="sectionContainer">
-        <h1>Fizetési mód kiválasztása:</h1>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="paying" id="afterDeliveryPay" value="after" [(ngModel)]="paymentOpt">
-            <label class="form-check-label" for="afterDeliveryPay">Utánvét</label>
-        </div>
-        <div class="form-check pb-5">
-            <input class="form-check-input" type="radio" name="paying" id="beforeDeliveryPay" value="before" [(ngModel)]="paymentOpt">
-            <label class="form-check-label" for="beforeDeliveryPay">Online fizetés</label>
-        </div>
-        <div class="form-check" style="background-color: #DDEBF7;">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              Kijelentem, hogy az <a class="link-underline link-underline-opacity-0 text-primary" href="" data-bs-toggle="modal" data-bs-target="#aszfModal">ÁSZF</a> tartalmát megismertem és elfogadom.
-            </label>
-        </div>
-        <button type="button" class="btn btn-success">Megrendelés</button>
-        <!-- TODO: funkció hiányzik -->
+    <div class="cartCol">
+        Kosár tartalma
     </div>
 </div>
