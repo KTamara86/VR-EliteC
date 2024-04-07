@@ -1,6 +1,5 @@
 <!-- TODO: az ikonokkal még valamit kezdeni kell -->
 <!-- TODO: logo csere -->
-<!-- TODO: szétesett a gombok feliratának színe -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav">
     <div class="container-fluid">
         <a class="navbar-brand" routerLink="/home"><img src="../../assets/logo/logo-small-no-background.png" alt="EliteCarpets"></a>
@@ -19,14 +18,12 @@
                 </li>
                 <li *ngIf="!user" class="nav-item">
                     <a class="nav-link" routerLink="/signin">
-                        <img src="../../assets/icon/login_FILL0_wght400_GRAD0_opsz24.svg" alt="bejelentkezés">
                         Bejelentkezés
                     </a>
                 </li>
 
                 <li *ngIf="!user" class="nav-item">
                     <a class="nav-link" routerLink="/signup">
-                        <img src="../../assets/icon/add_circle_FILL0_wght400_GRAD0_opsz24.svg" alt="regisztrálás">
                         Regisztráció
                     </a>
                 </li>
