@@ -1,5 +1,4 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Conditional } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, catchError, map, of } from 'rxjs';
 
@@ -10,7 +9,6 @@ export class RatingService {
 
   url = "https://elitecarpetsv2-default-rtdb.europe-west1.firebasedatabase.app/velemenyek.json"
   ratingsSub = new Subject()
-  
 
   constructor(private http:HttpClient){
     this.loadRatings()

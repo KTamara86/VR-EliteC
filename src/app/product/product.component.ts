@@ -78,7 +78,7 @@ export class ProductComponent {
     }
   }
 
-  postRating(score:number, text:string){
+  postRating(){
     let body = {
       user: this.user.id,
       product: this.data.key,

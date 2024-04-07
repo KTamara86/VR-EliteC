@@ -40,7 +40,7 @@
                             <span hidden="(max-width: 768px)" class="input-group-text" id="ratingTextLabel">Mit gondol a termékről?</span>
                             <textarea class="form-control" id="ratingTextArea" aria-label="With textarea" placeholder="Véleménye fontos a számunkra, ossza meg velünk!" [(ngModel)]="rating.text"></textarea>
                         </div>
-                        <button id="ratingSubmitButton" (click)="postRating(rating.score, rating.text)" [disabled]="rating.text==''">Beküldés</button>
+                        <button id="ratingSubmitButton" (click)="postRating()" [disabled]="rating.text==''">Beküldés</button>
                     </div>
                     <div class="row ratingInputContainer">
                         <div *ngFor="let rating of ratingsArray|rating:data.key" class="row myRatings">
