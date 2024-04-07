@@ -10,7 +10,6 @@ li {
     border-radius: 10px;
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 2px;
 }
 
 li:hover {
@@ -25,5 +24,8 @@ li:hover {
     font-weight: bold;
     min-width: 10rem;
     text-align: center;
+}
 
+#cartImg {
+    margin-left: 10%;
 }

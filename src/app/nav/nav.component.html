@@ -10,9 +10,10 @@
             <ul class="navbar-nav me-0 mb-5 mb-lg-0 ms-5 col-6">  
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasCart" role="button" aria-controls="offcanvasCart">  
-                        <img src="../../assets/icon/shopping_cart_FILL0_wght400_GRAD0_opsz24.svg" alt="kosár">
-                        <span class="badge rounded-pill bg-danger">{{totalProduct}}</span>
                         Kosár
+                        <img src="../../assets/icon/shopping_cart_white_24dp.svg" alt="kosár" id="cartImg">
+                        <span class="badge rounded-pill bg-danger">{{totalProduct}}</span>
+                        
                     </a>
                 </li>
                 <li *ngIf="!user" class="nav-item">
