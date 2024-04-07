@@ -76,6 +76,10 @@ export class HomeComponent {
     )
   }
 
+  ngOnInit(){
+    this.base.reload()
+  }
+
   addToCart(product:any){
     let body:any = []
     body.key = product.key

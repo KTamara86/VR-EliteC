@@ -18,6 +18,10 @@ export class BaseService {
     return this.productsSub
   }
 
+  reload(){
+    this.loadProducts()
+  }
+
   private loadProducts(){
     this.http.get(this.url + ".json").subscribe(
       (res) => this.productsSub.next(res)
