@@ -4,6 +4,7 @@ import { CartService } from '../services/cart.service';
 import { format } from 'date-fns';
 import { OrderService } from '../services/order.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-checkout',
@@ -52,7 +53,7 @@ export class CheckoutComponent {
   errorMsg = ""
   
 
-  constructor(private packetPoint:PacketPointService, private cartService:CartService, private orderService:OrderService, private toastr:ToastrService){
+  constructor(private packetPoint:PacketPointService, private cartService:CartService, private orderService:OrderService, private toastr:ToastrService, private router:Router){
     this.packetPoint.getPacketPointList().subscribe(
       {
         next: (res) => {
@@ -139,6 +140,7 @@ export class CheckoutComponent {
           if(res){
             this.callToasts(res, "A megrendelést hamarosan láthatod a profilod alatt", "Sikeres megrendelés")
             this.cartService.emptyCart()
+            this.router.navigate(['home'])
           }
           else this.callToasts(res, "Sikertelen megrendelés, próbáld meg később", "HIBA")
         }  
@@ -146,9 +148,7 @@ export class CheckoutComponent {
     }
 
     console.log(result, msg)
-    //TODO: valamilyen módon ellenőrizni kell, hogy ténylegesen megrendelhetőek-e a termékek, van-e elég db
-
-    //Sikeres rendelés után dobjuk át a home-ra?
+    //TODO: valamilyen módon ellenőrizni kell, hogy ténylegesen megrendelhetőek-e a termékek, van-e elég dd
 
   }
 
