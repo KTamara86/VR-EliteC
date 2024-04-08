@@ -25,10 +25,6 @@ export class RatingListComponent {
     )
   }
 
-  ngOnInit(){
-    this.ratingService.reload()
-  }
-
   modifyRating(rating:any){
     let text = "CENZÚRÁZOTT VÉLEMÉNY: A vélemény kívül esett a jó ízlés határain"
     let body = {

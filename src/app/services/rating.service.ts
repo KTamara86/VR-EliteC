@@ -32,6 +32,7 @@ export class RatingService {
     const db = getDatabase();
     try {
       await set(ref(db, 'velemenyek/' + key), body)
+      this.reload()
       return true
     } catch(error) { return false }
   }

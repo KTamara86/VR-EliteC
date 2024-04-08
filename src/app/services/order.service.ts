@@ -32,6 +32,7 @@ export class OrderService {
     const db = getDatabase();
     try {
       await set(ref(db, 'orders/' + key), body)
+      this.reload()
       return true
     } catch(error) { return false }
   }
@@ -40,6 +41,7 @@ export class OrderService {
     const db = getDatabase();
     try {
       await remove(ref(db, 'orders/' + key))
+      this.reload()
       return true
     } catch(error) { return false }
   }
