@@ -27,6 +27,10 @@ export class RatingService {
     )
   }
 
+  reload(){
+    this.loadRatings()
+  }
+
   getRatings(){
     return this.ratingsSub
   }
