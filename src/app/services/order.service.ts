@@ -32,6 +32,10 @@ export class OrderService {
     set(ref(db, 'orders/' + key), body);
   }
 
+  reload(){
+    this.loadOrders()
+  }
+
   getOrders(){
     return this.orderSub
   }
