@@ -41,13 +41,9 @@ export class RatingListComponent {
     this.ratingService.writeRatingData(body, rating.key).then(
       (res) => this.toastMsg(res)
     )
-
-    //TODO: kellene ide is vmi toast az eredményről 
   }
 
   toastMsg(result:boolean){
-    let toastHeaderTxt = ""
-    let toastBodyTxt = ""
     let props:any = {
       closeButton: true,
       timeOut: 2000,
@@ -57,21 +53,8 @@ export class RatingListComponent {
       newestOnTop: true
     }
 
-    if(result){
-      toastBodyTxt = "Sikeresen kicenzúráztad a véleményt"
-      toastHeaderTxt = "SIKER"
-    }
-    else {
-      toastBodyTxt = "Valami hiba lépett fel, próbálkozz később"
-      toastHeaderTxt = "HIBA"
-    }
-    
-    if(result){
-      this.toastr.info(toastBodyTxt, toastHeaderTxt, props)
-    }
-    else{
-      this.toastr.warning(toastBodyTxt, toastHeaderTxt, props)
-    }
+    if(result) this.toastr.info("Sikeresen kicenzúráztad a véleményt", "SIKER", props)
+    else this.toastr.warning("Valami hiba lépett fel, próbálkozz később", "HIBA", props)
   }
 
 }
