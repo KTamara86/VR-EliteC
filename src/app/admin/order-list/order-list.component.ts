@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { OrderService } from 'src/app/services/order.service';
 
 @Component({
@@ -14,8 +15,8 @@ export class OrderListComponent {
 
   status = ["megrendelve", "feladva", "kézbesítve"]
 
-  constructor(private orderService:OrderService){
-    orderService.getOrders().subscribe(
+  constructor(private orderService:OrderService, private router:Router){
+    this.orderService.getOrders().subscribe(
       (res:any) => {
         let array = []
         for(const key in res){
@@ -30,6 +31,17 @@ export class OrderListComponent {
 
 ngOnInit(){
   this.orderService.reload()
+  this.orderService.getOrders().subscribe(
+    (res:any) => {
+      let array = []
+      for(const key in res){
+        let element = res[key]
+        element.key = key
+        array.push(element)
+      }
+      this.ordersArray = array 
+    }
+  )
 }
 
 modifyOrder(order:any){
@@ -52,10 +64,17 @@ modifyOrder(order:any){
     payment: order.payment
   }
   
-  this.orderService.writeOrderData(body, order.key)
+  this.orderService.writeOrderData(body, order.key).then(
+    (res) => console.log(res)
+  )
   }
 
   deleteOrder(key:string){
-    this.orderService.deleteOrder(key)
+    this.orderService.deleteOrder(key).then(
+      (res) => console.log(res)
+    )
+    // TODO: vizuális visszaigazolás kell
+
+    //TODO: valahogy reloadolni kell
   }
 }

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { getDatabase, ref, set } from 'firebase/database';
+import { getDatabase, ref, set, remove } from 'firebase/database';
 import { Observable, Subject, catchError, map, of } from 'rxjs';
 
 @Injectable({
@@ -28,14 +28,21 @@ export class OrderService {
     //TODO: valamiért a termékek nem mennek fel...
   }
 
-  writeOrderData(body:any, key:string) {
+  async writeOrderData(body:any, key:string) : Promise<boolean>{
     const db = getDatabase();
-    set(ref(db, 'orders/' + key), body);
+    try {
+      await set(ref(db, 'orders/' + key), body)
+      return true
+    } catch(error) { return false }
   }
 
-  deleteOrder(key: string): Observable<any> {
-    return this.http.delete(`${this.url}/delete/${key}`)
-}
+  async deleteOrder(key: string) : Promise<boolean>{
+    const db = getDatabase();
+    try {
+      await remove(ref(db, 'orders/' + key))
+      return true
+    } catch(error) { return false }
+  }
 
   reload(){
     this.loadOrders()
