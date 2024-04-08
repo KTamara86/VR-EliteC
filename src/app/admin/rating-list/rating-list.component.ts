@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { map } from 'rxjs';
 import { RatingService } from 'src/app/services/rating.service';
 
 @Component({
