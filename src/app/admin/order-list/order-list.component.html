@@ -37,8 +37,14 @@
             <input *ngIf="order.payment == 'before'" disabled class="col-2 dataField" type="text" [value]="'Online fizetés'">
             <input *ngIf="order.payment == 'after'" disabled class="col-1 dataField" type="text" [value]="'Utánvét'">
             <input disabled class="col-2 dataField" type="text" [value]="order.total + ' Ft'">
-            <div class="col">IDE jön majd a státusz váltás</div>
-            <button class="col" (click)="modifyOrder(order)">Módosítás</button>
+            <div class="col">
+                <select class="form-select dataField input" aria-label="Rendelési status" [(ngModel)]="order.status">
+                    <option *ngFor="let value of status" class="black" [value]="value">{{value}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-1">
+            <button (click)="modifyOrder(order)" id="modifyButton">Módosítás</button>
         </div>
         
         <!-- <div class="row pt-1">

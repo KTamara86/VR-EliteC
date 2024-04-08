@@ -10,6 +10,8 @@ export class OrderListComponent {
   
   ordersArray:any
 
+  status = ["megrendelve", "feladva", "kézbesítve"]
+
   constructor(private orderService:OrderService){
     orderService.getOrders().subscribe(
       (res:any) => {

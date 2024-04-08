@@ -33,19 +33,23 @@
     background:transparent
 }
 
-.modifyButton {
+#modifyButton {
     border: 2px solid #ff0079;
     background: transparent;
     font-weight: bold;
     border-radius: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-    max-width: 100px;
-    min-width: 100px;
-    margin-top: 1rem;
+    max-width: 130px;
+    min-width: 130px;
+    margin-bottom: 1rem;
     color: white;
 }
 
-.modifyButton:hover {
+#modifyButton:hover {
     box-shadow: 0 0 20px #ff0079; 
+}
+
+.black {
+    color: black;
 }
