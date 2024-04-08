@@ -4,9 +4,42 @@
 
 <div class="row dataContainer">
     <div class="row dataRow" *ngFor="let order of ordersArray">
-        <div class="row">
-            <input disabled class="col dataField" type="text" [value]="order.key">
+        <div class="row mb-1">
+            <input disabled class="col dataField" type="text" [value]="order.key" title="Megrendelés ID">
+            <input disabled class="col dataField" type="text" [value]="order.userid" title="Felhasználó ID">
+            <input disabled class="col dataField" type="text" [value]="order.datetime">
+            <input class="col dataField input" type="text" [value]="order.phone" title="Telefonszám">
         </div>
+        <div class="row mb-1">
+            <h5 class="col">Címzett</h5>
+            <input class="col dataField input" type="text" [value]="order.consignee">
+            <input *ngIf="order.taxnumber != '' " class="col dataField input" type="text" [value]="order.taxnumber">
+            <input *ngIf="order.taxnumber == '' " disabled class="col dataField" type="text" [value]="'Magánszemély'">
+            <div class="col">
+                <input disabled type="checkbox" [value]="order.packetPoint" [checked]="order.packetPoint">
+                <span class="ps-1">Csomagpontos</span>
+            </div>
+        </div>
+        <div class="row mb-1">
+            <input class="col-1 dataField input" type="text" [value]="order.zipcode">
+            <input class="col-3 dataField input" type="text" [value]="order.city">
+            <input class="col dataField input" type="text" [value]="order.address">
+        </div>
+        <div class="row mb-1">
+            <h5 class="col-2">Szállítási adatok</h5>
+            <input class="col-1 dataField input" type="text" [value]="order.deliveryZipcode">
+            <input class="col-3 dataField input" type="text" [value]="order.deliveryCity">
+            <input class="col dataField input" type="text" [value]="order.deliveryAddress">
+        </div>
+        <div class="row mb-1">
+            <h5 class="col-2">Fizetési adatok</h5>
+            <input *ngIf="order.payment == 'before'" disabled class="col-2 dataField" type="text" [value]="'Online fizetés'">
+            <input *ngIf="order.payment == 'after'" disabled class="col-1 dataField" type="text" [value]="'Utánvét'">
+            <input disabled class="col-2 dataField" type="text" [value]="order.total + ' Ft'">
+            <div class="col">IDE jön majd a státusz váltás</div>
+            <button class="col">Módosítás</button>
+        </div>
+        
         <!-- <div class="row pt-1">
             <textarea disabled class="col dataField" type="text" [value]="rating.text"></textarea>
             <div class="col">

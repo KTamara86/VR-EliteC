@@ -18,14 +18,19 @@
 
 .dataRow {
     margin-bottom: 2%;
+    border-bottom: 1px solid white;
 }
 
 .dataField {
     border: 1px solid #ff0079;
     border-radius: 5px;
-    background: transparent;
     margin-right: 1%;
     color: white;
+    background-color: #ff00773a;
+}
+
+.input {
+    background:transparent
 }
 
 .modifyButton {
