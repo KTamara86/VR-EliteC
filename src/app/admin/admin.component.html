@@ -14,10 +14,9 @@
     </div>
 </ng-container>
 <ng-container *ngIf="selectorValue == 'users'"><app-user-list></app-user-list></ng-container>
-<ng-container *ngIf="selectorValue == 'products'"></ng-container>
-<ng-container *ngIf="selectorValue == 'orders'"></ng-container>
-<ng-container *ngIf="selectorValue == 'ratings'"></ng-container>
+<ng-container *ngIf="selectorValue == 'products'"><app-product-list></app-product-list></ng-container>
+<ng-container *ngIf="selectorValue == 'orders'"><app-order-list></app-order-list></ng-container>
+<ng-container *ngIf="selectorValue == 'ratings'"><app-rating-list></app-rating-list></ng-container>
 
-<!-- TODO: hozzuk létre a componenseket -->
 <!-- TODO: adjunk a komponenseknek egységes dizájnt -->
 <!-- TODO: a servicekben ki kell építeni a megfelelő funkciókat -->

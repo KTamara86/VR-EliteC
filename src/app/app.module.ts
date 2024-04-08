@@ -29,6 +29,9 @@ import { RatingPipe } from './pipes/rating.pipe';
 import { ProfilComponent } from './profil/profil.component';
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { AdminComponent } from './admin/admin.component';
+import { RatingListComponent } from './admin/rating-list/rating-list.component';
+import { OrderListComponent } from './admin/order-list/order-list.component';
+import { ProductListComponent } from './admin/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { AdminComponent } from './admin/admin.component';
     RatingPipe,
     ProfilComponent,
     UserListComponent,
-    AdminComponent
+    AdminComponent,
+    RatingListComponent,
+    OrderListComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
