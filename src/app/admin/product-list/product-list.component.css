@@ -1,0 +1,23 @@
+.headerRow {
+    color: white;
+    margin-bottom: 2%;
+    border-bottom: 1px solid #ff0079;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.dataContainer {
+    color: white;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.dataField {
+    border: 1px solid #ff0079;
+    border-radius: 5px;
+    margin-right: 1%;
+    margin-left: 1%;
+    color: white;
+    background-color: #ff00773a;
+}
+.black {
+    color: black;
+}

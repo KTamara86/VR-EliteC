@@ -1,1 +1,134 @@
-<p>product-list works!</p>
+<div class="row headerRow">
+        <h5>Új termék hozzáadása</h5>
+        <div class="col form-group">
+            <label for="nev">Termék neve:</label>
+            <input class="dataField input" type="text" id="nev" [(ngModel)]="newProduct.nev" name="nev">
+        </div>
+        <div class="col form-group">
+            <label for="db">Darabszám:</label>
+            <input class="dataField input" type="number" id="db" [(ngModel)]="newProduct.db" name="db">
+        </div>
+        <div class="col form-group">
+            <label for="uj_ar">Ár:</label>
+            <input class="dataField input" type="number" id="uj_ar" [(ngModel)]="newProduct.uj_ar" name="uj_ar">
+        </div>
+        <div class="col form-group">
+            <label for="anyag">Anyag:</label>
+            <select class="dataField input" [(ngModel)]="newProduct.anyag" name="anyag">
+              <option class="black" *ngFor="let value of props.anyag" [value]="value">{{value}}</option>
+            </select>
+        </div>
+        <div class="col form-group">
+            <label for="mintazat">Mintázat:</label>
+            <select class="dataField input" [(ngModel)]="newProduct.mintazat" name="mintazat">
+              <option class="black" *ngFor="let value of props.mintazat" [value]="value">{{value}}</option>
+            </select>
+        </div>
+        <div class="col form-group">
+            <label for="meret">Méret:</label>
+            <select class="dataField input" [(ngModel)]="newProduct.meret" name="meret">
+              <option class="black" *ngFor="let value of props.meret" [value]="value">{{value}}</option>
+            </select>
+        </div>
+        <div class="col form-group">
+            <label for="szin">Szín:</label>
+            <select class="dataField input" [(ngModel)]="newProduct.szin" name="szin">
+              <option class="black" *ngFor="let value of props.szin" [value]="value">{{value}}</option>
+            </select>
+        </div>
+        <div class="col form-group">
+            <label for="szalmagassag">Szálmagasság:</label>
+            <select class="dataField input" [(ngModel)]="newProduct.szalmagassag" name="szalmagassag">
+              <option class="black" *ngFor="let value of props.szalmagassag" [value]="value">{{value}}</option>
+            </select>
+        </div>
+        <div class="col form-group">
+            <label for="vastagsag">Vastagság:</label>
+            <select class="dataField input" [(ngModel)]="newProduct.vastagsag" name="vastagsag">
+              <option class="black" *ngFor="let value of props.vastagsag" [value]="value">{{value}}</option>
+            </select>
+        </div>
+        <div class="col form-group">
+            <label for="stilus">Stílus:</label>
+            <select class="dataField input" [(ngModel)]="newProduct.stilus" name="stilus">
+              <option class="black" *ngFor="let value of props.stilus" [value]="value">{{value}}</option>
+            </select>
+        </div>
+          
+          
+          
+          
+      
+        
+      
+        <!-- <div class="form-group">
+          <label for="leiras">Termék leírása:</label>
+          <textarea class="col dataField input" id="leiras" [(ngModel)]="newProduct.leiras" name="leiras"></textarea>
+        </div>
+      
+        <div class="form-group">
+          <label for="kep">Kép URL:</label>
+          <input class="col dataField input" type="text" id="kep" [(ngModel)]="newProduct.kep" name="kep">
+        </div> -->
+      
+        <button type="submit" class="btn btn-primary">Termék hozzáadása</button>
+    <input [(ngModel)]="searchArgs" type="text" placeholder="Írd be a termék nevét">
+</div>
+<div class="row dataContainer">
+    <div class="row mb-1">
+        
+          
+
+        
+    </div>
+
+
+
+
+
+
+    <!-- <div class="row dataRow" *ngFor="let order of ordersArray|key:searchArgs">
+        <div class="row mb-1">
+            <input disabled class="col dataField" type="text" [value]="order.key" title="Megrendelés ID">
+            <input disabled class="col dataField" type="text" [value]="order.userid" title="Felhasználó ID">
+            <input disabled class="col dataField" type="text" [value]="order.datetime">
+            <input class="col dataField input" type="text" [(ngModel)]="order.phone" title="Telefonszám">
+        </div>
+        <div class="row mb-1">
+            <h5 class="col">Címzett</h5>
+            <input class="col dataField input" type="text" [(ngModel)]="order.consignee">
+            <input *ngIf="order.taxnumber != '' " class="col dataField input" type="text" [(ngModel)]="order.taxnumber">
+            <input *ngIf="order.taxnumber == '' " disabled class="col dataField" type="text" [value]="'Magánszemély'">
+            <div class="col">
+                <input disabled type="checkbox" [value]="order.packetPoint" [checked]="order.packetPoint">
+                <span class="ps-1">Csomagpontos</span>
+            </div>
+        </div>
+        <div class="row mb-1">
+            <input class="col-1 dataField input" type="text" [(ngModel)]="order.zipcode">
+            <input class="col-3 dataField input" type="text" [(ngModel)]="order.city">
+            <input class="col dataField input" type="text" [(ngModel)]="order.address">
+        </div>
+        <div class="row mb-1">
+            <h5 class="col-2">Szállítási adatok</h5>
+            <input class="col-1 dataField input" type="text" [(ngModel)]="order.deliveryZipcode">
+            <input class="col-3 dataField input" type="text" [(ngModel)]="order.deliveryCity">
+            <input class="col dataField input" type="text" [(ngModel)]="order.deliveryAddress">
+        </div>
+        <div class="row mb-1">
+            <h5 class="col-2">Fizetési adatok</h5>
+            <input *ngIf="order.payment == 'before'" disabled class="col-2 dataField" type="text" [value]="'Online fizetés'">
+            <input *ngIf="order.payment == 'after'" disabled class="col-1 dataField" type="text" [value]="'Utánvét'">
+            <input disabled class="col-2 dataField" type="text" [value]="order.total + ' Ft'">
+            <div class="col">
+                <select class="form-select dataField input" aria-label="Rendelési status" [(ngModel)]="order.status">
+                    <option *ngFor="let value of status" class="black" [value]="value">{{value}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-1">
+            <button (click)="modifyOrder(order)" class="myButton" id="modifyButton">Módosítás</button>
+            <button (click)="deleteOrder(order.key)" class="myButton" id="deleteButton">Törlés</button>
+        </div>
+    </div> -->
+</div>
