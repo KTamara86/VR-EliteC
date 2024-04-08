@@ -10,6 +10,8 @@ export class OrderListComponent {
   
   ordersArray:any
 
+  searchArgs = ""
+
   status = ["megrendelve", "feladva", "kézbesítve"]
 
   constructor(private orderService:OrderService){
@@ -31,9 +33,25 @@ export class OrderListComponent {
   }
 
 modifyOrder(order:any){
+  let body = {
+    userid: order.userid,
+    consignee: order.consignee,
+    taxnumber: order.taxnumber,
+    phone: order.phone,
+    zipcode: order.zipcode,
+    city: order.city,
+    address: order.address,
+    deliveryZipcode: order.deliveryZipcode,
+    deliveryCity: order.deliveryCity,
+    deliveryAddress: order.deliveryAddress,
+    datetime: order.datetime,
+    status: order.status,
+    qty: order.qty,
+    total: order.total,
+    packetPoint: order.packetPoint,
+    payment: order.payment
+  }
   
-  console.log(order)
-
-  // this.orderService.writeOrderData(body, order.key)
+  this.orderService.writeOrderData(body, order.key)
   }
 }
