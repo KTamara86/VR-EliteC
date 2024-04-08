@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { map } from 'rxjs';
 import { RatingService } from 'src/app/services/rating.service';
 
 @Component({
@@ -15,7 +16,9 @@ export class RatingListComponent {
       (res:any) => {
         let array = []
         for(const key in res){
-          array.push(res[key])
+          let element = res[key]
+          element.key = key
+          array.push(element)
         }
         this.ratingsArray = array 
       }
@@ -26,9 +29,16 @@ export class RatingListComponent {
     this.ratingService.reload()
   }
 
-  modifyRating(){
+  modifyRating(rating:any){
     let text = "CENZÚRÁZOTT VÉLEMÉNY: A vélemény kívül esett a jó ízlés határain"
-    console.log(text)
+    let body = {
+      product: rating.product,
+      rating: rating.rating,
+      text: text,
+      time: rating.time,
+      user: rating.user
+    }
+    this.ratingService.writeRatingData(body, rating.key)
   }
 
 }

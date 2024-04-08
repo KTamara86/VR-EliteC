@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, catchError, map, of } from 'rxjs';
+import { getDatabase, ref, set } from "firebase/database";
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,11 @@ export class RatingService {
       map(() => true),
       catchError(() => of(false))
     )
+  }
+
+  writeRatingData(body:any, key:string) {
+    const db = getDatabase();
+    set(ref(db, 'velemenyek/' + key), body);
   }
 
   reload(){
