@@ -28,9 +28,9 @@ export class OrderListComponent {
     )
   }
 
-  ngOnInit(){
-    this.orderService.reload()
-  }
+ngOnInit(){
+  this.orderService.reload()
+}
 
 modifyOrder(order:any){
   let body = {
