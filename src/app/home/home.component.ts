@@ -187,6 +187,12 @@ export class HomeComponent {
         newestOnTop: true
       })
     }
-    
+  }
+
+  scrollToTop() {
+    const element = document.getElementById('filtersContainer');
+    if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }

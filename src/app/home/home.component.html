@@ -5,6 +5,7 @@
         <ul class="list-group" id="categoryList">
           <li *ngFor="let cat of categories; let i=index" class="list-group-item listItem"
           [ngClass]="i==activeCategory? 'selectedListItem': ''" (click)="changeActiveCategory(i)">{{cat}}</li>
+          <li class="list-group-item listItem" (click)="scrollToTop()">Vissza az oldal tetjére</li>
         </ul>
       </div>
     </div>
