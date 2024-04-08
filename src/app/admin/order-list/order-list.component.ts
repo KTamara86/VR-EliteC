@@ -74,8 +74,6 @@ modifyOrder(order:any){
     this.orderService.deleteOrder(key).then(
       (res) => this.toastMsgOutlet(res, "delete")
     )
-
-    //TODO: valahogy reloadolni kell
   }
 
   toastMsgOutlet(result:boolean, type:string){

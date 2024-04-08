@@ -38,7 +38,6 @@ export class RatingService {
   }
 
   reload(){
-    //TODO: esetleg ha a subot nullázuk, lehet megoldaná az újratöltési problémát
     this.loadRatings()
   }
 
