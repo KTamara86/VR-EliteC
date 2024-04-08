@@ -1,0 +1,30 @@
+#selectorContainer {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+#selector {
+    background-color: #ff007748;
+    color: white;
+    margin-right: 5px;
+    border: none;
+    border: 1px solid #ff007748;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#selectorText {
+    background-color: rgba(255, 0, 119, 0.282);
+    border: 1px solid #ff007748;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: white;
+}
+
+select option {
+    background: rgba(255, 0, 119, 0.26);
+}
+
+#alertBox {
+    margin-bottom: 0;
+}
