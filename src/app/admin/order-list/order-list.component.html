@@ -1,10 +1,8 @@
 <div class="row headerRow">
-    <input type="text" placeholder="Írd be a rendelés azonosítót">
-    <!-- TODO: kereső funkció: tálen egy pipe-pal? -->
+    <input [(ngModel)]="searchArgs" type="text" placeholder="Írd be a rendelés azonosítót">
 </div>
-
 <div class="row dataContainer">
-    <div class="row dataRow" *ngFor="let order of ordersArray">
+    <div class="row dataRow" *ngFor="let order of ordersArray|key:searchArgs">
         <div class="row mb-1">
             <input disabled class="col dataField" type="text" [value]="order.key" title="Megrendelés ID">
             <input disabled class="col dataField" type="text" [value]="order.userid" title="Felhasználó ID">
@@ -47,12 +45,5 @@
             <button (click)="modifyOrder(order)" class="myButton" id="modifyButton">Módosítás</button>
             <button (click)="deleteOrder(order.key)" class="myButton" id="deleteButton">Törlés</button>
         </div>
-        
-        <!-- <div class="row pt-1">
-            <textarea disabled class="col dataField" type="text" [value]="rating.text"></textarea>
-            <div class="col">
-                <button class="modifyButton" id="modifyButton" (click)="modifyRating(rating)">Cenzúrázás</button>
-            </div>
-        </div> -->
     </div>
 </div>

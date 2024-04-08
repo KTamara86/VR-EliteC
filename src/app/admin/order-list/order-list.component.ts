@@ -12,7 +12,6 @@ export class OrderListComponent {
   ordersArray:any
 
   searchArgs = ""
-  //TODO: search mezővel összekötni
 
   status = ["megrendelve", "feladva", "kézbesítve"]
 

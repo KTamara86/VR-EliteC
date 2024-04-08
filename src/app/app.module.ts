@@ -32,6 +32,7 @@ import { AdminComponent } from './admin/admin.component';
 import { RatingListComponent } from './admin/rating-list/rating-list.component';
 import { OrderListComponent } from './admin/order-list/order-list.component';
 import { ProductListComponent } from './admin/product-list/product-list.component';
+import { KeyPipe } from './pipes/key.pipe';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ProductListComponent } from './admin/product-list/product-list.componen
     AdminComponent,
     RatingListComponent,
     OrderListComponent,
-    ProductListComponent
+    ProductListComponent,
+    KeyPipe
   ],
   imports: [
     BrowserModule,
