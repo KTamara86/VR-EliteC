@@ -73,17 +73,13 @@ export class ProductComponent {
   toastMsgOutlet(result:boolean, body:any, type:string){
     let toastHeaderTxt = ""
     let toastBodyTxt = ""
-    let props:any
-
-    if(type == "cart"){
-      props = {
-        closeButton: true,
-        timeOut: 2000,
-        progressBar: true,
-        progressAnimation: "decreasing",
-        positionClass: "toast-top-right",
-        newestOnTop: true
-      }
+    let props:any = {
+      closeButton: true,
+      timeOut: 2000,
+      progressBar: true,
+      progressAnimation: "decreasing",
+      positionClass: "toast-top-right",
+      newestOnTop: true
     }
 
     if(type == "cart" && result){
