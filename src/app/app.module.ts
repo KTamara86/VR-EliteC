@@ -28,6 +28,7 @@ import { SearchComponent } from './search/search.component';
 import { RatingPipe } from './pipes/rating.pipe';
 import { ProfilComponent } from './profil/profil.component';
 import { UserListComponent } from './admin/user-list/user-list.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { UserListComponent } from './admin/user-list/user-list.component';
     SearchComponent,
     RatingPipe,
     ProfilComponent,
-    UserListComponent
+    UserListComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

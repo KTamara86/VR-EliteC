@@ -11,6 +11,7 @@ import { UserListComponent } from './admin/user-list/user-list.component';
 import { notLoggedGuard } from './guard/not-logged.guard';
 import { loginGuard } from './guard/login.guard';
 import { sAdminGuard } from './guard/s-admin.guard';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:"verifyemail", component:VerifyEmailComponent},
   {path:"profil", component:ProfilComponent, canActivate:[loginGuard]},
   {path:"users", component:UserListComponent, canActivate:[sAdminGuard]},
+  {path:"admin", component:AdminComponent},
   {path:"**", component:HomeComponent},
 
 ];

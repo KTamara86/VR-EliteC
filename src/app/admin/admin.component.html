@@ -1,0 +1,22 @@
+<div class="input-group">
+    <select class="form-select form-select-sm" id="selector" [ngModel]="selectorValue" (ngModelChange)="setSelectorValue($event)">
+      <option selected [ngValue]=""></option>
+      <option [ngValue]="'users'">Felhasználók</option>
+      <option [ngValue]="'products'">Termékek</option>
+      <option [ngValue]="'orders'">Rendelések</option>
+      <option [ngValue]="'ratings'">Vélemények</option>
+    </select>
+</div>
+<ng-container *ngIf="selectorValue == ''; ">
+    <div class="alert alert-danger" role="alert">
+        Válassz egyet a lehetőségek közül
+    </div>
+</ng-container>
+<ng-container *ngIf="selectorValue == 'users'; "><app-user-list></app-user-list></ng-container>
+<ng-container *ngIf="selectorValue == 'products'; "></ng-container>
+<ng-container *ngIf="selectorValue == 'orders'; "></ng-container>
+<ng-container *ngIf="selectorValue == 'ratings'; "></ng-container>
+
+<!-- TODO: hozzuk létre a componenseket -->
+<!-- TODO: adjunk a komponenseknek egységes dizájnt -->
+<!-- TODO: a servicekben ki kell építeni a megfelelő funkciókat -->
