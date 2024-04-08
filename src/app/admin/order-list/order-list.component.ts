@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { OrderService } from 'src/app/services/order.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class OrderListComponent {
 
   status = ["megrendelve", "feladva", "kézbesítve"]
 
-  constructor(private orderService:OrderService, private router:Router){
+  constructor(private orderService:OrderService, private toastr:ToastrService){
     this.orderService.getOrders().subscribe(
       (res:any) => {
         let array = []
@@ -65,16 +65,52 @@ modifyOrder(order:any){
   }
   
   this.orderService.writeOrderData(body, order.key).then(
-    (res) => console.log(res)
+    (res) => this.toastMsgOutlet(res, "modify")
   )
   }
 
   deleteOrder(key:string){
     this.orderService.deleteOrder(key).then(
-      (res) => console.log(res)
+      (res) => this.toastMsgOutlet(res, "delete")
     )
-    // TODO: vizuális visszaigazolás kell
 
     //TODO: valahogy reloadolni kell
+  }
+
+  toastMsgOutlet(result:boolean, type:string){
+    let toastHeaderTxt = ""
+    let toastBodyTxt = ""
+    let props:any = {
+      closeButton: true,
+      timeOut: 2000,
+      progressBar: true,
+      progressAnimation: "decreasing",
+      positionClass: "toast-top-right",
+      newestOnTop: true
+    }
+
+    if(type == "modify" && result){
+      toastBodyTxt = "Sikeres adatmódosítás!"
+      toastHeaderTxt = "SIKER"
+    }
+    else if(type == "modify" && !result){
+      toastBodyTxt = "Valami hiba lépett fel, próbálkozz később!"
+      toastHeaderTxt = "HIBA"
+    }
+    else if(type == "delete" && result){
+      toastBodyTxt = "Sikeresen törölted a rendelést"
+      toastHeaderTxt = "SIKER"
+    }
+    else if(type == "delete" && !result){
+      toastBodyTxt = "Valami hiba lépett fel, próbálkozz később!"
+      toastHeaderTxt = "HIBA"
+    }
+    
+    if(result){
+      this.toastr.info(toastBodyTxt, toastHeaderTxt, props)
+    }
+    else{
+      this.toastr.warning(toastBodyTxt, toastHeaderTxt, props)
+    }
   }
 }
