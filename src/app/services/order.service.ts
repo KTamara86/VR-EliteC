@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { getDatabase, ref, set } from 'firebase/database';
 import { Observable, Subject, catchError, map, of } from 'rxjs';
 
 @Injectable({
@@ -24,6 +25,11 @@ export class OrderService {
       map(() => true),
       catchError(() => of(false))
     )
+  }
+
+  writeOrderData(body:any, key:string) {
+    const db = getDatabase();
+    set(ref(db, 'orders/' + key), body);
   }
 
   getOrders(){
