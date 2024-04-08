@@ -53,6 +53,13 @@ export class CartService {
     }
   }
 
+  emptyCart(){
+    this.cart = []
+    this.qty = 0
+    this.total = 0
+
+    this.callSubs()
+  }
 
   updateProductQty(body:any){
     let i = this.cart.findIndex(

@@ -136,7 +136,10 @@ export class CheckoutComponent {
     else {
       this.orderService.postOrder(body).subscribe(
         (res) =>{
-          if(res) this.callToasts(res, "A megrendelést hamarosan láthatod a profilod alatt", "Sikeres megrendelés")
+          if(res){
+            this.callToasts(res, "A megrendelést hamarosan láthatod a profilod alatt", "Sikeres megrendelés")
+            this.cartService.emptyCart()
+          }
           else this.callToasts(res, "Sikertelen megrendelés, próbáld meg később", "HIBA")
         }  
       )
@@ -145,7 +148,7 @@ export class CheckoutComponent {
     console.log(result, msg)
     //TODO: valamilyen módon ellenőrizni kell, hogy ténylegesen megrendelhetőek-e a termékek, van-e elég db
 
-    //Sikeres rendelés után töröljük a kosár tartalmát és dobjuk át a home-ra?
+    //Sikeres rendelés után dobjuk át a home-ra?
 
   }
 
