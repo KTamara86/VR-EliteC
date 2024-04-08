@@ -38,6 +38,7 @@ export class RatingListComponent {
       user: rating.user
     }
     this.ratingService.writeRatingData(body, rating.key)
+    //TODO: kellene ide is vmi toast az eredményről 
   }
 
 }

@@ -31,11 +31,22 @@ export class OrderListComponent {
   modifyRating(order:any){
     // let text = "CENZÚRÁZOTT VÉLEMÉNY: A vélemény kívül esett a jó ízlés határain"
     let body = {
-    //   product: rating.product,
-    //   rating: rating.rating,
-    //   text: text,
-    //   time: rating.time,
-    //   user: rating.user
+      userid: this.user.userid, 
+      consignee: this.data.consignee,
+      taxnumber: this.data.taxnumber,
+      phone: this.data.phone,
+      zipcode: this.data.zipcode,
+      city: this.data.city,
+      address: this.data.address,
+      deliveryZipcode: this.data.deliveryZipcode,
+      deliveryCity: this.data.deliveryCity,
+      deliveryAddress: this.data.deliveryAddress,
+      datetime: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
+      status:"megrendelve",
+      qty: this.totalQty,
+      total: this.total,
+      packetPoint: false,
+      payment: this.paymentOpt
     }
     this.orderService.writeOrderData(body, order.key)
   }
