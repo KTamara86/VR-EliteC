@@ -1,1 +1,23 @@
-<p>rating-list works!</p>
+<div class="row headerRow">
+    <div class="col headerText">ID</div>
+    <div class="col headerText">Felhasználó ID</div>
+    <div class="col headerText">Termék ID</div>
+    <div class="col headerText">Pontszám</div>
+</div>
+
+<div class="row dataContainer">
+    <div class="row dataRow" *ngFor="let rating of ratingsArray">
+        <div class="row">
+            <input disabled class="col dataField" type="text" [value]="'rating key (csere)'">
+            <input disabled class="col dataField" type="text" [value]="rating.user">
+            <input disabled class="col dataField" type="text" [value]="rating.product">
+            <input disabled class="col dataField" type="text" [value]="rating.rating">
+        </div>
+        <div class="row pt-1">
+            <textarea disabled class="col dataField" type="text" [value]="rating.text"></textarea>
+            <div class="col">
+                <button class="modifyButton" id="modifyButton" (click)="modifyRating()">Cenzúrázás</button>
+            </div>
+        </div>
+    </div>
+</div>
