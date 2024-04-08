@@ -1,1 +1,17 @@
-<p>order-list works!</p>
+<div class="row headerRow">
+    <input type="text" placeholder="Írd be a rendelés azonosítót">
+</div>
+
+<div class="row dataContainer">
+    <div class="row dataRow" *ngFor="let order of ordersArray">
+        <div class="row">
+            <input disabled class="col dataField" type="text" [value]="order.key">
+        </div>
+        <!-- <div class="row pt-1">
+            <textarea disabled class="col dataField" type="text" [value]="rating.text"></textarea>
+            <div class="col">
+                <button class="modifyButton" id="modifyButton" (click)="modifyRating(rating)">Cenzúrázás</button>
+            </div>
+        </div> -->
+    </div>
+</div>

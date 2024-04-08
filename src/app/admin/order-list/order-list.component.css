@@ -1,0 +1,46 @@
+.headerRow {
+    color: white;
+    margin-bottom: 2%;
+    border-bottom: 1px solid #ff0079;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.headerText {
+    margin-right: 1%;
+}
+
+.dataContainer {
+    color: white;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.dataRow {
+    margin-bottom: 2%;
+}
+
+.dataField {
+    border: 1px solid #ff0079;
+    border-radius: 5px;
+    background: transparent;
+    margin-right: 1%;
+    color: white;
+}
+
+.modifyButton {
+    border: 2px solid #ff0079;
+    background: transparent;
+    font-weight: bold;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    max-width: 100px;
+    min-width: 100px;
+    margin-top: 1rem;
+    color: white;
+}
+
+.modifyButton:hover {
+    box-shadow: 0 0 20px #ff0079; 
+}
