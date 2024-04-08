@@ -144,7 +144,6 @@ export class CheckoutComponent {
 
     console.log(result, msg)
     //TODO: valamilyen módon ellenőrizni kell, hogy ténylegesen megrendelhetőek-e a termékek, van-e elég db
-    //TODO: vizuális visszaigazolás a rendelés sikerességéről
 
     //Sikeres rendelés után töröljük a kosár tartalmát és dobjuk át a home-ra?
 
