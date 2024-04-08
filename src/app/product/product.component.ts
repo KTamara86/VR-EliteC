@@ -52,30 +52,7 @@ export class ProductComponent {
     body.name = product.nev
 
     body.prodQty = product.db
-    this.showResultToastMsg(this.cartService.addProduct(body), body)
-  }
-
-  showResultToastMsg(result:boolean, body:any){
-    if(result){
-      this.toastr.info(body.name + " termék bekerült a kosaradba", "SIKER", {
-        closeButton: true,
-        timeOut: 2000,
-        progressBar: true,
-        progressAnimation: "decreasing",
-        positionClass: "toast-top-right",
-        newestOnTop: true
-      })
-    }
-    else{
-      this.toastr.warning("Sajnos a " + body.name +  " termék elfogyott, nézz vissza később", "HIBA", {
-        closeButton: true,
-        timeOut: 2000,
-        progressBar: true,
-        progressAnimation: "decreasing",
-        positionClass: "toast-top-right",
-        newestOnTop: true
-      })
-    }
+    this.toastMsgOutlet(this.cartService.addProduct(body), body, "cart")
   }
 
   postRating(){
@@ -87,33 +64,51 @@ export class ProductComponent {
       time: format(new Date(), 'yyyy-MM-dd HH:mm:ss')
     }
     this.ratingService.postRating(body).subscribe(
-      (res) => this.showResultToastMsg2(res)
+      (res) => this.toastMsgOutlet(res, body, "rating")
     )
     this.rating.score = 3
     this.rating.text = ""
   }
 
-  showResultToastMsg2(result:boolean){
+  toastMsgOutlet(result:boolean, body:any, type:string){
+    let toastHeaderTxt = ""
+    let toastBodyTxt = ""
+    let props:any
+
+    if(type == "cart"){
+      props = {
+        closeButton: true,
+        timeOut: 2000,
+        progressBar: true,
+        progressAnimation: "decreasing",
+        positionClass: "toast-top-right",
+        newestOnTop: true
+      }
+    }
+
+    if(type == "cart" && result){
+      toastBodyTxt = body.name + " termék bekerült a kosaradba"
+      toastHeaderTxt = "SIKER"
+    }
+    else if(type == "cart" && !result){
+      toastBodyTxt = "Sajnos a " + body.name +  " termék elfogyott, nézz vissza később"
+      toastHeaderTxt = "HIBA"
+    }
+    else if(type == "rating" && result){
+      toastBodyTxt = "Sikeres hozzászólás"
+      toastHeaderTxt = "Köszönjük!"
+    }
+    else if(type == "rating" && !result){
+      toastBodyTxt = "Sajnos valami hiba történt, próbálja meg később"
+      toastHeaderTxt = "HIBA"
+    }
     
     if(result){
-      this.toastr.info("Sikeres hozzászólás", "", {
-        closeButton: true,
-        timeOut: 2000,
-        progressBar: true,
-        progressAnimation: "decreasing",
-        positionClass: "toast-top-right",
-        newestOnTop: true
-      })
+      this.toastr.info(toastBodyTxt, toastHeaderTxt, props)
     }
     else{
-      this.toastr.warning("Sajnos valami hiba történt, próbálja meg később", "HIBA", {
-        closeButton: true,
-        timeOut: 2000,
-        progressBar: true,
-        progressAnimation: "decreasing",
-        positionClass: "toast-top-right",
-        newestOnTop: true
-      })
+      this.toastr.warning(toastBodyTxt, toastHeaderTxt, props)
     }
   }
+
 }
