@@ -127,7 +127,7 @@ export class CheckoutComponent {
       body.deliveryAddress =  this.selectedPacketPoint.street
       body.packetPoint = true
     }
-    
+    console.log(body)
     //TODO: ha marad rá idő, akkor lehetne egy fullos form controll
     if(!this.termsValue || this.data.consignee == "" || this.data.phone == "" || this.data.zipcode == "" ||
       this.data.address == "" || this.data.deliveryZipcode == "" || this.data.deliveryCity == "" || 

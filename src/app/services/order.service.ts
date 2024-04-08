@@ -25,6 +25,7 @@ export class OrderService {
       map(() => true),
       catchError(() => of(false))
     )
+    //TODO: valamiért a termékek nem mennek fel...
   }
 
   writeOrderData(body:any, key:string) {
