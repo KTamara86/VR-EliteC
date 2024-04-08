@@ -97,6 +97,8 @@ export class CheckoutComponent {
   }
 
   orderProducts(){
+    let msg = ""
+    let result = true
     let body = {
       userid: this.user.userid, 
       consignee: this.data.consignee,
@@ -123,15 +125,23 @@ export class CheckoutComponent {
       body.deliveryAddress =  this.selectedPacketPoint.street
       body.packetPoint = true
     }
-    //TODO: valamilyen módon vizsgálni kell a kitöltöttséget majd
-    if(this.termsValue){
-      this.orderService.postOrder(body)
+    
+    //TODO: ha marad rá idő, akkor lehetne egy fullos form controll
+    if(!this.termsValue || this.data.consignee == "" || this.data.phone == "" || this.data.zipcode == "" ||
+      this.data.address == "" || this.data.deliveryZipcode == "" || this.data.deliveryCity == "" || 
+      this.data.deliveryAddress == "" || (this.entity == "company" && this.data.taxnumber == "")){
+        result = false
+        msg = "Hibásan kitöltött adatok és/vagy ÁSZF nem került elfogadásra!"
     }
     else {
-      console.log('ASZF')
+      this.orderService.postOrder(body)
     }
+
+    console.log(result, msg)
     //TODO: valamilyen módon ellenőrizni kell, hogy ténylegesen megrendelhetőek-e a termékek, van-e elég db
     //TODO: vizuális visszaigazolás a rendelés sikerességéről
+
+    //Sikeres rendelés után töröljük a kosár tartalmát és dobjuk át a home-ra?
 
   }
 

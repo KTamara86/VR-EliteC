@@ -139,7 +139,7 @@
                   Kijelentem, hogy az <a class="link-underline link-underline-opacity-0 myLink" href="" data-bs-toggle="modal" data-bs-target="#aszfModal">ÁSZF</a> tartalmát megismertem és elfogadom.
                 </label>
             </div>
-            <button type="button" class="btn" id="orderButton" (click)="orderProducts()">Megrendelés</button>
+            <button type="button" class="btn" id="orderButton" [disabled]="totalQty == 0" (click)="orderProducts()">Megrendelés</button>
         </div>
     </div>
     <div [hidden]="totalQty == 0" class="cartCol col-4">
