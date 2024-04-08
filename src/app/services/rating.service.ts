@@ -28,12 +28,16 @@ export class RatingService {
     )
   }
 
-  writeRatingData(body:any, key:string) {
+  async writeRatingData(body:any, key:string) : Promise<boolean>{
     const db = getDatabase();
-    set(ref(db, 'velemenyek/' + key), body);
+    try {
+      await set(ref(db, 'velemenyek/' + key), body)
+      return true
+    } catch(error) { return false }
   }
 
   reload(){
+    //TODO: esetleg ha a subot nullázuk, lehet megoldaná az újratöltési problémát
     this.loadRatings()
   }
 
