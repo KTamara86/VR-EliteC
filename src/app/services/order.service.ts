@@ -33,6 +33,10 @@ export class OrderService {
     set(ref(db, 'orders/' + key), body);
   }
 
+  deleteOrder(key: string): Observable<any> {
+    return this.http.delete(`${this.url}/delete/${key}`)
+}
+
   reload(){
     this.loadOrders()
   }

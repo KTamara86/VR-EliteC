@@ -44,7 +44,8 @@
             </div>
         </div>
         <div class="row mb-1">
-            <button (click)="modifyOrder(order)" id="modifyButton">Módosítás</button>
+            <button (click)="modifyOrder(order)" class="myButton" id="modifyButton">Módosítás</button>
+            <button (click)="deleteOrder(order.key)" class="myButton" id="deleteButton">Törlés</button>
         </div>
         
         <!-- <div class="row pt-1">

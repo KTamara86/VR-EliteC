@@ -54,4 +54,8 @@ modifyOrder(order:any){
   
   this.orderService.writeOrderData(body, order.key)
   }
+
+  deleteOrder(key:string){
+    this.orderService.deleteOrder(key)
+  }
 }

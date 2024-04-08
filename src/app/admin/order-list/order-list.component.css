@@ -33,7 +33,7 @@
     background:transparent
 }
 
-#modifyButton {
+.myButton {
     border: 2px solid #ff0079;
     background: transparent;
     font-weight: bold;
@@ -44,9 +44,15 @@
     min-width: 130px;
     margin-bottom: 1rem;
     color: white;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 #modifyButton:hover {
+    box-shadow: 0 0 20px #ff0079; 
+}
+
+#deleteButton:hover {
     box-shadow: 0 0 20px #ff0079; 
 }
 
