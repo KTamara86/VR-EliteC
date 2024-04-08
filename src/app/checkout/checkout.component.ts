@@ -3,6 +3,7 @@ import { PacketPointService } from '../services/packet-point.service';
 import { CartService } from '../services/cart.service';
 import { format } from 'date-fns';
 import { OrderService } from '../services/order.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-checkout',
@@ -51,7 +52,7 @@ export class CheckoutComponent {
   errorMsg = ""
   
 
-  constructor(private packetPoint:PacketPointService, private cartService:CartService, private orderService:OrderService){
+  constructor(private packetPoint:PacketPointService, private cartService:CartService, private orderService:OrderService, private toastr:ToastrService){
     this.packetPoint.getPacketPointList().subscribe(
       {
         next: (res) => {
@@ -97,7 +98,7 @@ export class CheckoutComponent {
   }
 
   orderProducts(){
-    let msg = ""
+    let msg = "Sikeres megrendelés"
     let result = true
     let body = {
       userid: this.user.userid, 
@@ -130,11 +131,15 @@ export class CheckoutComponent {
     if(!this.termsValue || this.data.consignee == "" || this.data.phone == "" || this.data.zipcode == "" ||
       this.data.address == "" || this.data.deliveryZipcode == "" || this.data.deliveryCity == "" || 
       this.data.deliveryAddress == "" || (this.entity == "company" && this.data.taxnumber == "")){
-        result = false
-        msg = "Hibásan kitöltött adatok és/vagy ÁSZF nem került elfogadásra!"
+        this.callToasts(false, "Hibásan kitöltött adatok és/vagy ÁSZF nem került elfogadásra!", "HIBA")
     }
     else {
-      this.orderService.postOrder(body)
+      this.orderService.postOrder(body).subscribe(
+        (res) =>{
+          if(res) this.callToasts(res, "A megrendelést hamarosan láthatod a profilod alatt", "Sikeres megrendelés")
+          else this.callToasts(res, "Sikertelen megrendelés, próbáld meg később", "HIBA")
+        }  
+      )
     }
 
     console.log(result, msg)
@@ -143,6 +148,24 @@ export class CheckoutComponent {
 
     //Sikeres rendelés után töröljük a kosár tartalmát és dobjuk át a home-ra?
 
+  }
+
+  callToasts(result:boolean, toastBodyTxt:string, toastHeaderTxt:string){
+    let props:any = {
+      closeButton: true,
+      timeOut: 5000,
+      progressBar: true,
+      progressAnimation: "decreasing",
+      positionClass: "toast-top-right",
+      newestOnTop: true
+    }
+
+    if(result){
+      this.toastr.info(toastBodyTxt, toastHeaderTxt, props)
+    }
+    else{
+      this.toastr.warning(toastBodyTxt, toastHeaderTxt, props)
+    }
   }
 
 }

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject, catchError, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +14,16 @@ export class OrderService {
     this.loadOrders()
   }
 
-  postOrder(body:any){
+  postOrder(body:any) : Observable<boolean>{
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     }
-    this.http.post(this.url, body, options).subscribe()
+    return this.http.post(this.url, body, options).pipe(
+      map(() => true),
+      catchError(() => of(false))
+    )
   }
 
   getOrders(){
