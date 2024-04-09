@@ -25,7 +25,6 @@ export class OrderService {
       map(() => true),
       catchError(() => of(false))
     )
-    //TODO: valamiért a termékek nem mennek fel...
   }
 
   async writeOrderData(body:any, key:string) : Promise<boolean>{

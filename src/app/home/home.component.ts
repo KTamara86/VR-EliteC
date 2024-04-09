@@ -81,7 +81,7 @@ export class HomeComponent {
   }
 
   addToCart(product:any){
-    let body:any = []
+    let body:any = {}
     body.key = product.key
     body.price = product.uj_ar
     body.qty = 1

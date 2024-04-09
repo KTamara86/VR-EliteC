@@ -33,6 +33,7 @@ export class CartService {
         this.qty = this.setQty()
         this.total = this.setTotal()
         this.callSubs()
+        console.log(this.cart)
         return true
       }
       else {
@@ -41,6 +42,7 @@ export class CartService {
           this.qty = this.setQty()
           this.total = this.setTotal()
           this.callSubs()
+          
           return true
         }
         else{
@@ -51,6 +53,7 @@ export class CartService {
     else{
       return false
     }
+    
   }
 
   emptyCart(){
