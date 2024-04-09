@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { getDatabase, push, ref, remove, set } from 'firebase/database';
+import { getDatabase, push, ref, get, remove, set } from 'firebase/database';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -10,6 +10,7 @@ export class BaseService {
 
   url = "https://elitecarpetsv2-default-rtdb.europe-west1.firebasedatabase.app/termekek"
   productsSub = new Subject()
+  prodSub = new Subject()
 
   constructor(private http:HttpClient){
     this.loadProducts()
@@ -28,18 +29,6 @@ export class BaseService {
       (res) => this.productsSub.next(res)
     )
   }
-
-  // postProduct(body:any, category:string) : Observable<boolean>{
-  //   const options = {
-  //     headers: new HttpHeaders({
-  //       'Content-Type': 'application/json'
-  //     })
-  //   }
-  //   return this.http.post(this.url + '/' + category + '/post', body).pipe(
-  //     map(() => true),
-  //     catchError(() => of(false))
-  //   )
-  // }
 
   async postProduct(body:any, category:string) : Promise<boolean>{
     const db = getDatabase();

@@ -87,6 +87,7 @@ export class HomeComponent {
     body.qty = 1
     body.name = product.nev
     body.prodQty = product.db
+    body.category = this.categories[this.activeCategory]
     this.showResultToastMsg(this.cartService.addProduct(body), body)
   }
 
@@ -112,6 +113,7 @@ export class HomeComponent {
   }
 
   setChoosenProduct(product: any){
+    this.choosenProduct.category = this.categories[this.activeCategory]
     this.choosenProduct = product
   }
 

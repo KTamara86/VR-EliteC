@@ -50,6 +50,7 @@ export class ProductComponent {
     body.price = product.uj_ar
     body.qty = 1
     body.name = product.nev
+    body.category = product.category
 
     body.prodQty = product.db
     this.toastMsgOutlet(this.cartService.addProduct(body), body, "cart")
