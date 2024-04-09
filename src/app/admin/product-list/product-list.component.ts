@@ -165,6 +165,7 @@ export class ProductListComponent {
 
   modifyProduct(){
     let category = this.categories[this.activeCategory]
+    let key = this.choosenProduct.key
     let body = {
       anyag: this.choosenProduct.anyag,
       ar_mod_datum: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
@@ -180,10 +181,13 @@ export class ProductListComponent {
       uj_ar: this.choosenProduct.uj_ar,
       vastagsag: this.choosenProduct.vastagsag
     }
-    console.log(body)
-    //TODO: kell a service-nek egy funkció, amivel feltöltjük
-    this.toastMsgOutlet(true, "modify")
-    this.toastMsgOutlet(false, "modify")
+
+    this.base.writeProductData(body, key, category).then(
+      (res) => {
+        this.toastMsgOutlet(res, "modify")
+        this.choosenProduct.key = 0
+      } 
+    )
   }
 
   toastMsgOutlet(result:boolean, type:string){

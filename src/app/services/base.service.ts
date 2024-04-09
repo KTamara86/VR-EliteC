@@ -53,7 +53,16 @@ export class BaseService {
   async deleteProduct(key: string, category:string) : Promise<boolean>{
     const db = getDatabase();
     try {
-      await remove(ref(db, 'termekek/' + category +'/' +key))
+      await remove(ref(db, 'termekek/' + category +'/' + key))
+      this.reload()
+      return true
+    } catch(error) { return false }
+  }
+
+  async writeProductData(body:any, key:string, category:string) : Promise<boolean>{
+    const db = getDatabase();
+    try {
+      await set(ref(db, 'termekek/' + category +'/' + key), body)
       this.reload()
       return true
     } catch(error) { return false }
