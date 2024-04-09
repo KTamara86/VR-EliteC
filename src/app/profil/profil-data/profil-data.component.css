@@ -1,0 +1,18 @@
+#profildata {
+    --color: white;
+    background: linear-gradient(24deg, rgba(0,0,139,1) 5%, rgba(33,37,41,1) 45%, rgba(33,37,41,1) 55%, rgba(153,50,204,1) 95%);
+    border-bottom: solid 3px;
+    border-image: linear-gradient(to right, #1c1f39, darkorchid) 1;
+    box-shadow: 0 0 15px #ff0079;
+}
+
+#header {
+    color: white;
+    font-weight: bold;
+    min-width: 10rem;
+}
+
+#login{    
+    color: white;
+    min-width: 10rem;
+}

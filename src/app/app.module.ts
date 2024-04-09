@@ -29,6 +29,9 @@ import { SearchComponent } from './search/search.component';
 import { RatingPipe } from './pipes/rating.pipe';
 import { ProfilComponent } from './profil/profil.component';
 import { UserListComponent } from './admin/user-list/user-list.component';
+import { ProfilDataComponent } from './profil/profil-data/profil-data.component';
+import { MyOrdersComponent } from './profil/my-orders/my-orders.component';
+import { MyOpinionComponent } from './profil/my-opinion/my-opinion.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,10 @@ import { UserListComponent } from './admin/user-list/user-list.component';
     SearchComponent,
     RatingPipe,
     ProfilComponent,
-    UserListComponent
+    UserListComponent,
+    ProfilDataComponent,
+    MyOrdersComponent,
+    MyOpinionComponent
   ],
   imports: [
     BrowserModule,
