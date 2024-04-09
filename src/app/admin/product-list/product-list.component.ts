@@ -155,10 +155,12 @@ export class ProductListComponent {
   deleteProduct(){
     let category = this.categories[this.activeCategory]
     let key = this.choosenProduct.key
-    console.log(category + " : " + key)
-    //TODO: kell a service-nek egy funkció, amivel feltöltjük
-    this.toastMsgOutlet(true, "delete")
-    this.toastMsgOutlet(false, "delete")
+    this.base.deleteProduct(key, category).then(
+      (res) => {
+        this.toastMsgOutlet(res, "delete")
+        this.choosenProduct.key = 0
+      }
+    )
   }
 
   modifyProduct(){

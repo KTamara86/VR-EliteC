@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { getDatabase, push, ref, set } from 'firebase/database';
+import { getDatabase, push, ref, remove, set } from 'firebase/database';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -45,6 +45,15 @@ export class BaseService {
     const db = getDatabase();
     try {
       await push(ref(db,'termekek/' + category +'/'), body)
+      this.reload()
+      return true
+    } catch(error) { return false }
+  }
+
+  async deleteProduct(key: string, category:string) : Promise<boolean>{
+    const db = getDatabase();
+    try {
+      await remove(ref(db, 'termekek/' + category +'/' +key))
       this.reload()
       return true
     } catch(error) { return false }
