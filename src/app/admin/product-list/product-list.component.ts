@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { format } from 'date-fns';
+import { ToastrService } from 'ngx-toastr';
 import { BaseService } from 'src/app/services/base.service';
 
 @Component({
@@ -44,7 +45,7 @@ export class ProductListComponent {
   activeCategory = 0
   plusQty = 0
 
-  constructor(private base: BaseService){
+  constructor(private base: BaseService, private toastr:ToastrService){
     this.base.getProducts().subscribe(
       (res) => {
         this.products=res
@@ -103,6 +104,8 @@ export class ProductListComponent {
     //TODO: kell a service-nek egy funkció, amivel feltöltjük
     console.log(category)
     console.log(body)
+    this.toastMsgOutlet(true, "plusqty")
+    this.toastMsgOutlet(false, "plusqty")
   }
 
   postProduct(){
@@ -125,6 +128,8 @@ export class ProductListComponent {
     //TODO: kell a service-nek egy funkció, amivel feltöltjük
     console.log(category)
     console.log(body)
+    this.toastMsgOutlet(true, "add")
+    this.toastMsgOutlet(false, "add")
   }
 
   deleteProduct(){
@@ -132,6 +137,8 @@ export class ProductListComponent {
     let key = this.choosenProduct.key
     console.log(category + " : " + key)
     //TODO: kell a service-nek egy funkció, amivel feltöltjük
+    this.toastMsgOutlet(true, "delete")
+    this.toastMsgOutlet(false, "delete")
   }
 
   modifyProduct(){
@@ -153,9 +160,45 @@ export class ProductListComponent {
     }
     console.log(body)
     //TODO: kell a service-nek egy funkció, amivel feltöltjük
+    this.toastMsgOutlet(true, "modify")
+    this.toastMsgOutlet(false, "modify")
   }
 
-  toastMsgOutlet(){
+  toastMsgOutlet(result:boolean, type:string){
     //TODO: funkciót kiépíteni
+    let toastBodyTxt = ""
+    let props:any = {
+      closeButton: true,
+      timeOut: 2000,
+      progressBar: true,
+      progressAnimation: "decreasing",
+      positionClass: "toast-top-right",
+      newestOnTop: true
+    }
+
+    if(type == "modify") toastBodyTxt = "Sikeres adatmódosítás!"
+  
+    else if(type == "modify" && !result){
+      toastBodyTxt = "Valami hiba lépett fel, próbálkozz később!"
+    }
+    else if(type == "delete" && result){
+      toastBodyTxt = "Sikeresen törölted a rendelést"
+    }
+    else if(type == "delete" && !result){
+      toastBodyTxt = "Valami hiba lépett fel, próbálkozz később!"
+    }
+    
+    if(result){
+      if(type == "modify") toastBodyTxt = "Sikeres adatmódosítás!"
+      else if(type == "delete") toastBodyTxt = "Sikeres törlés!"
+      else if(type == "add") toastBodyTxt = "Sikeres termékfeltöltés!"
+      else if(type == "plusqty") toastBodyTxt = "Sikeresen módosítottad a készletet!"
+
+      this.toastr.info(toastBodyTxt, "SIKER", props)
+    }
+    else{
+      toastBodyTxt = "Sajnos nem sikerült a művelet!"
+      this.toastr.warning(toastBodyTxt, "HIBA", props)
+    }
   }
 }
