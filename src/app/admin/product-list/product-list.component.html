@@ -79,12 +79,12 @@
 </div>
 <div class="row">
             <ul class="list-group list-group-horizontal">
-                <li class="list-group-item listButton"><button class="myListButton" id="modifyButtton" (click)="modifyProduct()">Módosítás</button></li>
-                <li class="list-group-item listButton"><button class="myListButton" id="deleteButton" (click)="deleteProduct()">Törlés</button></li>
+                <li class="list-group-item listButton"><button [disabled]="choosenProduct.key == 0" class="btn myListButton" id="modifyButtton" (click)="modifyProduct()">Módosítás</button></li>
+                <li class="list-group-item listButton"><button [disabled]="choosenProduct.key == 0" class="btn myListButton" id="deleteButton" (click)="deleteProduct()">Törlés</button></li>
                 <li class="list-group-item listButton">
                     <label for="qtyplus" class="white">+ DB: </label>
-                    <input class="dataField input w-25" type="text" id="qtyplus" [(ngModel)]="plusQty" name="qtyplus">
-                    <button class="myListButton" id="qtyButton" (click)="qtyPlus()">Hozzáadás</button>
+                    <input [disabled]="choosenProduct.key == 0" class="dataField input w-25" type="text" id="qtyplus" [(ngModel)]="plusQty" name="qtyplus">
+                    <button [disabled]="choosenProduct.key == 0" class="btn myListButton" id="qtyButton" (click)="qtyPlus()">Hozzáadás</button>
                 </li>
             </ul>
 </div>
@@ -111,7 +111,7 @@
         </div>
         <div class="form-group formRow">
             <!-- TODO: át kell alakítani checkboxra -->
-            <label for="lathato">Látható:</label>
+            <label for="lathato" class="white">Látható:</label>
             <input class="dataField input" type="number" id="lathato" [(ngModel)]="choosenProduct.lathato" name="lathato">
         </div>
         <div class="form-group formRow">
@@ -158,7 +158,7 @@
         </div>
     </div>
     <div class="col">
-        <img [src]="'../../../assets/pictures/' + choosenProduct.key + '.jpg'" class="img-fluid">
+        <img *ngIf="choosenProduct.key != 0" [src]="'../../../assets/pictures/' + choosenProduct.key + '.jpg'" class="img-fluid">
     </div>
     
 </div>

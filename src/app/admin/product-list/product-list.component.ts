@@ -39,7 +39,7 @@ export class ProductListComponent {
 
   products:any
   showedProducts:any
-  choosenProduct:any = {key: 1 }
+  choosenProduct:any = {key: 0 }
   categories = ["Padlószőnyeg", "Szőnyeg", "Futószőnyeg", "Lábtörlő" ]
   activeCategory = 0
   plusQty = 0
@@ -48,9 +48,7 @@ export class ProductListComponent {
     this.base.getProducts().subscribe(
       (res) => {
         this.products=res
-
         this.setShowedProducts()
-        this.setChoosenProduct(this.showedProducts[1])
       }
     )
   }
@@ -86,7 +84,25 @@ export class ProductListComponent {
   }
   
   qtyPlus(){
-
+    let category = this.categories[this.activeCategory]
+    let body = {
+      anyag: this.choosenProduct.anyag,
+      ar_mod_datum: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
+      db: Number(this.choosenProduct.db) + Number(this.plusQty),
+      lathato: this.choosenProduct.lathato,
+      meret: this.choosenProduct.meret,
+      mintazat: this.choosenProduct.mintazat,
+      nev: this.choosenProduct.nev,
+      regi_ar: this.choosenProduct.regi_ar,
+      stilus: this.choosenProduct.stilus,
+      szalmagassag: this.choosenProduct.szalmagassag,
+      szin: this.choosenProduct.szin,
+      uj_ar: this.choosenProduct.uj_ar,
+      vastagsag: this.choosenProduct.vastagsag
+    }
+    //TODO: kell a service-nek egy funkció, amivel feltöltjük
+    console.log(category)
+    console.log(body)
   }
 
   postProduct(){
