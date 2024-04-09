@@ -104,6 +104,7 @@ export class ProductListComponent {
   
   qtyPlus(){
     let category = this.categories[this.activeCategory]
+    let key = this.choosenProduct.key
     let body = {
       anyag: this.choosenProduct.anyag,
       ar_mod_datum: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
@@ -119,11 +120,14 @@ export class ProductListComponent {
       uj_ar: this.choosenProduct.uj_ar,
       vastagsag: this.choosenProduct.vastagsag
     }
-    //TODO: kell a service-nek egy funkció, amivel feltöltjük
-    console.log(category)
-    console.log(body)
-    this.toastMsgOutlet(true, "plusqty")
-    this.toastMsgOutlet(false, "plusqty")
+
+    this.base.writeProductData(body, key, category).then(
+      (res) => {
+        this.toastMsgOutlet(res, "plusqty")
+        this.choosenProduct.key = 0
+        this.plusQty = 0
+      } 
+    )
   }
 
   postProduct(){

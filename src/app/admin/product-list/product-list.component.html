@@ -84,7 +84,7 @@
                 <li class="list-group-item listButton">
                     <label for="qtyplus" class="white">+ DB: </label>
                     <input [disabled]="choosenProduct.key == 0" class="dataField input w-25" type="text" id="qtyplus" [(ngModel)]="plusQty" name="qtyplus">
-                    <button [disabled]="choosenProduct.key == 0" class="btn myListButton" id="qtyButton" (click)="qtyPlus()">Hozzáadás</button>
+                    <button [disabled]="choosenProduct.key == 0 || plusQty == 0" class="btn myListButton" id="qtyButton" (click)="qtyPlus()">Hozzáadás</button>
                 </li>
             </ul>
 </div>
