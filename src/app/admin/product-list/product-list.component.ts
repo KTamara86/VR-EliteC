@@ -22,7 +22,8 @@ export class ProductListComponent {
     szalmagassag: "",
     szin: "",
     uj_ar: "",
-    vastagsag: ""
+    vastagsag: "",
+    category: ""
   }
 
   props = {
@@ -53,6 +54,10 @@ export class ProductListComponent {
     )
   }
 
+  ngOnInit(){
+    this.base.reload()
+  }
+
   setShowedProducts(){
     let prodArray = []
     let prods = this.products[this.categories[this.activeCategory]]
@@ -76,10 +81,11 @@ export class ProductListComponent {
   changeActiveCategory(i:number){
     this.activeCategory=i
     this.searchArgs = ""
+    this.setShowedProducts()
   }
   
   qtyPlus(){
-    
+
   }
 
   postProduct(){

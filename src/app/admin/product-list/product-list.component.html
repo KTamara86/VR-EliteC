@@ -56,10 +56,15 @@
             <option class="black" *ngFor="let value of props.stilus" [value]="value">{{value}}</option>
         </select>
     </div>
+    <div class="col form-group">
+        <label for="newcategory">Kategória:</label>
+        <select class="dataField input" [(ngModel)]="newProduct.category" name="newcategory" id="newcategory">
+            <option class="black" *ngFor="let value of categories" [value]="value">{{value}}</option>
+        </select>
+    </div>
 </div>
 <div class="row headerRow">
     <input [(ngModel)]="searchArgs" type="text" placeholder="Írd be a termék nevét vagy válaszd ki a listából" class="mb-1"> 
-    <!-- TODO: funckió -->
     <div class="container">
         <ul class="list-group list-group-horizontal mb-1">
             <li *ngFor="let cat of categories; let i=index" class="list-group-item listItem"
@@ -80,7 +85,6 @@
 </div>
 <div class="row dataRow">
     <div class="col col-sm-3">
-        <!-- TODO: pipe gond - a category szerint nem filterezi-->
         <li *ngFor="let prod of showedProducts|search:searchArgs:activeCategory" class="list-group-item listItem" (click)="setChoosenProduct(prod)">{{prod.nev}}</li>
     </div>
     <div class="col col-sm-4">
