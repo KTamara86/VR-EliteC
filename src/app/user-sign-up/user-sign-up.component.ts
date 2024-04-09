@@ -19,7 +19,10 @@ export class UserSignUpComponent {
   confirmPassword: string = '';
   phone: string = '';
   address: string = '';
-  terms: boolean = false;
+  city: string = '';
+  zipCode: string = '';
+
+  message: string = '';
 
   constructor(private fireauth: AngularFireAuth, private db: AngularFireDatabase) {}
 
@@ -33,21 +36,21 @@ export class UserSignUpComponent {
           email: this.email,
           phone: this.phone,
           address: this.address,
+          city: this.city,
+          zipCode: this.zipCode,
         };
 
         this.db.list('/users').push(userData)
           .then(() => {
-
-            console.log('Felhasználó sikeresen regisztrálva és adatok mentve.');
+            this.message = 'A regisztráció sikeres.';
           })
           .catch((error) => {
-
-            console.error('Hiba történt az adatok mentése során:', error);
+            this.message = 'Hiba történt az adatok mentése során: ' + error.message;
           });
       })
       .catch((error) => {
-
-        console.error('Hiba történt a regisztráció során:', error);
+        this.message = 'Hiba történt a regisztráció során: ' + error.message;
       });
-  }
+}
+
 }

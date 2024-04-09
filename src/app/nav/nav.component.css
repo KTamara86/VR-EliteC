@@ -30,6 +30,12 @@ li:hover {
     --color: black;
     box-shadow: 0 0 25px #ff0079;
     background-color: #ff007748;
-    text-shadow: 0 0 15px #ff0079;
-    
+    text-shadow: 0 0 15px #ff0079;  
+}
+
+.nav-link {
+    color: white;
+    font-weight: bold;
+    min-width: 10rem;
+    text-align: center;
 }

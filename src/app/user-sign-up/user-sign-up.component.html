@@ -1,110 +1,77 @@
 <div class="container-fluid">
-    <div class="row mt-4">
+    <div class="row p-4">
         <div class="col"></div>
-        <div class="col-6">
+        <div class="col-8">
             <div class="card shadow">
-                <div class="card-body">
+                <div class="card-body" id="signup">
                     <form (submit)="onSubmit()">
-                        <label for="name">Név:</label>
-                        <input type="text" id="name" name="name" [(ngModel)]="name" required>
+
+                        <div class="text-center mb-5">
+                            <div class="h2 fw-bold" style="color:#2F75B5">Regisztráció</div>
+                        </div>
+
+                        <div class="text-danger">{{ message }}</div>
+
+                        <div class="form-outline mb-3 ">
+                            <label class="form-label" for="name">Név:</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="vezetéknév keretsznév" [(ngModel)]="name" required>
+                        </div>
+
+                        <div class="form-outline mb-3 ">
+                            <label class="form-label" for="email">Email cím</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="nev@pelda.com" [(ngModel)]="email" required>
+                        </div>
+
+                        <div class="form-outline mb-3 ">
+                            <label class="form-label" for="password">Jelszó</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="******" [(ngModel)]="password" minlength="6" required>
+                        </div>    
+
+                        <div class="form-outline mb-3 ">
+                            <label class="form-label" for="confirmPassword">Jelszó megerősítése</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="******" [(ngModel)]="confirmPassword" minlength="6" required>
+                        </div>
+
+                        <div class="form-outline mb-3 ">
+                            <label class="form-label" for="phone">Telefonszám</label>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="36301234567" [(ngModel)]="phone" required>
+                        </div>
+
+                        <div class="form-outline mb-3 ">
+                            <label class="form-label" for="city">Város</label>
+                            <input id="city" class="form-control" name="city" placeholder="város, település neve" [(ngModel)]="city" required>
+                        </div>
                       
-                        <label for="email">Email cím:</label>
-                        <input type="email" id="email" name="email" [(ngModel)]="email" required>
+                        <div class="form-outline mb-3 ">
+                            <label class="form-label" for="address">Cím</label>
+                            <input id="address" class="form-control" name="address" placeholder="utca, házszám, emelet, ajtó" [(ngModel)]="address" required>
+                        </div>
+
+                        <div class="form-outline mb-3 ">
+                            <label class="form-label" for="zipCode">Irányítószám</label>
+                            <input id="zipCode" class="form-control" name="zipCode" placeholder="irányítószám" [(ngModel)]="zipCode" required>
+                        </div>
+
+                        <div class="form-group form-check checkbox mb-3 mt-3">  
+                            <input type="checkbox" class="form-check-input" name="terms" required checked>
+                            <label class="form-label">Elfogadom a felhasználási feltételeket és hozzájárulok ahhoz, hogy az adataimat a cég adatvédelmi szabályzata szerint gyűjtsék és kezeljék.</label>
+                        </div>
                       
-                        <label for="password">Jelszó:</label>
-                        <input type="password" id="password" name="password" [(ngModel)]="password" minlength="6" required>
-                      
-                        <label for="confirmPassword">Jelszó megerősítése:</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" minlength="6" required>
-                      
-                        <label for="phone">Telefonszám:</label>
-                        <input type="tel" id="phone" name="phone" [(ngModel)]="phone" required>
-                      
-                        <label for="address">Szállítási cím:</label>
-                        <textarea id="address" name="address" [(ngModel)]="address" required></textarea>
-                      
-                        <label>
-                          <input type="checkbox" name="terms" [(ngModel)]="terms" required>
-                          Elfogadom a szerződési feltételeket
-                        </label>
-                      
-                        <button class="btn btn-info btn-lg btn-block" style="color: white" type="submit" value="Log in"
-                          ><i class="bi bi-person-fill-up"></i>Regisztráció
-                        </button>
+                        <div class="text-center p-4">
+                            <button class="btn btn-info btn-lg btn-block" style="color: white" type="submit" value="Log in"> 
+                                <i class="bi bi-person-fill-up"></i>Regisztráció
+                            </button>
+                        </div>
+
+                        <div class="row">
+                            <div id="login" class="text-center p-3"> Már van Felhasználói fiókja?
+                                <a style="color:  #2F75B5" routerLink="/signin">Belépés</a>
+                        </div>
+                        </div>
                       </form>
                     </div>
                 </div>
             </div>
-            <div class="col"></div>
-        </div>
-      </div>
-
-<!-- <div class="container-fluid">
-  <div class="row mt-4">
-      <div class="col"></div>
-      <div class="col-6">
-          <div class="card shadow">
-              <div class="card-body">
-                  <form (ngSubmit)="onSubmit()">
-                      <div class="text-center mb-5">
-                          <div class="h2 fw-bold" style="color:#2F75B5">Regisztráció</div>
-                      </div>
-
-                      <div class="row mb-3">
-                          <div class="col">
-                            <label for="name" class="form-label">Név</label>
-                            <input type="text" class="form-control" style="background-color:#DDEBF7" name="name" [(ngModel)]="name" required>
-                          </div>
-
-                      <div class="form-outline mb-3 ">
-                          <label class="form-label">E-mail cím</label>
-                          <input type="email" class="form-control" style="background-color: #DDEBF7" placeholder="nev@pelda.com" [(ngModel)]="email" required>
-
-                      </div>
-
-                      <div class="form-outline mb-3">
-                          <label class="form-label">Jelszó</label>
-                          <input type="password" id="floatingPassword" class="form-control" style="background-color: #DDEBF7" placeholder="******" 
-                          [(ngModel)]="password" minlength="6" required/>
-                      </div>
-
-                      <div class="form-outline mb-3">
-                          <label class="form-label">Jelszó megerősítése</label>
-                          <input type="password" class="form-control" style="background-color: #DDEBF7" placeholder="******"
-                          [(ngModel)]="confirmPassword" minlength="6" required/>
-                      </div>
-
-                      <div class="mb-3 ">
-                        <label for="phone" class="form-label">Telefonszám</label>
-                        <input type="text" class="form-control" style="background-color:#DDEBF7" name="phone" [(ngModel)]="phone" required>
-                     </div>
-
-                     <div class="mb-3 ">
-                        <label for="address" class="form-label">Szállítási cím</label>
-                        <input type="text" class="form-control" style="background-color:#DDEBF7" name="address" [(ngModel)]="address" required>
-                     </div>
-
-                      <div class="form-group form-check checkbox mb-3 mt-3">
-                          <input type="checkbox"class="form-check-input" name="terms" [(ngModel)]="terms" required>
-                          <label for="terms" class="form-check-label small">Elfogadom a felhasználási feltételeket és hozzájárulok ahhoz, hogy az adataimat a cég adatvédelmi szabályzata szerint gyűjtsék és kezeljék.</label>
-                      </div>
-
-                      <div class="text-center p-4">
-                          <button class="btn btn-info btn-lg btn-block" style="color: white" type="submit" value="Log in"
-                          ><i class="bi bi-person-fill-up"></i>Regisztráció
-                          </button>
-                      </div>
-                      
-                      <div class="row">
-                        <div class="text-center small p-3" style="color: grey"> Már van Felhasználói fiókja?
-                            <a style="color:  #2F75B5" routerLink="/login">Belépés</a>
-                        </div>
-                      </div>
-                    </div> 
-                  </form>
-              </div>
-          </div>
-      </div>
-      <div class="col"></div>
-  </div>
-</div> -->
+        <div class="col"></div>
+    </div>
+</div>
