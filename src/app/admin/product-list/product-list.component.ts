@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { format } from 'date-fns';
 import { BaseService } from 'src/app/services/base.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class ProductListComponent {
     key: "",
     anyag: "",
     db: "",
-    lathato: "",
+    lathato: false,
     meret: "",
     mintazat: "",
     nev: "",
@@ -67,11 +68,11 @@ export class ProductListComponent {
 
       if(key != "0"){
         element.key = key
+        element.regi_ar = element.uj_ar
         prodArray.push(element)
       }
     }
     this.showedProducts=prodArray
-    console.log(this.showedProducts)
   }
 
   setChoosenProduct(product: any){
@@ -89,15 +90,53 @@ export class ProductListComponent {
   }
 
   postProduct(){
-    //TODO: funkciót kiépítése
+    let category = this.newProduct.category
+    let body = {
+      anyag: this.newProduct.anyag,
+      ar_mod_datum: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
+      db: this.newProduct.db,
+      lathato: this.newProduct.lathato,
+      meret: this.newProduct.meret,
+      mintazat: this.newProduct.mintazat,
+      nev: this.newProduct.nev,
+      regi_ar: 0,
+      stilus: this.newProduct.stilus,
+      szalmagassag: this.newProduct.szalmagassag,
+      szin: this.newProduct.szin,
+      uj_ar: this.newProduct.uj_ar,
+      vastagsag: this.newProduct.vastagsag
+    }
+    //TODO: kell a service-nek egy funkció, amivel feltöltjük
+    console.log(category)
+    console.log(body)
   }
 
   deleteProduct(){
-    //TODO: funkciót kiépítése
+    let category = this.categories[this.activeCategory]
+    let key = this.choosenProduct.key
+    console.log(category + " : " + key)
+    //TODO: kell a service-nek egy funkció, amivel feltöltjük
   }
 
   modifyProduct(){
-    //TODO: funkciót kiépítése
+    let category = this.categories[this.activeCategory]
+    let body = {
+      anyag: this.choosenProduct.anyag,
+      ar_mod_datum: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
+      db: this.choosenProduct.db,
+      lathato: this.choosenProduct.lathato,
+      meret: this.choosenProduct.meret,
+      mintazat: this.choosenProduct.mintazat,
+      nev: this.choosenProduct.nev,
+      regi_ar: this.choosenProduct.regi_ar,
+      stilus: this.choosenProduct.stilus,
+      szalmagassag: this.choosenProduct.szalmagassag,
+      szin: this.choosenProduct.szin,
+      uj_ar: this.choosenProduct.uj_ar,
+      vastagsag: this.choosenProduct.vastagsag
+    }
+    console.log(body)
+    //TODO: kell a service-nek egy funkció, amivel feltöltjük
   }
 
   toastMsgOutlet(){

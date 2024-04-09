@@ -1,4 +1,4 @@
-<div class="row headerRow">
+<div class="row headerRow pb-2">
     <div class="row">
         <h5>Új termék hozzáadása <button (click)="postProduct()" class="btn myButton" id="postButton">Hozzáadás</button></h5>
     </div>
@@ -13,6 +13,11 @@
     <div class="col form-group">
         <label for="newuj_ar">Ár:</label>
         <input class="dataField input" type="number" id="newuj_ar" [(ngModel)]="newProduct.uj_ar" name="newuj_ar">
+    </div>
+    <div class="col form-group">
+        <!-- TODO: át kell alakítani checkboxra -->
+        <label for="newlathato">Látható:</label>
+        <input class="dataField input" type="number" id="newlathato" [(ngModel)]="newProduct.lathato" name="newuj_ar">
     </div>
     <div class="col form-group">
         <label for="newanyag">Anyag:</label>
@@ -103,6 +108,11 @@
         <div class="form-group formRow">
             <label for="uj_ar" class="white">Ár:</label>
             <input class="dataField input" type="number" id="uj_ar" [(ngModel)]="choosenProduct.uj_ar" name="uj_ar">
+        </div>
+        <div class="form-group formRow">
+            <!-- TODO: át kell alakítani checkboxra -->
+            <label for="lathato">Látható:</label>
+            <input class="dataField input" type="number" id="lathato" [(ngModel)]="choosenProduct.lathato" name="lathato">
         </div>
         <div class="form-group formRow">
             <label for="anyag" class="white">Anyag:</label>
