@@ -16,7 +16,7 @@
                     
                     <div class="row dataContainer">
                         <div class="row dataRow" *ngFor="let user of usersArray">
-                            <div class="row" [(ngModel)]="user.score">
+                            <div class="row">
                                 <input disabled class="col dataField" type="text" [value]="user.key">
                                 <input class="col dataField" type="text" [(ngModel)]="user.name">
                                 <input disabled class="col dataField" type="text" [value]="user.email">

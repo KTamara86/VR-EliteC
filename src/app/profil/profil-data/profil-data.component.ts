@@ -10,8 +10,6 @@ export class ProfilDataComponent {
 
   usersArray:any
 
-  user = { score:3, text: "" }
-
   constructor(private profilService:ProfilService){
     profilService.getUsers().subscribe(
       (res:any) => {
