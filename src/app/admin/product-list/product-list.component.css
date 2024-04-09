@@ -21,6 +21,11 @@
 .black {
     color: black;
 }
+
+#newkey {
+    background-color: #ff00773a;
+}
+
 .myButton {
     border: 2px solid #ff0079;
     background: transparent;
@@ -32,9 +37,71 @@
     min-width: 130px;
     margin-bottom: 1rem;
     color: white;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+.myListButton {
+    border: 2px solid #ff0079;
+    background: transparent;
+    font-weight: bold;
+    border-radius: 10px;
+
+    max-width: 130px;
+    min-width: 130px;
+    color: white;
     margin-left: 3%;
     margin-right: 3%;
 }
 #postButton:hover {
     box-shadow: 0 0 20px #ff0079; 
+}
+.myListButton:hover {
+    box-shadow: 0 0 20px #ff0079; 
+}
+
+.white{
+    color: white;
+}
+
+.input {
+    background:transparent
+}
+
+.formRow {
+    margin-bottom: 2%;
+}
+
+#categoryList {
+    box-shadow: 0 0 10px dark;
+    margin-top: 20px;
+    background-color: rgba(33,37,41,1);
+    border: 5px solid black;
+    border-radius: 15px;
+    
+}
+
+.listButton {
+    background: transparent;
+    border: none;
+}
+
+.listItem {
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border:none;
+    border: 1px solid;
+}
+
+.listItem:hover {
+    border-color: #ff0079;
+    box-shadow: 0 0 25px #ff0079;
+    background-color: #ff007748;
+}
+
+.selectedListItem {
+    color: #ff0079;
+    font-weight: normal;
+    font-style: italic;
 }

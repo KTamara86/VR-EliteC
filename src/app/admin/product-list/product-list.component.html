@@ -3,123 +3,148 @@
         <h5>Új termék hozzáadása <button (click)="postProduct()" class="btn myButton" id="postButton">Hozzáadás</button></h5>
     </div>
     <div class="col form-group">
-        <label for="nev">Termék neve:</label>
-        <input class="dataField input" type="text" id="nev" [(ngModel)]="newProduct.nev" name="nev">
+        <label for="newnev">Termék neve:</label>
+        <input class="dataField input" type="text" id="nev" [(ngModel)]="newProduct.nev" name="newnev">
     </div>
     <div class="col form-group">
-        <label for="db">Darabszám:</label>
-        <input class="dataField input" type="number" id="db" [(ngModel)]="newProduct.db" name="db">
+        <label for="newdb">Darabszám:</label>
+        <input class="dataField input" type="number" id="newdb" [(ngModel)]="newProduct.db" name="newdb">
     </div>
     <div class="col form-group">
-        <label for="uj_ar">Ár:</label>
-        <input class="dataField input" type="number" id="uj_ar" [(ngModel)]="newProduct.uj_ar" name="uj_ar">
+        <label for="newuj_ar">Ár:</label>
+        <input class="dataField input" type="number" id="newuj_ar" [(ngModel)]="newProduct.uj_ar" name="newuj_ar">
     </div>
     <div class="col form-group">
-        <label for="anyag">Anyag:</label>
-        <select class="dataField input" [(ngModel)]="newProduct.anyag" name="anyag">
+        <label for="newanyag">Anyag:</label>
+        <select class="dataField input" [(ngModel)]="newProduct.anyag" name="newanyag" id="newanyag">
             <option class="black" *ngFor="let value of props.anyag" [value]="value">{{value}}</option>
         </select>
     </div>
     <div class="col form-group">
-        <label for="mintazat">Mintázat:</label>
-        <select class="dataField input" [(ngModel)]="newProduct.mintazat" name="mintazat">
+        <label for="newmintazat">Mintázat:</label>
+        <select class="dataField input" [(ngModel)]="newProduct.mintazat" name="newmintazat" id="newmintazat">
             <option class="black" *ngFor="let value of props.mintazat" [value]="value">{{value}}</option>
         </select>
     </div>
     <div class="col form-group">
-        <label for="meret">Méret:</label>
-        <select class="dataField input" [(ngModel)]="newProduct.meret" name="meret">
+        <label for="newmeret">Méret:</label>
+        <select class="dataField input" [(ngModel)]="newProduct.meret" name="newmeret" id="newmeret">
             <option class="black" *ngFor="let value of props.meret" [value]="value">{{value}}</option>
         </select>
     </div>
     <div class="col form-group">
-        <label for="szin">Szín:</label>
-        <select class="dataField input" [(ngModel)]="newProduct.szin" name="szin">
+        <label for="newszin">Szín:</label>
+        <select class="dataField input" [(ngModel)]="newProduct.szin" name="newszin" id="newszin">
             <option class="black" *ngFor="let value of props.szin" [value]="value">{{value}}</option>
         </select>
     </div>
     <div class="col form-group">
-        <label for="szalmagassag">Szálmagasság:</label>
-        <select class="dataField input" [(ngModel)]="newProduct.szalmagassag" name="szalmagassag">
+        <label for="newszalmagassag">Szálmagasság:</label>
+        <select class="dataField input" [(ngModel)]="newProduct.szalmagassag" name="newszalmagassag" id="newszalmagassag">
             <option class="black" *ngFor="let value of props.szalmagassag" [value]="value">{{value}}</option>
         </select>
     </div>
     <div class="col form-group">
-        <label for="vastagsag">Vastagság:</label>
-        <select class="dataField input" [(ngModel)]="newProduct.vastagsag" name="vastagsag">
+        <label for="newvastagsag">Vastagság:</label>
+        <select class="dataField input" [(ngModel)]="newProduct.vastagsag" name="newvastagsag" id="newvastagsag">
             <option class="black" *ngFor="let value of props.vastagsag" [value]="value">{{value}}</option>
         </select>
     </div>
     <div class="col form-group">
-        <label for="stilus">Stílus:</label>
-        <select class="dataField input" [(ngModel)]="newProduct.stilus" name="stilus">
+        <label for="newstilus">Stílus:</label>
+        <select class="dataField input" [(ngModel)]="newProduct.stilus" name="newstilus" id="newstilus">
             <option class="black" *ngFor="let value of props.stilus" [value]="value">{{value}}</option>
         </select>
     </div>
 </div>
 <div class="row headerRow">
-    <input [(ngModel)]="searchArgs" type="text" placeholder="Írd be a termék nevét vagy válaszd ki a listából"> 
-    <!-- TODO: lehetne egy lenyíló szabadon kereshető lista vagy lehetne külön egy egy lista objektum -->
-</div>
-<div class="row headerRow">
-    <div class="col">
-        <!-- TODO ITT LENNÉNEK AZ ADATOK A FIELDEKBEN -->
-    </div>
-    <div class="col">
-        <!-- TODO: ITT Lenne a kereső lista, mondjuk ilyen belső pörgetős kereső lista, ebben csak annak a termékek a neve jelenik meg, ami megfelel a keresésnek, biztos kell majd pipe -->
+    <input [(ngModel)]="searchArgs" type="text" placeholder="Írd be a termék nevét vagy válaszd ki a listából" class="mb-1"> 
+    <!-- TODO: funckió -->
+    <div class="container">
+        <ul class="list-group list-group-horizontal mb-1">
+            <li *ngFor="let cat of categories; let i=index" class="list-group-item listItem"
+            [ngClass]="i==activeCategory? 'selectedListItem': ''" (click)="changeActiveCategory(i)">{{cat}}</li>
+        </ul>
     </div>
 </div>
-<div class="row headerRow">
-    <div class="col">
-        <!-- TODO: ITT LENNÉNEK A funkció gombok: DELETE, MODIFY -->
-    </div>
+<div class="row">
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item listButton"><button class="myListButton" id="modifyButtton" (click)="modifyProduct()">Módosítás</button></li>
+                <li class="list-group-item listButton"><button class="myListButton" id="deleteButton" (click)="deleteProduct()">Törlés</button></li>
+                <li class="list-group-item listButton">
+                    <label for="qtyplus" class="white">+ DB: </label>
+                    <input class="dataField input w-25" type="text" id="qtyplus" [(ngModel)]="plusQty" name="qtyplus">
+                    <button class="myListButton" id="qtyButton" (click)="qtyPlus()">Hozzáadás</button>
+                </li>
+            </ul>
 </div>
-
-
-
-
-
-    <!-- <div class="row dataRow" *ngFor="let order of ordersArray|key:searchArgs">
-        <div class="row mb-1">
-            <input disabled class="col dataField" type="text" [value]="order.key" title="Megrendelés ID">
-            <input disabled class="col dataField" type="text" [value]="order.userid" title="Felhasználó ID">
-            <input disabled class="col dataField" type="text" [value]="order.datetime">
-            <input class="col dataField input" type="text" [(ngModel)]="order.phone" title="Telefonszám">
+<div class="row dataRow">
+    <div class="col col-sm-3">
+        <!-- TODO: pipe gond - a category szerint nem filterezi-->
+        <li *ngFor="let prod of showedProducts|search:searchArgs:activeCategory" class="list-group-item listItem" (click)="setChoosenProduct(prod)">{{prod.nev}}</li>
+    </div>
+    <div class="col col-sm-4">
+        <div class="form-group formRow">
+            <label for="key" class="white">Key:</label>
+            <input disabled class="dataField" type="text" id="key" [(ngModel)]="choosenProduct.key" name="key">
         </div>
-        <div class="row mb-1">
-            <h5 class="col">Címzett</h5>
-            <input class="col dataField input" type="text" [(ngModel)]="order.consignee">
-            <input *ngIf="order.taxnumber != '' " class="col dataField input" type="text" [(ngModel)]="order.taxnumber">
-            <input *ngIf="order.taxnumber == '' " disabled class="col dataField" type="text" [value]="'Magánszemély'">
-            <div class="col">
-                <input disabled type="checkbox" [value]="order.packetPoint" [checked]="order.packetPoint">
-                <span class="ps-1">Csomagpontos</span>
-            </div>
+        <div class="form-group formRow">
+            <label for="nev" class="white">Termék neve:</label>
+            <input class="dataField input" type="text" id="nev" [(ngModel)]="choosenProduct.nev" name="nev">
         </div>
-        <div class="row mb-1">
-            <input class="col-1 dataField input" type="text" [(ngModel)]="order.zipcode">
-            <input class="col-3 dataField input" type="text" [(ngModel)]="order.city">
-            <input class="col dataField input" type="text" [(ngModel)]="order.address">
+        <div class="form-group formRow">
+            <label for="db" class="white">Darabszám:</label>
+            <input class="dataField input" type="number" id="db" [(ngModel)]="choosenProduct.db" name="db">
         </div>
-        <div class="row mb-1">
-            <h5 class="col-2">Szállítási adatok</h5>
-            <input class="col-1 dataField input" type="text" [(ngModel)]="order.deliveryZipcode">
-            <input class="col-3 dataField input" type="text" [(ngModel)]="order.deliveryCity">
-            <input class="col dataField input" type="text" [(ngModel)]="order.deliveryAddress">
+        <div class="form-group formRow">
+            <label for="uj_ar" class="white">Ár:</label>
+            <input class="dataField input" type="number" id="uj_ar" [(ngModel)]="choosenProduct.uj_ar" name="uj_ar">
         </div>
-        <div class="row mb-1">
-            <h5 class="col-2">Fizetési adatok</h5>
-            <input *ngIf="order.payment == 'before'" disabled class="col-2 dataField" type="text" [value]="'Online fizetés'">
-            <input *ngIf="order.payment == 'after'" disabled class="col-1 dataField" type="text" [value]="'Utánvét'">
-            <input disabled class="col-2 dataField" type="text" [value]="order.total + ' Ft'">
-            <div class="col">
-                <select class="form-select dataField input" aria-label="Rendelési status" [(ngModel)]="order.status">
-                    <option *ngFor="let value of status" class="black" [value]="value">{{value}}</option>
-                </select>
-            </div>
+        <div class="form-group formRow">
+            <label for="anyag" class="white">Anyag:</label>
+            <select class="dataField input" [(ngModel)]="choosenProduct.anyag" name="anyag">
+                <option class="black" *ngFor="let value of props.anyag" [value]="value">{{value}}</option>
+            </select>
         </div>
-        <div class="row mb-1">
-            <button (click)="modifyOrder(order)" class="myButton" id="modifyButton">Módosítás</button>
-            <button (click)="deleteOrder(order.key)" class="myButton" id="deleteButton">Törlés</button>
+        <div class="col form-group formRow">
+            <label for="mintazat" class="white">Mintázat:</label>
+            <select class="dataField input" [(ngModel)]="choosenProduct.mintazat" name="mintazat">
+                <option class="black" *ngFor="let value of props.mintazat" [value]="value">{{value}}</option>
+            </select>
         </div>
-    </div> -->
+        <div class="col form-group formRow">
+            <label for="meret" class="white">Méret:</label>
+            <select class="dataField input" [(ngModel)]="choosenProduct.meret" name="meret">
+                <option class="black" *ngFor="let value of props.meret" [value]="value">{{value}}</option>
+            </select>
+        </div>
+        <div class="col form-group formRow">
+            <label for="szin" class="white">Szín:</label>
+            <select class="dataField input" [(ngModel)]="choosenProduct.szin" name="szin">
+                <option class="black" *ngFor="let value of props.szin" [value]="value">{{value}}</option>
+            </select>
+        </div>
+        <div class="col form-group formRow">
+            <label for="szalmagassag" class="white">Szálmagasság:</label>
+            <select class="dataField input" [(ngModel)]="choosenProduct.szalmagassag" name="szalmagassag">
+                <option class="black" *ngFor="let value of props.szalmagassag" [value]="value">{{value}}</option>
+            </select>
+        </div>
+        <div class="col form-group formRow">
+            <label for="vastagsag" class="white">Vastagság:</label>
+            <select class="dataField input" [(ngModel)]="choosenProduct.vastagsag" name="vastagsag">
+                <option class="black" *ngFor="let value of props.vastagsag" [value]="value">{{value}}</option>
+            </select>
+        </div>
+        <div class="col form-group formRow">
+            <label for="stilus" class="white">Stílus:</label>
+            <select class="dataField input" [(ngModel)]="choosenProduct.stilus" name="stilus">
+                <option class="black" *ngFor="let value of props.stilus" [value]="value">{{value}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col">
+        <img [src]="'../../../assets/pictures/' + choosenProduct.key + '.jpg'" class="img-fluid">
+    </div>
+    
+</div>

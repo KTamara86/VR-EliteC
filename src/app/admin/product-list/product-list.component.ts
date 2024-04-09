@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BaseService } from 'src/app/services/base.service';
 
 @Component({
   selector: 'app-product-list',
@@ -33,7 +34,54 @@ export class ProductListComponent {
     vastagsag: ["7 mm", "12 mm", "14 mm"],
     stilus: ["modern", "klasszikus"]
   }
+
+  products:any
+  showedProducts:any
+  choosenProduct:any = {key: 1 }
+  categories = ["Padlószőnyeg", "Szőnyeg", "Futószőnyeg", "Lábtörlő" ]
+  activeCategory = 0
+  plusQty = 0
+
+  constructor(private base: BaseService){
+    this.base.getProducts().subscribe(
+      (res) => {
+        this.products=res
+
+        this.setShowedProducts()
+        this.setChoosenProduct(this.showedProducts[1])
+      }
+    )
+  }
+
+  setShowedProducts(){
+    let prodArray = []
+    let prods = this.products[this.categories[this.activeCategory]]
+
+    for (const key in prods){
+      let element =prods[key]
+
+      if(key != "0"){
+        element.key = key
+        prodArray.push(element)
+      }
+    }
+    this.showedProducts=prodArray
+    console.log(this.showedProducts)
+  }
+
+  setChoosenProduct(product: any){
+    this.choosenProduct = product
+  }
+
+  changeActiveCategory(i:number){
+    this.activeCategory=i
+    this.searchArgs = ""
+  }
   
+  qtyPlus(){
+    
+  }
+
   postProduct(){
     //TODO: funkciót kiépítése
   }
