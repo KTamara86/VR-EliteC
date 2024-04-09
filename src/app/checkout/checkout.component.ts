@@ -101,6 +101,9 @@ export class CheckoutComponent {
   orderProducts(){
     let msg = "Sikeres megrendelés"
     let result = true
+    for(const key in this.cart){
+      this.cart[key].prodQty = null
+    }
     let body = {
       userid: this.user.userid, 
       consignee: this.data.consignee,
