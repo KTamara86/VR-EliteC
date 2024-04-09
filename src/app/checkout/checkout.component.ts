@@ -177,10 +177,6 @@ export class CheckoutComponent {
       }
       else this.callToasts(false, "Sikertelen megrendelés, valamelyik termék elfogyott", "HIBA")
     }
-    //TODO: valamilyen módon ellenőrizni kell, hogy ténylegesen megrendelhetőek-e a termékek, van-e elég dd
-    //TODO: esetleg ha a base-nek írnánk egy konkrét terméklekérést és megnéznénk a termék db-számát, ehhez viszont kell, hogy a kosárba bekerüléskor átadódjon a termék kategóriája
-
-
   }
 
   callToasts(result:boolean, toastBodyTxt:string, toastHeaderTxt:string){
@@ -193,12 +189,7 @@ export class CheckoutComponent {
       newestOnTop: true
     }
 
-    if(result){
-      this.toastr.info(toastBodyTxt, toastHeaderTxt, props)
-    }
-    else{
-      this.toastr.warning(toastBodyTxt, toastHeaderTxt, props)
-    }
+    if(result) this.toastr.info(toastBodyTxt, toastHeaderTxt, props)
+    else this.toastr.warning(toastBodyTxt, toastHeaderTxt, props)
   }
-
 }
