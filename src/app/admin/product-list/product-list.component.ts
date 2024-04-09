@@ -16,7 +16,7 @@ export class ProductListComponent {
     key: "",
     anyag: "",
     db: "",
-    lathato: false,
+    lathato: "",
     meret: "",
     mintazat: "",
     nev: "",
@@ -83,6 +83,24 @@ export class ProductListComponent {
     this.searchArgs = ""
     this.setShowedProducts()
   }
+
+  setNewProdToDefault(){
+    this.newProduct = {
+      key: "",
+      anyag: "",
+      db: "",
+      lathato: "",
+      meret: "",
+      mintazat: "",
+      nev: "",
+      stilus: "",
+      szalmagassag: "",
+      szin: "",
+      uj_ar: "",
+      vastagsag: "",
+      category: ""
+    }
+  }
   
   qtyPlus(){
     let category = this.categories[this.activeCategory]
@@ -125,11 +143,13 @@ export class ProductListComponent {
       uj_ar: this.newProduct.uj_ar,
       vastagsag: this.newProduct.vastagsag
     }
-    //TODO: kell a service-nek egy funkció, amivel feltöltjük
-    console.log(category)
-    console.log(body)
-    this.toastMsgOutlet(true, "add")
-    this.toastMsgOutlet(false, "add")
+
+    this.base.postProduct(body, category).then(
+      (res) => {
+        this.toastMsgOutlet(res, "push")
+        this.setNewProdToDefault()
+      }
+    )
   }
 
   deleteProduct(){
@@ -165,7 +185,6 @@ export class ProductListComponent {
   }
 
   toastMsgOutlet(result:boolean, type:string){
-    //TODO: funkciót kiépíteni
     let toastBodyTxt = ""
     let props:any = {
       closeButton: true,
@@ -191,9 +210,8 @@ export class ProductListComponent {
     if(result){
       if(type == "modify") toastBodyTxt = "Sikeres adatmódosítás!"
       else if(type == "delete") toastBodyTxt = "Sikeres törlés!"
-      else if(type == "add") toastBodyTxt = "Sikeres termékfeltöltés!"
+      else if(type == "push") toastBodyTxt = "Sikeres termékfeltöltés!"
       else if(type == "plusqty") toastBodyTxt = "Sikeresen módosítottad a készletet!"
-
       this.toastr.info(toastBodyTxt, "SIKER", props)
     }
     else{

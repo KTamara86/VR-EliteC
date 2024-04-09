@@ -4,7 +4,7 @@
     </div>
     <div class="col form-group">
         <label for="newnev">Termék neve:</label>
-        <input class="dataField input" type="text" id="nev" [(ngModel)]="newProduct.nev" name="newnev">
+        <input class="dataField input" type="text" id="newnev" [(ngModel)]="newProduct.nev" name="newnev">
     </div>
     <div class="col form-group">
         <label for="newdb">Darabszám:</label>
@@ -16,8 +16,8 @@
     </div>
     <div class="col form-group">
         <!-- TODO: át kell alakítani checkboxra -->
-        <label for="newlathato">Látható:</label>
-        <input class="dataField input" type="number" id="newlathato" [(ngModel)]="newProduct.lathato" name="newuj_ar">
+        <label for="newlathato">Látható 1-igen, 0-nem:</label>
+        <input class="dataField input" type="number" id="newlathato" [(ngModel)]="newProduct.lathato" name="newuj_ar" min="0" max="1">
     </div>
     <div class="col form-group">
         <label for="newanyag">Anyag:</label>
@@ -111,8 +111,8 @@
         </div>
         <div class="form-group formRow">
             <!-- TODO: át kell alakítani checkboxra -->
-            <label for="lathato" class="white">Látható:</label>
-            <input class="dataField input" type="number" id="lathato" [(ngModel)]="choosenProduct.lathato" name="lathato">
+            <label for="lathato" class="white">Látható 1-i, 0-n:</label>
+            <input class="dataField input" type="number" id="lathato" [(ngModel)]="choosenProduct.lathato" name="lathato" min="0" max="1">
         </div>
         <div class="form-group formRow">
             <label for="anyag" class="white">Anyag:</label>
