@@ -3,6 +3,8 @@ import { CartService } from '../services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { format } from 'date-fns';
 import { RatingService } from '../services/rating.service';
+import { AuthService } from '../services/auth.service';
+import { BaseService } from '../services/base.service';
 
 @Component({
   selector: 'app-product',
@@ -12,16 +14,22 @@ import { RatingService } from '../services/rating.service';
 export class ProductComponent {
   @Input() data:any;
 
-  user = { // TODO: userünket is át kell majd írni
-    name: "Felix (itt lesz a nev)",
-    id: 15
-  }
+  // TODO: userünket is át kell majd írni
+  // user = { 
+  //   name: "Felix (itt lesz a nev)",
+  //   id: 15
+  // }
+
+  user:any
 
   ratingsArray:any
-  rating = { score:3, text: "" }
+  rating = {
+    nickname: "",
+    score:3, 
+    text: "" }
 
-  constructor(private cartService:CartService, private toastr:ToastrService, private ratingService:RatingService) {
-    ratingService.getRatings().subscribe(
+  constructor(private cartService:CartService, private toastr:ToastrService, private ratingService:RatingService, private auth:AuthService, private base:BaseService) {
+    this.ratingService.getRatings().subscribe(
       (res:any) => {
         let array = []
         for(const key in res){
@@ -29,6 +37,9 @@ export class ProductComponent {
         }
         this.ratingsArray = array
       }
+    )
+    this.auth.getUser().subscribe(
+      (res) => this.user = res
     )
   }
 
@@ -58,8 +69,9 @@ export class ProductComponent {
 
   postRating(){
     let body = {
-      user: this.user.id,
       product: this.data.key,
+      nickname: this.rating.nickname,
+      useremail: this.user.email,
       rating:  this.rating.score,
       text: this.rating.text,
       time: format(new Date(), 'yyyy-MM-dd HH:mm:ss')
@@ -69,6 +81,7 @@ export class ProductComponent {
     )
     this.rating.score = 3
     this.rating.text = ""
+    this.rating.nickname = ""
   }
 
   toastMsgOutlet(result:boolean, body:any, type:string){
