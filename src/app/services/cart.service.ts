@@ -40,18 +40,13 @@ export class CartService {
           this.cart[i].qty = this.cart[i].qty + body.qty
           this.qty = this.setQty()
           this.total = this.setTotal()
-          this.callSubs()
-          
+          this.callSubs()  
           return true
         }
-        else{
-          return false
-        }
+        else { return false }
       }
     }
-    else{
-      return false
-    }
+    else { return false }
     
   }
 
