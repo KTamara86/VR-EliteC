@@ -12,6 +12,9 @@ import { notLoggedGuard } from './guard/not-logged.guard';
 import { loginGuard } from './guard/login.guard';
 import { sAdminGuard } from './guard/s-admin.guard';
 import { AdminComponent } from './admin/admin.component';
+import { ProfilDataComponent } from './profil/profil-data/profil-data.component';
+import { MyOrdersComponent } from './profil/my-orders/my-orders.component';
+import { MyOpinionComponent } from './profil/my-opinion/my-opinion.component';
 
 const routes: Routes = [
   
@@ -22,6 +25,9 @@ const routes: Routes = [
   {path:"signin", component:UserLoginComponent, canActivate:[notLoggedGuard]},
   {path:"forgotpassword", component:ForgotPasswordComponent},
   {path:"verifyemail", component:VerifyEmailComponent},
+  {path:"profildata", component:ProfilDataComponent},
+  {path:"myorders", component:MyOrdersComponent},
+  {path:"myopinion", component:MyOpinionComponent},
   {path:"profil", component:ProfilComponent, canActivate:[loginGuard]},
   {path:"users", component:UserListComponent, canActivate:[sAdminGuard]},
   {path:"admin", component:AdminComponent},

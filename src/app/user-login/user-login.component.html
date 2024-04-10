@@ -1,53 +1,53 @@
 <div class="container-fluid">
-    <div class="row mt-5">
-        <div class="col"></div>
-        <div class="col-5">
-            <div class="card shadow">
-                <div class="card-body">
-                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                        <div class="text-center mb-5">
-                            <div class="h1 fw-bold" style="color:#2F75B5">Belépés</div>
+  <div class="row p-4">
+      <div class="col"></div>
+      <div class="col-5">
+          <div class="card shadow">
+              <div class="card-body" id="signin">
+                  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                      <div class="text-center mb-5">
+                          <div class="h1 fw-bold" style="color:#2F75B5">Belépés</div>
+                      </div>
+
+                      <div class="form-outline mb-3 ">
+                        <label class="form-label">E-mail cím</label>
+                        <input type="email" formControlName="email" class="form-control" style="background-color:#DDEBF7"  placeholder="nev@pelda.com"
+                          [ngClass]="{ 'is-invalid': submitted && forms['email'].errors }" #userName required />
+                        <div *ngIf="submitted && forms['email'].errors" class="invalid-feedback">
+                          <div *ngIf="forms['email'].errors['required']">E-mail cím megadása kötelező</div>
+                          <div *ngIf="forms['email'].errors['email']">Az e-mail cím formája nem megfelelő</div>
                         </div>
-  
-                        <div class="form-outline mb-3 ">
-                          <label class="form-label">E-mail cím</label>
-                          <input type="email" formControlName="email" class="form-control" style="background-color:#DDEBF7"  placeholder="nev@pelda.com"
-                            [ngClass]="{ 'is-invalid': submitted && forms['email'].errors }" #userName required />
-                          <div *ngIf="submitted && forms['email'].errors" class="invalid-feedback">
-                            <div *ngIf="forms['email'].errors['required']">E-mail cím megadása kötelező</div>
-                            <div *ngIf="forms['email'].errors['email']">Az e-mail cím formája nem megfelelő</div>
+                      </div>
+
+                      <div class="form-outline mb-3.5">
+                        <label class="form-label">Jelszó</label>
+                        <input type="password" id="floatingPassword" formControlName="password" class="form-control" style="background-color: #DDEBF7" placeholder="******" 
+                          [ngClass]="{ 'is-invalid': submitted && forms['password'].errors }" #userPassword required />
+                        <div *ngIf="submitted && forms['password'].errors" class="invalid-feedback">
+                          <div *ngIf="forms['password'].errors['required']">Jelszó megadása kötelező</div>
+                          <div *ngIf="forms['password'].errors['minlength']">A jelszónak minimum 6 karakternek kell lennie</div>
+                          <div *ngIf="forms['password'].errors['maxlength']">A jelszó maximum 20 karakter lehet</div>
+                        </div>
+                      </div>
+
+                      <div class="text-center p-4">
+                        <button class="btn btn-info btn-lg btn-block" style="color: white" type="submit" value="Log in" 
+                        [disabled]="validUser()" (click)="auth.signIn(userName.value, userPassword.value)"><i class="bi bi-box-arrow-in-right"></i> Belépés
+                        </button>
+                      </div>
+
+                      <div class="row">
+                          <div id="box" class="text-center p-3"> Nincs Felhasználói fiókja?
+                              <a style="color:  #2F75B5" routerLink="/signup">Kattintson ide a Regisztrációhoz</a>
                           </div>
-                        </div>
-  
-                        <div class="form-outline mb-3.5">
-                          <label class="form-label">Jelszó</label>
-                          <input type="password" id="floatingPassword" formControlName="password" class="form-control" style="background-color: #DDEBF7" placeholder="******" 
-                            [ngClass]="{ 'is-invalid': submitted && forms['password'].errors }" #userPassword required />
-                          <div *ngIf="submitted && forms['password'].errors" class="invalid-feedback">
-                            <div *ngIf="forms['password'].errors['required']">Jelszó megadása kötelező</div>
-                            <div *ngIf="forms['password'].errors['minlength']">A jelszónak minimum 6 karakternek kell lennie</div>
-                            <div *ngIf="forms['password'].errors['maxlength']">A jelszó maximum 20 karakter lehet</div>
+                          <div class="text-center p-2">
+                              <a routerLink="/forgotpassword">Elfelejtettem a jelszavam</a>
                           </div>
-                        </div>
-  
-                        <div class="text-center p-4">
-                          <button class="btn btn-info btn-lg btn-block" style="color: white" type="submit" value="Log in" 
-                          [disabled]="validUser()" (click)="auth.signIn(userName.value, userPassword.value)"><i class="bi bi-box-arrow-in-right"></i> Belépés
-                          </button>
-                        </div>
-  
-                        <div class="row">
-                            <div class="text-center small p-3" style="color: grey"> Nincs Felhasználói fiókja?
-                                <a style="color:  #2F75B5" routerLink="/usersignup">Kattintson ide a Regisztrációhoz</a>
-                            </div>
-                            <div class="text-center small p-2">
-                                <a routerLink="/forgotpassword" style="color: grey">Elfelejtettem a jelszavam</a>
-                            </div>
-                        </div>
-                      </form>
-                </div>
-            </div>
-        </div>
-        <div class="col"></div>
-    </div>
+                      </div>
+                    </form>
+              </div>
+          </div>
+      </div>
+      <div class="col"></div>
   </div>
+</div>

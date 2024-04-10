@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -33,6 +34,9 @@ import { RatingListComponent } from './admin/rating-list/rating-list.component';
 import { OrderListComponent } from './admin/order-list/order-list.component';
 import { ProductListComponent } from './admin/product-list/product-list.component';
 import { KeyPipe } from './pipes/key.pipe';
+import { ProfilDataComponent } from './profil/profil-data/profil-data.component';
+import { MyOrdersComponent } from './profil/my-orders/my-orders.component';
+import { MyOpinionComponent } from './profil/my-opinion/my-opinion.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +62,10 @@ import { KeyPipe } from './pipes/key.pipe';
     RatingListComponent,
     OrderListComponent,
     ProductListComponent,
-    KeyPipe
+    KeyPipe,
+    ProfilDataComponent,
+    MyOrdersComponent,
+    MyOpinionComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +79,8 @@ import { KeyPipe } from './pipes/key.pipe';
         maxOpened: 5
       }
     ),
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   
   providers: [],
