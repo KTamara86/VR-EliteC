@@ -29,8 +29,7 @@ const routes: Routes = [
   {path:"myorders", component:MyOrdersComponent},
   {path:"myopinion", component:MyOpinionComponent},
   {path:"profil", component:ProfilComponent, canActivate:[loginGuard]},
-  {path:"users", component:UserListComponent, canActivate:[sAdminGuard]},
-  {path:"admin", component:AdminComponent},
+  {path:"admin", component:AdminComponent, canActivate:[sAdminGuard] },
   {path:"**", component:HomeComponent},
 
 ];
