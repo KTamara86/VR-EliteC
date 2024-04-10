@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { BaseService } from '../services/base.service';
-import { CartService } from '../services/cart.service';
-import { SearchService } from '../services/search.service';
+import { BaseService } from '../../services/base.service';
+import { CartService } from '../../services/cart.service';
+import { SearchService } from '../../services/search.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
