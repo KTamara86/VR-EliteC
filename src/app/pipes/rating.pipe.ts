@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class RatingPipe implements PipeTransform {
 
-  transform(ratings:any, productId: number) {
+  transform(ratings:any, productId:string) {
     if (!ratings) return null;
     if (!productId) return ratings;
 
