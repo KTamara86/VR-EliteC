@@ -19,7 +19,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 import { ProductComponent } from './product/product.component';
-import { PacketPointInfoComponent } from './packet-point-info/packet-point-info.component';
+import { PacketPointInfoComponent } from './components/packet-point-info/packet-point-info.component';
 import { environment } from 'src/enviroments/enviroment';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
