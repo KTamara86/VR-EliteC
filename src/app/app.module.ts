@@ -25,7 +25,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 import { SearchPipe } from './pipes/search.pipe';
-import { SearchComponent } from './search/search.component';
+import { SearchComponent } from './components/search/search.component';
 import { RatingPipe } from './pipes/rating.pipe';
 import { ProfilComponent } from './profil/profil.component';
 import { UserListComponent } from './admin/user-list/user-list.component';

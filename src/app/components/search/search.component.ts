@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { SearchService } from '../services/search.service';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-search',
@@ -9,7 +9,6 @@ import { SearchService } from '../services/search.service';
 export class SearchComponent {
 
   expression = ""
-  clearing = false
 
   constructor(private search: SearchService) {
     this.search.getClear().subscribe(clearing => {
