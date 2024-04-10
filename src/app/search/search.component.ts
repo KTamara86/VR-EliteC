@@ -10,21 +10,14 @@ export class SearchComponent {
 
   expression = ""
   clearing = false
-  showIcon = false;
 
-  constructor(private search:SearchService) {
-    this.search.getClear().subscribe(
-      (res) => {
-        this.clearing = res
-        if(this.clearing){
-          this.expression = ""
-          this.onKeyUp(this.expression)
-        }
+  constructor(private search: SearchService) {
+    this.search.getClear().subscribe(clearing => {
+      if (clearing) {
+        this.expression = '';
+        this.onKeyUp(this.expression);
       }
-    )
-   }
-
-  ngOnInit() {
+    });
   }
 
   onKeyUp(value:string) {
