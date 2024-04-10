@@ -89,7 +89,7 @@
 </div>
 <div class="row dataRow">
     <div class="col col-sm-3">
-        <li *ngFor="let prod of showedProducts|search:searchArgs:activeCategory" class="list-group-item listItem" (click)="setChoosenProduct(prod)">{{prod.nev}}</li>
+        <li *ngFor="let prod of showedProducts|search:searchArgs" class="list-group-item listItem" (click)="setChoosenProduct(prod)">{{prod.nev}}</li>
     </div>
     <div class="col col-sm-4">
         <div class="form-group formRow">
