@@ -10,7 +10,6 @@ export class BaseService {
 
   url = "https://elitecarpetsv2-default-rtdb.europe-west1.firebasedatabase.app/termekek"
   productsSub = new Subject()
-  prodSub = new Subject()
 
   constructor(private http:HttpClient){
     this.loadProducts()
