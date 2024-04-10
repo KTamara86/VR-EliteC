@@ -23,7 +23,7 @@ import { PacketPointInfoComponent } from './packet-point-info/packet-point-info.
 import { environment } from 'src/enviroments/enviroment';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
-import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
+import { TermsConditionsComponent } from './components/terms-conditions/terms-conditions.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { SearchComponent } from './components/search/search.component';
 import { RatingPipe } from './pipes/rating.pipe';
