@@ -1,11 +1,11 @@
 <div class="input-group" id="selectorContainer">
     <span class="input-group-text" id="selectorText">Melyik táblában szeretnél dolgozni?</span>
-    <select class="form-select form-select-sm" id="selector" [ngModel]="selectorValue" (ngModelChange)="setSelectorValue($event)">
-      <option class="option-bg" selected [ngValue]=""></option>
-      <option [ngValue]="'users'">Felhasználók</option>
-      <option [ngValue]="'products'">Termékek</option>
-      <option [ngValue]="'orders'">Rendelések</option>
-      <option [ngValue]="'ratings'">Vélemények</option>
+    <select class="form-select form-select-sm" id="selector" [(ngModel)]="selectorValue">
+      <option class="option-bg" selected [value]=""></option>
+      <option [value]="'users'">Felhasználók</option>
+      <option [value]="'products'">Termékek</option>
+      <option [value]="'orders'">Rendelések</option>
+      <option [value]="'ratings'">Vélemények</option>
     </select>
 </div>
 <ng-container *ngIf="selectorValue == ''">

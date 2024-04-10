@@ -8,8 +8,4 @@ import { Component } from '@angular/core';
 export class AdminComponent {
 
   selectorValue = ""
-
-  setSelectorValue(newValue:string) {
-    this.selectorValue = newValue
-  }
 }
