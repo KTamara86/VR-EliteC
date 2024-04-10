@@ -18,7 +18,7 @@ export class CheckoutComponent {
   totalQty:any
   total:any
 
-
+  //TODO: a usert majd itt is bele kell implementálni
   user = {
     userid:0,
     phone: "06301636655",
