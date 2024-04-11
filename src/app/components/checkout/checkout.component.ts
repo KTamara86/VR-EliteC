@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { PacketPointService } from '../services/packet-point.service';
-import { CartService } from '../services/cart.service';
+import { PacketPointService } from '../../services/packet-point.service';
+import { CartService } from '../../services/cart.service';
 import { format } from 'date-fns';
-import { OrderService } from '../services/order.service';
+import { OrderService } from '../../services/order.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router'
-import { BaseService } from '../services/base.service';
-import { UserService } from '../services/user.service';
+import { BaseService } from '../../services/base.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-checkout',

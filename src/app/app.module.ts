@@ -15,7 +15,7 @@ import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
-import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 import { ProductComponent } from './components/product/product.component';
