@@ -20,22 +20,12 @@ export class CheckoutComponent {
   total:any
 
   //TODO: a usert majd itt is bele kell implementálni
-  user = {
-    phone: "",
-    name: "",
-    zipcode:"",
-    city:"",
-    address:"",
-    email:""
+  user:any  = {
+  
   }
 
   data = {
-    consignee: this.user.name,
     taxnumber: "",
-    phone: this.user.phone,
-    zipcode: this.user.zipcode,
-    city: this.user.city,
-    address: this.user.address,
     deliveryZipcode: this.user.zipcode,
     deliveryCity: this.user.city,
     deliveryAddress: this.user.zipcode,
@@ -136,12 +126,12 @@ export class CheckoutComponent {
 
     let body = {
       email: this.user.email, 
-      consignee: this.data.consignee,
+      consignee: this.user.name,
       taxnumber: this.data.taxnumber,
-      phone: this.data.phone,
-      zipcode: this.data.zipcode,
-      city: this.data.city,
-      address: this.data.address,
+      phone: this.user.phone,
+      zipcode: this.user.zipCode,
+      city: this.user.city,
+      address: this.user.address,
       deliveryZipcode: this.data.deliveryZipcode,
       deliveryCity: this.data.deliveryCity,
       deliveryAddress: this.data.deliveryAddress,
@@ -161,8 +151,8 @@ export class CheckoutComponent {
       body.packetPoint = true
     }
 
-    if(!this.termsValue || this.data.consignee == "" || this.data.phone == "" || this.data.zipcode == "" ||
-      this.data.address == "" || this.data.deliveryZipcode == "" || this.data.deliveryCity == "" || 
+    if(!this.termsValue || this.user.name == "" || this.user.phone == "" || this.user.zipcode == "" ||
+      this.user.address == "" || this.data.deliveryZipcode == "" || this.data.deliveryCity == "" || 
       this.data.deliveryAddress == "" || (this.entity == "company" && this.data.taxnumber == "")){
         this.callToasts(false, "Hibásan kitöltött adatok és/vagy ÁSZF nem került elfogadásra!", "HIBA")
     }

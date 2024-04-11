@@ -18,22 +18,22 @@
                     </div>
                     <div class="mb-3 col-4">
                         <label for="phoneInput" class="form-label textWhite">Telefonszám:</label>
-                        <input type="tel" [(ngModel)]="data.phone" class="form-control formInputField" id="phoneInput" aria-describedby="phoneHelp">
+                        <input type="tel" [(ngModel)]="this.user.phone" class="form-control formInputField" id="phoneInput" aria-describedby="phoneHelp">
                         <div id="phoneHelp" class="form-text">Így add meg a telefonszámot: 06301234567</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-2">
                         <label for="zipInput" class="form-label textWhite">Irányítószám:</label>
-                        <input type="text" [(ngModel)]="data.zipcode" class="form-control formInputField" id="zipInput">
+                        <input type="text" [(ngModel)]="this.user.zipCode" class="form-control formInputField" id="zipInput">
                     </div>
                     <div class="mb-3 col-4">
                         <label for="cityInput" class="form-label textWhite">Város:</label>
-                        <input type="text" [(ngModel)]="data.city" class="form-control formInputField" id="cityInput">
+                        <input type="text" [(ngModel)]="this.user.city" class="form-control formInputField" id="cityInput">
                     </div>
                     <div class="mb-3 col-6">
                         <label for="addressInput" class="form-label textWhite">Utca, házszám:</label>
-                        <input type="text" [(ngModel)]="data.address" class="form-control formInputField" id="addressInput">
+                        <input type="text" [(ngModel)]="this.user.address" class="form-control formInputField" id="addressInput">
                     </div>
                 </div>
             </ng-container>
@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="mb-3 col-4">
                         <label for="nameInput" class="form-label textWhite">Szervezet neve:</label>
-                        <input type="text" [(ngModel)]="data.consignee" class="form-control formInputField" id="nameInput">
+                        <input type="text" [(ngModel)]="this.user.name" class="form-control formInputField" id="nameInput">
                     </div>
                     <div class="mb-3 col-4">
                         <label for="taxNoInput" class="form-label textWhite">Adószám:</label>
@@ -49,22 +49,22 @@
                     </div>
                     <div class="mb-3 col-4">
                         <label for="phoneInput" class="form-label textWhite">Telefonszám:</label>
-                        <input type="tel" [(ngModel)]="data.phone" class="form-control formInputField" id="phoneInput"aria-describedby="phoneHelp">
+                        <input type="tel" [(ngModel)]="this.user.phone" class="form-control formInputField" id="phoneInput"aria-describedby="phoneHelp">
                         <div id="phoneHelp" class="form-text textWhite">Így add meg a telefonszámot: +36-30-123-4567</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-2">
                         <label for="zipInput" class="form-label textWhite">Irányítószám:</label>
-                        <input type="text" [(ngModel)]="data.zipcode" class="form-control formInputField" id="zipInput">
+                        <input type="text" [(ngModel)]="this.user.zipCode" class="form-control formInputField" id="zipInput">
                     </div>
                     <div class="mb-3 col-4">
                         <label for="cityInput" class="form-label textWhite">Város:</label>
-                        <input type="text" [(ngModel)]="data.city" class="form-control formInputField" id="cityInput">
+                        <input type="text" [(ngModel)]="this.user.city" class="form-control formInputField" id="cityInput">
                     </div>
                     <div class="mb-3 col-6">
                         <label for="addressInput" class="form-label textWhite">Utca, házszám:</label>
-                        <input type="text" [(ngModel)]="data.address" class="form-control formInputField" id="addressInput">
+                        <input type="text" [(ngModel)]="this.user.address" class="form-control formInputField" id="addressInput">
                     </div>
                 </div>
             </ng-template>

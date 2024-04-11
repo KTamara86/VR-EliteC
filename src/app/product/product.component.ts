@@ -69,7 +69,8 @@ export class ProductComponent {
 
   postRating(){
     let body = {
-      product: this.data.key,
+      productId: this.data.key,
+      productName: this.data.nev,
       nickname: this.rating.nickname,
       useremail: this.user.email,
       rating:  this.rating.score,
