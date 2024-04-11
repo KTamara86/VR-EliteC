@@ -32,15 +32,15 @@
                     <h3 id="ratingsTitle">Vélemények:</h3>
                     <div class="row ratingInputContainer">
                         <div class="input-group input-group-sm mt-3">
-                            <input class="form-control" id="usernameField" type="text" aria-label="username" [(ngModel)]="rating.nickname" placeholder="Milyen név jelenlen meg?">
+                            <input class="form-control" id="usernameField" type="text" aria-label="username" [(ngModel)]="user.name" placeholder="Milyen név jelenlen meg?">
                             <span class="input-group-text" id="userRatingText"><img hidden="(max-width: 768px)" src="../../assets/icon/grade_black_24dp.svg" alt="" class="img-fluid"> 5/</span>
-                            <input type="number" class="form-control mySizeSM" id="userRating" aria-describedby="userRatingText" min="1" max="5" [(ngModel)]="rating.score">
+                            <input type="number" class="form-control mySizeSM" id="userRating" aria-describedby="userRatingText" min="1" max="5" [(ngModel)]="myRating.score">
                         </div>
                         <div class="input-group input-group-sm mt-3">
                             <span hidden="(max-width: 768px)" class="input-group-text" id="ratingTextLabel">Mit gondol a termékről?</span>
-                            <textarea class="form-control" id="ratingTextArea" aria-label="With textarea" placeholder="Véleménye fontos a számunkra, ossza meg velünk!" [(ngModel)]="rating.text"></textarea>
+                            <textarea class="form-control" id="ratingTextArea" aria-label="With textarea" placeholder="Véleménye fontos a számunkra, ossza meg velünk!" [(ngModel)]="myRating.text"></textarea>
                         </div>
-                        <button id="ratingSubmitButton" (click)="postRating()" [disabled]="rating.text=='' || rating.nickname==''">Beküldés</button>
+                        <button id="ratingSubmitButton" (click)="postRating()" [disabled]="myRating.text == '' || user.name ==' '">Beküldés</button>
                     </div>
                     <div class="row ratingInputContainer">
                         <div *ngFor="let rating of ratingsArray|rating:data.key" class="row myRatings">

@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import { RatingService } from '../services/rating.service';
 import { AuthService } from '../services/auth.service';
 import { BaseService } from '../services/base.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-product',
@@ -23,12 +24,11 @@ export class ProductComponent {
   user:any
 
   ratingsArray:any
-  rating = {
-    nickname: "",
+  myRating = {
     score:3, 
     text: "" }
 
-  constructor(private cartService:CartService, private toastr:ToastrService, private ratingService:RatingService, private auth:AuthService, private base:BaseService) {
+  constructor(private cartService:CartService, private toastr:ToastrService, private ratingService:RatingService, private userService:UserService) {
     this.ratingService.getRatings().subscribe(
       (res:any) => {
         let array = []
@@ -38,9 +38,11 @@ export class ProductComponent {
         this.ratingsArray = array
       }
     )
-    this.auth.getUser().subscribe(
+    
+    this.userService.getUserData().subscribe(
       (res) => this.user = res
     )
+
   }
 
   sumScores(){
@@ -71,18 +73,17 @@ export class ProductComponent {
     let body = {
       productId: this.data.key,
       productName: this.data.nev,
-      nickname: this.rating.nickname,
+      nickname: this.user.name,
       useremail: this.user.email,
-      rating:  this.rating.score,
-      text: this.rating.text,
+      rating:  this.myRating.score,
+      text: this.myRating.text,
       time: format(new Date(), 'yyyy-MM-dd HH:mm:ss')
     }
     this.ratingService.postRating(body).subscribe(
       (res) => this.toastMsgOutlet(res, body, "rating")
     )
-    this.rating.score = 3
-    this.rating.text = ""
-    this.rating.nickname = ""
+    this.myRating.score = 3
+    this.myRating.text = ""
   }
 
   toastMsgOutlet(result:boolean, body:any, type:string){
