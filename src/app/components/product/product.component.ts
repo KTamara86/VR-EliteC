@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { CartService } from '../services/cart.service';
+import { CartService } from '../../services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { format } from 'date-fns';
-import { RatingService } from '../services/rating.service';
-import { AuthService } from '../services/auth.service';
-import { BaseService } from '../services/base.service';
-import { UserService } from '../services/user.service';
+import { RatingService } from '../../services/rating.service';
+import { AuthService } from '../../services/auth.service';
+import { BaseService } from '../../services/base.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-product',
