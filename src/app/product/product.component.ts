@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import { RatingService } from '../services/rating.service';
 import { AuthService } from '../services/auth.service';
 import { BaseService } from '../services/base.service';
-import { UserService } from '../user.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-product',

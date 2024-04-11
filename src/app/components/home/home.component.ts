@@ -4,7 +4,7 @@ import { CartService } from '../../services/cart.service';
 import { SearchService } from '../../services/search.service';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
-import { UserService } from 'src/app/user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-home',
