@@ -6,6 +6,7 @@ import { OrderService } from '../services/order.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router'
 import { BaseService } from '../services/base.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-checkout',
@@ -20,12 +21,12 @@ export class CheckoutComponent {
 
   //TODO: a usert majd itt is bele kell implementálni
   user = {
-    userid:0,
-    phone: "06301636655",
-    name: "Janos",
-    zipcode:"1234",
-    city:"Bélapátalva",
-    address:"hhsbadai",
+    phone: "",
+    name: "",
+    zipcode:"",
+    city:"",
+    address:"",
+    email:""
   }
 
   data = {
@@ -55,7 +56,7 @@ export class CheckoutComponent {
   
 
   constructor(private packetPoint:PacketPointService, private cartService:CartService, private orderService:OrderService, 
-    private toastr:ToastrService, private router:Router, private base:BaseService){
+    private toastr:ToastrService, private router:Router, private userService: UserService){
       this.packetPoint.getPacketPointList().subscribe(
         {
           next: (res) => {
@@ -80,6 +81,9 @@ export class CheckoutComponent {
             this.errorMsg = "Hiba! A csomagpontinformációk nem elérhetőek! Látogasson vissza később!"
           }
         }
+      )
+      this.userService.getUserData().subscribe(
+        (res:any) => this.user = res
       )
       this.cartService.getCart().subscribe(
         (res) => this.cart = res
@@ -131,7 +135,7 @@ export class CheckoutComponent {
     let prods = this.removeUnusedProp()
 
     let body = {
-      userid: this.user.userid, 
+      email: this.user.email, 
       consignee: this.data.consignee,
       taxnumber: this.data.taxnumber,
       phone: this.data.phone,

@@ -3,6 +3,8 @@ import { BaseService } from '../../services/base.service';
 import { CartService } from '../../services/cart.service';
 import { SearchService } from '../../services/search.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-home',
@@ -61,7 +63,7 @@ export class HomeComponent {
   showedProducts:any
   choosenProduct:any = {key: 1 }
 
-  constructor(private base:BaseService, private cartService:CartService, private searchService: SearchService, private toastr:ToastrService){
+  constructor(private base:BaseService, private cartService:CartService, private searchService: SearchService, private toastr:ToastrService, private auth:AuthService, private userService:UserService){
     
     this.base.getProducts().subscribe(
       (res) => {
@@ -74,6 +76,12 @@ export class HomeComponent {
     this.searchService.getSearchTerm().subscribe(
       (res) => this.expression = res
     )
+    if(this.auth.isLogin()){
+      console.log("kérés")
+      this.auth.getUser().subscribe(
+        (res:any) => this.userService.loadUserData(res.email.replace('@', '').replace('.', ''))
+      )
+    }
   }
 
   ngOnInit(){
@@ -149,8 +157,6 @@ export class HomeComponent {
       }
     }
     this.showedProducts=prodArray
-    console.log(this.activeFilters)
-    console.log(this.showedProducts)
   }
 
   changeFilter(newValue: any) {
