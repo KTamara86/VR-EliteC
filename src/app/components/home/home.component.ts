@@ -76,19 +76,12 @@ export class HomeComponent {
     this.searchService.getSearchTerm().subscribe(
       (res) => this.expression = res
     )
-    if(this.auth.isLogin()){
-      console.log("kérés")
-      this.auth.getUser().subscribe(
-        (res:any) => this.userService.loadUserData(res.email.replace('@', '').replace('.', ''))
-      )
-    }
   }
 
   ngOnInit(){
     if(this.auth.isLogin()){
-      console.log("oninit")
       this.auth.getUser().subscribe(
-        (res:any) => this.userService.loadUserData(res.email.replace('@', '').replace('.', ''))
+        (res:any) => this.userService.loadUserData(res.email?.replace('@', '').replace('.', ''))
       )
     }
     this.base.reload()

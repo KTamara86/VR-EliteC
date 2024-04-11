@@ -12,11 +12,13 @@ export class UserService {
   constructor() { }
 
   loadUserData(key:string){
-    const db = getDatabase();
-    const userRef = ref(db, 'users/' + key);
-    onValue(userRef, (snapshot) => {
+    if(!this.user){
+      const db = getDatabase();
+      const userRef = ref(db, 'users/' + key);
+      onValue(userRef, (snapshot) => {
       this.setUser(snapshot.val())
     })
+    }
   }
   
 
