@@ -92,8 +92,12 @@ export class AuthService{
   }
 
 
-  signOut(){
-    return this.fireauth.signOut()
+  signOut() {
+    this.fireauth.signOut().then(() => {
+      this.router.navigate(['/home']);
+    }).catch(err => {
+      console.error('Kijelentkezési hiba:', err);
+    });
   }
 
   getLoggedUser(){

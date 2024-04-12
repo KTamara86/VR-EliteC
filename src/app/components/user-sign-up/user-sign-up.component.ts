@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-sign-up',
@@ -21,7 +22,7 @@ export class UserSignUpComponent {
 
   message: string = '';
 
-  constructor(private fireauth: AngularFireAuth, private db: AngularFireDatabase, private userService:UserService) {}
+  constructor(private fireauth: AngularFireAuth, private db: AngularFireDatabase, private userService:UserService, private router:Router) {}
 
   onSubmit() {
    
@@ -53,6 +54,7 @@ export class UserSignUpComponent {
         this.db.list('/users').push(userData)
           .then(() => {
             this.message = 'A regisztráció sikeres.';
+            this.router.navigate(['/home']);
           })
           .catch((error) => {
             this.message = 'Hiba történt az adatok mentése során: ' + error.message;
