@@ -6,11 +6,11 @@ import { UserSignUpComponent } from './components/user-sign-up/user-sign-up.comp
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
-import { ProfilComponent } from './profil/profil.component';
+import { ProfilComponent } from './components/profil/profil.component';
 import { notLoggedGuard } from './guard/not-logged.guard';
 import { loginGuard } from './guard/login.guard';
 import { AdminComponent } from './admin/admin.component';
-import { ProfilDataComponent } from './profil/profil-data/profil-data.component';
+import { ProfilDataComponent } from './components/profil/profil-data/profil-data.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "/home", pathMatch: "full" },

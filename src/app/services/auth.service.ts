@@ -44,11 +44,8 @@ export class AuthService{
                         this.superAdminBehavior.next(false)
                         this.userBehavior.next(this.user)
                       }
-                    }                   
-                    
-                  )
-                }
-            )
+                    })
+                })
           }
           else {
             this.user=null
@@ -56,8 +53,7 @@ export class AuthService{
             this.superAdminSubject.next(false)
             this.superAdminBehavior.next(false)
           }
-        }
-      )
+        })
      }
      
 
@@ -65,7 +61,7 @@ export class AuthService{
     return this.userBehavior
   }
 
-  getIsSuperAdmin(){
+  getIsSuperAdmin(){   // ezt még meg kell írni és be kell állítani nav, userlist component, routing,
     if (this.user && this.user.claims) return this.superAdminBehavior
       return this.superAdminSubject
     }

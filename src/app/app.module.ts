@@ -27,14 +27,14 @@ import { TermsConditionsComponent } from './components/terms-conditions/terms-co
 import { SearchPipe } from './pipes/search.pipe';
 import { SearchComponent } from './components/search/search.component';
 import { RatingPipe } from './pipes/rating.pipe';
-import { ProfilComponent } from './profil/profil.component';
+import { ProfilComponent } from './components/profil/profil.component';
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { AdminComponent } from './admin/admin.component';
 import { RatingListComponent } from './admin/rating-list/rating-list.component';
 import { OrderListComponent } from './admin/order-list/order-list.component';
 import { ProductListComponent } from './admin/product-list/product-list.component';
 import { KeyPipe } from './pipes/key.pipe';
-import { ProfilDataComponent } from './profil/profil-data/profil-data.component';
+import { ProfilDataComponent } from './components/profil/profil-data/profil-data.component';
 
 @NgModule({
   declarations: [

@@ -54,3 +54,13 @@
 #modifyButton:hover {
     box-shadow: 0 0 20px #ff0079; 
 }
+
+.alert {
+    box-shadow: 0 0 20px #ff0079; 
+    padding: 5px;
+    background-color: #f8d7da;
+    max-width: 300px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+  }

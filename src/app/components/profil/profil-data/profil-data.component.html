@@ -19,6 +19,10 @@
             <div class="p-3">
                 <button class="myButton" id="modifyButton" (click)="modifyUser(user)">Adatok módosítása</button>
             </div>
+
+            <div *ngIf="message" class="alert" [ngClass]="{'alert-success': messageType === 'success', 'alert-danger': messageType === 'error'}">
+                {{ message }}
+              </div>
         </div>
     </div>
 </div>
