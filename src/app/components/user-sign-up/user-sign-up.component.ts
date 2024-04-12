@@ -24,10 +24,19 @@ export class UserSignUpComponent {
   constructor(private fireauth: AngularFireAuth, private db: AngularFireDatabase, private userService:UserService) {}
 
   onSubmit() {
-
+   
+    if (!this.name || !this.email || !this.password || !this.confirmPassword || !this.phone || !this.city || !this.address || !this.zipCode) {
+      this.message = 'Kérjük, töltse ki az összes mezőt!';
+      return; 
+    }
+  
+    if (this.password !== this.confirmPassword) {
+      this.message = 'A jelszavak nem egyeznek!';
+      return; 
+    }
+  
     this.fireauth.createUserWithEmailAndPassword(this.email, this.password)
       .then((userCredential) => {
-
         const userData = {
           name: this.name,
           email: this.email,
@@ -36,11 +45,11 @@ export class UserSignUpComponent {
           city: this.city,
           zipCode: this.zipCode,
         };
-
-        const key = this.email.replace('@', '').replace('.', '')
-
-        this.userService.addUser(userData, key)
-
+  
+        const key = this.email.replace('@', '').replace('.', ''); 
+  
+        this.userService.addUser(userData, key); 
+  
         this.db.list('/users').push(userData)
           .then(() => {
             this.message = 'A regisztráció sikeres.';
@@ -52,6 +61,6 @@ export class UserSignUpComponent {
       .catch((error) => {
         this.message = 'Hiba történt a regisztráció során: ' + error.message;
       });
+  }
 }
 
-}
