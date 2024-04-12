@@ -8,11 +8,6 @@ import { AuthService } from '../services/auth.service';
 })
 export class ProfilComponent {
 
-
-  activeTab: string = 'profildata';
-
-  selectTab(tab: string) {
-    this.activeTab = tab;
-  }
-
+  selectorValue = ""
 }
+

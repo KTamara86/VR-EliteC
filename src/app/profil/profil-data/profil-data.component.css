@@ -1,18 +1,56 @@
-#profildata {
-    --color: white;
-    background: linear-gradient(24deg, rgba(0,0,139,1) 5%, rgba(33,37,41,1) 45%, rgba(33,37,41,1) 55%, rgba(153,50,204,1) 95%);
-    border-bottom: solid 3px;
-    border-image: linear-gradient(to right, #1c1f39, darkorchid) 1;
-    box-shadow: 0 0 15px #ff0079;
+#header{
+    color: white;
+    margin-bottom: 2%;
+    border-bottom: 1px solid #ff0079;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
-#header {
+.headerText {
+    margin-right: 1%;
+}
+
+.title{
     color: white;
+    padding: auto;
+    text-align: center;
+}
+
+.input {
+    background:transparent;
+}
+
+.dataRow {
+    margin-bottom: 2%;
+    border-bottom: 1px solid white;
+}
+
+.dataField {
+    border: 1px solid #ff0079;
+    border-radius: 5px;
+    margin-right: 1%;
+    color: white;
+    background-color: #ff00773a;
+    max-width: 1000px;
+    
+}
+
+.myButton {
+    border: 2px solid #ff0079;
+    background: transparent;
     font-weight: bold;
-    min-width: 10rem;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    max-width: 130px;
+    min-width: 130px;
+    margin-bottom: 1rem;
+    color: white;
+    margin-left: 3%;
+    margin-right: 3%;
+    
 }
 
-#login{    
-    color: white;
-    min-width: 10rem;
+#modifyButton:hover {
+    box-shadow: 0 0 20px #ff0079; 
 }

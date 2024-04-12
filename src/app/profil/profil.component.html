@@ -1,21 +1,16 @@
-<div class="container-fluid">
-    <div class="row p-4">
-        <ul class="nav nav-tabs" id="nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" id="active" href="#profildata" (click)="selectTab('profildata')">Adataim</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#myorders" (click)="selectTab('myorders')">Rendeléseim</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#myopinion" (click)="selectTab('myopinion')">Értékeléseim</a>
-            </li>
-          </ul>
-          
-          <div [ngSwitch]="activeTab">
-            <app-profil-data *ngSwitchCase="'profildata'"></app-profil-data>
-            <app-my-orders *ngSwitchCase="'myorders'"></app-my-orders>
-            <app-my-opinion *ngSwitchCase="'myopinion'"></app-my-opinion>
-          </div> 
-    </div>
+<div class="input-group" id="selectorContainer">
+  <span class="input-group-text" id="selectorText">Milyen adatodra vagy kíváncsi?</span>
+  <select class="form-select form-select-sm" id="selector" [(ngModel)]="selectorValue">
+    <option class="option-bg" selected [value]=""></option>
+    <option [value]="'profildata'">Személyes adatok</option> 
+  </select>
 </div>
+
+<ng-container *ngIf="selectorValue == ''">
+  <div class="alert alert-danger" role="alert" id="alertBox">
+      Válassz egyet a lenyíló lehetőségek közül
+  </div>
+</ng-container>
+
+<ng-container *ngIf="selectorValue == 'profildata'"><app-profil-data></app-profil-data></ng-container>
+

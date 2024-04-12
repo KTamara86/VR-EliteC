@@ -1,38 +1,24 @@
-" <div class="container-fluid">
-    <div class="row p-3">
-        <div class="col"></div>
-        <div class="col-20">
-            <div class="card shadow">
-                <div class="card-body" id="profildata">
-                    <div class="row headerRow" id="header">
-                        <div class="col headerText">ID</div>                     
-                        <div class="col headerText">Név</div>
-                        <div class="col headerText">E-mail</div>
-                        <div class="col headerText">Telefon</div>
-                        <div class="col headerText">Város</div>
-                        <div class="col headerText">Cím</div>
-                        <div class="col headerText">Irányítószám</div>
-                    </div>
-                    
-                    <div class="row dataContainer">
-                        <div class="row dataRow" *ngFor="let user of usersArray">
-                            <div class="row">
-                                <input disabled class="col dataField" type="text" [value]="user.key">
-                                <input class="col dataField" type="text" [(ngModel)]="user.name">
-                                <input disabled class="col dataField" type="text" [value]="user.email">
-                                <input class="col dataField" type="text" [(ngModel)]="user.phone">
-                                <input class="col dataField" type="text" [(ngModel)]="user.city">
-                                <input class="col dataField" type="text" [(ngModel)]="user.address">
-                                <input class="col dataField" type="text" [(ngModel)]="user.zipCode">
-                        
-                                <div>
-                                    <button class="modifyButton" id="modifyButton" (click)="modifyUser(user)">Módosítás</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="row dataContainer" id="header">
+    <div class="row dataRow">
+        <div class="row">
+            <h5 class=" fw-bold title">Személyes adatok</h5>
+            <input disabled class="col dataField" type="hidden" [value]="user.key">
+            <span class="fw-bold p-1">Név</span>
+            <input class="dataField" type="text" [(ngModel)]="user.name">
+            <span class="fw-bold p-1">E-mail cím</span>
+            <input disabled class="col dataField" type="text" [value]="user.email">
+            <span class="fw-bold p-1">Telefonszám</span>
+            <input class="dataField" type="text" [(ngModel)]="user.phone">
+            <span class="fw-bold p-1">Város</span>
+            <input class="dataField" type="text" [(ngModel)]="user.city">
+            <span class="fw-bold p-1">Cím</span>
+            <input class="dataField" type="text" [(ngModel)]="user.address">
+            <span class="fw-bold p-1">Irányítószám</span>
+            <input class="dataField" type="text" [(ngModel)]="user.zipCode">
+    
+            <div class="p-3">
+                <button class="myButton" id="modifyButton" (click)="modifyUser(user)">Adatok módosítása</button>
             </div>
         </div>
-    <div class="col"></div>
+    </div>
 </div>

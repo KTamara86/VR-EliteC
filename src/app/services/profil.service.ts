@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, remove, set } from "firebase/database";
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -34,5 +34,10 @@ export class ProfilService {
     this.http.get(this.url).subscribe(
       (res) => this.usersSub.next(res)
     );
+  }
+
+  deleteUser(key: string) {
+    const db = getDatabase();
+    return remove(ref(db, 'users/' + key));
   }
 }

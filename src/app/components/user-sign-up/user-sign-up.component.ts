@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import Validation from '../validation/validation';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-sign-up',
@@ -24,7 +21,7 @@ export class UserSignUpComponent {
 
   message: string = '';
 
-  constructor(private fireauth: AngularFireAuth, private db: AngularFireDatabase) {}
+  constructor(private fireauth: AngularFireAuth, private db: AngularFireDatabase, private userService:UserService) {}
 
   onSubmit() {
 
@@ -39,6 +36,10 @@ export class UserSignUpComponent {
           city: this.city,
           zipCode: this.zipCode,
         };
+
+        const key = this.email.replace('@', '').replace('.', '')
+
+        this.userService.addUser(userData, key)
 
         this.db.list('/users').push(userData)
           .then(() => {

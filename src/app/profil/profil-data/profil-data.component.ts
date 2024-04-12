@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProfilService } from 'src/app/services/profil.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-profil-data',
@@ -8,20 +9,14 @@ import { ProfilService } from 'src/app/services/profil.service';
 })
 export class ProfilDataComponent {
 
-  usersArray:any
+  user: any
 
-  constructor(private profilService:ProfilService){
-    profilService.getUsers().subscribe(
-      (res:any) => {
-        let array = []
-        for(const key in res){
-          let element = res[key]
-          element.key = key
-          array.push(element)
-        }
-        this.usersArray = array 
-      }
-    )
+  constructor(private profilService:ProfilService, private userService: UserService){
+
+    this.userService.getUserData().subscribe(
+      (res:any) => this.user = res
+   )
+
   }
 
   ngOnInit(){
@@ -36,8 +31,8 @@ export class ProfilDataComponent {
       city: user.city,
       address: user.address,
       zipCode: user.zipCode
-    }
-    this.profilService.writeUserData(body, user.key)
-  }
+    };
 
+     this.profilService.writeUserData(body, user.key)
+  }
 }

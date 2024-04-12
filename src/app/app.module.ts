@@ -16,13 +16,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { UserLoginComponent } from './user-login/user-login.component';
-import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
+import { UserSignUpComponent } from './components/user-sign-up/user-sign-up.component';
 import { ProductComponent } from './components/product/product.component';
 import { PacketPointInfoComponent } from './components/packet-point-info/packet-point-info.component';
 import { environment } from 'src/enviroments/enviroment';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { TermsConditionsComponent } from './components/terms-conditions/terms-conditions.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { SearchComponent } from './components/search/search.component';
@@ -35,8 +35,6 @@ import { OrderListComponent } from './admin/order-list/order-list.component';
 import { ProductListComponent } from './admin/product-list/product-list.component';
 import { KeyPipe } from './pipes/key.pipe';
 import { ProfilDataComponent } from './profil/profil-data/profil-data.component';
-import { MyOrdersComponent } from './profil/my-orders/my-orders.component';
-import { MyOpinionComponent } from './profil/my-opinion/my-opinion.component';
 
 @NgModule({
   declarations: [
@@ -64,8 +62,7 @@ import { MyOpinionComponent } from './profil/my-opinion/my-opinion.component';
     ProductListComponent,
     KeyPipe,
     ProfilDataComponent,
-    MyOrdersComponent,
-    MyOpinionComponent
+
   ],
   imports: [
     BrowserModule,
