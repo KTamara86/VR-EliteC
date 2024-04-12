@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="mb-3 col-4">
                         <label for="nameInput" class="form-label textWhite">Szervezet neve:</label>
-                        <input type="text" [(ngModel)]="this.user.name" class="form-control formInputField" id="nameInput">
+                        <input type="text" [(ngModel)]="this.user.name" class="form-control formInputField" id="delinameInput">
                     </div>
                     <div class="mb-3 col-4">
                         <label for="taxNoInput" class="form-label textWhite">Adószám:</label>
@@ -82,16 +82,16 @@
             <ng-container *ngIf="deliveryOpt=='home'; else packetpoint">
                 <div class="row">
                     <div class="mb-3 col-2">
-                        <label for="zipInput" class="form-label textWhite">Irányítószám:</label>
-                        <input type="text" [(ngModel)]="data.deliveryZipcode" class="form-control formInputField" id="zipInput">
+                        <label for="delyZipInput" class="form-label textWhite">Irányítószám:</label>
+                        <input type="text" [(ngModel)]="data.deliveryZipcode" class="form-control formInputField" id="delyZipInput">
                     </div>
                     <div class="mb-3 col-4">
-                        <label for="cityInput" class="form-label textWhite">Város:</label>
-                        <input type="text" [(ngModel)]="data.deliveryCity" class="form-control formInputField" id="cityInput">
+                        <label for="delyCityInput" class="form-label textWhite">Város:</label>
+                        <input type="text" [(ngModel)]="data.deliveryCity" class="form-control formInputField" id="delyCityInput">
                     </div>
                     <div class="mb-3 col-6">
-                        <label for="addressInput" class="form-label textWhite">Utca, házszám:</label>
-                        <input type="text" [(ngModel)]="data.deliveryAddress" class="form-control formInputField" id="addressInput">
+                        <label for="delyAddressInput" class="form-label textWhite">Utca, házszám:</label>
+                        <input type="text" [(ngModel)]="data.deliveryAddress" class="form-control formInputField" id="delyAddressInput">
                     </div>
                 </div>
             </ng-container>
