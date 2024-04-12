@@ -9,16 +9,22 @@ export class UserService {
 
   userSub = new BehaviorSubject(Object)
   user:any
+  key!:string
   constructor() { }
 
   loadUserData(key:string){
     if(!this.user){
+      this.key=key
       const db = getDatabase();
       const userRef = ref(db, 'users/' + key);
       onValue(userRef, (snapshot) => {
       this.setUser(snapshot.val())
     })
     }
+  }
+
+  getKey() : string {
+    return this.key
   }
   
 

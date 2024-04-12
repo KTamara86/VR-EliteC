@@ -15,7 +15,7 @@ export class ProfilDataComponent {
 
   constructor(private profilService: ProfilService, private userService: UserService) {
     this.userService.getUserData().subscribe({
-      next: (res: any) => this.user = res,
+      next: (res: any) => { this.user = res },
       error: (err: any) => this.message = 'Hiba történt az adatok lekérésekor.'
     });
   }
@@ -34,7 +34,7 @@ export class ProfilDataComponent {
       zipCode: user.zipCode
     };
   
-    this.profilService.writeUserData(body, user.key).then(() => {
+    this.profilService.writeUserData(body, this.userService.getKey()).then(() => {
       this.message = 'Az adatok sikeresen frissítve lettek.';
       this.messageType = 'success'; 
     }).catch(err => {
