@@ -1,4 +1,4 @@
-#profildata {
+#signup {
     --color: white;
     background: linear-gradient(24deg, rgba(0,0,139,1) 5%, rgba(33,37,41,1) 45%, rgba(33,37,41,1) 55%, rgba(153,50,204,1) 95%);
     border-bottom: solid 3px;
@@ -6,7 +6,7 @@
     box-shadow: 0 0 15px #ff0079;
 }
 
-#header {
+.form-label {
     color: white;
     font-weight: bold;
     min-width: 10rem;
@@ -15,4 +15,23 @@
 #login{    
     color: white;
     min-width: 10rem;
+}
+ 
+.button {
+    border: 2px solid #ff0079;
+    background: transparent;
+    font-weight: bold;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    max-width: 130px;
+    min-width: 130px;
+    margin-bottom: 1rem;
+    color: white;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.button:hover {
+    box-shadow: 0 0 20px #ff0079; 
 }

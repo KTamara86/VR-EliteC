@@ -1,4 +1,4 @@
-.headerRow {
+#header{
     color: white;
     margin-bottom: 2%;
     border-bottom: 1px solid #ff0079;
@@ -6,12 +6,18 @@
     margin-right: 3%;
 }
 
+.headerText {
+    margin-right: 1%;
+}
 
-
-.dataContainer {
+.title{
     color: white;
-    margin-left: 3%;
-    margin-right: 3%;
+    padding: auto;
+    text-align: center;
+}
+
+.input {
+    background:transparent;
 }
 
 .dataRow {
@@ -25,13 +31,11 @@
     margin-right: 1%;
     color: white;
     background-color: #ff00773a;
+    max-width: 1000px;
+    
 }
 
-.input {
-    background:transparent
-}
-
-.modifyButton {
+.myButton {
     border: 2px solid #ff0079;
     background: transparent;
     font-weight: bold;
@@ -44,16 +48,19 @@
     color: white;
     margin-left: 3%;
     margin-right: 3%;
+    
 }
 
 #modifyButton:hover {
     box-shadow: 0 0 20px #ff0079; 
 }
 
-#deleteButton:hover {
+.alert {
     box-shadow: 0 0 20px #ff0079; 
-}
-
-.black {
-    color: black;
-}
+    padding: 5px;
+    background-color: #f8d7da;
+    max-width: 300px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+  }

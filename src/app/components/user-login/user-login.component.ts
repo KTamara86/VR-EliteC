@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-user-login',
@@ -30,6 +30,7 @@ export class UserLoginComponent implements OnInit {
       ],
     });
   }
+  
   get forms(): { [key: string]: AbstractControl } {
     return this.form.controls;
   }
