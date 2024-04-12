@@ -61,7 +61,8 @@ modifyOrder(order:any){
     qty: order.qty,
     total: order.total,
     packetPoint: order.packetPoint,
-    payment: order.payment
+    payment: order.payment,
+    products: order.products
   }
   
   this.orderService.writeOrderData(body, order.key).then(
