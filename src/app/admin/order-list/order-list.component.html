@@ -5,7 +5,7 @@
     <div class="row dataRow" *ngFor="let order of ordersArray|key:searchArgs">
         <div class="row mb-1">
             <input disabled class="col dataField" type="text" [value]="order.key" title="Megrendelés ID">
-            <input disabled class="col dataField" type="text" [value]="order.userid" title="Felhasználó ID">
+            <input disabled class="col dataField" type="text" [value]="order.email" title="Felhasználó email">
             <input disabled class="col dataField" type="text" [value]="order.datetime">
             <input class="col dataField input" type="text" [(ngModel)]="order.phone" title="Telefonszám">
         </div>
