@@ -32,7 +32,7 @@ export class RatingListComponent {
       rating: rating.rating,
       text: text,
       time: rating.time,
-      user: rating.user
+      useremail: rating.useremail
     }
     this.ratingService.writeRatingData(body, rating.key).then(
       (res) => this.toastMsg(res)
