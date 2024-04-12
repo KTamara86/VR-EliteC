@@ -10,7 +10,6 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { notLoggedGuard } from './guard/not-logged.guard';
 import { loginGuard } from './guard/login.guard';
 import { AdminComponent } from './admin/admin.component';
-import { ProfilDataComponent } from './components/profil/profil-data/profil-data.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "/home", pathMatch: "full" },
@@ -21,10 +20,8 @@ const routes: Routes = [
   {path:"forgotpassword", component:ForgotPasswordComponent},
   {path:"verifyemail", component:VerifyEmailComponent},
   {path:"profil", component:ProfilComponent, canActivate:[loginGuard]},
-  {path:"profildata", component:ProfilDataComponent},
   {path:"admin", component:AdminComponent },
   {path:"**", component:HomeComponent},
- 
 ];
 
 @NgModule({

@@ -34,19 +34,17 @@ export class NavComponent {
 
   }
 
-  getIsSuperAdmin(){
+   getIsSuperAdmin(){
     this.auth.getIsSuperAdmin().subscribe(
       (sadmin)=> {
         console.log("Jog frissült:", sadmin )
-        this.isSuperAdmin=sadmin
-      }
-    )
-  }
+         this.isSuperAdmin=sadmin
+       }
+     )
+   }
 
-  signOut(){
-    this.auth.signOut().then(
-      ()=>this.router.navigate(['/signin'])
-    )
+   signOut() {
+    this.auth.signOut();
   }
 
 }
