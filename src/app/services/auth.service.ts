@@ -13,7 +13,7 @@ export class AuthService{
   url="https://us-central1-elitecarpetsv2.cloudfunctions.net/api/"
 
   user:any={}
-  defaultClaims = {superAdmin:false, admin:false, informatikus:false, address:""}
+  defaultClaims = {superAdmin:false, address:""}
 
   superAdminSubject= new Subject<boolean>
   superAdminBehavior= new BehaviorSubject<boolean>(false)
@@ -61,14 +61,14 @@ export class AuthService{
      }
      
 
-     getUser(){
-      return this.userBehavior
-     }
+  getUser(){
+    return this.userBehavior
+  }
 
-     getIsSuperAdmin(){
-      if (this.user && this.user.claims) return this.superAdminBehavior
+  getIsSuperAdmin(){
+    if (this.user && this.user.claims) return this.superAdminBehavior
       return this.superAdminSubject
-     }
+    }
 
   getClaims(uid:string){
     let headers = new HttpHeaders().set('Authorization', this.user.token)
@@ -121,7 +121,6 @@ export class AuthService{
     })  
   }
 
-  // uid:any,claims:any
   setCustomClaims( uid:any,claims:any){
       console.log("Claims, user", this.user)
       const body= {uid, claims}
@@ -130,15 +129,6 @@ export class AuthService{
               subscribe({
                 next:()=>console.log("A claims beállítása sikeres!"),
                 error:(e)=>console.log("Hiba a claimsnél: ",e)
-              })
-            }
-  setDisplayName( uid:any,displayName:any){
-      const body= {uid, displayName}
-      let headers = new HttpHeaders().set('Authorization', this.user.token)
-      this.http.post(this.url+'setDisplayName',body, {headers}).
-              subscribe({
-                next:()=>console.log("A displayName beállítása sikeres!"),
-                error:(e)=>console.log("Hiba a displayName: ",e)
               })
             }
 }

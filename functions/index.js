@@ -21,10 +21,7 @@ app.use(bodyParser.json());
 const verifyToken = (req, res, next) => {
   const idToken = req.headers.authorization;
 
-  admin
-    .auth()
-    .verifyIdToken(idToken)
-    .then((decodedToken) => {
+  admin.auth().verifyIdToken(idToken).then((decodedToken) => {
       req.user = decodedToken;
       next();
     })
@@ -36,10 +33,7 @@ const verifyToken = (req, res, next) => {
 
 app.post('/setCustomClaims', verifyToken, (req, res) => {
   const { uid, claims } = req.body;
-  admin
-    .auth()
-    .setCustomUserClaims(uid, claims)
-    .then(() => {
+  admin.auth().setCustomUserClaims(uid, claims).then(() => {
       console.log('Felhasználó claimsek sikeresen beállítva.');
       res.json({ message: 'OK' });
     })
@@ -59,11 +53,11 @@ app.post('/setAddress', verifyToken, (req, res) => {
 
   const uid = req.user.uid;
 
-  // Frissítsd a címet a claims objektumban
+
   const currentClaims = req.user.claims || {};
   currentClaims.address = address;
 
-  // Felhasználó claimsek frissítése
+
   admin.auth().setCustomUserClaims(uid, currentClaims)
     .then(() => {
       console.log('Felhasználó címe sikeresen frissítve.');
@@ -83,10 +77,7 @@ app.get('/users', verifyToken, (req, res) => {
       const users = userRecords.users.map((user) => ({
         uid: user.uid,
         email: user.email,
-        displayName: user.displayName,
         claims: user.customClaims,
-        photoURL: user.photoURL
-        // Egyéb felhasználói adatok ......
       }));
       res.json(users);
     })
@@ -107,33 +98,6 @@ app.get('/users/:uid/claims', verifyToken, (req, res) => {
     .catch((error) => {
       console.error('Hiba történt a felhasználó lekérdezésekor:', error);
       res.sendStatus(500);
-    });
-});
-
-app.post('/setDisplayName', verifyToken, (req, res) => {
-  const { uid, displayName } = req.body;
-
-  // Ellenőrizd, hogy a felhasználó bejelentkezett-e
-  if (!req.user || !req.user.uid) {
-    res.status(401).json({ error: 'Felhasználó nincs bejelentkezve.' });
-    return;
-  }
-
-  // Ellenőrizd, hogy csak a saját display nevét próbálja-e módosítani a felhasználó
-  if (req.user.uid !== uid) {
-    res.status(403).json({ error: 'Nincs jogosultság a módosításra.' });
-    return;
-  }
-
-  // Felhasználó display névének módosítása
-  admin.auth().updateUser(uid, { displayName })
-    .then(() => {
-      console.log('Felhasználó display neve sikeresen frissítve.');
-      res.json({ message: 'OK' });
-    })
-    .catch((error) => {
-      console.error('Hiba történt a felhasználó display nevének frissítésekor:', error);
-      res.status(500).json({ error: 'A display név frissítése sikertelen.' });
     });
 });
 
