@@ -32,7 +32,7 @@ export class UserListComponent {
     this.profilService.reload();
   }
 
-  modifyUser(userData: any) {
+  modifyUser(userData: any, key:string) {
     let body = {
       name: userData.name,
       email: userData.email,
@@ -41,8 +41,9 @@ export class UserListComponent {
       address: userData.address,
       zipCode: userData.zipCode
     };
+    this.profilService.writeUserData(body, key)
 
-}
+  }
 
   deleteUser(userData: any) {
     if (confirm("Biztosan törölni szeretnéd a felhasználót?")) {
