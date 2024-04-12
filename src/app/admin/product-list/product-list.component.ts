@@ -171,21 +171,20 @@ export class ProductListComponent {
     let category = this.categories[this.activeCategory]
     let key = this.choosenProduct.key
     let body = {
-      anyag: this.choosenProduct.anyag,
+      anyag: (this.choosenProduct.anyag ? this.choosenProduct.anyag : ""),
       ar_mod_datum: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
-      db: this.choosenProduct.db,
-      lathato: this.choosenProduct.lathato,
-      meret: this.choosenProduct.meret,
-      mintazat: this.choosenProduct.mintazat,
-      nev: this.choosenProduct.nev,
+      db: (this.choosenProduct.db ?  this.choosenProduct.db : ""),
+      lathato: (this.choosenProduct.lathato ? this.choosenProduct.lathato : 0),
+      meret: (this.choosenProduct.meret ? this.choosenProduct.meret : ""),
+      mintazat: (this.choosenProduct.mintazat ? this.choosenProduct.mintazat : ""),
+      nev: (this.choosenProduct.nev ? this.choosenProduct.nev : "Unknown"),
       regi_ar: this.choosenProduct.regi_ar,
-      stilus: this.choosenProduct.stilus,
-      szalmagassag: this.choosenProduct.szalmagassag,
-      szin: this.choosenProduct.szin,
-      uj_ar: this.choosenProduct.uj_ar,
-      vastagsag: this.choosenProduct.vastagsag
+      stilus: (this.choosenProduct.stilus ? this.choosenProduct.stilus : ""),
+      szalmagassag: (this.choosenProduct.szalmagassag ? this.choosenProduct.szalmagassag : ""),
+      szin: (this.choosenProduct.szin ? this.choosenProduct.szin : ""),
+      uj_ar: (this.choosenProduct.uj_ar ? this.choosenProduct.uj_ar : 999999),
+      vastagsag: (this.choosenProduct.vastagsag ?  this.choosenProduct.vastagsag : "")
     }
-
     this.base.writeProductData(body, key, category).then(
       (res) => {
         this.toastMsgOutlet(res, "modify")

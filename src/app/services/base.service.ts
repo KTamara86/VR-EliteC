@@ -53,6 +53,8 @@ export class BaseService {
       await set(ref(db, 'termekek/' + category +'/' + key), body)
       this.reload()
       return true
-    } catch(error) { return false }
+    } catch(error) { 
+      console.log(error)
+      return false }
   }
 }
