@@ -10,7 +10,6 @@ export class OrderService {
 
   url = "https://elitecarpetsv2-default-rtdb.europe-west1.firebasedatabase.app/orders.json"
   orderSub = new Subject()
-  orders = []
 
   constructor(private http:HttpClient) { 
     this.loadOrders()
