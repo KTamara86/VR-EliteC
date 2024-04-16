@@ -3,6 +3,7 @@
   <select class="form-select form-select-sm" id="selector" [(ngModel)]="selectorValue">
     <option class="option-bg" selected [value]=""></option>
     <option [value]="'profildata'">Személyes adatok</option> 
+    <option [value]="'orders'">Rendeléseim</option> 
   </select>
 </div>
 
@@ -13,4 +14,5 @@
 </ng-container>
 
 <ng-container *ngIf="selectorValue == 'profildata'"><app-profil-data></app-profil-data></ng-container>
+<ng-container *ngIf="selectorValue == 'orders'"><app-orders-data></app-orders-data></ng-container>
 

@@ -1,0 +1,66 @@
+#header{
+    color: white;
+    margin-bottom: 2%;
+    border-bottom: 1px solid #ff0079;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.headerText {
+    margin-right: 1%;
+}
+
+.title{
+    color: white;
+    padding: auto;
+    text-align: center;
+}
+
+.input {
+    background:transparent;
+}
+
+.dataRow {
+    margin-bottom: 2%;
+    border-bottom: 1px solid white;
+}
+
+.dataField {
+    border: 1px solid #ff0079;
+    border-radius: 5px;
+    margin-right: 1%;
+    color: white;
+    background-color: #ff00773a;
+    max-width: 1000px;
+    
+}
+
+.myButton {
+    border: 2px solid #ff0079;
+    background: transparent;
+    font-weight: bold;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    max-width: 130px;
+    min-width: 130px;
+    margin-bottom: 1rem;
+    color: white;
+    margin-left: 3%;
+    margin-right: 3%;
+    
+}
+
+#modifyButton:hover {
+    box-shadow: 0 0 20px #ff0079; 
+}
+
+.alert {
+    box-shadow: 0 0 20px #ff0079; 
+    padding: 5px;
+    background-color: #f8d7da;
+    max-width: 300px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+  }

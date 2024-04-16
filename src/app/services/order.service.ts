@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { getDatabase, ref, set, remove } from 'firebase/database';
+import { getDatabase, ref, set, remove, query, orderByChild, equalTo, onValue } from 'firebase/database';
 import { Observable, Subject, catchError, map, of } from 'rxjs';
 
 @Injectable({
@@ -10,6 +10,7 @@ export class OrderService {
 
   url = "https://elitecarpetsv2-default-rtdb.europe-west1.firebasedatabase.app/orders.json"
   orderSub = new Subject()
+  orders = []
 
   constructor(private http:HttpClient) { 
     this.loadOrders()
@@ -25,6 +26,20 @@ export class OrderService {
       map(() => true),
       catchError(() => of(false))
     )
+  }
+
+loadMyOrders(userEmail:string){
+    let ordersArray:any = []
+    const db = getDatabase()
+    const ratings = query(ref(db, 'orders/'), orderByChild('email'), equalTo(userEmail));
+    onValue(ratings, (snapshot)=> {
+      snapshot.forEach((child) => {
+        let element = child.val()
+        element.key = child.key
+        ordersArray.push(element)
+      }) 
+    })
+    return ordersArray
   }
 
   async writeOrderData(body:any, key:string) : Promise<boolean>{
