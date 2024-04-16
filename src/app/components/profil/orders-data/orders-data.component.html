@@ -5,7 +5,7 @@
             <div *ngFor="let order of myOrders" class="row dataRow">
                 <p>
                     <input type="text" disabled class="col datafield" [value]="order.key">
-                     - Összesen: {{order.qty}}db {{order.total}} Ft - 
+                     - {{order.datetime}} - Összesen: {{order.qty}}db {{order.total}} Ft - 
                     <a class="btn btn-secondary ms-2" data-bs-toggle="collapse" [href]="'#collapse' + order.key" role="button" aria-expanded="false">Részletek</a>
                 </p>
                 <div class="collapse mb-2" [id]="'collapse' + order.key">
