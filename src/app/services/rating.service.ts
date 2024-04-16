@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, catchError, map, of } from 'rxjs';
-import { getDatabase, ref, set } from "firebase/database";
+import { DatabaseReference, getDatabase, ref, set } from "firebase/database";
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +28,20 @@ export class RatingService {
     )
   }
 
+  loadMyRatings(userEmail:string){
+    let ratingsArray:any = []
+    const db = getDatabase()
+    const ratings = query(ref(db, 'orders/'), orderByChild('email'), equalTo(userEmail));
+    onValue(ratings, (snapshot)=> {
+      snapshot.forEach((child) => {
+        let element = child.val()
+        element.key = child.key
+        ordersArray.push(element)
+      }) 
+    })
+    return ordersArray
+  }
+
   async writeRatingData(body:any, key:string) : Promise<boolean>{
     const db = getDatabase();
     try {
@@ -51,3 +65,19 @@ export class RatingService {
     )
   }
 }
+function query(arg0: DatabaseReference, arg1: any, arg2: any) {
+  throw new Error('Function not implemented.');
+}
+
+function orderByChild(arg0: string): any {
+  throw new Error('Function not implemented.');
+}
+
+function equalTo(userEmail: string): any {
+  throw new Error('Function not implemented.');
+}
+
+function onValue(ratings: any, arg1: (snapshot: any) => void) {
+  throw new Error('Function not implemented.');
+}
+

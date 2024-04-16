@@ -30,8 +30,8 @@ export class OrderService {
 loadMyOrders(userEmail:string){
     let ordersArray:any = []
     const db = getDatabase()
-    const ratings = query(ref(db, 'orders/'), orderByChild('email'), equalTo(userEmail));
-    onValue(ratings, (snapshot)=> {
+    const orders = query(ref(db, 'orders/'), orderByChild('email'), equalTo(userEmail));
+    onValue(orders, (snapshot)=> {
       snapshot.forEach((child) => {
         let element = child.val()
         element.key = child.key
@@ -72,4 +72,5 @@ loadMyOrders(userEmail:string){
       (res) => this.orderSub.next(res)
     )
   }
+  
 }
