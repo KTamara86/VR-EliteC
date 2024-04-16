@@ -31,7 +31,7 @@ export class RatingService {
   loadMyRatings(userEmail:string){
     let ratingsArray:any = []
     const db = getDatabase()
-    const ratings = query(ref(db, 'orders/'), orderByChild('email'), equalTo(userEmail));
+    const ratings = query(ref(db, 'orders/'), orderByChild('useremail'), equalTo(userEmail));
     onValue(ratings, (snapshot)=> {
       snapshot.forEach((child:any) => {
         let element = child.val()

@@ -1,1 +1,19 @@
-<p>ratings-data works!</p>
+<div class="row dataContainer" id="header">
+    <div class="row">
+        <div class="row">
+            <h5 class=" fw-bold title">Értékeléseid</h5>
+            <div *ngFor="let rating of myRatings" class="row dataRow">
+                <div class="input-group input-group-sm mt-3">
+                    <span hidden="(max-width: 768px)" class="input-group-text" id="name">Megjelentett név:</span>
+                    <input class="form-control" id="name" type="text" aria-label="Megjelentett név" [(ngModel)]="rating.nickname">
+                    <input disabled class="form-control" id="time" type="text" aria-label="Értékelés időpontja" [(ngModel)]="rating.datetime">
+                    <span class="input-group-text" id="score"><img hidden="(max-width: 768px)" src="../../../../assets/icon/grade_black_24dp.svg" alt="" class="img-fluid"> 5/</span>
+                    <input type="number" class="form-control mySizeSM" id="userRating" aria-describedby="userRatingText" min="1" max="5" [(ngModel)]="rating.score">
+                </div>
+                <div class="input-group input-group-sm mt-3">
+                    <textarea class="form-control" id="ratingTextArea" aria-label="With textarea" placeholder="Véleménye fontos a számunkra, ossza meg velünk!" [(ngModel)]="rating.text"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
