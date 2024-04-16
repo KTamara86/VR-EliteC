@@ -4,6 +4,7 @@
     <option class="option-bg" selected [value]=""></option>
     <option [value]="'profildata'">Személyes adatok</option> 
     <option [value]="'orders'">Rendeléseim</option> 
+    <option [value]="'ratings'">Értékeléseim</option> 
   </select>
 </div>
 
@@ -12,7 +13,6 @@
       Válassz egyet a lenyíló lehetőségek közül
   </div>
 </ng-container>
-
 <ng-container *ngIf="selectorValue == 'profildata'"><app-profil-data></app-profil-data></ng-container>
 <ng-container *ngIf="selectorValue == 'orders'"><app-orders-data></app-orders-data></ng-container>
-
+<ng-container *ngIf="selectorValue == 'ratings'"><app-ratings-data></app-ratings-data></ng-container>
