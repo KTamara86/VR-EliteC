@@ -28,8 +28,7 @@
 .dataField {
     border: 1px solid #ff0079;
     border-radius: 5px;
-    margin-right: 1%;
-    color: white;
+    color: black;
     background-color: #ff00773a;
     max-width: 1000px;
     
@@ -54,6 +53,9 @@
 #modifyButton:hover {
     box-shadow: 0 0 20px #ff0079; 
 }
+.card-body {
+    color: black;
+}
 
 .alert {
     box-shadow: 0 0 20px #ff0079; 
@@ -63,4 +65,4 @@
     margin-bottom: 5px;
     border-radius: 5px;
     border: 1px solid #f5c6cb;
-  }
+}
