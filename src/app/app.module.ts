@@ -36,6 +36,7 @@ import { ProductListComponent } from './admin/product-list/product-list.componen
 import { KeyPipe } from './pipes/key.pipe';
 import { ProfilDataComponent } from './components/profil/profil-data/profil-data.component';
 import { OrdersDataComponent } from './components/profil/orders-data/orders-data.component';
+import { RatingsDataComponent } from './components/profil/ratings-data/ratings-data.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { OrdersDataComponent } from './components/profil/orders-data/orders-data
     KeyPipe,
     ProfilDataComponent,
     OrdersDataComponent,
+    RatingsDataComponent,
 
   ],
   imports: [
