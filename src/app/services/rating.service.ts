@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, catchError, map, of } from 'rxjs';
-import { equalTo, getDatabase, onValue, orderByChild, query, ref, set } from "firebase/database";
+import { equalTo, getDatabase, onValue, orderByChild, query, ref, remove, set } from "firebase/database";
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +46,15 @@ export class RatingService {
     const db = getDatabase();
     try {
       await set(ref(db, 'velemenyek/' + key), body)
+      this.reload()
+      return true
+    } catch(error) { return false }
+  }
+
+  async deleteRating(key: string) : Promise<boolean>{
+    const db = getDatabase();
+    try {
+      await remove(ref(db, 'velemenyek/' + key))
       this.reload()
       return true
     } catch(error) { return false }

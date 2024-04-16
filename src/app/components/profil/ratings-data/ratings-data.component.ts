@@ -24,7 +24,12 @@ export class RatingsDataComponent implements OnInit {
   }
 
   delRating(key:string){
-
+    this.rs.deleteRating(key).then(
+      (res) => {
+        this.toastMsgOutlet(res, "delete")
+        this.loadData()
+      }
+    )
   }
   
   modify(rating:any){
@@ -32,13 +37,13 @@ export class RatingsDataComponent implements OnInit {
     rating.key = null
     this.rs.writeRatingData(rating, key).then(
       (res) => {
-        this.toastMsg(res)
+        this.toastMsgOutlet(res, "modify")
         this.loadData()
       }
     )
   }
 
-  toastMsg(result:boolean){
+  toastMsgOutlet(result:boolean, type:string){
     let props:any = {
       closeButton: true,
       timeOut: 2000,
@@ -48,7 +53,13 @@ export class RatingsDataComponent implements OnInit {
       newestOnTop: true
     }
 
-    if(result) this.toastr.info("Sikeresen módostottad a véleményt", "SIKER", props)
-    else this.toastr.warning("Valami hiba lépett fel, próbálkozz később", "HIBA", props)
+    if(type == "modify") {
+      if(result) this.toastr.info("Sikeresen módostottad a véleményt", "SIKER", props)
+      else this.toastr.warning("Valami hiba lépett fel, próbálkozz később", "HIBA", props)
+    }
+    else {
+      if(result) this.toastr.info("Sikeresen törölted a véleményt", "SIKER", props)
+      else this.toastr.warning("Valami hiba lépett fel, próbálkozz később", "HIBA", props)
+    }
   }
 }
