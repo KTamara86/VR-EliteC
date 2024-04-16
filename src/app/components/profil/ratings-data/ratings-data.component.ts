@@ -14,7 +14,14 @@ export class RatingsDataComponent implements OnInit {
   constructor(private auth:AuthService, private rs:RatingService) { }
   
   ngOnInit(): void {
-    this.myRatings = this.rs.loadMyRatings(this.auth.user.email)  
+    this.myRatings = this.rs.loadMyRatings(this.auth.user.email)
   }
 
+  delRating(key:string){
+
+  }
+  
+  modify(rating:any){
+
+  }
 }
