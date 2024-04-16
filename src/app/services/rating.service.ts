@@ -33,13 +33,13 @@ export class RatingService {
     const db = getDatabase()
     const ratings = query(ref(db, 'orders/'), orderByChild('email'), equalTo(userEmail));
     onValue(ratings, (snapshot)=> {
-      snapshot.forEach((child) => {
+      snapshot.forEach((child:any) => {
         let element = child.val()
         element.key = child.key
-        ordersArray.push(element)
+        ratingsArray.push(element)
       }) 
     })
-    return ordersArray
+    return ratingsArray    
   }
 
   async writeRatingData(body:any, key:string) : Promise<boolean>{
