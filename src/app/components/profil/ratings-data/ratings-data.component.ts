@@ -15,6 +15,11 @@ export class RatingsDataComponent implements OnInit {
   constructor(private auth:AuthService, private rs:RatingService, private toastr:ToastrService) { }
   
   ngOnInit(): void {
+    this.loadData()
+  }
+
+  loadData(){
+    this.myRatings = null
     this.myRatings = this.rs.loadMyRatings(this.auth.user.email)
   }
 
@@ -26,7 +31,10 @@ export class RatingsDataComponent implements OnInit {
     let key = rating.key
     rating.key = null
     this.rs.writeRatingData(rating, key).then(
-      (res) => this.toastMsg(res)
+      (res) => {
+        this.toastMsg(res)
+        this.loadData()
+      }
     )
   }
 
