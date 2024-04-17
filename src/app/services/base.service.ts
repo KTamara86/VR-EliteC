@@ -29,7 +29,7 @@ export class BaseService {
     )
   }
 
-  async updateQty(qty:number, category:string, key:string){
+  updateQty(qty:number, category:string, key:string){
     const db = getDatabase();
     const dbRef = ref(getDatabase())
     get(child(dbRef, `termekek/${category}/${key}/db`)).then((snapshot) => {
