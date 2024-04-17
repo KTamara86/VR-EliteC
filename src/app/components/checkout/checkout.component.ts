@@ -92,15 +92,15 @@ export class CheckoutComponent {
   }
 
   qtyCheck() : boolean {
-    let qtyCHeckResult = true
+    let qtyCheckResult = true
     for(const key in this.cart){
       let element = this.cart[key]
       if(element.qty > element.prodQty){
-        qtyCHeckResult = false
+        qtyCheckResult = false
         break
       }
     }
-    return qtyCHeckResult
+    return qtyCheckResult
   }
 
   removeUnusedProp(){
@@ -167,8 +167,7 @@ export class CheckoutComponent {
               this.callToasts(res, "A megrendelést hamarosan láthatod a profilod alatt", "Sikeres megrendelés")
               this.cartService.emptyCart()
               this.router.navigate(['home'])
-            }
-            else this.callToasts(res, "Sikertelen megrendelés, próbáld meg később", "HIBA")
+            } else this.callToasts(res, "Sikertelen megrendelés, próbáld meg később", "HIBA")
           }  
         )
       }
