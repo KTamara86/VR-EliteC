@@ -83,6 +83,10 @@ export class CheckoutComponent {
       )
   }
 
+  setSameAddress(value:boolean){
+    this.sameAddress = value
+  }
+
   selectPacketPointCity(newValue:any){
     this.selectedPacketPointCity = newValue
   }
@@ -103,23 +107,8 @@ export class CheckoutComponent {
     return qtyCheckResult
   }
 
-  // removeUnusedProp(){
-  //   let cart = []
-  //   let i = 0
-  //   for(const key in this.cart){
-  //     let element = this.cart[key]
-  //     cart.push(element)
-  //     cart[i].category = null
-  //     cart[i].prodQty = null
-  //     i++
-  //   }
-  //   return cart
-  // }
-
   orderProducts(){
     let result:boolean = this.qtyCheck()
-    
-    //let prods = this.removeUnusedProp()
 
     let body = {
       email: this.user.email, 

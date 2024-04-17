@@ -79,7 +79,7 @@
                 <label class="form-check-label textWhite" for="homeDelivery">Házhozszállítás</label>
             </div>
             <div class="form-check mb-3">
-                <input class="formCheck" type="radio" name="homeOrPacketPoint" id="packetPointDelivery" value="packetpoint" [(ngModel)]="deliveryOpt">
+                <input class="formCheck" type="radio" name="homeOrPacketPoint" id="packetPointDelivery" value="packetpoint" [(ngModel)]="deliveryOpt" (click)="setSameAddress(false)">
                 <label class="form-check-label textWhite" for="packetPointDelivery">Foxpost csomagátvételi pont</label>
             </div>
             <ng-container *ngIf="deliveryOpt=='home'; else packetpoint">
