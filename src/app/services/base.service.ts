@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { getDatabase, push, ref, get, remove, set } from 'firebase/database';
+import { getDatabase, push, ref, get, remove, set, child } from 'firebase/database';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -27,6 +27,20 @@ export class BaseService {
     this.http.get(this.url + ".json").subscribe(
       (res) => this.productsSub.next(res)
     )
+  }
+
+  async updateQty(qty:number, category:string, key:string){
+    const db = getDatabase();
+    const dbRef = ref(getDatabase())
+    get(child(dbRef, `termekek/${category}/${key}/db`)).then((snapshot) => {
+      if(snapshot.exists()) {
+        set(ref(db, 'termekek/' + category + '/' + key + '/db/'), snapshot.val()-qty );
+      } else {
+        console.log("Hiba az adatkapcsolatban")
+      } 
+    }).catch((error) => {
+    console.error(error)
+    })    
   }
 
   async postProduct(body:any, category:string) : Promise<boolean>{

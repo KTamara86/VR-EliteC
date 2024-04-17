@@ -5,8 +5,8 @@ import { format } from 'date-fns';
 import { OrderService } from '../../services/order.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router'
-import { BaseService } from '../../services/base.service';
 import { UserService } from '../../services/user.service';
+import { BaseService } from 'src/app/services/base.service';
 
 @Component({
   selector: 'app-checkout',
@@ -43,7 +43,7 @@ export class CheckoutComponent {
   
 
   constructor(private packetPoint:PacketPointService, private cartService:CartService, private orderService:OrderService, 
-    private toastr:ToastrService, private router:Router, private userService: UserService){
+    private toastr:ToastrService, private router:Router, private userService: UserService, private base:BaseService){
       this.packetPoint.getPacketPointList().subscribe(
         {
           next: (res) => {
@@ -103,23 +103,23 @@ export class CheckoutComponent {
     return qtyCheckResult
   }
 
-  removeUnusedProp(){
-    let cart = []
-    let i = 0
-    for(const key in this.cart){
-      let element = this.cart[key]
-      cart.push(element)
-      cart[i].category = null
-      cart[i].prodQty = null
-      i++
-    }
-    return cart
-  }
+  // removeUnusedProp(){
+  //   let cart = []
+  //   let i = 0
+  //   for(const key in this.cart){
+  //     let element = this.cart[key]
+  //     cart.push(element)
+  //     cart[i].category = null
+  //     cart[i].prodQty = null
+  //     i++
+  //   }
+  //   return cart
+  // }
 
   orderProducts(){
     let result:boolean = this.qtyCheck()
     
-    let prods = this.removeUnusedProp()
+    //let prods = this.removeUnusedProp()
 
     let body = {
       email: this.user.email, 
@@ -132,7 +132,7 @@ export class CheckoutComponent {
       deliveryZipcode: this.data.deliveryZipcode,
       deliveryCity: this.data.deliveryCity,
       deliveryAddress: this.data.deliveryAddress,
-      products: prods,
+      products: this.cart,
       datetime: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
       status:"megrendelve",
       qty: this.totalQty,
@@ -165,6 +165,7 @@ export class CheckoutComponent {
           (res) =>{
             if(res){
               this.callToasts(res, "A megrendelést hamarosan láthatod a profilod alatt", "Sikeres megrendelés")
+              this.updateQty()
               this.cartService.emptyCart()
               this.router.navigate(['home'])
             } else this.callToasts(res, "Sikertelen megrendelés, próbáld meg később", "HIBA")
@@ -187,5 +188,12 @@ export class CheckoutComponent {
 
     if(result) this.toastr.info(toastBodyTxt, toastHeaderTxt, props)
     else this.toastr.warning(toastBodyTxt, toastHeaderTxt, props)
+  }
+
+  updateQty(){
+    for (let i = 0; i < this.cart.length; i++) {
+      const element = this.cart[i]
+      this.base.updateQty(element.qty, element.category, element.key)
+    }
   }
 }
