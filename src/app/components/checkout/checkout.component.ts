@@ -18,11 +18,7 @@ export class CheckoutComponent {
   cart:any
   totalQty:any
   total:any
-
-  //TODO: a usert majd itt is bele kell implementálni
-  user:any  = {
-  
-  }
+  user:any = { }
 
   data = {
     taxnumber: "",
@@ -35,6 +31,7 @@ export class CheckoutComponent {
   deliveryOpt:String = "home"
   paymentOpt:String = "before"
   termsValue = false
+  sameAddress = false
   
   packetPointList:any;
   selectedPacketPointCity = "";
@@ -149,6 +146,12 @@ export class CheckoutComponent {
       body.deliveryCity =  this.selectedPacketPoint.city
       body.deliveryAddress =  this.selectedPacketPoint.street
       body.packetPoint = true
+    }
+
+    if(this.sameAddress){
+      body.deliveryZipcode = this.user.zipCode
+      body.deliveryCity =  this.user.city
+      body.deliveryAddress =  this.user.address
     }
 
     if(!this.termsValue || this.user.name == "" || this.user.phone == "" || this.user.zipcode == "" ||

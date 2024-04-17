@@ -83,7 +83,11 @@
                 <label class="form-check-label textWhite" for="packetPointDelivery">Foxpost csomagátvételi pont</label>
             </div>
             <ng-container *ngIf="deliveryOpt=='home'; else packetpoint">
-                <div class="row">
+                <div class="form-check">
+                    <input class="formCheck" type="checkbox" [(ngModel)]="sameAddress" id="sameAddress">
+                    <label class="form-check-label textWhite" for="sameAddress">A szálltási cím megegyezik a számlázási címmel</label>
+                </div>
+                <div *ngIf="!sameAddress" class="row">
                     <div class="mb-3 col-2">
                         <label for="delyZipInput" class="form-label textWhite">Irányítószám:</label>
                         <input type="text" [(ngModel)]="data.deliveryZipcode" class="form-control formInputField" id="delyZipInput">
