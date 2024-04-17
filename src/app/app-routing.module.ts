@@ -10,6 +10,7 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { notLoggedGuard } from './guard/not-logged.guard';
 import { loginGuard } from './guard/login.guard';
 import { AdminComponent } from './admin/admin.component';
+import { sAdminGuard } from './guard/s-admin.guard';
 
 const routes: Routes = [
   {path: "", redirectTo: "/home", pathMatch: "full" },
@@ -20,7 +21,7 @@ const routes: Routes = [
   {path:"forgotpassword", component:ForgotPasswordComponent},
   {path:"verifyemail", component:VerifyEmailComponent},
   {path:"profil", component:ProfilComponent, canActivate:[loginGuard]},
-  {path:"admin", component:AdminComponent },
+  {path:"admin", component:AdminComponent, canActivate:[sAdminGuard] },
   {path:"**", component:HomeComponent},
 ];
 
