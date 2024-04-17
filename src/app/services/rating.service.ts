@@ -28,6 +28,12 @@ export class RatingService {
     )
   }
 
+  private loadRatings(){
+    this.http.get(this.url).subscribe(
+      (res) => this.ratingsSub.next(res)
+    )
+  }
+
   loadMyRatings(userEmail:string){
     let ratingsArray:any = []
     const db = getDatabase()
@@ -68,10 +74,6 @@ export class RatingService {
     return this.ratingsSub
   }
 
-  private loadRatings(){
-    this.http.get(this.url).subscribe(
-      (res) => this.ratingsSub.next(res)
-    )
-  }
+
 }
 
