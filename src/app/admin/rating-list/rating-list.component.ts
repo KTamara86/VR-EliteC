@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { RatingService } from 'src/app/services/rating.service';
 
@@ -7,12 +7,25 @@ import { RatingService } from 'src/app/services/rating.service';
   templateUrl: './rating-list.component.html',
   styleUrls: ['./rating-list.component.css']
 })
-export class RatingListComponent {
+export class RatingListComponent implements OnInit{
 
   ratingsArray:any
 
   constructor(private ratingService:RatingService, private toastr:ToastrService){
-    ratingService.getRatings().subscribe(
+    this.ratingService.getRatings().subscribe(
+      (res:any) => {
+        let array = []
+        for(const key in res){
+          let element = res[key]
+          element.key = key
+          array.push(element)
+        }
+        this.ratingsArray = array 
+      }
+    )
+  }
+  ngOnInit(): void {
+    this.ratingService.getRatings().subscribe(
       (res:any) => {
         let array = []
         for(const key in res){
