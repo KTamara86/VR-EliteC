@@ -1,4 +1,7 @@
 <div class="row headerRow">
+    <a (click)="scrollToBottom()" class="likeAButton" id="topScroll">Le a Frissekhez</a>
+</div>
+<div class="row headerRow">
     <div class="col headerText">ID</div>
     <div class="col headerText">Felhasználó e-mail</div>
     <div class="col headerText">Termék ID</div>
@@ -19,5 +22,8 @@
                 <button class="modifyButton" id="modifyButton" (click)="modifyRating(rating)">Cenzúrázás</button>
             </div>
         </div>
+    </div>
+    <div id="bottom" class="pb-5">
+        <a (click)="scrollToTop()" class="likeAButton">Az oldal tetejére</a>
     </div>
 </div>

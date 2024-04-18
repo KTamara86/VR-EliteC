@@ -16,6 +16,17 @@
     margin-right: 3%;
 }
 
+.likeAButton {
+    padding: 10px 20px;
+    background-color: #ff0079;;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    max-width: fit-content;
+}
+
 .dataRow {
     margin-bottom: 2%;
 }

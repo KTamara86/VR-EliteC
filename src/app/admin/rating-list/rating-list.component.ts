@@ -52,5 +52,19 @@ export class RatingListComponent {
     if(result) this.toastr.info("Sikeresen kicenzúráztad a véleményt", "SIKER", props)
     else this.toastr.warning("Valami hiba lépett fel, próbálkozz később", "HIBA", props)
   }
+  
+  scrollToBottom() {
+    const element = document.getElementById('bottom');
+    if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  scrollToTop() {
+    const element = document.getElementById('topScroll');
+    if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 
 }

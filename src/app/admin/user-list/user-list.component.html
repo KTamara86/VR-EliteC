@@ -1,6 +1,9 @@
 <div class="row headerRow">
     <input [(ngModel)]="searchArgs" type="text" placeholder="Írd be a felhasználó azonosítóját">
 </div>
+<div class="row headerRow">
+    <a (click)="scrollToBottom()" class="likeAButton" id="topScroll">Le a Frissekhez</a>
+</div>
 <div class="row dataContainer">
     <div>
         <div class="row dataRow" *ngFor="let userData of usersArray |key:searchArgs">
@@ -20,5 +23,8 @@
             <button class="modifyButton" id="modifyButton" (click)="modifyUser(userData, userData.key)">Módosítás</button>
             <button class="modifyButton" id="deleteButton" (click)="deleteUser(userData)">Törlés</button>
         </div>
+    </div>
+    <div id="bottom" class="pb-5">
+        <a (click)="scrollToTop()" class="likeAButton">Az oldal tetejére</a>
     </div>
 </div>

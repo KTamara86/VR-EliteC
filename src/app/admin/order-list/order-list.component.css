@@ -33,6 +33,17 @@
     background:transparent
 }
 
+.likeAButton {
+    padding: 10px 20px;
+    background-color: #ff0079;;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    max-width: fit-content;
+}
+
 .myButton {
     border: 2px solid #ff0079;
     background: transparent;

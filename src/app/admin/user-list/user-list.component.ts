@@ -50,4 +50,18 @@ export class UserListComponent {
       this.profilService.deleteUser(userData.key);
     }
   }
+  
+  scrollToBottom() {
+    const element = document.getElementById('bottom');
+    if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  scrollToTop() {
+    const element = document.getElementById('topScroll');
+    if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

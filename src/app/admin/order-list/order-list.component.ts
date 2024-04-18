@@ -112,4 +112,18 @@ modifyOrder(order:any){
       this.toastr.warning(toastBodyTxt, toastHeaderTxt, props)
     }
   }
+
+  scrollToBottom() {
+    const element = document.getElementById('bottom');
+    if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  scrollToTop() {
+    const element = document.getElementById('topScroll');
+    if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }
