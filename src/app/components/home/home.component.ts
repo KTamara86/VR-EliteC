@@ -81,7 +81,7 @@ export class HomeComponent {
   ngOnInit(){
     if(this.auth.isLogin()){
       this.auth.getUser().subscribe(
-        (res:any) => this.userService.loadUserData(res.email?.replace('@', '').replace('.', ''))
+        (res:any) => this.userService.loadUserData(res.email?.replaceAll('@', '').replaceAll('.', ''))
       )
     }
     this.base.reload()

@@ -47,7 +47,7 @@ export class UserSignUpComponent {
           zipCode: this.zipCode,
         };
   
-        const key = this.email.replace('@', '').replace('.', ''); 
+        const key = this.email.replaceAll('@', '').replaceAll('.', '')
   
         this.userService.addUser(userData, key); 
         this.router.navigate(['/home'])
