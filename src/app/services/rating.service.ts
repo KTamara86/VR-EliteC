@@ -15,6 +15,12 @@ export class RatingService {
     this.loadRatings()
   }
 
+  private loadRatings(){
+    this.http.get(this.url).subscribe(
+      (res) => this.ratingsSub.next(res)
+    )
+  }
+
   postRating(body:any) : Observable<boolean>{
     const options = {
       headers: new HttpHeaders({
@@ -28,11 +34,7 @@ export class RatingService {
     )
   }
 
-  private loadRatings(){
-    this.http.get(this.url).subscribe(
-      (res) => this.ratingsSub.next(res)
-    )
-  }
+  
 
   loadMyRatings(userEmail:string){
     let ratingsArray:any = []
