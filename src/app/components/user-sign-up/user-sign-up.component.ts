@@ -50,15 +50,7 @@ export class UserSignUpComponent {
         const key = this.email.replace('@', '').replace('.', ''); 
   
         this.userService.addUser(userData, key); 
-  
-        this.db.list('/users').push(userData)
-          .then(() => {
-            this.message = 'A regisztráció sikeres.';
-            this.router.navigate(['/home']);
-          })
-          .catch((error) => {
-            this.message = 'Hiba történt az adatok mentése során: ' + error.message;
-          });
+        this.router.navigate(['/home'])
       })
       .catch((error) => {
         this.message = 'Hiba történt a regisztráció során: ' + error.message;
